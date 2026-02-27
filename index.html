@@ -37,24 +37,6 @@
             100% { box-shadow: 0 0 0 0 rgba(243, 112, 33, 0); }
         }
 
-        /* --- HEADER --- */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
-        }
-        .logo { font-size: 26px; font-weight: 800; color: var(--primary-blue); text-decoration: none; }
-        .logo span { color: var(--accent-orange); }
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent-orange); }
-        .btn-main {
-            background: var(--accent-orange); color: white; padding: 12px 28px;
-            border-radius: 30px; text-decoration: none; font-weight: 600;
-            transition: 0.3s; border: none; cursor: pointer; display: inline-block;
-        }
-        .btn-main:hover { background: #d95e17; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3); }
-
         /* --- VISUAL HERO SECTION --- */
         .hero {
             min-height: 100vh; background: linear-gradient(135deg, var(--bg-light) 0%, #e2eff5 100%);
@@ -81,6 +63,9 @@
         .fc-1 { top: 10%; left: -10%; animation: floatItem 5s ease-in-out infinite alternate; }
         .fc-2 { bottom: 15%; right: -5%; animation: floatItem 7s ease-in-out infinite alternate-reverse; }
         .fc-3 { top: 50%; right: -15%; animation: floatItem 6s ease-in-out infinite alternate; }
+
+        .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; border: none; cursor: pointer; font-size: 1.1rem; }
+        .btn-main:hover { background: #d95e17; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3); }
 
         @keyframes blink { 50% { border-color: transparent; } }
         @keyframes floatMain { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
@@ -135,7 +120,7 @@
         .link-btn { color: var(--accent-orange); font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
         .link-btn:hover { gap: 10px; color: var(--primary-blue); }
 
-        /* --- NEW: ROI CALCULATOR SECTION --- */
+        /* --- ROI CALCULATOR SECTION --- */
         .calculator-section { padding: 100px 5%; background: linear-gradient(135deg, var(--primary-blue) 0%, #06356e 100%); color: white; text-align: center; }
         .calc-container { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); color: var(--text-dark); position: relative; }
         .calc-container h3 { font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 800; }
@@ -159,56 +144,29 @@
         .step:hover .step-number { background: var(--accent-orange); transform: scale(1.1); transition: 0.3s; }
 
         /* --- GOOGLE REVIEWS --- */
-       /* --- 100% AUTHENTIC GOOGLE REVIEWS STYLE --- */
         .reviews-section { background: var(--bg-light); position: relative; overflow: hidden; padding: 100px 5%; }
         .testimonial-slider-wrapper { position: relative; display: flex; align-items: center; justify-content: center; max-width: 1400px; margin: auto; padding: 20px 0; }
-        
         .testimonial-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 20px 10px; -ms-overflow-style: none; scrollbar-width: none; width: 100%; }
         .testimonial-track::-webkit-scrollbar { display: none; }
         
-        /* The Exact Google Card UI */
-        .review-card { 
-            flex: 0 0 calc(25% - 15px); scroll-snap-align: start; 
-            background: white; padding: 20px 24px; border-radius: 8px; /* Standard Google Radius */
-            border: 1px solid #e8eaed; /* Google's exact border color */
-            box-shadow: 0 1px 2px rgba(60,64,67,0.1), 0 1px 3px rgba(60,64,67,0.15); /* Google's subtle drop shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-            display: flex; flex-direction: column;
-            cursor: pointer;
-        }
-        .review-card:hover { box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.15); } /* Subtle hover */
-        
-        /* Google Header Layout */
+        .review-card { flex: 0 0 calc(25% - 15px); scroll-snap-align: start; background: white; padding: 20px 24px; border-radius: 8px; border: 1px solid #e8eaed; box-shadow: 0 1px 2px rgba(60,64,67,0.1), 0 1px 3px rgba(60,64,67,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
+        .review-card:hover { box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.15); }
         .g-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; position: relative; }
         .g-header img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
         .g-user-info { display: flex; flex-direction: column; justify-content: center; }
-        .g-user-info strong { color: #202124; font-size: 0.95rem; font-family: 'Roboto', Arial, sans-serif; font-weight: 500; }
+        .g-user-info strong { color: #202124; font-size: 0.95rem; font-weight: 500; }
         .g-date { color: #70757a; font-size: 0.8rem; margin-top: 2px; }
-        
-        /* Small Original Google Logo SVG */
         .g-logo-icon { position: absolute; top: 0; right: 0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
         .g-logo-icon svg { width: 100%; height: 100%; }
-
-        /* Exact Google Star Color & Spacing */
         .g-stars { color: #fbbc04; font-size: 14px; margin-bottom: 12px; display: flex; gap: 1px; }
+        .review-text { font-size: 0.9rem; color: #202124; line-height: 1.5; min-height: 120px; font-style: normal; }
         
-        /* Review Text - Normal font, not italic */
-        .review-text { font-size: 0.9rem; color: #202124; line-height: 1.5; font-family: 'Roboto', Arial, sans-serif; min-height: 120px; font-style: normal; }
-        
-        /* Google's blue Read More link */
-        .g-read-more { color: #1a73e8; font-size: 0.9rem; font-weight: 500; margin-top: 5px; }
-        
-        /* Navigation Buttons */
         .slider-btn { background: white; color: #5f6368; border: 1px solid #dadce0; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; position: absolute; z-index: 10; font-size: 1rem; transition: 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
         .slider-btn:hover { background: #f8f9fa; color: #202124; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
         .prev-btn { left: -10px; }
         .next-btn { right: -10px; }
 
-        @media(max-width: 1200px) { .review-card { flex: 0 0 calc(33.333% - 13.33px); } }
-        @media(max-width: 992px) { .review-card { flex: 0 0 calc(50% - 10px); } }
-        @media(max-width: 768px) { .review-card { flex: 0 0 100%; } .prev-btn, .next-btn { display: none; } }
-
-        /* --- NEW: LEAD MAGNET SECTION --- */
+        /* --- LEAD MAGNET SECTION --- */
         .lead-magnet { padding: 80px 5%; background: #fff; display: flex; justify-content: center; }
         .magnet-box { max-width: 1000px; width: 100%; background: linear-gradient(to right, #fef4ec 0%, #fff 100%); border: 1px solid rgba(243, 112, 33, 0.2); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(243, 112, 33, 0.08); }
         .magnet-text { flex: 1.2; }
@@ -219,59 +177,16 @@
         .magnet-form button { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: 0.3s; }
         .magnet-form button:hover { background: var(--primary-blue); transform: translateY(-2px); }
 
-        /* --- FOOTER --- */
-        /* --- PREMIUM FOOTER --- */
-        .main-footer { background: linear-gradient(180deg, var(--primary-blue) 0%, #052c5c 100%); color: white; padding: 80px 5% 20px; position: relative; overflow: hidden; }
-        
-        /* Background Graphic */
-        .main-footer::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(243, 112, 33, 0.1) 0%, transparent 70%); border-radius: 50%; }
-
-        .footer-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 50px; position: relative; z-index: 2; }
-        
-        /* Column 1: Brand Info */
-        .footer-brand .logo { font-size: 28px; font-weight: 800; color: white; text-decoration: none; display: inline-block; margin-bottom: 10px; }
-        .footer-brand .logo span { color: var(--accent-orange); }
-        .footer-slogan { font-size: 1.25rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 15px; letter-spacing: 0.5px; text-shadow: 0 2px 10px rgba(243, 112, 33, 0.2); }
-        .footer-desc { color: #c9dff1; line-height: 1.6; font-size: 0.95rem; margin-bottom: 25px; }
-        
-        /* WhatsApp Button inside Footer */
-        .btn-footer-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
-        .btn-footer-wa:hover { background: #1ebd5a; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-        .btn-footer-wa i { font-size: 1.3rem; }
-
-        /* Other Columns: Links & Areas */
-        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 1.2rem; font-weight: 600; position: relative; padding-bottom: 10px; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent-orange); border-radius: 2px; }
-        
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a, .footer-col ul li span { color: #c9dff1; text-decoration: none; transition: 0.3s; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
-        .footer-col ul li a:hover { color: var(--accent-orange); padding-left: 8px; }
-        .footer-col ul li i { color: var(--accent-orange); font-size: 0.9rem; }
-
-        /* Footer Bottom: Copyright & Socials */
-        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2; }
-        .copyright { color: #888; font-size: 0.9rem; }
-        
-        .social-links { display: flex; gap: 15px; }
-        .social-links a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
-        .social-links a:hover { background: var(--accent-orange); border-color: var(--accent-orange); transform: translateY(-3px); }
-
         /* --- SCROLL TRIGGER DISCOUNT POPUP --- */
         .discount-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 76, 149, 0.85); backdrop-filter: blur(8px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
         .discount-popup-overlay.show { opacity: 1; pointer-events: all; }
-        
         .discount-popup-box { background: white; width: 90%; max-width: 850px; border-radius: 20px; overflow: hidden; display: flex; box-shadow: 0 30px 60px rgba(0,0,0,0.4); transform: scale(0.8) translateY(50px); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
         .discount-popup-overlay.show .discount-popup-box { transform: scale(1) translateY(0); }
-        
         .close-popup { position: absolute; top: 15px; right: 15px; background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: #555; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .close-popup:hover { background: var(--accent-orange); color: white; transform: rotate(90deg); }
-        
         .popup-image { flex: 1; background: #eee; position: relative; }
         .popup-image img { width: 100%; height: 100%; object-fit: cover; }
-        /* Image ke upar ek dark gradient taki premium lage */
         .popup-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, rgba(255,255,255,0.1)); }
-        
         .popup-content { flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center; }
         .offer-badge { background: rgba(243, 112, 33, 0.1); color: var(--accent-orange); padding: 8px 15px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; display: inline-block; width: max-content; margin-bottom: 15px; border: 1px solid rgba(243, 112, 33, 0.3); animation: pulse-glow 2s infinite; }
         .popup-content h3 { font-size: 2.2rem; color: var(--primary-blue); line-height: 1.2; margin-bottom: 15px; font-weight: 800; }
@@ -279,52 +194,87 @@
         .popup-btn { text-align: center; width: 100%; padding: 15px; font-size: 1.1rem; }
         .small-text { font-size: 0.8rem !important; color: #999 !important; text-align: center; margin-top: 15px; margin-bottom: 0 !important; }
 
+        /* Floating Button */
+        .floating-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); font-size: 2rem; animation: pulse-glow 2.5s infinite; transition: 0.3s; text-decoration: none; }
+        .floating-widget:hover { transform: scale(1.1); }
+
+        /* ==============================================
+           🚀 100% MOBILE RESPONSIVE FIXES (Images ON) 🚀 
+           ============================================== */
+        
+        /* Tablets (Max Width: 992px) */
+        @media(max-width: 992px) {
+            .hero-container, .about-grid { flex-direction: column; text-align: center; }
+            
+            /* IMAGE WAPAS ON KI GAYI HAI */
+            .hero-visual-side { display: flex; width: 100%; height: auto; margin-top: 40px; padding: 20px 0; }
+            .main-hero-img { max-width: 80%; }
+            
+            .hero-text-side { max-width: 100%; margin-top: 0; }
+            .bold-heading { font-size: 3.5rem; }
+            
+            .showcase-content.active { flex-direction: column; }
+            .showcase-visual { padding: 20px; }
+            .showcase-info { padding: 30px; text-align: center; }
+            .psychology-hook { justify-content: center; }
+            .service-list li { justify-content: flex-start; text-align: left; }
+            .btn-landing { margin: 0 auto; }
+            
+            .review-card { flex: 0 0 calc(50% - 10px); }
+        }
+
+        /* Mobile Phones (Max Width: 768px) */
         @media(max-width: 768px) {
+            .hero { min-height: auto; padding: 40px 5% 60px; text-align: center; align-items: flex-start; }
+            
+            /* HERO IMAGE MOBILE ADJUSTMENTS */
+            .hero-visual-side { margin-top: 30px; padding: 20px 0; }
+            .main-hero-img { max-width: 100%; border-width: 5px; border-radius: 20px; }
+            .float-card { padding: 8px 12px; font-size: 0.8rem; border-radius: 10px; }
+            .float-card i { font-size: 1.2rem; }
+            .fc-1 { top: -5%; left: 0; }
+            .fc-2 { bottom: -5%; right: 0; }
+            .fc-3 { top: 40%; right: -5%; }
+            
+            .section-padding { padding: 60px 5%; }
+            .section-title { font-size: 2.2rem; }
+            .bold-heading { font-size: 2.5rem; }
+            .typewriter-heading { font-size: 1.6rem; }
+            
+            .hero-badge { font-size: 0.8rem; padding: 8px 15px; justify-content: center; }
+            
+            .industry-header h2 { font-size: 2.2rem; }
+            .industry-showcase-section { padding: 60px 5%; }
+            .tab-btn { padding: 10px 20px; font-size: 0.9rem; }
+            
+            .magnet-box { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .magnet-text h3 { font-size: 1.8rem; }
+            
+            .calc-container { padding: 30px 20px; }
+            .calc-container h3 { font-size: 1.8rem; }
+            .projected-number { font-size: 3rem; }
+            
+            .review-card { flex: 0 0 100%; }
+            .prev-btn, .next-btn { display: none; }
+            
             .discount-popup-box { flex-direction: column; max-height: 90vh; overflow-y: auto; }
             .popup-image { height: 200px; flex: none; }
             .popup-content { padding: 30px 20px; }
             .popup-content h3 { font-size: 1.8rem; }
         }
-        /* Mobile Responsive */
-        @media(max-width: 992px) {
-            .footer-container { grid-template-columns: 1fr 1fr; }
-        }
-        @media(max-width: 768px) {
-            .footer-container { grid-template-columns: 1fr; gap: 30px; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
-
-        /* Floating Button */
-        .floating-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); font-size: 2rem; animation: pulse-glow 2.5s infinite; transition: 0.3s; text-decoration: none; }
-        .floating-widget:hover { transform: scale(1.1); }
-
-        /* --- RESPONSIVE FIXES --- */
-        @media(max-width: 992px) {
-            .hero-container, .about-grid { flex-direction: column; text-align: center; }
-            .hero-visual-side { display: none; } 
-            .hero-text-side { margin-top: 30px; }
-            .bold-heading { font-size: 3.2rem; }
-            .showcase-content.active { flex-direction: column; }
-            .showcase-visual { padding: 20px; }
-            .showcase-info { padding: 30px; }
-        }
-        @media(max-width: 768px) {
-            nav ul { display: none; } 
-            .section-padding { padding: 60px 5%; }
-            .industry-showcase-section { padding: 60px 5%; }
-            .bold-heading { font-size: 2.8rem; }
-            .tab-btn { padding: 10px 20px; font-size: 0.9rem; }
-            .magnet-box { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .calc-container { padding: 30px 20px; }
-            .projected-number { font-size: 3rem; }
+        
+        /* Very Small Phones (Max Width: 480px) */
+        @media(max-width: 480px) {
+            .bold-heading { font-size: 2.2rem; }
+            .btn-main { padding: 12px 25px; font-size: 1rem; width: 100%; text-align: center; }
+            .float-card { padding: 5px 10px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-       <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     
-
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-text-side reveal">
@@ -335,8 +285,9 @@
                 <h1 class="bold-heading">Accelerate Your <br><span class="gradient-text">Growth Engine</span></h1>
                 <h2 class="typewriter-heading">For <span class="typewriter" id="typewriter"></span></h2>
                 <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">Stop chasing clients. We build psychological-driven digital ecosystems that attract parents, patients, and premium bookings on autopilot.</p>
-                <a href="#contact" class="btn-main" style="padding: 15px 35px; font-size: 1.1rem;">Get Your Free Strategy <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn-main">Get Your Free Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
+            
             <div class="hero-visual-side reveal">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard Graphic" class="main-hero-img">
                 <div class="float-card fc-1"><i class="fa-solid fa-user-doctor"></i> +300% Patients</div>
@@ -487,8 +438,8 @@
             <p class="section-subtitle">Don't just take our word for it.</p>
         </div>
         <div class="testimonial-slider-wrapper">
-    <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i class="fa-solid fa-chevron-left"></i></button>
-      <div class="testimonial-track" id="reviewTrack">
+            <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="testimonial-track" id="reviewTrack">
                 
                 <svg style="display:none;">
                     <defs>
@@ -508,8 +459,7 @@
                         <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
                     </div>
                     <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We are a school in Patna and their team helped us with website SEO and social media marketing. Admissions inquiries increased within 2 months. Highly recommended for schools and coaching institutes in Bihar.</p>
-                    
+                    <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We are a school in Patna and their team helped us with website SEO and social media marketing. Admissions inquiries increased within 2 months. Highly recommended.</p>
                 </div>
 
                 <div class="review-card">
@@ -519,8 +469,7 @@
                         <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
                     </div>
                     <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara complete digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se walk-in clients kaafi badh gaye. Bihar me best digital marketing agency for salons 👍</p>
-                    
+                    <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara complete digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se walk-in clients kaafi badh gaye. Bihar me best agency for salons 👍</p>
                 </div>
 
                 <div class="review-card">
@@ -531,18 +480,6 @@
                     </div>
                     <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     <p class="review-text">If you are looking for a trusted digital marketing company in Bihar, especially in Darbhanga or nearby districts, Vyapar Wallah is a great choice. Their team understands local business marketing and provides practical strategies.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="User">
-                        <div class="g-user-info"><strong>Amit Verma</strong><span class="g-date">2 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Main Madhubani se hoon aur mera coaching institute hai. Vyapar Wallah ne Facebook Ads aur Google Ads campaign run kiya, jisse admission leads consistent aane lage. Bihar based businesses ke liye bahut reliable agency hai.</p>
-                    
                 </div>
 
                 <div class="review-card">
@@ -552,70 +489,12 @@
                         <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
                     </div>
                     <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">We run a doctor clinic in Samastipur and were struggling with online visibility. Vyapar Wallah improved our Google ranking and optimized our clinic profile. Now patients easily find us on search. Professional digital marketing service in Bihar.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User">
-                        <div class="g-user-info"><strong>Priya Desai</strong><span class="g-date">3 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Vyapar Wallah is not just a digital marketing agency, they actually understand business growth. Hamara spa business Patna me hai aur unhone social media branding aur content marketing se strong presence bana diya.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="User">
-                        <div class="g-user-info"><strong>Vikas Tiwari</strong><span class="g-date">4 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Best digital marketing service in Bihar for small and medium businesses. We are from Darbhanga and their local SEO strategy helped our business appear in top Google results. Transparent pricing and supportive team.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="sushant review.png" alt="User">
-                        <div class="g-user-info"><strong>Sushant Kumar</strong><span class="g-date">4 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Agar aap Muzaffarpur ya Madhubani me apna school, salon ya clinic grow karna chahte hain to Vyapar Wallah ko try karein. Inki digital marketing strategy simple aur result-oriented hai.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="rakesh.png" alt="User">
-                        <div class="g-user-info"><strong>Rakesh Roshan</strong><span class="g-date">5 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Professional and responsive digital marketing company in Bihar. We contacted Vyapar Wallah for website development and SEO for our coaching institute in Samastipur. Results were visible within a few months.</p>
-                    
-                </div>
-
-                <div class="review-card">
-                    <div class="g-header">
-                        <img src="abhishek review.png" alt="User">
-                        <div class="g-user-info"><strong>Abhishek Sinha</strong><span class="g-date">6 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
-                    </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Vyapar Wallah helped our Patna based business with Google My Business optimization, social media marketing and online branding. Bihar ke local businesses ke liye trusted digital marketing partner.</p>
-                    
+                    <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility. Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily find us on search. Professional digital marketing service.</p>
                 </div>
 
             </div>  
-                    
-               <button class="slider-btn next-btn" onclick="slideReviews(1)"><i class="fa-solid fa-chevron-right"></i></button>
-</div>
-        
+            <button class="slider-btn next-btn" onclick="slideReviews(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
     </section>
 
     <section class="lead-magnet reveal">
@@ -635,84 +514,26 @@
                     <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
                     <button type="submit">Download Now <i class="fa-solid fa-download"></i></button>
                     <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 10px;"><i class="fa-solid fa-lock"></i> 100% Privacy. No spam calls.</p>
-                
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="main-footer reveal">
-        <div class="footer-container">
-            
-            <div class="footer-col footer-brand">
-                <a href="#" class="logo">Vyapar<span>Wallah</span></a>
-                <div class="footer-slogan">हर व्यापार का डिजिटल साथी |</div>
-                <p class="footer-desc">Empowering local businesses with high-converting digital ecosystems. We turn your visitors into loyal customers.</p>
-                <a href="https://wa.me/919876543210?text=Hi! I want to grow my business." target="_blank" class="btn-footer-wa">
-                    <i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp
-                </a>
-            </div>
+    <div id="footer-placeholder"></div>
 
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-                    <li><a href="#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-                    <li><a href="#services"><i class="fa-solid fa-angle-right"></i> Our Services</a></li>
-                    <li><a href="#workflow"><i class="fa-solid fa-angle-right"></i> How We Work</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Industries</h4>
-                <ul>
-                    <li><a href="school-landing.html"><i class="fa-solid fa-angle-right"></i> Education & Schools</a></li>
-                    <li><a href="hospital-landing.html"><i class="fa-solid fa-angle-right"></i> Hospitals & Clinics</a></li>
-                    <li><a href="salon-landing.html"><i class="fa-solid fa-angle-right"></i> Premium Salons</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Service Areas</h4>
-                <ul>
-                    <li><span><i class="fa-solid fa-location-dot"></i> Patna</span></li>
-                    <li><span><i class="fa-solid fa-location-dot"></i> Muzaffarpur</span></li>
-                    <li><span><i class="fa-solid fa-location-dot"></i> Samastipur</span></li>
-                    <li><span><i class="fa-solid fa-map-location-dot"></i> Serving All Over Bihar</span></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <div class="copyright">
-                &copy; 2026 Vyapar Wallah Private Limited . All Rights Reserved.
-            </div>
-            <div class="social-links">
-                <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
     <div class="discount-popup-overlay" id="discountPopup">
         <div class="discount-popup-box">
             <button class="close-popup" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
-            
             <div class="popup-image">
                 <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Special Offer">
             </div>
-            
             <div class="popup-content">
                 <div class="offer-badge">🔥 LIMITED TIME OFFER</div>
                 <h3>Get 10% OFF <br>Your First Project!</h3>
                 <p>Ready to scale your business with Vyapar Wallah? Book a free strategy meeting today and claim an exclusive 10% discount on your first month's retainer.</p>
-                
                 <a href="https://wa.me/919187641492?text=Hi! I saw the 10% Discount offer. I want to book a meeting." target="_blank" class="btn-main popup-btn" onclick="closePopup()">
                     Claim 10% Discount Now
                 </a>
-                
                 <p class="small-text"><i class="fa-solid fa-shield-halved"></i> No commitment required. Let's discuss your growth.</p>
             </div>
         </div>
@@ -720,16 +541,23 @@
     <a href="https://wa.me/919187641492" class="floating-widget" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        // 1. Typewriter
+        // Fetch Header
+        fetch('header.html').then(response => response.text()).then(data => { document.getElementById('header-placeholder').innerHTML = data; });
+        // Fetch Footer
+        fetch('footer.html').then(response => response.text()).then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
+        function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
+
+        // Typewriter
         const words = ["Schools.", "Hospitals.", "Salons."];
         let i = 0, j = 0; let isDeleting = false;
         const typewriterElement = document.getElementById("typewriter");
-
         function type() {
             const currentWord = words[i];
             if (isDeleting) { typewriterElement.textContent = currentWord.substring(0, j - 1); j--; } 
             else { typewriterElement.textContent = currentWord.substring(0, j + 1); j++; }
-            
             let typeSpeed = isDeleting ? 100 : 200;
             if (!isDeleting && j === currentWord.length) { typeSpeed = 2000; isDeleting = true; } 
             else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % words.length; typeSpeed = 500; }
@@ -737,7 +565,7 @@
         }
         document.addEventListener("DOMContentLoaded", type);
 
-        // 2. Scroll Reveal
+        // Scroll Reveal
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -748,25 +576,22 @@
         }
         window.addEventListener("scroll", reveal); reveal();
 
-        // 3. Industry Tab Logic
+        // Industry Tab Logic
         function openTab(tabName) {
             let contents = document.getElementsByClassName("showcase-content");
             for(let c of contents) { c.classList.remove("active"); }
-            
             let buttons = document.getElementsByClassName("tab-btn");
             for(let b of buttons) { b.classList.remove("active"); }
-            
             document.getElementById(tabName).classList.add("active");
             event.currentTarget.classList.add("active");
         }
 
-        // 4. ROI Calculator Logic
+        // ROI Calculator Logic
         function updateSliderValue() {
             let sliderVal = document.getElementById("currentVolume").value;
             document.getElementById("volumeOutput").innerText = sliderVal;
             calculateGrowth();
         }
-
         function calculateGrowth() {
             let volume = document.getElementById("currentVolume").value;
             let multiplier = document.getElementById("industrySelect").value;
@@ -774,94 +599,40 @@
             document.getElementById("projectedOutput").innerText = projected + "+";
         }
 
-        // 5. Zero-Cost WhatsApp Lead Generation Logic
+        // WhatsApp Lead Form
         document.getElementById('leadForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Page ko reload hone se rokne ke liye
-            
-            // User ka naam aur number form se nikalna
+            event.preventDefault(); 
             let name = document.getElementById('leadName').value;
             let phone = document.getElementById('leadPhone').value;
-            
-            // 👇 YAHAN APNA AGENCY KA WHATSAPP NUMBER DAALEIN (Country code ke sath, bina + ke)
-            let agencyNumber = "919876543210"; 
-            
-            // Jo message user ki taraf se aapko aayega
+            let agencyNumber = "919187641492"; 
             let message = `Hi Growth Masters! I am ${name}. My number is ${phone}. Please send me the FREE 2026 Growth Playbook PDF.`;
-            
-            // Message ko WhatsApp URL format me convert karna
             let whatsappURL = `https://wa.me/${agencyNumber}?text=${encodeURIComponent(message)}`;
-            
-            // Naye tab me WhatsApp open karna
             window.open(whatsappURL, '_blank');
         });
 
-        // GOOGLE REVIEW SLIDER LOGIC
+        // Review Slider
         function slideReviews(direction) {
             const track = document.getElementById('reviewTrack');
-            
-            // Check agar track mil gaya toh
             if (track) {
                 const card = track.querySelector('.review-card');
-                
-                // Ek card ki width aur 20px ka gap calculate karega
                 const scrollAmount = (card.offsetWidth + 20) * direction; 
-                
-                // Makkhan ki tarah smooth slide karega
-                track.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
-            } else {
-                console.log("Slider track nahi mila! HTML me id='reviewTrack' check karein.");
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             }
         }
-        // 7. Scroll Bottom Discount Popup Logic
-        let popupShown = false; // Isko false rakha taki page reload hone par hi dubara dikhe
-        
+
+        // Discount Popup
+        let popupShown = false; 
         window.addEventListener('scroll', function() {
-            // Pata lagana ki user ne kitna scroll kiya hai
             let scrollHeight = document.documentElement.scrollHeight;
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             let clientHeight = document.documentElement.clientHeight;
-            
             let scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
-            
-            // Agar user ne 70% page scroll kar liya (Reviews tak aa gaya) toh popup open karo
             if (scrollPercentage > 0.70 && !popupShown) {
                 document.getElementById('discountPopup').classList.add('show');
-                popupShown = true; // Isko true kar diya taki scroll karne par baar-baar na khule
+                popupShown = true; 
             }
         });
-
-        // Popup close karne ka function
-        function closePopup() {
-            document.getElementById('discountPopup').classList.remove('show');
-        }
-    </script>
-    <script>
-        // 1. Fetch Header
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-
-        // 2. Fetch Footer
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-
-        // 3. Mobile Menu Functions (Ye yahin rehne chahiye)
-        function toggleMobileMenu() {
-            document.getElementById('navWrapper').classList.toggle('active');
-        }
-        function toggleMobileDropdown(element) {
-            if (window.innerWidth <= 992) {
-                element.classList.toggle('active');
-            }
-        }
+        function closePopup() { document.getElementById('discountPopup').classList.remove('show'); }
     </script>
 </body>
 </html>
