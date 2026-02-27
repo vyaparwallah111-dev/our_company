@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Vyapar Wallah - Bihar's most trusted digital marketing and growth agency.">
+    <title>About Us | Vyapar Wallah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- BRAND DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --highlight-green: #00A651;
+            --bg-light: #f8fcfb;
+            --text-dark: #2c3e50;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        
+        .section-padding { padding: 100px 5%; }
+        .text-center { text-align: center; }
+        .section-title { font-size: 2.8rem; color: var(--primary-blue); margin-bottom: 20px; font-weight: 800; }
+        .section-subtitle { font-size: 1.1rem; color: #666; margin-bottom: 50px; max-width: 700px; margin-inline: auto; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HEADER --- */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 800; color: var(--primary-blue); text-decoration: none; }
+        .logo span { color: var(--accent-orange); }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--accent-orange); }
+        .btn-main { background: var(--accent-orange); color: white; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .btn-main:hover { background: #d95e17; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3); }
+
+        /* --- ABOUT HERO SECTION --- */
+        .about-hero { height: 50vh; min-height: 400px; background: linear-gradient(rgba(10, 76, 149, 0.9), rgba(10, 76, 149, 0.8)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 5%; position: relative; overflow: hidden; }
+        .about-hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2; }
+        .about-hero p { font-size: 1.2rem; max-width: 600px; color: #e2eff5; z-index: 2; }
+        
+        /* Floating abstract shapes in hero */
+        .shape { position: absolute; border-radius: 50%; filter: blur(60px); z-index: 1; }
+        .shape-1 { width: 300px; height: 300px; background: var(--accent-orange); top: -50px; left: -50px; opacity: 0.4; }
+        .shape-2 { width: 400px; height: 400px; background: var(--highlight-green); bottom: -100px; right: -50px; opacity: 0.3; }
+
+        /* --- OUR STORY SECTION --- */
+        .story-section { background: white; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: auto; }
+        .story-img-wrapper { position: relative; padding: 20px; }
+        .story-img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+        .story-img-bg { position: absolute; inset: 0; background: var(--primary-blue); border-radius: 20px; transform: translate(-20px, 20px); z-index: 1; }
+        
+        .story-content h2 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; font-weight: 800; }
+        .story-content h2 span { color: var(--accent-orange); }
+        .story-content p { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
+        .highlight-box { background: var(--bg-light); border-left: 4px solid var(--highlight-green); padding: 20px; border-radius: 0 10px 10px 0; margin-top: 30px; font-style: italic; color: #444; font-weight: 600; }
+
+        /* --- STATS BANNER --- */
+        .stats-banner { background: var(--primary-blue); color: white; padding: 60px 5%; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 30px; position: relative; }
+        .stats-banner::before { content: ''; position: absolute; inset: 0; background: url('https://www.transparenttextures.com/patterns/cubes.png'); opacity: 0.1; }
+        .stat-item { position: relative; z-index: 2; }
+        .stat-item i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
+        .stat-number { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
+        .stat-text { font-size: 1.1rem; color: #c9dff1; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- CORE VALUES --- */
+        .values-section { background: var(--bg-light); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .value-card { background: white; padding: 40px 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; border-bottom: 4px solid transparent; }
+        .value-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-orange); box-shadow: 0 15px 40px rgba(10,76,149,0.1); }
+        .value-icon { width: 80px; height: 80px; background: rgba(10, 76, 149, 0.05); color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px; transition: 0.3s; }
+        .value-card:hover .value-icon { background: var(--primary-blue); color: white; }
+        .value-card h3 { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 800; }
+        .value-card p { color: #666; font-size: 0.95rem; }
+
+        /* --- PREMIUM FOOTER --- */
+        .main-footer { background: linear-gradient(180deg, var(--primary-blue) 0%, #052c5c 100%); color: white; padding: 80px 5% 20px; position: relative; overflow: hidden; }
+        .footer-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 50px; position: relative; z-index: 2; }
+        .footer-brand .logo { font-size: 28px; font-weight: 800; color: white; text-decoration: none; margin-bottom: 10px; display: inline-block;}
+        .footer-brand .logo span { color: var(--accent-orange); }
+        .footer-slogan { font-size: 1.25rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 15px; letter-spacing: 0.5px; text-shadow: 0 2px 10px rgba(243, 112, 33, 0.2); }
+        .btn-footer-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-top: 15px; }
+        .footer-col h4 { margin-bottom: 25px; font-size: 1.2rem; padding-bottom: 10px; border-bottom: 3px solid var(--accent-orange); display: inline-block; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a, .footer-col ul li span { color: #c9dff1; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .footer-col ul li i { color: var(--accent-orange); font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; color: #888; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; flex-wrap: wrap; gap: 20px;}
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); }
+        .social-links a:hover { background: var(--accent-orange); border-color: var(--accent-orange); }
+
+        /* Responsive Fixes */
+        @media(max-width: 992px) { 
+            .story-grid, .footer-container { grid-template-columns: 1fr; } 
+            .story-img-bg { display: none; }
+            .about-hero h1 { font-size: 3rem; }
+        }
+        @media(max-width: 768px) { nav ul { display: none; } .footer-bottom { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+    <section class="about-hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <h1 class="reveal">The Force Behind <br>Bihar's Top Brands</h1>
+        <p class="reveal" style="transition-delay: 0.2s;">We are not just a marketing agency. We are your dedicated digital partners, deeply rooted in Bihar's business ecosystem.</p>
+    </section>
+
+    <section class="section-padding story-section reveal">
+        <div class="story-grid">
+            <div class="story-img-wrapper">
+                <div class="story-img-bg"></div>
+                <img src="about imges.jpg" alt="Vyapar Wallah Team" class="story-img">
+            </div>
+            <div class="story-content">
+                <h2>Why We Started <span>Vyapar Wallah</span></h2>
+                <p>We noticed a huge gap in the market. Great doctors, excellent schools, and premium salons in cities like Patna, Muzaffarpur, and Samastipur were struggling to get clients simply because they didn't have a strong digital presence.</p>
+                <p>Most local agencies were just selling "Facebook Likes" and "Beautiful Designs". We realized businesses don't need likes; they need <strong>Admissions, Patient Walk-ins, and Daily Bookings.</strong></p>
+                <p>That's when Vyapar Wallah was born. With over 5+ years of hardcore development and psychological marketing experience, we build ecosystems that generate actual revenue.</p>
+                
+                <div class="highlight-box">
+                    "Our vision is simple: To equip every local business in Bihar with world-class digital tools so they can compete with corporate giants."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner reveal">
+        <div class="stat-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <div class="stat-number">5+</div>
+            <div class="stat-text">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-rocket"></i>
+            <div class="stat-number">150+</div>
+            <div class="stat-text">Brands Scaled</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-users"></i>
+            <div class="stat-number">50k+</div>
+            <div class="stat-text">Leads Generated</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-face-smile"></i>
+            <div class="stat-number">100%</div>
+            <div class="stat-text">Client Dedication</div>
+        </div>
+    </section>
+
+    <section class="section-padding values-section reveal">
+        <div class="text-center">
+            <h2 class="section-title">Our Core Principles</h2>
+            <p class="section-subtitle">We operate on strict professional ethics. This is what makes us different from the rest.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Result-Oriented</h3>
+                <p>We don't deal in vanity metrics. Every strategy, line of code, and ad we run is focused on generating maximum ROI for your business.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Absolute Transparency</h3>
+                <p>No hidden fees, no fake promises. You will always know exactly where your marketing budget is going and what results it's bringing.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <h3>Local Expertise</h3>
+                <p>We understand the psychology of the audience in Bihar. What works in Delhi might not work in Darbhanga. We tailor our approach locally.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Speed & Quality</h3>
+                <p>Fast execution without compromising on premium quality. From lightning-fast websites to cinematic reels, we deliver the absolute best.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: white; text-align: center;" id="contact">
+        <div style="max-width: 800px; margin: auto; padding: 50px; background: linear-gradient(135deg, #fef4ec 0%, #fff 100%); border: 1px solid rgba(243, 112, 33, 0.2); border-radius: 20px; box-shadow: 0 15px 40px rgba(243, 112, 33, 0.08);">
+            <h2 class="section-title">Ready to write your success story?</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">Let's sit together and create a customized growth blueprint for your brand.</p>
+            <a href="https://wa.me/919876543210?text=Hi! I checked your About page and want to book a strategy meeting." target="_blank" class="btn-main" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <footer class="main-footer reveal">
+        <div class="footer-container">
+            <div class="footer-col footer-brand">
+                <a href="index.html" class="logo">Vyapar<span>Wallah</span></a>
+                <div class="footer-slogan">हर व्यापार का डिजिटल साथी |</div>
+                <p style="color:#c9dff1">Empowering local businesses with high-converting digital ecosystems.</p>
+                <a href="https://wa.me/919876543210" class="btn-footer-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp</a>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+                    <li><a href="index.html#services"><i class="fa-solid fa-angle-right"></i> Our Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Industries</h4>
+                <ul>
+                    <li><a href="school-landing.html"><i class="fa-solid fa-angle-right"></i> Education & Schools</a></li>
+                    <li><a href="hospital-landing.html"><i class="fa-solid fa-angle-right"></i> Hospitals & Clinics</a></li>
+                    <li><a href="salon-landing.html"><i class="fa-solid fa-angle-right"></i> Premium Salons</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><span><i class="fa-solid fa-location-dot"></i> Patna</span></li>
+                    <li><span><i class="fa-solid fa-location-dot"></i> Muzaffarpur</span></li>
+                    <li><span><i class="fa-solid fa-location-dot"></i> Samastipur</span></li>
+                    <li><span><i class="fa-solid fa-map-location-dot"></i> Serving All Over Bihar</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">&copy; 2026 Vyapar Wallah. All Rights Reserved.</div>
+            <div class="social-links">
+                <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal); reveal();
+    </script>
+    <script>
+        // 1. Fetch Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // 2. Fetch Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // 3. Mobile Menu Functions (Ye yahin rehne chahiye)
+        function toggleMobileMenu() {
+            document.getElementById('navWrapper').classList.toggle('active');
+        }
+        function toggleMobileDropdown(element) {
+            if (window.innerWidth <= 992) {
+                element.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
