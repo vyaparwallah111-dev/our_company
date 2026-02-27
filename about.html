@@ -102,7 +102,36 @@
             .story-img-bg { display: none; }
             .about-hero h1 { font-size: 3rem; }
         }
-        @media(max-width: 768px) { nav ul { display: none; } .footer-bottom { flex-direction: column; text-align: center; } }
+        @media(max-width: 768px) {
+    
+    /* 1. Hero Text का साइज़ छोटा करना और नीचे का गैप हटाना */
+    /* (आपकी क्लास .hero या .about-hero जो भी हो, दोनों पर काम करेगा) */
+    .hero, .about-hero {
+        min-height: auto !important; /* 100vh हटाकर गैप खत्म किया */
+        padding: 80px 5% 30px !important; /* नीचे की पैडिंग कम की */
+    }
+    .hero h1, .about-hero h1 {
+        font-size: 2.5rem !important; /* टेक्स्ट को मोबाइल के हिसाब से सेट किया */
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 2. सेक्शंस के बीच का गैप (White Space) कम करना */
+    .section-padding {
+        padding: 40px 5% !important; 
+    }
+
+    /* 3. इमेज का साइज़ बड़ा करना और सेंटर में लाना */
+    /* (आपकी इमेज की क्लास .about-img या .story-img जो भी हो, चेक कर लें) */
+    .about-img, .story-img {
+        width: 100% !important;
+        max-width: 450px !important; /* इमेज को फोन पर चौड़ा किया */
+        height: auto !important;
+        margin: 0 auto 40px !important; /* सेंटर में किया */
+        display: block !important;
+    }
+    
+}
     </style>
 </head>
 <body>
