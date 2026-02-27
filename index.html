@@ -203,10 +203,17 @@
            ============================================== */
         
         /* Tablets (Max Width: 992px) */
+       /* ==============================================
+           🚀 100% MOBILE RESPONSIVE FIXES (Images ON) 🚀 
+           ============================================== */
+        
+        /* Tablets (Max Width: 992px) */
         @media(max-width: 992px) {
-            .hero-container, .about-grid { flex-direction: column; text-align: center; }
+            .hero-container { flex-direction: column; text-align: center; }
             
-            /* IMAGE WAPAS ON KI GAYI HAI */
+            /* ✅ ग्रिड फिक्स: 1fr करने से एक के नीचे एक आएगा */
+            .about-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; } 
+            
             .hero-visual-side { display: flex; width: 100%; height: auto; margin-top: 40px; padding: 20px 0; }
             .main-hero-img { max-width: 80%; }
             
@@ -225,8 +232,7 @@
 
         /* Mobile Phones (Max Width: 768px) */
         @media(max-width: 768px) {
-            .section-title { font-size: 1.8rem !important; line-height: 1.4; margin-bottom: 15px; .about-grid p { font-size: 0.95rem; line-height: 1.6; }
-.about-img { width: 90%; height: auto; box-shadow: 10px 10px 0px var(--accent-orange); margin-top: 30px; display: block; margin-left: auto; margin-right: auto; }}
+            .hero { min-height: auto; padding: 40px 5% 60px; text-align: center; align-items: flex-start; }
             
             /* HERO IMAGE MOBILE ADJUSTMENTS */
             .hero-visual-side { margin-top: 30px; padding: 20px 0; }
@@ -237,8 +243,12 @@
             .fc-2 { bottom: -5%; right: 0; }
             .fc-3 { top: 40%; right: -5%; }
             
+            /* ✅ ABOUT SECTION FIX FOR MOBILE (टेक्स्ट और इमेज सेंटर में) */
+            .section-title { font-size: 1.8rem !important; line-height: 1.4; margin-bottom: 15px; }
+            .about-grid p { font-size: 1rem; line-height: 1.6; padding: 0 10px; }
+            .about-img { width: 100%; max-width: 350px; margin: 0 auto; display: block; box-shadow: 10px 10px 0px var(--accent-orange); }
+
             .section-padding { padding: 60px 5%; }
-            .section-title { font-size: 2.2rem; }
             .bold-heading { font-size: 2.5rem; }
             .typewriter-heading { font-size: 1.6rem; }
             
