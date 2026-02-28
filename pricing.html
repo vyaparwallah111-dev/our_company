@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transparent Digital Marketing Pricing & Plans for Schools, Hospitals, and Salons in Bihar.">
+    <title>Pricing & Plans | Vyapar Wallah</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --highlight-green: #00A651;
+            --bg-light: #f4f7f6;
+            --text-dark: #2c3e50;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+
+        /* --- HERO SECTION --- */
+        .pricing-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #052c5c 100%);
+            padding: 80px 5% 100px;
+            text-align: center;
+            color: white;
+        }
+        .pricing-hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; }
+        .pricing-hero h1 span { color: var(--accent-orange); }
+        .pricing-hero p { color: #c9dff1; font-size: 1.1rem; max-width: 600px; margin: auto; }
+
+        /* --- PRICING CARDS SECTION --- */
+        .pricing-section { padding: 0 5% 80px; margin-top: -60px; position: relative; z-index: 2; }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px; max-width: 1200px; margin: auto; align-items: center;
+        }
+
+        .pricing-card {
+            background: white; border-radius: 20px; padding: 40px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); transition: 0.4s;
+            position: relative; border: 1px solid #eee; display: flex; flex-direction: column; height: 100%;
+        }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(10, 76, 149, 0.15); border-color: var(--primary-blue); }
+
+        /* Highlighted/Popular Card */
+        .popular-card { border: 2px solid var(--accent-orange); transform: scale(1.05); box-shadow: 0 20px 50px rgba(243, 112, 33, 0.15); }
+        .popular-card:hover { transform: scale(1.05) translateY(-10px); border-color: var(--accent-orange); }
+        .popular-badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--accent-orange); color: white; padding: 6px 20px;
+            border-radius: 30px; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px;
+            text-transform: uppercase; box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3);
+        }
+
+        /* Card Headers */
+        .plan-name { font-size: 1.5rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 10px; }
+        .plan-price { font-size: 2.8rem; font-weight: 900; color: var(--text-dark); margin-bottom: 5px; line-height: 1; }
+        .plan-price span { font-size: 1rem; color: #888; font-weight: 500; }
+        .plan-desc { font-size: 0.95rem; color: #666; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+
+        /* Features List */
+        .features-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .features-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.95rem; color: #555; }
+        .features-list li i.fa-check-circle { color: var(--highlight-green); font-size: 1.2rem; margin-top: 2px; }
+        .features-list li i.fa-xmark-circle { color: #ccc; font-size: 1.2rem; margin-top: 2px; }
+        .features-list li.disabled { color: #aaa; text-decoration: line-through; }
+
+        /* WhatsApp Button */
+        .btn-wa {
+            background: #25D366; color: white; border: none; padding: 15px;
+            border-radius: 10px; font-size: 1.1rem; font-weight: 700; width: 100%;
+            cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .btn-wa:hover { background: #1ebd5a; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        
+        .popular-card .btn-wa { background: var(--accent-orange); box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3); }
+        .popular-card .btn-wa:hover { background: #d95e17; }
+
+        /* Note Section */
+        .pricing-note { text-align: center; max-width: 800px; margin: 40px auto 0; font-size: 0.95rem; color: #666; background: rgba(10, 76, 149, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-blue); }
+
+        @media(max-width: 992px) {
+            .popular-card { transform: scale(1); }
+            .popular-card:hover { transform: translateY(-10px); }
+        }
+        @media(max-width: 768px) {
+            .pricing-hero h1 { font-size: 2.2rem; }
+            .pricing-section { padding: 0 5% 50px; margin-top: -30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="pricing-hero">
+        <h1>Simple & Transparent <span>Pricing</span></h1>
+        <p>No hidden fees. Choose a growth plan that fits your business goals. All plans are designed to maximize your ROI.</p>
+    </section>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            
+            <div class="pricing-card">
+                <div class="plan-name">Starter Plan</div>
+                <div class="plan-price">₹14,999 <span>/ month</span></div>
+                <div class="plan-desc">Best for local clinics or small salons looking to build their online presence.</div>
+                
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Complete Social Media Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 12 High-Quality Posts/Reels</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic GMB (Google Maps) SEO</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Facebook & Insta Ads Management</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Monthly Performance Report</li>
+                    <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Google Search Ads (PPC)</li>
+                    <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Landing Page Creation</li>
+                </ul>
+                
+                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20STARTER%20PLAN%20(14,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Starter
+                </a>
+            </div>
+
+            <div class="pricing-card popular-card">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-name" style="color: var(--accent-orange);">Growth Engine</div>
+                <div class="plan-price">₹29,999 <span>/ month</span></div>
+                <div class="plan-desc">Ideal for Schools & Hospitals focused on aggressive lead generation and admissions.</div>
+                
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Everything in Starter Plan</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 20 Premium Posts/Reels</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <strong>Google Ads (PPC) Management</strong></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <strong>1 Custom Landing Page</strong></li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Local SEO Strategy</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Meta Lead Generation Funnel</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+                </ul>
+                
+                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20GROWTH%20ENGINE%20PLAN%20(29,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Get Growth Plan
+                </a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Market Dominator</div>
+                <div class="plan-price">₹49,999 <span>/ month</span></div>
+                <div class="plan-desc">For top brands wanting full digital domination, video shoots, and PR.</div>
+                
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Everything in Growth Plan</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Daily Content (30 Posts/Reels)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <strong>1 Cinematic Video/Drone Shoot</strong></li>
+                    <li><i class="fa-solid fa-circle-check"></i> Complete Website Development</li>
+                    <li><i class="fa-solid fa-circle-check"></i> CRM Integration & Automations</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Brand PR & Reputation Management</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 24/7 Priority Support</li>
+                </ul>
+                
+                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20MARKET%20DOMINATOR%20PLAN%20(49,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Premium
+                </a>
+            </div>
+
+        </div>
+
+        <div class="pricing-note">
+            <i class="fa-solid fa-circle-info" style="color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 10px;"></i>
+            <p><strong>Important Note:</strong> The prices mentioned above represent our Agency Management Retainer Fee. The actual Advertising Budget (money paid to Facebook, Google, etc. for running ads) is completely separate and must be borne by the client directly.</p>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+        
+        function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
+        function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
+    </script>
+</body>
+</html>

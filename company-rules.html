@@ -3,61 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Company Rules, Regulations, and Code of Conduct for Vyapar Wallah Employees.">
-    <title>Employee Rules & Regulations | Vyapar Wallah</title>
+    <meta name="description" content="Vyapar Wallah Digital Marketing Pricing for Education & Schools.">
+    <title>Pricing | Vyapar Wallah</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Vyapar Wallah | Bihar's #1 Best Digital Marketing Agency</title>
+
+<meta name="description" content="Vyapar Wallah is Bihar's #1 Best Digital Marketing Agency for Schools, Hospitals, and Salons. We build digital ecosystems that generate high-quality leads automatically.">
+
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     
     <style>
-        /* --- BRAND DESIGN SYSTEM --- */
         :root {
             --primary-blue: #0A4C95;
             --accent-orange: #F37021;
             --highlight-green: #00A651;
             --danger-red: #e74c3c;
-            --bg-light: #f4f7f6;
+            --bg-light: #f8fcfb;
             --text-dark: #2c3e50;
-            --text-muted: #555555;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        /* --- HERO SECTION --- */
-        .legal-hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #052c5c 100%);
-            padding: 80px 5% 60px;
-            text-align: center;
-            color: white;
-        }
-        .legal-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
-        .legal-hero p { color: #c9dff1; font-size: 1.1rem; max-width: 600px; margin: auto; }
+        /* HERO SECTION */
+        .pricing-hero { background: linear-gradient(135deg, var(--primary-blue) 0%, #052c5c 100%); padding: 80px 5% 120px; text-align: center; color: white; }
+        .pricing-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        .pricing-hero p { color: #c9dff1; font-size: 1.1rem; max-width: 600px; margin: auto; }
 
-        /* --- CONTENT TYPOGRAPHY & LAYOUT --- */
-        .legal-content-section { padding: 60px 5%; }
-        .legal-container {
-            max-width: 900px; margin: -80px auto 0;
-            background: white; padding: 50px 60px;
-            border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            position: relative; z-index: 2;
-        }
+        /* INDUSTRY SELECTOR */
+        .industry-selector { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .ind-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1.05rem; }
+        .ind-btn.active { background: white; color: var(--primary-blue); font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        .legal-container h2 { font-size: 1.6rem; color: var(--primary-blue); margin: 40px 0 15px; font-weight: 700; border-bottom: 2px solid #eee; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .legal-container h2 i { color: var(--accent-orange); font-size: 1.4rem; }
+        /* PRICING TOGGLE (Monthly/Yearly) */
+        .toggle-wrapper { display: flex; justify-content: center; align-items: center; margin: -40px auto 40px; position: relative; z-index: 10; flex-direction: column; gap: 10px;}
+        .billing-toggle { background: white; padding: 5px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: inline-flex; overflow: hidden; border: 2px solid var(--primary-blue); flex-wrap: wrap; justify-content: center;}
+        .toggle-btn { padding: 12px 25px; cursor: pointer; font-weight: 700; border-radius: 50px; transition: 0.3s; color: #555; font-size: 0.95rem; text-align: center; }
+        .toggle-btn.active { background: var(--primary-blue); color: white; }
+        .save-badge { background: var(--danger-red); color: white; font-size: 0.75rem; padding: 3px 8px; border-radius: 10px; margin-left: 5px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* PRICING CARDS */
+        .pricing-section { padding: 0 5% 80px; max-width: 1300px; margin: auto; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; }
         
-        /* Highlight box for Strict Warnings */
-        .strict-clause { background: rgba(231, 76, 60, 0.05); border-left: 4px solid var(--danger-red); padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0; }
-        .strict-clause h4 { color: var(--danger-red); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        .pricing-card { background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; position: relative; display: flex; flex-direction: column; transition: 0.3s; }
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(10, 76, 149, 0.1); border-color: var(--primary-blue); }
+        
+        .popular-card { border: 2px solid var(--accent-orange); transform: scale(1.03); box-shadow: 0 20px 50px rgba(243, 112, 33, 0.15); background: #fffcf8; }
+        .popular-card:hover { transform: scale(1.03) translateY(-5px); border-color: var(--accent-orange); }
+        
+        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #ff5e00, #F37021); color: white; padding: 8px 25px; border-radius: 30px; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; box-shadow: 0 5px 15px rgba(243, 112, 33, 0.4); width: max-content; }
 
-        .legal-container p { color: var(--text-muted); margin-bottom: 15px; line-height: 1.8; font-size: 1rem; }
-        .legal-container ul { margin-bottom: 20px; padding-left: 20px; }
-        .legal-container li { color: var(--text-muted); margin-bottom: 10px; line-height: 1.7; }
-        .legal-container li strong { color: var(--text-dark); }
+        /* Price Typography */
+        .plan-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .plan-name { font-size: 1.6rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 5px; }
+        .plan-tagline { font-size: 0.9rem; color: var(--accent-orange); font-weight: 700; margin-bottom: 20px; }
+        
+        .price-box { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; }
+        .actual-price { font-size: 1.1rem; color: var(--danger-red); text-decoration: line-through; font-weight: 600; margin-bottom: -5px; display: block; }
+        .offer-price { font-size: 3rem; font-weight: 900; color: var(--text-dark); line-height: 1; display: inline-block; }
+        .billing-term { font-size: 1rem; color: #888; font-weight: 600; }
+        
+        /* The Magic Per Day Cost */
+        .per-day-box { display: inline-block; background: rgba(0, 166, 81, 0.1); color: var(--highlight-green); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 800; margin-top: 10px; border: 1px solid rgba(0, 166, 81, 0.3); }
 
+        /* Features */
+        .features-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .feature-title { font-size: 1.05rem; font-weight: 800; color: var(--primary-blue); margin: 20px 0 10px; border-bottom: 2px solid #eee; display: inline-block; }
+        .features-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: #555; font-weight: 500; }
+        .features-list li i { color: var(--highlight-green); font-size: 1.1rem; margin-top: 3px; }
+
+        /* WhatsApp Button */
+        .btn-wa { background: #25D366; color: white; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: 800; text-align: center; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; border: none; width: 100%; cursor: pointer;}
+        .btn-wa:hover { background: #1ebd5a; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .popular-card .btn-wa { background: var(--accent-orange); box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3); }
+        .popular-card .btn-wa:hover { background: #d95e17; }
+
+        /* SEPARATE ADD-ONS SECTION */
+        .addons-section { max-width: 1000px; margin: 50px auto 0; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-blue); }
+        .addons-section h3 { font-size: 1.8rem; color: var(--primary-blue); margin-bottom: 20px; text-align: center; }
+        .addon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .addon-card { background: #fdfdfd; padding: 20px; border: 1px solid #eee; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; flex-wrap: wrap; gap: 15px;}
+        .addon-card:hover { border-color: var(--accent-orange); box-shadow: 0 5px 15px rgba(243, 112, 33, 0.1); }
+        .addon-info h4 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; }
+        .addon-info p { font-size: 0.85rem; color: #777; }
+        .addon-price { font-size: 1.3rem; font-weight: 800; color: var(--primary-blue); }
+        .btn-addon { background: white; color: var(--accent-orange); border: 2px solid var(--accent-orange); padding: 8px 15px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; transition: 0.3s;}
+        .btn-addon:hover { background: var(--accent-orange); color: white; }
+
+        @media(max-width: 992px) {
+            .popular-card { transform: scale(1); }
+            .popular-card:hover { transform: translateY(-5px); }
+        }
         @media(max-width: 768px) {
-            .legal-container { padding: 30px 20px; margin-top: -40px; }
-            .legal-hero h1 { font-size: 2.2rem; }
+            .pricing-hero { padding: 60px 5% 100px; }
+            .pricing-hero h1 { font-size: 2.2rem; }
+            .billing-toggle { flex-direction: column; width: 100%; max-width: 300px; border-radius: 15px; padding: 10px;}
+            .toggle-btn { border-radius: 10px; padding: 10px; }
+            .addon-card { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -65,79 +112,245 @@
 
     <div id="header-placeholder"></div>
 
-    <section class="legal-hero">
-        <h1>Employee Code of Conduct</h1>
-        <p>Mandatory Workplace Rules & Regulations for all Vyapar Wallah Staff and Freelancers.</p>
+    <section class="pricing-hero">
+        <h1>High-ROI <span>Growth Plans</span></h1>
+        <p>No hidden fees. Just pure results.</p>
+        
+        <div class="industry-selector">
+            <div class="ind-btn active">🎓 Education & Schools</div>
+            <div class="ind-btn" style="opacity: 0.5;">🏥 Hospitals (Soon)</div>
+            <div class="ind-btn" style="opacity: 0.5;">✂️ Salons (Soon)</div>
+        </div>
     </section>
 
-    <section class="legal-content-section">
-        <div class="legal-container">
+    <div class="toggle-wrapper">
+        <div style="color: #666; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px;">Select Billing Cycle:</div>
+        <div class="billing-toggle">
+            <div class="toggle-btn active" onclick="updatePricing(1, 0, this)">Monthly</div>
+            <div class="toggle-btn" onclick="updatePricing(3, 0.10, this)">3 Months <span class="save-badge">Save 10%</span></div>
+            <div class="toggle-btn" onclick="updatePricing(6, 0.20, this)">6 Months <span class="save-badge">Save 20%</span></div>
+            <div class="toggle-btn" onclick="updatePricing(12, 0.33, this)">Yearly <span class="save-badge">Save 33%</span></div>
+        </div>
+    </div>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
             
-            <p>Welcome to the <strong>Vyapar Wallah</strong> team. To maintain a high-performance, professional, and respectful environment, all employees, interns, and contractors must strictly adhere to the following rules and regulations. Acceptance of employment constitutes an agreement to abide by these policies.</p>
-            
-            <div class="strict-clause">
-                <h4><i class="fa-solid fa-triangle-exclamation"></i> Mandatory Compliance</h4>
-                <p style="margin-bottom: 0;">Failure to comply with these rules may result in immediate disciplinary action, including loss of pay, suspension, or termination of employment without prior notice.</p>
+            <div class="pricing-card">
+                <div class="plan-icon">🚀</div>
+                <div class="plan-name">Shiksha Growth Booster</div>
+                <div class="plan-tagline">Build local reach & digital presence.</div>
+                
+                <div class="price-box">
+                    <span class="actual-price">Actual: ₹<span class="val-actual" data-base="12999">12,999</span>/-</span>
+                    <span style="font-size:1.5rem; font-weight:800;">₹</span><span class="offer-price val-offer" data-base="9999">9,999</span> <span class="billing-term">/mo</span>
+                    <br>
+                    <div class="per-day-box">Just ₹<span class="val-perday">333</span> / day</div>
+                </div>
+                
+                <ul class="features-list">
+                    <div class="feature-title">Social Media Management</div>
+                    <li><i class="fa-solid fa-circle-check"></i> FB + Insta Page Optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 12 Posts/mo (4 Admission, 4 Info, 4 Eng.)</li>
+                    
+                    <div class="feature-title">Google Dominance</div>
+                    <li><i class="fa-solid fa-circle-check"></i> GMB Setup & Optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 10 Keywords & 5 Review Strategy</li>
+                    
+                    <div class="feature-title">Lead Gen & Branding</div>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic Ad Campaign Setup (Ad spend extra)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 2 Admission Banners + 1 Pamphlet Design</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Monthly Growth Report</li>
+                </ul>
+                
+                <a href="#" class="btn-wa wa-link" data-plan="Shiksha Growth Booster">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Get This Plan
+                </a>
             </div>
 
-            <h2><i class="fa-solid fa-clock"></i> 1. Working Hours & Punctuality</h2>
-            <ul>
-                <li><strong>Standard Timings:</strong> The official working hours are from 10:00 AM to 7:00 PM.</li>
-                <li><strong>Punctuality:</strong> Employees are expected to log in or arrive at the office on time. Habitual lateness (more than 3 times a month) will result in a half-day salary deduction.</li>
-                <li><strong>Availability:</strong> During working hours, employees must be highly responsive to internal team chats, calls, and client communications.</li>
-            </ul>
+            <div class="pricing-card popular-card">
+                <div class="popular-badge">🔥 Most Popular</div>
+                <div class="plan-icon">🎓</div>
+                <div class="plan-name">Admission Accelerator</div>
+                <div class="plan-tagline">"Har Seat Bharegi, Digital Se"</div>
+                
+                <div class="price-box">
+                    <span class="actual-price">Actual: ₹<span class="val-actual" data-base="24999">24,999</span>/-</span>
+                    <span style="font-size:1.5rem; font-weight:800;">₹</span><span class="offer-price val-offer" data-base="16999">16,999</span> <span class="billing-term">/mo</span>
+                    <br>
+                    <div class="per-day-box">Just ₹<span class="val-perday">566</span> / day</div>
+                </div>
+                
+                <ul class="features-list">
+                    <div class="feature-title">Performance Ads (Core)</div>
+                    <li><i class="fa-solid fa-circle-check"></i> FB/Insta Lead Gen + Google Search Ads</li>
+                    <li><i class="fa-solid fa-circle-check"></i> WhatsApp Click & Retargeting Ads</li>
+                    
+                    <div class="feature-title">Lead Funnel Setup</div>
+                    <li><i class="fa-solid fa-circle-check"></i> Custom Admission Landing Page</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Auto Lead Collection Sheet</li>
+                    
+                    <div class="feature-title">Social Authority</div>
+                    <li><i class="fa-solid fa-circle-check"></i> 16 Premium Posts + 4 Reels/mo</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Follow-up Scripts for Staff</li>
+                </ul>
+                
+                <a href="#" class="btn-wa wa-link" data-plan="Admission Accelerator">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Accelerator
+                </a>
+            </div>
 
-            <h2><i class="fa-solid fa-calendar-xmark"></i> 2. Leave & Attendance Policy</h2>
-            <ul>
-                <li><strong>Planned Leaves:</strong> Any planned leave must be informed and approved by the management at least <strong>3 days in advance</strong>.</li>
-                <li><strong>Sick Leaves:</strong> In case of sudden illness, the employee must inform the manager before 9:30 AM on the same day.</li>
-                <li><strong>Uninformed Absences:</strong> Taking a leave without prior intimation (Absconding) is a serious offense and will result in a direct <strong>Loss of Pay (LOP)</strong> for 2 days per uninformed day off.</li>
-            </ul>
-
-            <h2><i class="fa-solid fa-user-secret"></i> 3. Confidentiality & Non-Disclosure (NDA)</h2>
-            <p>As a digital marketing agency, we handle sensitive client data, strategies, and ad accounts. This is the most critical policy of the company.</p>
-            <ul>
-                <li><strong>No Data Sharing:</strong> Employees are strictly prohibited from sharing client names, contact details, ad strategies, or financial data with anyone outside the agency.</li>
-                <li><strong>No Freelancing with Active Clients:</strong> Approaching Vyapar Wallah’s clients for personal freelance work is strictly forbidden and will lead to immediate termination and legal action.</li>
-                <li><strong>Data Security:</strong> Do not download or transfer company data, graphic assets, or source codes to personal devices without authorization.</li>
-            </ul>
-
-            <h2><i class="fa-solid fa-briefcase"></i> 4. Professionalism & Code of Conduct</h2>
-            <ul>
-                <li><strong>Client Communication:</strong> Always maintain a polite, respectful, and professional tone when speaking to clients. Never argue or use inappropriate language.</li>
-                <li><strong>Workplace Decorum:</strong> Maintain a positive environment. Office politics, bullying, harassment, or discrimination of any kind will not be tolerated.</li>
-                <li><strong>Deadlines:</strong> Marketing relies on timing. Missing campaign launch deadlines or project delivery dates without a valid technical reason is unacceptable.</li>
-            </ul>
-
-            <h2><i class="fa-solid fa-laptop"></i> 5. Use of Company Resources</h2>
-            <ul>
-                <li><strong>Company Property:</strong> Laptops, software licenses, and internet provided by the company are strictly for official work.</li>
-                <li><strong>Personal Use:</strong> Avoid excessive use of social media for personal entertainment during work hours. (Social media should only be used for marketing research and campaign execution).</li>
-            </ul>
-
-            <h2><i class="fa-solid fa-door-open"></i> 6. Resignation & Notice Period</h2>
-            <ul>
-                <li><strong>Mandatory Notice Period:</strong> If an employee wishes to resign, they must serve a mandatory notice period of <strong>30 Days</strong>.</li>
-                <li><strong>Handover:</strong> During the notice period, the employee must properly hand over all ongoing projects, passwords, and client details to their replacement.</li>
-                <li><strong>Immediate Exit:</strong> If an employee leaves without serving the notice period, their full and final settlement (including pending salary) will be put on hold/forfeited.</li>
-            </ul>
-
-            <br>
-            <p style="text-align: center; font-weight: 600; color: var(--primary-blue); font-size: 1.1rem; margin-top: 20px;">
-                By working with Vyapar Wallah, you agree to uphold these standards and help us build Bihar's most trusted digital ecosystem.
-            </p>
+            <div class="pricing-card">
+                <div class="plan-icon">🏛️</div>
+                <div class="plan-name">Campus Branding Pro</div>
+                <div class="plan-tagline">Premium reputation & trust building.</div>
+                
+                <div class="price-box">
+                    <span class="actual-price">Actual: ₹<span class="val-actual" data-base="39999">39,999</span>/-</span>
+                    <span style="font-size:1.5rem; font-weight:800;">₹</span><span class="offer-price val-offer" data-base="25999">25,999</span> <span class="billing-term">/mo</span>
+                    <br>
+                    <div class="per-day-box">Just ₹<span class="val-perday">866</span> / day</div>
+                </div>
+                
+                <ul class="features-list">
+                    <div class="feature-title">Complete Branding</div>
+                    <li><i class="fa-solid fa-circle-check"></i> Logo Refinement & Brand Color Guide</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Digital Prospectus & Brochure Design</li>
+                    
+                    <div class="feature-title">High-Level Authority</div>
+                    <li><i class="fa-solid fa-circle-check"></i> 20 Posts + 6 High-End Reels/mo</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Professional Shoot Guidance & Scripts</li>
+                    
+                    <div class="feature-title">Elite Marketing</div>
+                    <li><i class="fa-solid fa-circle-check"></i> Full Ad Suite + WhatsApp Automation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> ORM (Online Reputation & Review Mgmt)</li>
+                </ul>
+                
+                <a href="#" class="btn-wa wa-link" data-plan="Campus Branding Pro">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Pro Plan
+                </a>
+            </div>
 
         </div>
+
+        <div class="addons-section">
+            <h3>Need Specific Services? (Add-Ons)</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">These are fixed one-time or separate monthly costs.</p>
+            
+            <div class="addon-grid">
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Website Development</h4>
+                        <p>High-speed lead converting site. <br><i>*Maintenance & Ownership transfer extra.</i></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="addon-price">₹39,999/-</div>
+                        <a href="https://wa.me/9187641492?text=I want a Custom Website for 39,999" target="_blank" class="btn-addon">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Landing Page Design</h4>
+                        <p>Optimized for Google & FB Ads.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="addon-price">₹14,999/-</div>
+                        <a href="https://wa.me/9187641492?text=I want a Landing Page for 14,999" target="_blank" class="btn-addon">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Social Media Optimization</h4>
+                        <p>Complete profile revamp & setup.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="addon-price">₹9,999/-</div>
+                        <a href="https://wa.me/9187641492?text=I need Social Media Optimization for 9,999" target="_blank" class="btn-addon">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Google My Business Setup</h4>
+                        <p>Local Maps ranking & verification.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="addon-price">₹6,999/-</div>
+                        <a href="https://wa.me/9187641492?text=I need GMB Setup for 6,999" target="_blank" class="btn-addon">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>SEO Blog Writing</h4>
+                        <p>Per month high-ranking articles.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="addon-price">₹6,999/mo</div>
+                        <a href="https://wa.me/9187641492?text=I need Blog Writing Services" target="_blank" class="btn-addon">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <div id="footer-placeholder"></div>
 
     <script>
-        fetch('header.html').then(response => response.text()).then(data => { document.getElementById('header-placeholder').innerHTML = data; });
-        fetch('footer.html').then(response => response.text()).then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
-        
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
         function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
         function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
+
+        // --- PRICING LOGIC ---
+        let currentDuration = 1; // 1 = Monthly, 3 = 3 Months, etc.
+        let agencyNumber = "9187641492"; // Your WhatsApp Number
+
+        function formatINR(number) {
+            return new Intl.NumberFormat('en-IN').format(number);
+        }
+
+        function updatePricing(months, discountPercent, btnElement) {
+            // 1. Update Active Button Style
+            let btns = document.querySelectorAll('.toggle-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            currentDuration = months;
+            let termText = months === 1 ? "/mo" : ` / ${months} Months`;
+
+            // 2. Calculate for each card
+            let cards = document.querySelectorAll('.pricing-card');
+            
+            cards.forEach(card => {
+                let offerBase = parseInt(card.querySelector('.val-offer').getAttribute('data-base'));
+                let actualBase = parseInt(card.querySelector('.val-actual').getAttribute('data-base'));
+
+                // Math Logic
+                let totalOffer = Math.round((offerBase * months) * (1 - discountPercent));
+                let totalActual = Math.round(actualBase * months);
+                let perDay = Math.round(totalOffer / (30 * months)); // Standard 30 days per month
+
+                // Update DOM
+                card.querySelector('.val-offer').innerText = formatINR(totalOffer);
+                card.querySelector('.val-actual').innerText = formatINR(totalActual);
+                card.querySelector('.val-perday').innerText = formatINR(perDay);
+                card.querySelector('.billing-term').innerText = termText;
+
+                // Update WhatsApp Link Dynamically
+                let planName = card.querySelector('.wa-link').getAttribute('data-plan');
+                let message = `Hi Vyapar Wallah! I am interested in the *${planName}*. I want to select the *${months} Month(s)* billing cycle at ₹${formatINR(totalOffer)}. Let's discuss!`;
+                card.querySelector('.wa-link').href = `https://wa.me/${agencyNumber}?text=${encodeURIComponent(message)}`;
+            });
+        }
+
+        // Initialize links on load (Monthly)
+        window.onload = () => {
+            updatePricing(1, 0, document.querySelector('.toggle-btn.active'));
+        };
     </script>
 </body>
 </html>
