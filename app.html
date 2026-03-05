@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal AI Business Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
+        .active-tab { background-color: #4F46E5 !important; color: white !important; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="min-h-screen flex">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 text-white h-screen fixed left-0 top-0 flex flex-col p-4 z-50">
+        <div class="flex items-center gap-3 mb-10 px-2 mt-4">
+            <div class="bg-indigo-600 p-2 rounded-xl">
+                <i class="fas fa-chart-line text-xl"></i>
+            </div>
+            <h1 class="text-xl font-bold">BizAssistant</h1>
+        </div>
+        
+        <nav class="flex-1 space-y-2">
+            <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition-all">
+                <i class="fas fa-th-large"></i> Dashboard
+            </button>
+            <button onclick="switchTab('targets')" id="nav-targets" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition-all">
+                <i class="fas fa-bullseye"></i> My Targets
+            </button>
+            <button onclick="switchTab('tasks')" id="nav-tasks" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition-all">
+                <i class="fas fa-check-double"></i> Task Manager
+            </button>
+            <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition-all">
+                <i class="fas fa-search-dollar"></i> Analysis
+            </button>
+            <button onclick="switchTab('team')" id="nav-team" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition-all">
+                <i class="fas fa-users"></i> Team
+            </button>
+        </nav>
+
+        <div class="mt-auto p-4 bg-slate-800/40 rounded-2xl border border-slate-700/50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold">A</div>
+                <div class="overflow-hidden">
+                    <p class="text-xs text-slate-400">Owner</p>
+                    <p class="text-sm font-semibold truncate">Admin User</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 ml-64 p-8">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-10">
+            <div>
+                <h1 id="page-title" class="text-3xl font-extrabold text-slate-900 tracking-tight">Personal AI Assistant</h1>
+                <p class="text-slate-500 mt-1">Namaste! Aaj ka update yahan hai.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="bg-white px-4 py-2 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-green-100 text-green-600 flex items-center justify-center">
+                        <i class="fas fa-envelope-open-text text-xs"></i>
+                    </div>
+                    <span class="text-sm font-bold">Mail Sync: Active</span>
+                </div>
+                <button class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-600 relative">
+                    <i class="fas fa-bell"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sections -->
+        <div id="dashboard-section" class="tab-content">
+            <!-- AI Briefing -->
+            <div class="bg-gradient-to-r from-indigo-600 to-violet-700 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-xl mb-8">
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                        <i class="fas fa-robot"></i> AI Daily Briefing
+                    </h2>
+                    <p class="text-indigo-100 max-w-2xl leading-relaxed">
+                        Aaj aapko 15 naye calls karne hain. Pichle 5 dinon ka Instagram aur Facebook data analyze karne ka waqt ho gaya hai. Aapki team ne 2 tasks aaj poore kiye hain.
+                    </p>
+                    <div class="flex gap-4 mt-6">
+                        <button class="bg-white/20 hover:bg-white/30 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all">Evening Report Schedule</button>
+                        <button class="bg-white text-indigo-600 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-indigo-50 transition-all">Check Goals</button>
+                    </div>
+                </div>
+                <i class="fas fa-brain absolute top-0 right-0 text-9xl text-white/5 -mr-10 -mt-10"></i>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="stats-grid">
+                <!-- Will be populated by JS -->
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-6">Important Tasks</h3>
+                    <div id="recent-tasks-list" class="space-y-4"></div>
+                </div>
+                <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-6"><i class="fas fa-chart-pie text-pink-500 mr-2"></i> Analysis Status</h3>
+                    <div id="analysis-status-list" class="space-y-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Section -->
+        <div id="analysis-section" class="tab-content hidden">
+            <h2 class="text-2xl font-bold mb-6">Platform Analysis Reminders (Every 5 Days)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="analysis-grid"></div>
+        </div>
+
+        <!-- Task Manager Section -->
+        <div id="tasks-section" class="tab-content hidden">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 mb-8">
+                <h3 class="text-lg font-bold text-slate-800 mb-4">Assign New Task</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <input id="task-input" type="text" placeholder="Task description..." class="md:col-span-2 px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <select id="task-assignee" class="px-4 py-3 rounded-xl border border-slate-200 outline-none">
+                        <option value="Self">Assign to Self</option>
+                        <option value="Rahul">Rahul Sharma</option>
+                        <option value="Priya">Priya Singh</option>
+                    </select>
+                    <button onclick="addNewTask()" class="bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition-all">
+                        <i class="fas fa-plus mr-2"></i> Create Task
+                    </button>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div id="full-task-list" class="divide-y divide-slate-50"></div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div id="team-section" class="tab-content hidden text-center p-10">
+            <h2 class="text-2xl font-bold mb-8">Team Members</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="team-grid"></div>
+        </div>
+
+        <!-- Targets Section -->
+        <div id="targets-section" class="tab-content hidden bg-white rounded-3xl p-10 border border-slate-100 max-w-2xl mx-auto shadow-sm">
+            <h2 class="text-2xl font-bold text-center mb-8">Set Monthly & Weekly Goals</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-slate-500 mb-2">Monthly Call Target</label>
+                    <input type="number" id="target-calls" value="500" class="w-full p-4 rounded-2xl border bg-slate-50 outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-500 mb-2">Weekly Client Closures</label>
+                    <input type="number" id="target-clients" value="3" class="w-full p-4 rounded-2xl border bg-slate-50 outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <button onclick="saveTargets()" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-2xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all">
+                    Update All Targets
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // --- State Management ---
+        const state = {
+            targets: {
+                monthlyCalls: 500,
+                callsDone: 168,
+                weeklyClients: 3,
+                clientsClosed: 1
+            },
+            tasks: [
+                { id: 1, text: 'Analyze Facebook Ads performance', completed: false, assignee: 'Self', category: 'Marketing' },
+                { id: 2, text: 'Call 20 potential leads', completed: true, assignee: 'Self', category: 'Sales' },
+                { id: 3, text: 'Update team on monthly progress', completed: false, assignee: 'Rahul', category: 'Management' }
+            ],
+            team: [
+                { id: 1, name: 'Rahul Sharma', role: 'Sales Head' },
+                { id: 2, name: 'Priya Singh', role: 'Marketing Expert' },
+                { id: 3, name: 'Self', role: 'Owner' }
+            ],
+            analysisDates: {
+                website: '2023-11-01',
+                facebook: '2023-11-02',
+                instagram: '2023-10-31'
+            }
+        };
+
+        // --- Core Functions ---
+
+        function switchTab(tabId) {
+            // Hide all
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active-tab'));
+            
+            // Show active
+            document.getElementById(`${tabId}-section`).classList.remove('hidden');
+            document.getElementById(`nav-${tabId}`).classList.add('active-tab');
+            
+            // Update title
+            const titles = {
+                dashboard: "Personal AI Assistant",
+                targets: "Goals & Targets",
+                tasks: "Task Manager",
+                analysis: "Market Analysis",
+                team: "Your Team"
+            };
+            document.getElementById('page-title').innerText = titles[tabId];
+            
+            renderAll();
+        }
+
+        function calculateDaysLeft(lastDateStr) {
+            const last = new Date(lastDateStr);
+            const today = new Date();
+            const diffDays = Math.floor(Math.abs(today - last) / (1000 * 60 * 60 * 24));
+            const remaining = 5 - (diffDays % 5);
+            return remaining;
+        }
+
+        // --- Render Functions ---
+
+        function renderStats() {
+            const grid = document.getElementById('stats-grid');
+            const data = [
+                { label: 'Monthly Calls', current: state.targets.callsDone, total: state.targets.monthlyCalls, color: 'blue', icon: 'fa-phone' },
+                { label: 'Weekly Clients', current: state.targets.clientsClosed, total: state.targets.weeklyClients, color: 'indigo', icon: 'fa-user-check' },
+                { label: 'Daily Calls', current: 15, total: 25, color: 'green', icon: 'fa-clock' },
+                { label: 'Team Tasks', current: 8, total: 12, color: 'orange', icon: 'fa-tasks' }
+            ];
+
+            grid.innerHTML = data.map(item => {
+                const perc = Math.min(Math.round((item.current / item.total) * 100), 100);
+                return `
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:scale-[1.02] transition-transform">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 rounded-2xl bg-${item.color}-50 text-${item.color}-600">
+                                <i class="fas ${item.icon} text-xl"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded-full bg-${item.color}-50 text-${item.color}-600">${perc}%</span>
+                        </div>
+                        <h3 class="text-slate-500 text-sm font-medium">${item.label}</h3>
+                        <div class="flex items-end gap-2 mt-1">
+                            <span class="text-2xl font-bold text-slate-800">${item.current}</span>
+                            <span class="text-slate-400 text-sm mb-1">/ ${item.total}</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full mt-4 overflow-hidden">
+                            <div class="h-full bg-${item.color}-500 transition-all duration-1000" style="width: ${perc}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTasks() {
+            const recentList = document.getElementById('recent-tasks-list');
+            const fullList = document.getElementById('full-task-list');
+            
+            const taskHTML = state.tasks.map(task => `
+                <div class="p-4 flex items-center justify-between hover:bg-slate-50 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div onclick="toggleTask(${task.id})" class="cursor-pointer w-6 h-6 rounded-lg border-2 flex items-center justify-center ${task.completed ? 'bg-green-500 border-green-500 text-white' : 'border-slate-300'}">
+                            ${task.completed ? '<i class="fas fa-check text-xs"></i>' : ''}
+                        </div>
+                        <div>
+                            <p class="font-medium ${task.completed ? 'text-slate-400 line-through' : 'text-slate-800'}">${task.text}</p>
+                            <span class="text-[10px] font-bold text-indigo-500 uppercase flex items-center gap-1 mt-1">
+                                <i class="fas fa-user-circle"></i> ${task.assignee}
+                            </span>
+                        </div>
+                    </div>
+                    <button onclick="deleteTask(${task.id})" class="text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            if (recentList) recentList.innerHTML = taskHTML;
+            if (fullList) fullList.innerHTML = taskHTML;
+        }
+
+        function renderAnalysis() {
+            const statusList = document.getElementById('analysis-status-list');
+            const grid = document.getElementById('analysis-grid');
+            
+            const platforms = [
+                { name: 'Website SEO', key: 'website', icon: 'fa-globe', color: 'blue' },
+                { name: 'Facebook Ads', key: 'facebook', icon: 'fa-facebook', color: 'indigo' },
+                { name: 'Instagram Reach', key: 'instagram', icon: 'fa-instagram', color: 'pink' }
+            ];
+
+            const statusHTML = platforms.map(p => {
+                const days = calculateDaysLeft(state.analysisDates[p.key]);
+                return `
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <i class="fab ${p.icon} text-${p.color}-500"></i>
+                            <span class="text-slate-600 text-sm">${p.name}</span>
+                        </div>
+                        <span class="font-bold text-slate-800 text-sm">${days} Days left</span>
+                    </div>
+                `;
+            }).join('');
+
+            const gridHTML = platforms.map(p => {
+                const days = calculateDaysLeft(state.analysisDates[p.key]);
+                const isUrgent = days <= 1;
+                return `
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 -mr-8 -mt-8 bg-${p.color}-500/5 rounded-full"></div>
+                        <i class="fab ${p.icon} text-4xl text-${p.color}-500 mb-4"></i>
+                        <h3 class="font-bold text-slate-800">${p.name} Analysis</h3>
+                        <p class="text-xs text-slate-400 mb-4">5-Day Review Cycle</p>
+                        <div class="flex items-center justify-between mt-6">
+                            <div>
+                                <span class="text-2xl font-bold ${isUrgent ? 'text-red-500' : 'text-slate-800'}">${days} Days</span>
+                                <p class="text-[10px] uppercase font-bold text-slate-400">Remaining</p>
+                            </div>
+                            <button class="px-4 py-2 rounded-xl bg-${p.color}-50 text-${p.color}-600 text-xs font-bold hover:bg-${p.color}-100">Analyze</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            if (statusList) statusList.innerHTML = statusHTML;
+            if (grid) grid.innerHTML = gridHTML;
+        }
+
+        function renderTeam() {
+            const grid = document.getElementById('team-grid');
+            grid.innerHTML = state.team.map(m => `
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="w-16 h-16 bg-slate-100 rounded-2xl mx-auto mb-4 flex items-center justify-center text-xl font-bold text-indigo-600">
+                        ${m.name.charAt(0)}
+                    </div>
+                    <h3 class="font-bold text-slate-800">${m.name}</h3>
+                    <p class="text-xs text-slate-400 mb-6">${m.role}</p>
+                    <div class="flex gap-2 justify-center">
+                        <button class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg">View Tasks</button>
+                        <button class="text-xs font-bold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg">Edit</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- Interaction Handlers ---
+
+        function addNewTask() {
+            const input = document.getElementById('task-input');
+            const assignee = document.getElementById('task-assignee');
+            if (input.value.trim()) {
+                state.tasks.unshift({
+                    id: Date.now(),
+                    text: input.value,
+                    completed: false,
+                    assignee: assignee.value,
+                    category: 'Daily'
+                });
+                input.value = '';
+                renderAll();
+            }
+        }
+
+        function toggleTask(id) {
+            const task = state.tasks.find(t => t.id === id);
+            if (task) task.completed = !task.completed;
+            renderAll();
+        }
+
+        function deleteTask(id) {
+            state.tasks = state.tasks.filter(t => t.id !== id);
+            renderAll();
+        }
+
+        function saveTargets() {
+            state.targets.monthlyCalls = parseInt(document.getElementById('target-calls').value);
+            state.targets.weeklyClients = parseInt(document.getElementById('target-clients').value);
+            showMessage("Targets updated successfully!");
+            switchTab('dashboard');
+        }
+
+        function showMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-2xl shadow-2xl z-[100] animate-bounce";
+            msg.innerHTML = `<i class="fas fa-check-circle text-green-400 mr-2"></i> ${text}`;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
+
+        function renderAll() {
+            renderStats();
+            renderTasks();
+            renderAnalysis();
+            renderTeam();
+        }
+
+        // Init
+        window.onload = () => switchTab('dashboard');
+
+    </script>
+</body>
+</html>
