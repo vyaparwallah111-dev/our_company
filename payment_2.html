@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vyapar Wallah | Secure Payment Gateway</title>
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --bg-light: #f4f7fb;
+            --text-dark: #2c3e50;
+            --border-color: #e1e8f0;
+            --success-green: #0cbd4c;
+            --danger-red: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        /* Prevent selection to avoid unwanted copying */
+        body { background-color: var(--bg-light); color: var(--text-dark); min-height: 100vh; user-select: none; }
+
+        /* =========================================
+           🚀 LAYOUT: SPLIT SCREEN (LEFT FIXED, RIGHT SCROLL)
+           ========================================= */
+        .pg-wrapper {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            box-shadow: 0 0 50px rgba(0,0,0,0.05);
+            align-items: flex-start; /* Ensures they start at top */
+        }
+
+        /* --- 🚀 LEFT SIDE: FIXED (STICKY) INFO --- */
+        .pg-info-side {
+            flex: 1.1;
+            background: linear-gradient(135deg, var(--primary-blue), #052c5c);
+            color: white;
+            padding: 60px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky; /* Makes it stay in place */
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Background Graphic/Pattern */
+        .pg-info-side::after {
+            content: ''; position: absolute; right: -100px; bottom: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,0.05); pointer-events: none;
+        }
+        
+        .info-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; line-height: 1.2; position: relative; z-index: 2;}
+        .info-title span { color: var(--accent-orange); }
+        .info-desc { font-size: 1.1rem; color: #c9dff1; margin-bottom: 40px; position: relative; z-index: 2;}
+
+        .steps-container { display: flex; flex-direction: column; gap: 25px; position: relative; z-index: 2; margin-bottom: 40px;}
+        .step-item { display: flex; align-items: flex-start; gap: 15px; animation: slideIn 0.8s ease forwards; opacity: 0; transform: translateX(-30px); }
+        .step-item:nth-child(1) { animation-delay: 0.2s; }
+        .step-item:nth-child(2) { animation-delay: 0.4s; }
+        .step-item:nth-child(3) { animation-delay: 0.6s; }
+        
+        .step-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--accent-orange); flex-shrink: 0; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); }
+        .step-text h4 { font-size: 1.15rem; margin-bottom: 5px; font-weight: 600; }
+        .step-text p { font-size: 0.9rem; color: #b0cbe8; line-height: 1.5; }
+
+        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+        /* --- 🚀 RIGHT SIDE: SCROLLABLE PAYMENT PORTAL --- */
+        .pg-pay-side {
+            flex: 0.9;
+            padding: 50px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+
+        .payment-box {
+            width: 100%;
+            max-width: 440px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            margin-bottom: 20px; /* Space before support section */
+        }
+
+        /* LOGO & BRANDING HERE */
+        .brand-logo-wrapper { text-align: center; margin-bottom: 25px; border-bottom: 2px solid var(--bg-light); padding-bottom: 20px;}
+        .brand-logo-wrapper img { max-height: 55px; margin-bottom: 10px; }
+        .brand-logo-wrapper h2 { font-size: 1.8rem; color: var(--primary-blue); font-weight: 800; line-height: 1;}
+        .brand-logo-wrapper h2 span { color: var(--accent-orange); }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 18px; position: relative;}
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #555; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; transition: 0.3s; outline: none; background: #fafafa; font-family: 'Poppins', sans-serif;}
+        .form-control:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1); background: white;}
+        select.form-control { cursor: pointer; appearance: none; }
+        .select-icon { position: absolute; right: 15px; top: 42px; color: #888; pointer-events: none;}
+        
+        .amount-wrapper { position: relative; }
+        .amount-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #555; font-size: 1.1rem; }
+        .amount-wrapper input { padding-left: 35px; font-weight: 700; color: var(--primary-blue); font-size: 1.2rem;}
+
+        /* Coupon Section */
+        .coupon-box { background: #fdfdfd; border: 1px dashed #ccc; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .coupon-input-group { display: flex; gap: 10px; }
+        .coupon-input-group input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; text-transform: uppercase; font-weight: 600; outline: none;}
+        .coupon-input-group button { background: var(--text-dark); color: white; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer; font-weight: 600; transition: 0.3s;}
+        .coupon-input-group button:hover { background: var(--primary-blue); }
+        .coupon-input-group button:disabled { background: #ccc; cursor: not-allowed; }
+        .coupon-msg { font-size: 0.85rem; margin-top: 8px; font-weight: 600; display: none; }
+        .msg-success { color: var(--success-green); }
+        .msg-error { color: var(--danger-red); }
+        
+        .final-amount-box { display: flex; justify-content: space-between; align-items: center; background: #e8f0fe; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 700; color: var(--primary-blue); display: none; border-left: 4px solid var(--accent-orange);}
+        .original-price { text-decoration: line-through; color: #888; font-size: 0.9rem; margin-right: 10px; font-weight: 500;}
+
+        /* Buttons */
+        .btn-pay { width: 100%; background: var(--primary-blue); color: white; padding: 16px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; text-decoration: none;}
+        .btn-pay:hover { background: #083c75; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(10, 76, 149, 0.3); }
+        .btn-wa-green { background: #25D366; }
+        .btn-wa-green:hover { background: #1ebd5a; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        .btn-back { background: #f4f4f4; color: #555; }
+        .btn-back:hover { background: #e0e0e0; transform: translateY(0); box-shadow: none;}
+
+        /* Desktop & Mobile QR logic */
+        .desktop-qr-section { text-align: center; border: 2px dashed var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fafafa;}
+        .desktop-qr-section img { width: 220px; height: 220px; margin: 0 auto; display: block; border-radius: 10px; mix-blend-mode: multiply;}
+        .upi-id { font-size: 1rem; font-weight: 700; color: var(--primary-blue); background: #e8f0fe; padding: 8px 15px; border-radius: 5px; display: inline-block; margin-top: 10px; letter-spacing: 0.5px; }
+        
+        .mobile-intent-section { display: none; margin-bottom: 25px; }
+        .btn-upi-app { background: white; border: 2px solid var(--primary-blue); color: var(--primary-blue); width: 100%; padding: 15px; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-align: center; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; }
+        .btn-upi-app i { color: var(--success-green); font-size: 1.3rem;}
+
+        /* Steps */
+        .pay-step { display: none; }
+        .pay-step.active { display: block; animation: fadeIn 0.4s ease; }
+        
+        /* Receipt */
+        .receipt-box { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.02);}
+        .receipt-row { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 10px 0; font-size: 0.95rem; }
+        .receipt-row:last-child { border-bottom: none; }
+        .receipt-row strong { color: var(--text-dark); text-align: right; }
+        .success-icon { font-size: 4.5rem; color: var(--success-green); text-align: center; margin-bottom: 15px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+
+        /* =========================================
+           🚀 RIGHT SIDE FOOTER: SUPPORT & LEGAL
+           ========================================= */
+        .right-footer-wrapper {
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .help-center-box {
+            background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; font-size: 0.9rem; color: #555; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .help-center-box strong { color: var(--primary-blue); display: block; margin-bottom: 5px; font-size: 1.05rem;}
+        .btn-help-wa { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 12px; transition: 0.3s; width: 100%;}
+        .btn-help-wa:hover { background: #1ebd5a; }
+
+        .secure-badge { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; color: var(--success-green); font-weight: 600; margin-top: 10px; }
+        
+        .legal-links { text-align: center; font-size: 0.8rem; color: #777; border-top: 1px solid #dcdcdc; padding-top: 15px; line-height: 1.8;}
+        .legal-links a { color: var(--primary-blue); text-decoration: none; font-weight: 500; margin: 0 5px;}
+        .legal-links a:hover { text-decoration: underline; color: var(--accent-orange); }
+
+        /* 📱 RESPONSIVE */
+        @media(max-width: 992px) {
+            .pg-wrapper { flex-direction: column; }
+            /* Turn off sticky for mobile */
+            .pg-info-side { padding: 40px 5%; text-align: center; position: static; height: auto; }
+            .step-item { flex-direction: column; align-items: center; text-align: center; }
+            
+            .pg-pay-side { padding: 40px 20px; }
+            .payment-box, .right-footer-wrapper { max-width: 100%;}
+            
+            .desktop-qr-section { display: none; }
+            .mobile-intent-section { display: block; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="pg-wrapper">
+        
+        <div class="pg-info-side">
+            <h1 class="info-title">Vyapar Wallah<br><span>Payment Gateway</span></h1>
+            <p class="info-desc">100% Secure & Official Payment Portal. Complete your transaction safely with our encrypted platform.</p>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                    <div class="step-text">
+                        <h4>1. Verify Your Details</h4>
+                        <p>Fill in your business details and the finalized amount. Apply promo code if you have one.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon"><i class="fa-solid fa-qrcode"></i></div>
+                    <div class="step-text">
+                        <h4>2. Scan or Click to Pay</h4>
+                        <p>Scan the secure QR code on desktop or click the UPI button on your mobile to pay instantly.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="step-text">
+                        <h4>3. Instant Confirmation</h4>
+                        <p>Share the screenshot on WhatsApp with one click and get your digital receipt generated immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-pay-side">
+            
+            <div class="payment-box">
+                <div class="brand-logo-wrapper">
+                    <img src="logo.png" alt="Vyapar Wallah" onerror="this.style.display='none'">
+                    <h2>Vyapar<span>Wallah</span></h2>
+                </div>
+
+                <div id="step-1" class="pay-step active">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label>Full Name / Business Name</label>
+                            <input type="text" id="c_name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px;">
+                            <div class="form-group" style="flex: 1;">
+                                <label>WhatsApp Number</label>
+                                <input type="tel" id="c_phone" class="form-control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number" required>
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label>Amount (₹)</label>
+                                <div class="amount-wrapper">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                    <input type="number" id="c_amount" class="form-control" placeholder="0" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Selection</label>
+                            <select id="c_service" class="form-control" required onchange="checkOtherService(this)">
+                                <option value="" disabled selected>-- Select a Service --</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="Landing Page Creation">Landing Page Creation</option>
+                                <option value="Meta Ads Management">Meta Ads Management</option>
+                                <option value="Google Ads Campaign">Google Ads Campaign</option>
+                                <option value="Local SEO & GMB">Local SEO & GMB</option>
+                                <option value="Monthly Retainer">Monthly Digital Marketing Retainer</option>
+                                <option value="Other">Other Services</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        </div>
+                        
+                        <div class="form-group" id="other_service_div" style="display: none;">
+                            <label>Please specify the service</label>
+                            <input type="text" id="c_other_service" class="form-control" placeholder="Type your service name">
+                        </div>
+
+                        <div class="coupon-box">
+                            <label style="font-size: 0.85rem; font-weight: 600; color: #555; display: block; margin-bottom: 8px;"><i class="fa-solid fa-tag" style="color:var(--accent-orange);"></i> Have a Promo Code?</label>
+                            <div class="coupon-input-group">
+                                <input type="text" id="promo_code" placeholder="Enter Code">
+                                <button type="button" id="btn_apply_coupon" onclick="applyCoupon()">Apply</button>
+                            </div>
+                            <div id="coupon_msg" class="coupon-msg"></div>
+                        </div>
+
+                        <div id="final_amount_box" class="final-amount-box">
+                            <span>Total to Pay:</span>
+                            <div>
+                                <span class="original-price" id="disp_original_price"></span>
+                                <span style="font-size: 1.3rem;">₹<span id="disp_final_price"></span></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-pay">Proceed to Pay <i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                </div>
+
+                <div id="step-2" class="pay-step">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 0;">Total Payable Amount</p>
+                        <h2 style="font-size: 2.2rem; color: var(--primary-blue); margin-top: 0;">₹<span id="show_amount"></span></h2>
+                    </div>
+
+                    <div class="mobile-intent-section">
+                        <a href="#" id="mobile_upi_link" class="btn-upi-app">
+                            <i class="fa-solid fa-shield-halved"></i> Pay securely via UPI Apps
+                        </a>
+                        <p style="font-size: 0.75rem; color: #888; text-align: center; margin-top: 8px;">Supports GPay, PhonePe, Paytm, Amazon Pay</p>
+                    </div>
+
+                    <div class="desktop-qr-section">
+                        <p style="font-size: 0.85rem; color: #555; margin-bottom: 10px; font-weight: 600;">Scan QR with any UPI App</p>
+                        <img id="qr_image" src="" alt="Loading QR Code...">
+                        <div class="upi-id" id="show_upi_id"></div> 
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <p style="font-size: 0.85rem; color: #666;">No UTR typing needed. Just click below after payment.</p>
+                    </div>
+
+                    <button type="button" class="btn-pay btn-wa-green" onclick="confirmPaymentWhatsApp()">I Have Paid <i class="fa-brands fa-whatsapp"></i></button>
+                    <button type="button" class="btn-pay btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Change Details</button>
+                </div>
+
+                <div id="step-3" class="pay-step">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 5px;">Payment Initiated!</h2>
+                    <p style="text-align: center; color: #666; font-size: 0.85rem; margin-bottom: 20px;">Share the screenshot on WhatsApp to finalize your receipt.</p>
+
+                    <div class="receipt-box">
+                        <h4 style="text-align: center; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 15px; color: #555;">Provisional Receipt</h4>
+                        <div class="receipt-row"><span>Date:</span> <strong id="r_date"></strong></div>
+                        <div class="receipt-row"><span>Client:</span> <strong id="r_name"></strong></div>
+                        <div class="receipt-row"><span>Service:</span> <strong id="r_service"></strong></div>
+                        <div class="receipt-row"><span>Amount Paid:</span> <strong id="r_amount" style="color:var(--primary-blue);"></strong></div>
+                        <div class="receipt-row"><span>Status:</span> <strong style="color: #ff9800;"><i class="fa-solid fa-clock"></i> Verification Pending</strong></div>
+                    </div>
+
+                    <button class="btn-pay btn-wa-green" onclick="sendScreenshotReminder()"><i class="fa-brands fa-whatsapp"></i> Share Screenshot Now</button>
+                </div>
+            </div>
+
+            <div class="right-footer-wrapper">
+                <div class="help-center-box">
+                    <strong><i class="fa-solid fa-headset"></i> Need Help with Payment?</strong>
+                    <p style="margin-bottom: 5px;">Call: +91 87641492 <br> Email: support@vyaparwallah.com</p>
+                    <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20need%20help%20with%20making%20a%20payment." target="_blank" class="btn-help-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Chat with Support
+                    </a>
+                </div>
+
+                <div class="secure-badge"><i class="fa-solid fa-lock"></i> 256-bit SSL Encrypted Connection</div>
+                
+                <div class="legal-links">
+                    Secured by Vyapar Wallah Technologies Pvt. Ltd.<br>
+                    <a href="terms-and-conditions.html" target="_blank">Terms & Conditions</a> | 
+                    <a href="privacy-policy.html" target="_blank">Privacy Policy</a> <br>
+                    <a href="refund-policy.html" target="_blank">Refund Policy</a> | 
+                    <a href="cancellation-policy.html" target="_blank">Cancellation Policy</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 🚀 SECURITY: Prevent F12, Ctrl+U, Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode == 123 || (event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.keyCode == 85)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        // ⚠️ 1. YOUR UPI DETAILS
+        const YOUR_UPI_ID = "avinashkumarjha8808@ybl"; 
+        const YOUR_BUSINESS_NAME = "Vyapar Wallah";
+        const YOUR_WHATSAPP = "9187641492";
+
+        let finalAmountToPay = 0; 
+        let discountApplied = 0;
+        let isCouponUsed = false; 
+
+        const step1 = document.getElementById('step-1');
+        const step2 = document.getElementById('step-2');
+        const step3 = document.getElementById('step-3');
+
+        function checkOtherService(selectElement) {
+            let otherDiv = document.getElementById('other_service_div');
+            let otherInput = document.getElementById('c_other_service');
+            if(selectElement.value === "Other") {
+                otherDiv.style.display = "block";
+                otherInput.setAttribute("required", "true");
+            } else {
+                otherDiv.style.display = "none";
+                otherInput.removeAttribute("required");
+                otherInput.value = "";
+            }
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const preAmount = urlParams.get('amount');
+            const preService = urlParams.get('service');
+
+            if(preAmount) document.getElementById('c_amount').value = preAmount;
+            if(preService) {
+                let select = document.getElementById('c_service');
+                let exists = false;
+                for(let i = 0; i < select.options.length; i++) {
+                    if(select.options[i].value === preService) {
+                        select.selectedIndex = i;
+                        exists = true; break;
+                    }
+                }
+                if(!exists) {
+                    select.value = "Other";
+                    checkOtherService(select);
+                    document.getElementById('c_other_service').value = preService;
+                }
+            }
+        };
+
+        // 🚀 SMART COUPON VALIDATION (Checks Phone Number)
+        function applyCoupon() {
+            if(isCouponUsed) return; 
+
+            let phoneInput = document.getElementById('c_phone').value.trim();
+            let amountInput = document.getElementById('c_amount').value;
+            let code = document.getElementById('promo_code').value.trim().toUpperCase();
+            let msgBox = document.getElementById('coupon_msg');
+            let btnApply = document.getElementById('btn_apply_coupon');
+            
+            // Check Phone First
+            if(!phoneInput || phoneInput.length < 10) {
+                msgBox.innerText = "Please enter a valid 10-digit WhatsApp Number first.";
+                msgBox.className = "coupon-msg msg-error";
+                msgBox.style.display = "block";
+                return;
+            }
+
+            // Check LocalStorage for Duplicate Use
+            let usedNumbers = JSON.parse(localStorage.getItem('vyapar_used_coupons')) || [];
+            if(usedNumbers.includes(phoneInput)) {
+                msgBox.innerHTML = `❌ <strong>Limit Exceeded:</strong> Offer already claimed on this mobile number.`;
+                msgBox.className = "coupon-msg msg-error";
+                msgBox.style.display = "block";
+                return;
+            }
+
+            if(!amountInput || amountInput <= 0) {
+                msgBox.innerText = "Please enter Payment Amount first.";
+                msgBox.className = "coupon-msg msg-error";
+                msgBox.style.display = "block";
+                return;
+            }
+
+            let baseAmount = parseFloat(amountInput);
+
+            if(code === "WEL26" || code === "VWMT26") {
+                let percentage = (code === "WEL26") ? 0.12 : 0.10;
+                discountApplied = baseAmount * percentage; 
+                finalAmountToPay = baseAmount - discountApplied;
+                
+                msgBox.innerHTML = `🎉 Code Applied! Saved <strong>₹${discountApplied.toFixed(0)}</strong>`;
+                msgBox.className = "coupon-msg msg-success";
+                
+                showFinalAmountBox(baseAmount, finalAmountToPay);
+                
+                isCouponUsed = true;
+                document.getElementById('c_amount').readOnly = true; 
+                document.getElementById('promo_code').readOnly = true;
+                document.getElementById('c_phone').readOnly = true; 
+                btnApply.innerText = "Applied";
+                btnApply.style.background = "#28a745";
+                btnApply.disabled = true;
+
+            } else {
+                msgBox.innerText = "❌ Invalid Promo Code.";
+                msgBox.className = "coupon-msg msg-error";
+            }
+            msgBox.style.display = "block";
+        }
+
+        function showFinalAmountBox(base, final) {
+            document.getElementById('disp_original_price').innerText = "₹" + base.toFixed(2);
+            document.getElementById('disp_final_price').innerText = final.toFixed(2);
+            document.getElementById('final_amount_box').style.display = "flex";
+        }
+
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let baseAmount = parseFloat(document.getElementById('c_amount').value);
+            let phoneInput = document.getElementById('c_phone').value.trim();
+
+            let finalService = document.getElementById('c_service').value;
+            if(finalService === "Other") {
+                finalService = document.getElementById('c_other_service').value;
+            }
+
+            if(!isCouponUsed) { finalAmountToPay = baseAmount; }
+            else {
+                let usedNumbers = JSON.parse(localStorage.getItem('vyapar_used_coupons')) || [];
+                if(!usedNumbers.includes(phoneInput)) {
+                    usedNumbers.push(phoneInput);
+                    localStorage.setItem('vyapar_used_coupons', JSON.stringify(usedNumbers));
+                }
+            }
+            
+            let payableAmount = finalAmountToPay.toFixed(2);
+            document.getElementById('paymentForm').dataset.finalService = finalService;
+
+            document.getElementById('show_amount').innerText = payableAmount;
+            document.getElementById('show_upi_id').innerText = YOUR_UPI_ID;
+
+            let upiString = `upi://pay?pa=${YOUR_UPI_ID}&pn=${encodeURIComponent(YOUR_BUSINESS_NAME)}&am=${payableAmount}&cu=INR`;
+            
+            document.getElementById('qr_image').src = `https://quickchart.io/qr?size=250&margin=1&text=${encodeURIComponent(upiString)}`;
+            document.getElementById('mobile_upi_link').href = upiString;
+
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            window.scrollTo(0,0); // Scroll to top
+        });
+
+        function goBack() {
+            step2.classList.remove('active');
+            step1.classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function confirmPaymentWhatsApp() {
+            let name = document.getElementById('c_name').value;
+            let service = document.getElementById('paymentForm').dataset.finalService;
+            let amountPaid = finalAmountToPay.toFixed(2);
+            let date = new Date().toLocaleDateString('en-IN');
+
+            document.getElementById('r_date').innerText = date;
+            document.getElementById('r_name').innerText = name;
+            document.getElementById('r_service').innerText = service;
+            document.getElementById('r_amount').innerText = '₹' + amountPaid;
+
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#0A4C95', '#F37021', '#28a745'] });
+
+            let waMsg = `Hi Vyapar Wallah,\n\nI have initiated a payment of *₹${amountPaid}* for *${service}*.\n\nHere is my payment screenshot: [Please Attach Image]`;
+            
+            step2.classList.remove('active');
+            step3.classList.add('active');
+            window.scrollTo(0,0);
+
+            setTimeout(() => {
+                window.open(`https://wa.me/${YOUR_WHATSAPP}?text=${encodeURIComponent(waMsg)}`, '_blank');
+            }, 1500); 
+        }
+
+        function sendScreenshotReminder() {
+            let waMsg = `Here is my payment screenshot for verification.`;
+            window.open(`https://wa.me/${YOUR_WHATSAPP}?text=${encodeURIComponent(waMsg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

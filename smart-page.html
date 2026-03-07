@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Website Details | Vyapar Wallah Dashboard</title>
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0A4C95; /* Vyapar Wallah Blue */
+            --accent-orange: #F37021; /* Vyapar Wallah Orange */
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --bg-light-blue: #f4f7fb; /* Smart Page Background from screenshot */
+            --warning-bg: #fdf5e6; /* Yellowish warning box */
+            --warning-border: #f0e6d2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #ffffff; color: var(--text-dark); line-height: 1.6; }
+
+        /* --- DASHBOARD CONTAINER --- */
+        .dashboard-wrapper {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            font-size: 1.8rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* --- WARNING COMPLIANCE BOX --- */
+        .warning-box {
+            background-color: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        .warning-text {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .warning-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            list-style: none;
+        }
+        .warning-list li {
+            color: #4a5568;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        .warning-list li::before {
+            content: "•";
+            color: #d97706; /* Golden/Orange bullet */
+            font-size: 1.5rem;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        /* --- SMART PAGE SECTION --- */
+        .smart-page-container {
+            background-color: var(--bg-light-blue);
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .sp-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .sp-subtitle {
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        /* --- CARDS GRID --- */
+        .sp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .sp-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: left;
+            transition: 0.3s;
+        }
+        .sp-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        
+        .sp-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .sp-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .sp-card ul li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .sp-card ul li::before {
+            content: "•";
+            color: #d97706; /* Golden/Orange bullet */
+            font-size: 1.5rem;
+            margin-right: 10px;
+            line-height: 0.8;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media(max-width: 768px) {
+            .dashboard-wrapper { margin: 30px auto; }
+            .warning-list { grid-template-columns: 1fr; } /* Stack bullets on mobile */
+            .smart-page-container { padding: 40px 20px; }
+            .sp-grid { grid-template-columns: 1fr; } /* Stack cards on mobile */
+            .sp-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="dashboard-wrapper">
+        
+        <h2 class="page-title">Website Details</h2>
+
+        <div class="warning-box">
+            <p class="warning-text">Your website is not compliant with RBI policies to collect online payments. Having a compliant website makes you eligible to collect payments in a hassle free manner</p>
+            <ul class="warning-list">
+                <li>3x Faster approval</li>
+                <li>Fewer documents required</li>
+                <li>Higher chances of approval</li>
+                <li>Access to multiple payment modes</li>
+            </ul>
+        </div>
+
+        <div class="smart-page-container">
+            <div class="icon-circle">
+                <i class="fa-solid fa-table-columns"></i> </div>
+            
+            <h2 class="sp-title">Smart Page</h2>
+            <p class="sp-subtitle">Create your payment landing page in just 5 min for Free!</p>
+
+            <div class="sp-grid">
+                <div class="sp-card">
+                    <h3>Quick Setup</h3>
+                    <ul>
+                        <li>5 min setup time</li>
+                        <li>No code needed</li>
+                    </ul>
+                </div>
+                
+                <div class="sp-card">
+                    <h3>PG Compliance</h3>
+                    <ul>
+                        <li>PCI DSS compliant Checkout</li>
+                        <li>Necessary policies</li>
+                    </ul>
+                </div>
+
+                <div class="sp-card">
+                    <h3>Automation</h3>
+                    <ul>
+                        <li>Webhook</li>
+                        <li>Smart workflows</li>
+                    </ul>
+                </div>
+
+                <div class="sp-card">
+                    <h3>Customise</h3>
+                    <ul>
+                        <li>Custom branding</li>
+                        <li>Advanced code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Header & Footer
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+        
+        function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
+    </script>
+
+</body>
+</html>

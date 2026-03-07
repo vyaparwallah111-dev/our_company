@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment | Vyapar Wallah</title>
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --bg-light: #f4f7fb;
+            --text-dark: #333;
+            --border-color: #e1e5eb;
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+
+        .payment-container {
+            background: white; width: 100%; max-width: 450px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); overflow: hidden; position: relative;
+        }
+        
+        .pay-header {
+            background: var(--primary-blue); padding: 25px 20px; text-align: center; color: white;
+        }
+        .pay-header h1 { font-size: 1.8rem; font-weight: 800; }
+        .pay-header h1 span { color: var(--accent-orange); }
+        .pay-header p { font-size: 0.9rem; color: #c9dff1; margin-top: 5px; }
+
+        .pay-body { padding: 30px 25px; }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #555; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; transition: 0.3s; outline: none; }
+        .form-control:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1); }
+        
+        .amount-wrapper { position: relative; }
+        .amount-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #555; font-size: 1.1rem; }
+        .amount-wrapper input { padding-left: 35px; font-weight: 700; color: var(--primary-blue); }
+
+        /* 🚀 NEW: COUPON CODE SECTION */
+        .coupon-box {
+            background: #f9f9f9; border: 1px dashed #ccc; padding: 15px; border-radius: 8px; margin-bottom: 20px;
+        }
+        .coupon-input-group { display: flex; gap: 10px; }
+        .coupon-input-group input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; text-transform: uppercase; font-weight: 600;}
+        .coupon-input-group button { background: var(--text-dark); color: white; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer; font-weight: 600; transition: 0.3s;}
+        .coupon-input-group button:hover { background: black; }
+        
+        .coupon-msg { font-size: 0.85rem; margin-top: 8px; font-weight: 600; display: none; }
+        .msg-success { color: var(--success-green); }
+        .msg-error { color: var(--danger-red); }
+        
+        /* Final Amount Box */
+        .final-amount-box { display: flex; justify-content: space-between; align-items: center; background: #e8f0fe; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 700; color: var(--primary-blue); display: none; }
+        .original-price { text-decoration: line-through; color: #888; font-size: 0.9rem; margin-right: 10px; font-weight: 500;}
+
+        .btn-pay { width: 100%; background: var(--accent-orange); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; }
+        .btn-pay:hover { background: #d95e17; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3); }
+
+        /* Legal Links */
+        .legal-links { text-align: center; margin-top: 20px; font-size: 0.8rem; color: #888; border-top: 1px solid var(--border-color); padding-top: 15px; }
+        .legal-links a { color: var(--primary-blue); text-decoration: none; font-weight: 500; }
+        .legal-links a:hover { text-decoration: underline; }
+        .secure-badge { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; color: var(--success-green); font-weight: 600; margin-top: 15px; }
+
+        /* Sections Toggle */
+        .step { display: none; }
+        .step.active { display: block; animation: fadeIn 0.4s ease; }
+        
+        /* QR Section */
+        .qr-box { text-align: center; border: 2px dashed var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 20px; position: relative; min-height: 250px;}
+        .qr-box img { width: 220px; height: 220px; margin: 0 auto; display: block; border-radius: 10px; }
+        .upi-id { font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); background: #e8f0fe; padding: 8px 15px; border-radius: 5px; display: inline-block; margin-top: 15px; letter-spacing: 0.5px; user-select: all; }
+        
+        /* Receipt Section */
+        .receipt-box { background: #fcfcfc; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: left; }
+        .receipt-row { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 10px 0; font-size: 0.95rem; }
+        .receipt-row:last-child { border-bottom: none; }
+        .receipt-row strong { color: var(--text-dark); }
+        .success-icon { font-size: 4rem; color: var(--success-green); text-align: center; margin-bottom: 15px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Print CSS */
+        @media print {
+            body { background: white; }
+            .btn-pay, .legal-links, .secure-badge { display: none; }
+            .payment-container { box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+        <div class="pay-header">
+            <h1>Vyapar<span>Wallah</span></h1>
+            <p>Official Payment Portal</p>
+        </div>
+
+        <div class="pay-body">
+            
+            <div id="step-1" class="step active">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label>Full Name / Business Name</label>
+                        <input type="text" id="c_name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number</label>
+                        <input type="tel" id="c_phone" class="form-control" placeholder="+91" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select id="c_service" class="form-control" required>
+                            <option value="">Select Service...</option>
+                            <option value="Website Development">Website Development</option>
+                            <option value="Digital Marketing Retainer">Digital Marketing Retainer</option>
+                            <option value="Ad Campaign Setup">Ad Campaign Setup</option>
+                            <option value="Other">Other Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Amount (₹)</label>
+                        <div class="amount-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            <input type="number" id="c_amount" class="form-control" placeholder="e.g. 5000" onkeyup="resetCoupon()" required>
+                        </div>
+                    </div>
+
+                    <div class="coupon-box">
+                        <label style="font-size: 0.85rem; font-weight: 600; color: #555; display: block; margin-bottom: 8px;">Have a Promo Code?</label>
+                        <div class="coupon-input-group">
+                            <input type="text" id="promo_code" placeholder="Enter Code">
+                            <button type="button" onclick="applyCoupon()">Apply</button>
+                        </div>
+                        <div id="coupon_msg" class="coupon-msg"></div>
+                    </div>
+
+                    <div id="final_amount_box" class="final-amount-box">
+                        <span>Total to Pay:</span>
+                        <div>
+                            <span class="original-price" id="disp_original_price"></span>
+                            <span style="font-size: 1.3rem;">₹<span id="disp_final_price"></span></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-pay">Proceed to Pay <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+
+            <div id="step-2" class="step">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-blue);">Scan to Pay</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Paying for <strong id="show_service"></strong></p>
+                    <h2 style="font-size: 2rem; color: var(--accent-orange); margin-top: 5px;">₹<span id="show_amount"></span></h2>
+                </div>
+
+                <div class="qr-box">
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">Open GPay, PhonePe or Paytm</p>
+                    <img id="qr_image" src="" alt="Loading QR Code...">
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">Or use UPI ID:</p>
+                    <div class="upi-id" id="show_upi_id"></div> 
+                </div>
+
+                <div class="form-group">
+                    <label>Enter UTR / Transaction ID (12 Digits)</label>
+                    <input type="text" id="c_utr" class="form-control" placeholder="e.g. 301234567890" required>
+                </div>
+                <button type="button" class="btn-pay" onclick="verifyPayment()">Submit & Get Receipt <i class="fa-solid fa-file-invoice"></i></button>
+                <button type="button" class="btn-pay" style="background: #f4f4f4; color: #555; margin-top: 10px;" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
+            </div>
+
+            <div id="step-3" class="step">
+                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 10px;">Payment Submitted!</h2>
+                <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 20px;">Your payment details have been sent for verification.</p>
+
+                <div class="receipt-box" id="print-area">
+                    <h4 style="text-align: center; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 15px;">Digital Receipt</h4>
+                    <div class="receipt-row"><span>Date:</span> <strong id="r_date"></strong></div>
+                    <div class="receipt-row"><span>Name:</span> <strong id="r_name"></strong></div>
+                    <div class="receipt-row"><span>Service:</span> <strong id="r_service"></strong></div>
+                    <div class="receipt-row"><span>Amount Paid:</span> <strong id="r_amount" style="color:var(--accent-orange);"></strong></div>
+                    <div class="receipt-row"><span>UTR / Ref No:</span> <strong id="r_utr"></strong></div>
+                    <div class="receipt-row"><span>Status:</span> <strong style="color: #ff9800;">Pending Verification</strong></div>
+                </div>
+
+                <button class="btn-pay" onclick="window.print()" style="background: var(--primary-blue);"><i class="fa-solid fa-download"></i> Download / Print Receipt</button>
+                <a href="index.html" class="btn-pay" style="background: #f4f4f4; color: #555; margin-top: 10px; text-decoration: none;">Return to Home</a>
+            </div>
+
+            <div class="secure-badge"><i class="fa-solid fa-shield-halved"></i> 100% Secure & Encrypted Payment</div>
+            <div class="legal-links">
+                By proceeding, you agree to our <br>
+                <a href="terms-and-conditions.html" target="_blank">Terms & Conditions</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ⚠️ 1. YOUR DETAILS
+        const YOUR_UPI_ID = "avinashjha8808@ybl"; 
+        const YOUR_BUSINESS_NAME = "Vyapar Wallah";
+
+        // Global Variables
+        let finalAmountToPay = 0; 
+        let discountApplied = 0;
+
+        const step1 = document.getElementById('step-1');
+        const step2 = document.getElementById('step-2');
+        const step3 = document.getElementById('step-3');
+
+        // 🚀 COUPON LOGIC
+        function applyCoupon() {
+            let amountInput = document.getElementById('c_amount').value;
+            let code = document.getElementById('promo_code').value.trim().toUpperCase();
+            let msgBox = document.getElementById('coupon_msg');
+            let finalBox = document.getElementById('final_amount_box');
+            
+            if(!amountInput || amountInput <= 0) {
+                msgBox.innerText = "Please enter Payment Amount first.";
+                msgBox.className = "coupon-msg msg-error";
+                msgBox.style.display = "block";
+                return;
+            }
+
+            let baseAmount = parseFloat(amountInput);
+
+            // Validating Codes
+            if(code === "WEL26") {
+                discountApplied = baseAmount * 0.12; // 12% OFF
+                finalAmountToPay = baseAmount - discountApplied;
+                
+                msgBox.innerText = "🎉 WEL26 Applied! 12% Discount Added.";
+                msgBox.className = "coupon-msg msg-success";
+                
+                showFinalAmountBox(baseAmount, finalAmountToPay);
+
+            } else if(code === "VWMT26") {
+                discountApplied = baseAmount * 0.10; // 10% OFF
+                finalAmountToPay = baseAmount - discountApplied;
+                
+                msgBox.innerText = "🎉 VWMT26 Applied! 10% Discount Added.";
+                msgBox.className = "coupon-msg msg-success";
+                
+                showFinalAmountBox(baseAmount, finalAmountToPay);
+
+            } else {
+                msgBox.innerText = "❌ Invalid or Expired Promo Code.";
+                msgBox.className = "coupon-msg msg-error";
+                resetCoupon();
+            }
+            msgBox.style.display = "block";
+        }
+
+        function showFinalAmountBox(base, final) {
+            document.getElementById('disp_original_price').innerText = "₹" + base.toFixed(2);
+            document.getElementById('disp_final_price').innerText = final.toFixed(2);
+            document.getElementById('final_amount_box').style.display = "flex";
+        }
+
+        function resetCoupon() {
+            discountApplied = 0;
+            finalAmountToPay = parseFloat(document.getElementById('c_amount').value) || 0;
+            document.getElementById('final_amount_box').style.display = "none";
+            document.getElementById('promo_code').value = "";
+            document.getElementById('coupon_msg').style.display = "none";
+        }
+
+        // 🚀 FORM SUBMIT & QR GENERATION
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let service = document.getElementById('c_service').value;
+            let baseAmount = parseFloat(document.getElementById('c_amount').value);
+            
+            // If no coupon applied, final amount is base amount
+            if(discountApplied === 0) { finalAmountToPay = baseAmount; }
+
+            // Rounding off to 2 decimal places for UPI
+            let payableAmount = finalAmountToPay.toFixed(2);
+
+            // Show details on Step 2
+            document.getElementById('show_service').innerText = service;
+            document.getElementById('show_amount').innerText = payableAmount;
+            document.getElementById('show_upi_id').innerText = YOUR_UPI_ID;
+
+            // Generate Dynamic UPI Link using QuickChart API (100% Reliable)
+            let upiString = `upi://pay?pa=${YOUR_UPI_ID}&pn=${encodeURIComponent(YOUR_BUSINESS_NAME)}&am=${payableAmount}&cu=INR`;
+            let qrImageUrl = `https://quickchart.io/qr?size=250&margin=1&text=${encodeURIComponent(upiString)}`;
+            
+            document.getElementById('qr_image').src = qrImageUrl;
+
+            // Switch Steps
+            step1.classList.remove('active');
+            step2.classList.add('active');
+        });
+
+        function goBack() {
+            step2.classList.remove('active');
+            step1.classList.add('active');
+        }
+
+        // 🚀 SUBMIT UTR -> WHATSAPP NOTIFICATION
+        function verifyPayment() {
+            let utr = document.getElementById('c_utr').value;
+            if(utr.length < 5) {
+                alert("Please enter a valid UTR or Transaction ID.");
+                return;
+            }
+
+            let name = document.getElementById('c_name').value;
+            let phone = document.getElementById('c_phone').value;
+            let service = document.getElementById('c_service').value;
+            let date = new Date().toLocaleDateString('en-IN');
+            let amountPaid = finalAmountToPay.toFixed(2);
+
+            // Fill Receipt
+            document.getElementById('r_date').innerText = date;
+            document.getElementById('r_name').innerText = name;
+            document.getElementById('r_service').innerText = service;
+            document.getElementById('r_amount').innerText = '₹' + amountPaid;
+            document.getElementById('r_utr').innerText = utr;
+
+            // Send Notification to Your WhatsApp automatically
+            let adminPhone = "9187641492"; 
+            let waMsg = `🚨 *NEW PAYMENT SUBMITTED* 🚨\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Amount Paid:* ₹${amountPaid}\n*Discount Applied:* ₹${discountApplied.toFixed(2)}\n*UTR No:* ${utr}\n\n_Please verify in your Bank App._`;
+            
+            step2.classList.remove('active');
+            step3.classList.add('active');
+
+            setTimeout(() => {
+                window.open(`https://wa.me/${adminPhone}?text=${encodeURIComponent(waMsg)}`, '_blank');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

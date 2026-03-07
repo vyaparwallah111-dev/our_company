@@ -1,445 +1,889 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Vyapar Wallah is Bihar's top healthcare digital marketing agency. We provide SEO for doctors, hospital digital marketing, and patient lead generation.">
-    
+
+   
+
     <title>Digital Marketing for Doctors in Bihar | Get More Patients Online</title>
-    
+
+   
+
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-    
+
+   
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+   
+
     <style>
+
         :root {
+
             --primary-blue: #0A4C95;
+
             --accent-orange: #F37021;
+
             --highlight-green: #00A651;
+
             --danger-red: #e74c3c;
+
             --bg-light: #f8fcfb;
+
             --text-dark: #2c3e50;
+
             --hospital-blue: #e8f4fd;
+
         }
+
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
         body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
 
+
+
         /* --- BUTTONS & TITLES --- */
+
         .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4); cursor: pointer; }
+
         .btn-main:hover { background: #d95e17; transform: translateY(-3px); }
+
         .section-header { text-align: center; margin-bottom: 50px; }
+
         .section-header h2 { font-size: 2.5rem; color: var(--primary-blue); font-weight: 800; }
+
         .section-header p { color: #666; font-size: 1.1rem; margin-top: 10px; max-width: 700px; margin-inline: auto; }
 
+
+
         /* --- HERO SECTION --- */
+
         .medical-hero { background: linear-gradient(rgba(10, 76, 149, 0.85), rgba(5, 44, 92, 0.9)), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80') center/cover; padding: 100px 5% 80px; text-align: center; color: white; position: relative; }
+
         .medical-hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
         .medical-hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #eef2f5; font-weight: 400; }
+
         .trust-badges { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+
         .badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); }
 
+
+
         /* --- INTRO SECTION --- */
+
         .intro-section { padding: 80px 5%; background: var(--hospital-blue); text-align: center; }
+
         .intro-box { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-blue); }
+
         .intro-box p { font-size: 1.15rem; color: #444; line-height: 1.8; margin-bottom: 20px; }
+
         .intro-box p strong { color: var(--primary-blue); }
 
+
+
         /* --- 6+ SERVICES GRID --- */
+
         .services-section { padding: 80px 5%; background: white; }
+
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+
         .med-service-card { padding: 35px 25px; border-radius: 15px; background: #fff; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.3s; position: relative; overflow: hidden; text-align: center; }
+
         .med-service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1); border-color: var(--highlight-green); }
+
         .med-service-card i { font-size: 2.5rem; color: var(--highlight-green); margin-bottom: 20px; }
+
         .med-service-card h3 { font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
+
         .med-service-card p { color: #555; font-size: 0.95rem; }
 
+
+
         /* --- HOW CLINICS GROW (BEFORE VS AFTER) --- */
+
         .growth-section { padding: 80px 5%; background: var(--bg-light); }
+
         .ba-container { display: flex; gap: 30px; max-width: 1000px; margin: auto; flex-wrap: wrap; }
+
         .ba-box { flex: 1; min-width: 300px; padding: 40px; border-radius: 20px; position: relative; overflow: hidden; }
+
         .ba-before { background: #fff0f0; border: 2px solid #ffcccc; }
+
         .ba-after { background: #f0fff4; border: 2px solid #ccffdc; box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15); }
+
         .ba-box h3 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
         .ba-before h3 { color: var(--danger-red); }
+
         .ba-after h3 { color: var(--highlight-green); }
+
         .ba-box ul { list-style: none; }
+
         .ba-box li { margin-bottom: 15px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 10px; color: #444; }
+
         .ba-before li i { color: var(--danger-red); margin-top: 5px; }
+
         .ba-after li i { color: var(--highlight-green); margin-top: 5px; }
 
+
+
         /* --- COMPARISON SECTION (Vyapar Wallah vs Others) --- */
+
         .comparison-section { padding: 80px 5%; background: white; }
+
         .comp-table { width: 100%; max-width: 1000px; margin: auto; border-collapse: collapse; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; }
+
         .comp-table th, .comp-table td { padding: 20px; text-align: left; border-bottom: 1px solid #eee; }
+
         .comp-table th { background: var(--primary-blue); color: white; font-size: 1.2rem; }
+
         .comp-table th:nth-child(2) { background: var(--accent-orange); } /* VW Column */
+
         .comp-table tr:hover { background: #f8fcfb; }
+
         .comp-table td:first-child { font-weight: 600; color: var(--primary-blue); width: 40%; }
+
         .vw-col { background: rgba(243, 112, 33, 0.05); font-weight: 600; color: #333; }
+
         .comp-table i.fa-check { color: var(--highlight-green); font-size: 1.2rem; }
+
         .comp-table i.fa-xmark { color: var(--danger-red); font-size: 1.2rem; }
 
+
+
         /* --- WHY VYAPAR WALLAH (ABOUT) --- */
+
         .why-vw-section { padding: 80px 5%; background: var(--primary-blue); color: white; text-align: center; }
+
         .why-vw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
+
         .why-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+
         .why-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
+
         .why-card h4 { font-size: 1.2rem; margin-bottom: 10px; }
 
+
+
         /* --- GOOGLE REVIEWS SECTION --- */
+
         .reviews-section { background: var(--bg-light); padding: 80px 5%; position: relative; overflow: hidden; }
+
         .testimonial-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 20px 10px; -ms-overflow-style: none; scrollbar-width: none; max-width: 1200px; margin: auto; }
+
         .testimonial-track::-webkit-scrollbar { display: none; }
+
         .review-card { flex: 0 0 calc(33.33% - 15px); scroll-snap-align: start; background: white; padding: 20px 24px; border-radius: 8px; border: 1px solid #e8eaed; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+
         .g-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+
         .g-header img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+
         .g-user-info strong { color: #202124; font-size: 0.95rem; font-weight: 500; display: block;}
+
         .g-date { color: #70757a; font-size: 0.8rem; }
+
         .g-stars { color: #fbbc04; font-size: 14px; margin-bottom: 10px; }
+
         .review-text { font-size: 0.9rem; color: #202124; line-height: 1.5; }
 
+
+
         /* --- LEAD MAGNET (PLAYBOOK) --- */
+
         .lead-magnet { padding: 80px 5%; background: #fff; display: flex; justify-content: center; }
+
         .magnet-box { max-width: 1000px; width: 100%; background: linear-gradient(to right, #fef4ec 0%, #fff 100%); border: 1px solid rgba(243, 112, 33, 0.2); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(243, 112, 33, 0.08); }
+
         .magnet-text { flex: 1.2; }
+
         .magnet-text h3 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 15px; }
+
         .magnet-form { flex: 1; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
         .magnet-form input { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
+
         .magnet-form button { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; }
 
+
+
         /* --- FAQ SECTION --- */
+
         .faq-section { padding: 80px 5%; background: var(--hospital-blue); }
+
         .faq-container { max-width: 800px; margin: auto; }
+
         .faq-item { background: white; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; }
+
         .faq-question { padding: 20px; font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-in-out; color: #555; }
+
         .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 500px; }
+
         .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent-orange); }
 
+
+
         /* --- SCROLL TRIGGER POPUP --- */
+
         .discount-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 76, 149, 0.85); backdrop-filter: blur(8px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+
         .discount-popup-overlay.show { opacity: 1; pointer-events: all; }
+
         .discount-popup-box { background: white; width: 90%; max-width: 800px; border-radius: 20px; display: flex; box-shadow: 0 30px 60px rgba(0,0,0,0.4); transform: scale(0.8) translateY(50px); transition: 0.5s; position: relative; overflow: hidden;}
+
         .discount-popup-overlay.show .discount-popup-box { transform: scale(1) translateY(0); }
+
         .close-popup { position: absolute; top: 15px; right: 15px; background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
         .popup-content { padding: 50px 40px; text-align: center; width: 100%; }
 
+
+
         /* Responsive */
+
         @media(max-width: 992px) {
+
             .review-card { flex: 0 0 calc(50% - 10px); }
+
             .magnet-box { flex-direction: column; }
+
         }
+
         @media(max-width: 768px) {
+
             .medical-hero h1 { font-size: 2.2rem; }
+
             .section-header h2 { font-size: 1.8rem; }
+
             .comp-table th, .comp-table td { padding: 12px 10px; font-size: 0.9rem; }
+
             .review-card { flex: 0 0 100%; }
+
         }
+
     </style>
+
 </head>
+
 <body>
+
+
 
     <div id="header-placeholder"></div>
 
+
+
     <section class="medical-hero">
+
         <div class="trust-badges">
+
             <div class="badge"><i class="fa-solid fa-user-doctor"></i> For Doctors & Clinics</div>
+
             <div class="badge"><i class="fa-solid fa-location-dot"></i> #1 in Bihar</div>
+
         </div>
+
         <h1>Digital Marketing Services for Doctors & Clinics</h1>
+
         <p>As a leading <strong>healthcare digital marketing agency</strong>, we help medical professionals in Bihar dominate local search and get predictable patient walk-ins.</p>
+
         <a href="#contact" class="btn-main">Get Your Free Clinic Audit <i class="fa-brands fa-whatsapp"></i></a>
+
     </section>
+
+
 
     <section class="intro-section">
+
         <div class="intro-box">
+
             <p>अगर आप अपने clinic या hospital में ज्यादा patients लाना चाहते हैं तो <strong>digital marketing for doctors</strong> सबसे effective strategy है।</p>
+
             <p>हम doctors और hospitals के लिए <strong>SEO, Google ranking</strong> और <strong>patient lead generation services</strong> provide करते हैं। चाहे आप पटना में हों या मुजफ्फरपुर में, हमारी <strong>medical marketing agency</strong> आपको टॉप पर लाएगी।</p>
+
         </div>
+
     </section>
+
+
 
     <section class="services-section">
+
         <div class="section-header">
+
             <h2>Complete Doctor Marketing Services</h2>
+
             <p>We provide a 360-degree digital ecosystem tailored for healthcare professionals.</p>
+
         </div>
+
+
 
         <div class="service-grid">
+
             <div class="med-service-card">
+
                 <i class="fa-solid fa-magnifying-glass-location"></i>
+
                 <h3>SEO for Doctors & Clinics</h3>
+
                 <p>We optimize your Google My Business and website so you appear first when patients search for local specialists. Dominating <strong>seo for clinics</strong> is our core strength.</p>
+
             </div>
+
             <div class="med-service-card">
+
                 <i class="fa-solid fa-users-medical"></i>
+
                 <h3>Patient Generation Ads</h3>
+
                 <p>We run highly targeted Facebook and Google Ads that drive genuine <strong>patient lead generation for doctors</strong> directly to your appointment desk.</p>
+
             </div>
+
             <div class="med-service-card">
+
                 <i class="fa-solid fa-hospital"></i>
+
                 <h3>Hospital Digital Marketing</h3>
+
                 <p>Build a premium brand image. We create informative videos, patient testimonials, and aesthetic posts to build trust among the local community.</p>
+
             </div>
+
             <div class="med-service-card">
+
                 <i class="fa-solid fa-globe"></i>
+
                 <h3>Clinic Website Development</h3>
+
                 <p>A fast, mobile-friendly website acts as your 24/7 digital clinic. We build SEO-optimized sites with integrated appointment booking systems.</p>
+
             </div>
+
             <div class="med-service-card">
+
                 <i class="fa-solid fa-star-half-stroke"></i>
+
                 <h3>Reputation Management</h3>
+
                 <p>Online reviews can make or break a clinic. Our <strong>doctor marketing services</strong> include automated systems to get genuine 5-star reviews from happy patients.</p>
+
             </div>
+
             <div class="med-service-card">
+
                 <i class="fa-brands fa-whatsapp"></i>
+
                 <h3>WhatsApp Automation</h3>
+
                 <p>Never miss an inquiry. We set up automated WhatsApp bots to answer patient queries, share clinic timings, and send follow-up reminders.</p>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <section class="growth-section">
+
         <div class="section-header">
+
             <h2>How Hospitals Grow With Vyapar Wallah</h2>
+
             <p>See the real transformation of clinics that switch to professional <strong>online marketing for doctors</strong>.</p>
+
         </div>
-        
+
+       
+
         <div class="ba-container">
+
             <div class="ba-box ba-before">
+
                 <h3><i class="fa-solid fa-circle-xmark"></i> The Old Way (Struggling)</h3>
+
                 <ul>
+
                     <li><i class="fa-solid fa-xmark"></i> Dependent only on offline referrals & word of mouth.</li>
+
                     <li><i class="fa-solid fa-xmark"></i> Invisible on Google Maps when patients search.</li>
+
                     <li><i class="fa-solid fa-xmark"></i> No system to track inquiries or follow-ups.</li>
+
                     <li><i class="fa-solid fa-xmark"></i> Empty waiting rooms during off-seasons.</li>
+
                 </ul>
+
             </div>
+
             <div class="ba-box ba-after">
+
                 <h3><i class="fa-solid fa-circle-check"></i> With Vyapar Wallah (Growing)</h3>
+
                 <ul>
+
                     <li><i class="fa-solid fa-check"></i> Predictable daily OPD walk-ins via targeted ads.</li>
+
                     <li><i class="fa-solid fa-check"></i> Ranking #1 on Google Maps in your city.</li>
+
                     <li><i class="fa-solid fa-check"></i> Automated WhatsApp appointment bookings.</li>
+
                     <li><i class="fa-solid fa-check"></i> Strong reputation with hundreds of 5-star reviews.</li>
+
                 </ul>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <section class="comparison-section">
+
         <div class="section-header">
+
             <h2>Vyapar Wallah vs Local Agencies</h2>
+
             <p>Why top doctors choose us over generic marketing freelancers.</p>
+
         </div>
-        
+
+       
+
         <table class="comp-table">
+
             <tr>
+
                 <th>Features</th>
+
                 <th>Vyapar Wallah (Experts)</th>
+
                 <th>Other Generic Agencies</th>
+
             </tr>
+
             <tr>
+
                 <td>Main Focus</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Patient Walk-ins & ROI</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Just "Likes" and "Views"</td>
+
             </tr>
+
             <tr>
+
                 <td>Healthcare Knowledge</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Understands Medical Guidelines</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Uses irrelevant meme content</td>
+
             </tr>
+
             <tr>
+
                 <td>Lead Generation</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Advanced Google Search Ads</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Basic Facebook Boost Button</td>
+
             </tr>
+
             <tr>
+
                 <td>Support System</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Dedicated Account Manager</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Hard to reach freelancers</td>
+
             </tr>
 
+
+
              <tr>
+
                 <td>Medical Compliance</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Follows Medical Council Guidelines</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Risky Promotional Claims</td>
+
             </tr>
 
+
+
              <tr>
+
                 <td>Appointment Leads</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Real Patient Appointment Leads</td>
+
                 <td><i class="fa-solid fa-xmark"></i> Random Traffic</td>
 
+
+
             <tr>
+
                 <td>Appointment Leads</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Rank Clinic in Local Search</td>
+
                 <td><i class="fa-solid fa-xmark"></i> No Local SEO Strategy</td>
 
+
+
             <tr>
+
                 <td>Patient Reviews</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> More 5⭐ Google Reviews</td>
+
                 <td><i class="fa-solid fa-xmark"></i>No Review Strategy</td>
-            
+
+           
+
             <tr>
+
                 <td>Medical Content</td>
+
                 <td class="vw-col"><i class="fa-solid fa-check"></i> Doctor-friendly Educational Content</td>
+
                 <td><i class="fa-solid fa-xmark"></i>Generic Social Media Posts</td>
+
         </table>
+
     </section>
+
+
 
     <section class="why-vw-section">
+
         <h2>Why Choose Vyapar Wallah?</h2>
+
         <p style="color: #c9dff1; max-width: 700px; margin: 10px auto;">We are not just a marketing agency; we are your digital growth partners deeply rooted in Bihar's business ecosystem.</p>
-        
+
+       
+
         <div class="why-vw-grid">
+
             <div class="why-card">
+
                 <i class="fa-solid fa-chart-line"></i>
+
                 <h4>Data-Driven Results</h4>
+
                 <p>Every rupee spent is tracked. We focus on low Cost-Per-Acquisition (CPA) for your clinic.</p>
+
             </div>
+
             <div class="why-card">
+
                 <i class="fa-solid fa-handshake-angle"></i>
+
                 <h4>Local Expertise</h4>
+
                 <p>We understand the patient psychology of Bihar, helping you connect emotionally with locals.</p>
+
             </div>
+
             <div class="why-card">
+
                 <i class="fa-solid fa-shield-heart"></i>
+
                 <h4>100% Transparency</h4>
+
                 <p>No hidden costs. Clear monthly reports on leads generated and ad spend utilized.</p>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <section class="reviews-section">
+
         <div class="section-header">
+
             <h2>Trusted by Medical Professionals</h2>
+
         </div>
+
         <div class="testimonial-track">
+
             <div class="review-card">
+
                 <div class="g-header">
+
                     <div class="g-user-info"><strong>Dr. Rajeev Ranjan</strong><span class="g-date">2 months ago</span></div>
+
                 </div>
+
                 <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+
                 <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility. Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily find us on search. Best medical marketing agency.</p>
+
             </div>
+
             <div class="review-card">
+
                 <div class="g-header">
+
                     <div class="g-user-info"><strong>City Care Hospital</strong><span class="g-date">4 months ago</span></div>
+
                 </div>
+
                 <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+
                 <p class="review-text">Excellent service! Their patient lead generation campaign brought a 40% increase in our OPD walk-ins within just 2 months. Very professional team.</p>
+
             </div>
+
             <div class="review-card">
+
                 <div class="g-header">
+
                     <div class="g-user-info"><strong>Dr. Neha Singh</strong><span class="g-date">5 months ago</span></div>
+
                 </div>
+
                 <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+
                 <p class="review-text">Highly recommended for SEO for doctors. They handle my entire social media and website. Now I don't have to worry about marketing at all.</p>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <section class="lead-magnet">
+
         <div class="magnet-box">
+
             <div class="magnet-text">
+
                 <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;"><i class="fa-solid fa-gift"></i> FREE DOWNLOAD</div>
+
                 <h3>The 2026 Healthcare Growth Playbook</h3>
+
                 <p>Discover the exact SEO and Ad strategies top hospitals use to double their patient flow without spending a fortune.</p>
+
             </div>
+
             <div class="magnet-form">
+
                 <form id="leadForm">
+
                     <input type="text" id="leadName" placeholder="Dr. / Clinic Name" required>
+
                     <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
+
                     <button type="submit">Download PDF Now <i class="fa-solid fa-download"></i></button>
+
                 </form>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <section class="faq-section">
+
         <div class="section-header">
+
             <h2>Frequently Asked Questions</h2>
+
         </div>
+
         <div class="faq-container">
+
             <div class="faq-item">
+
                 <div class="faq-question">How long does it take to see patient growth? <i class="fa-solid fa-chevron-down"></i></div>
+
                 <div class="faq-answer"><br>With our targeted Meta/Google Ads, you can start seeing patient inquiries within the first 7-10 days. However, organic growth (Local SEO) takes around 2-3 months to show consistent top rankings.</div>
+
             </div>
+
             <div class="faq-item">
+
                 <div class="faq-question">Do you manage the Ad budget too? <i class="fa-solid fa-chevron-down"></i></div>
+
                 <div class="faq-answer"><br>No, the ad budget (money paid to Facebook/Google) is completely separate from our agency fee. You pay the ad spend directly to the platforms, ensuring 100% transparency.</div>
+
             </div>
+
             <div class="faq-item">
+
                 <div class="faq-question">Is digital marketing for doctors compliant with medical guidelines? <i class="fa-solid fa-chevron-down"></i></div>
+
                 <div class="faq-answer"><br>Yes, absolutely. We strictly follow ethical marketing guidelines. We focus on educating patients, highlighting your expertise, and building trust rather than making false medical claims.</div>
+
             </div>
+
             <div class="faq-item">
+
                 <div class="faq-question">Can you help if my clinic is in a smaller town in Bihar? <i class="fa-solid fa-chevron-down"></i></div>
+
                 <div class="faq-answer"><br>Yes! In fact, local SEO works wonderfully in tier-2 and tier-3 cities because the online competition is lower. We can easily help you dominate search results in towns like Muzaffarpur, Darbhanga, or Samastipur.</div>
+
             </div>
+
         </div>
+
     </section>
 
+
+
     <div class="discount-popup-overlay" id="discountPopup">
+
         <div class="discount-popup-box">
+
             <button class="close-popup" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+
             <div class="popup-content">
+
                 <div style="background: rgba(243,112,33,0.1); color: var(--accent-orange); padding: 8px 15px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; display: inline-block; margin-bottom: 15px;">🔥 EXCLUSIVE OFFER FOR DOCTORS</div>
+
                 <h3 style="font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 15px;">Get 10% OFF <br>Your First Month!</h3>
+
                 <p style="color: #555; margin-bottom: 25px;">Ready to scale your clinic? Book a free strategy call today and claim an exclusive 10% discount on our agency retainer.</p>
+
                 <a href="https://wa.me/9187641492?text=Hi!%20I%20saw%20the%2010%25%20Discount%20offer%20on%20the%20Clinic%20page." target="_blank" class="btn-main" style="width: 100%; justify-content: center;" onclick="closePopup()">Claim 10% Discount Now</a>
+
             </div>
+
         </div>
+
     </div>
+
+
 
     <div id="footer-placeholder"></div>
 
+
+
     <script>
+
         // Load Header & Footer
+
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
+
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
-        
+
+       
+
         function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
+
         function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
 
+
+
         // FAQ Accordion Logic
+
         const faqItems = document.querySelectorAll('.faq-item');
+
         faqItems.forEach(item => {
+
             item.querySelector('.faq-question').addEventListener('click', () => {
+
                 const isActive = item.classList.contains('active');
+
                 faqItems.forEach(faq => faq.classList.remove('active')); // Close all
+
                 if (!isActive) item.classList.add('active'); // Open clicked
+
             });
+
         });
+
+
 
         // WhatsApp Lead Form Logic
+
         document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+
+            e.preventDefault();
+
             let name = document.getElementById('leadName').value;
+
             let phone = document.getElementById('leadPhone').value;
+
             let msg = `Hi! I am ${name}. My number is ${phone}. Please send me the FREE Healthcare Growth Playbook.`;
+
             window.open(`https://wa.me/9187641492?text=${encodeURIComponent(msg)}`, '_blank');
+
         });
 
+
+
         // 75% Scroll Popup Logic
-        let popupShown = false; 
+
+        let popupShown = false;
+
         window.addEventListener('scroll', function() {
+
             let scrollHeight = document.documentElement.scrollHeight;
+
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
             let clientHeight = document.documentElement.clientHeight;
-            
+
+           
+
             let scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
-            
+
+           
+
             // Show at 75% scroll
+
             if (scrollPercentage > 0.75 && !popupShown) {
+
                 document.getElementById('discountPopup').classList.add('show');
-                popupShown = true; 
+
+                popupShown = true;
+
             }
+
         });
+
         function closePopup() { document.getElementById('discountPopup').classList.remove('show'); }
+
     </script>
+
 </body>
+
 </html>

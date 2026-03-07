@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Link Generator | Vyapar Wallah Admin</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --bg-light: #f4f7fb;
+            --text-dark: #2c3e50;
+            --border-color: #e1e8f0;
+            --success-green: #0cbd4c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+
+        .dashboard-card {
+            background: white; width: 100%; max-width: 500px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); padding: 40px 30px; border-top: 5px solid var(--primary-blue);
+        }
+
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h2 { color: var(--primary-blue); font-size: 1.8rem; font-weight: 800; line-height: 1.2;}
+        .header p { color: #666; font-size: 0.9rem; margin-top: 5px; }
+
+        .form-group { margin-bottom: 20px; position: relative;}
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #555; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; outline: none; background: #fafafa; font-family: 'Poppins', sans-serif; transition: 0.3s;}
+        .form-control:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1); background: white;}
+        
+        select.form-control { cursor: pointer; appearance: none; }
+        .select-icon { position: absolute; right: 15px; top: 42px; color: #888; pointer-events: none;}
+
+        .btn-generate { width: 100%; background: var(--primary-blue); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px;}
+        .btn-generate:hover { background: #083c75; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(10, 76, 149, 0.3); }
+
+        /* Result Area */
+        .result-area { display: none; margin-top: 30px; padding-top: 25px; border-top: 1px dashed var(--border-color); animation: fadeIn 0.4s ease; }
+        .result-area h4 { font-size: 1rem; color: var(--success-green); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;}
+        
+        .link-box { display: flex; align-items: center; background: #e8f0fe; border: 1px solid #b0cbe8; border-radius: 8px; overflow: hidden; margin-bottom: 15px;}
+        .link-box input { flex: 1; border: none; background: transparent; padding: 12px 15px; font-size: 0.85rem; color: var(--primary-blue); font-weight: 500; outline: none; }
+        .btn-copy { background: var(--primary-blue); color: white; border: none; padding: 0 20px; height: 45px; cursor: pointer; font-weight: 600; transition: 0.3s;}
+        .btn-copy:hover { background: #083c75; }
+
+        .action-buttons { display: flex; gap: 10px; }
+        .btn-action { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; transition: 0.3s; text-decoration: none;}
+        .btn-wa { background: #25D366; color: white; }
+        .btn-wa:hover { background: #1ebd5a; }
+        .btn-test { background: #fdf5e6; color: #d97706; border: 1px solid #f3c17a;}
+        .btn-test:hover { background: #fbe6c6; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-card">
+        <div class="header">
+            <h2><i class="fa-solid fa-link" style="color: var(--accent-orange);"></i> Link Generator</h2>
+            <p>Create Magic Payment Links for Clients</p>
+        </div>
+
+        <form id="linkForm">
+            <div class="form-group">
+                <label>Select Service</label>
+                <select id="gen_service" class="form-control" required onchange="checkCustomService(this)">
+                    <option value="" disabled selected>-- Select a Service --</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="Landing Page Creation">Landing Page Creation</option>
+                    <option value="Meta Ads Management">Meta Ads Management</option>
+                    <option value="Google Ads Campaign">Google Ads Campaign</option>
+                    <option value="Local SEO & GMB">Local SEO & GMB</option>
+                    <option value="Monthly Retainer">Monthly Digital Marketing Retainer</option>
+                    <option value="Other">Custom Service (Type Below)</option>
+                </select>
+                <i class="fa-solid fa-chevron-down select-icon"></i>
+            </div>
+
+            <div class="form-group" id="custom_service_div" style="display: none;">
+                <label>Custom Service Name</label>
+                <input type="text" id="gen_custom_service" class="form-control" placeholder="e.g. Logo Design">
+            </div>
+
+            <div class="form-group">
+                <label>Final Deal Amount (₹)</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-indian-rupee-sign" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #555;"></i>
+                    <input type="number" id="gen_amount" class="form-control" placeholder="e.g. 15000" style="padding-left: 35px;" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-generate">Generate Payment Link <i class="fa-solid fa-wand-magic-sparkles"></i></button>
+        </form>
+
+        <div class="result-area" id="resultArea">
+            <h4><i class="fa-solid fa-circle-check"></i> Link Generated Successfully!</h4>
+            
+            <div class="link-box">
+                <input type="text" id="finalLinkInput" readonly>
+                <button class="btn-copy" onclick="copyToClipboard()" id="copyBtn"><i class="fa-regular fa-copy"></i> Copy</button>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" id="waShareBtn" target="_blank" class="btn-action btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Send to Client
+                </a>
+                <a href="#" id="testLinkBtn" target="_blank" class="btn-action btn-test">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Test Link
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ⚠️ यहाँ अपनी वेबसाइट का असली डोमेन डालें जहाँ payment.html सेव है
+        const BASE_WEBSITE_URL = "https://yourwebsite.com/payment.html"; 
+
+        function checkCustomService(select) {
+            let customDiv = document.getElementById('custom_service_div');
+            let customInput = document.getElementById('gen_custom_service');
+            if(select.value === "Other") {
+                customDiv.style.display = "block";
+                customInput.setAttribute("required", "true");
+            } else {
+                customDiv.style.display = "none";
+                customInput.removeAttribute("required");
+                customInput.value = "";
+            }
+        }
+
+        document.getElementById('linkForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let amount = document.getElementById('gen_amount').value;
+            let service = document.getElementById('gen_service').value;
+
+            if(service === "Other") {
+                service = document.getElementById('gen_custom_service').value;
+            }
+
+            // 🚀 Constructing the Magic URL
+            let magicLink = `${BASE_WEBSITE_URL}?amount=${amount}&service=${encodeURIComponent(service)}`;
+
+            // Displaying the result
+            document.getElementById('finalLinkInput').value = magicLink;
+            document.getElementById('resultArea').style.display = "block";
+
+            // Updating WhatsApp Share Button
+            let waMessage = `Hi,\n\nPlease click the secure link below to complete your payment of *₹${amount}* for *${service}*.\n\n🔗 Pay Here: ${magicLink}\n\nThanks,\nTeam Vyapar Wallah`;
+            document.getElementById('waShareBtn').href = `https://wa.me/?text=${encodeURIComponent(waMessage)}`;
+
+            // Updating Test Link Button
+            document.getElementById('testLinkBtn').href = magicLink;
+            
+            // Reset Copy Button
+            let copyBtn = document.getElementById('copyBtn');
+            copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+            copyBtn.style.background = "var(--primary-blue)";
+        });
+
+        function copyToClipboard() {
+            let linkInput = document.getElementById('finalLinkInput');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999); /* For mobile devices */
+            navigator.clipboard.writeText(linkInput.value);
+
+            let copyBtn = document.getElementById('copyBtn');
+            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            copyBtn.style.background = "var(--success-green)";
+        }
+    </script>
+</body>
+</html>
