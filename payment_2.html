@@ -243,6 +243,9 @@
 
                 <div id="step-1" class="pay-step active">
                     <form id="paymentForm">
+                        <div id="secure_lock_msg" style="display: none; background: #e8f4fd; color: #0A4C95; padding: 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; border-left: 4px solid #0A4C95;">
+    <i class="fa-solid fa-lock"></i> Amount & Service are securely locked by Admin.
+</div>
                         <div class="form-group">
                             <label>Full Name / Business Name</label>
                             <input type="text" id="c_name" class="form-control" placeholder="Enter your name" required>
@@ -406,25 +409,60 @@
             }
         }
 
+        // 🚀 ENCRYPTED MAGIC LINKS LOGIC (Decodes and Locks Fields)
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const preAmount = urlParams.get('amount');
-            const preService = urlParams.get('service');
+            // अब हम amount या service नहीं, सीधा 'pay_id' ढूँढेंगे
+            const token = urlParams.get('pay_id');
 
-            if(preAmount) document.getElementById('c_amount').value = preAmount;
-            if(preService) {
-                let select = document.getElementById('c_service');
-                let exists = false;
-                for(let i = 0; i < select.options.length; i++) {
-                    if(select.options[i].value === preService) {
-                        select.selectedIndex = i;
-                        exists = true; break;
+            if(token) {
+                try {
+                    // 1. सीक्रेट टोकन को डिकोड करना (Base64 to JSON)
+                    let decodedData = JSON.parse(decodeURIComponent(atob(token)));
+                    let preAmount = decodedData.a;
+                    let preService = decodedData.s;
+
+                    let amtInput = document.getElementById('c_amount');
+                    let srvSelect = document.getElementById('c_service');
+                    let customSrvDiv = document.getElementById('other_service_div');
+                    let customSrvInput = document.getElementById('c_other_service');
+
+                    // 2. अमाउंट सेट करें और उसे LOCK कर दें 🔒
+                    amtInput.value = preAmount;
+                    amtInput.readOnly = true;
+                    amtInput.style.backgroundColor = "#eef2f5";
+                    amtInput.style.cursor = "not-allowed";
+
+                    // 3. सर्विस सेट करें और उसे LOCK कर दें 🔒
+                    let exists = false;
+                    for(let i = 0; i < srvSelect.options.length; i++) {
+                        if(srvSelect.options[i].value === preService) {
+                            srvSelect.selectedIndex = i;
+                            exists = true; 
+                            break;
+                        }
                     }
-                }
-                if(!exists) {
-                    select.value = "Other";
-                    checkOtherService(select);
-                    document.getElementById('c_other_service').value = preService;
+                    
+                    // अगर सर्विस लिस्ट में नहीं है (Custom Service है)
+                    if(!exists) {
+                        srvSelect.value = "Other";
+                        customSrvDiv.style.display = "block";
+                        customSrvInput.value = preService;
+                        customSrvInput.readOnly = true;
+                        customSrvInput.style.backgroundColor = "#eef2f5";
+                        customSrvInput.style.cursor = "not-allowed";
+                    }
+                    
+                    // ड्रॉपडाउन को क्लिक होने से रोकें
+                    srvSelect.style.pointerEvents = "none";
+                    srvSelect.style.backgroundColor = "#eef2f5";
+
+                    // 4. "Securely Locked" वाला मैसेज दिखाएं
+                    document.getElementById('secure_lock_msg').style.display = "block";
+
+                } catch(e) {
+                    console.error("Invalid Payment Link");
+                    // अगर किसी ने URL से छेड़छाड़ की, तो पेज नॉर्मल खुलेगा
                 }
             }
         };

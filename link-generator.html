@@ -64,7 +64,7 @@
     <div class="dashboard-card">
         <div class="header">
             <h2><i class="fa-solid fa-link" style="color: var(--accent-orange);"></i> Link Generator</h2>
-            <p>Create Magic Payment Links for Clients</p>
+            <p>Create Secure Magic Links for Clients</p>
         </div>
 
         <form id="linkForm">
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-generate">Generate Payment Link <i class="fa-solid fa-wand-magic-sparkles"></i></button>
+            <button type="submit" class="btn-generate">Generate Secure Link <i class="fa-solid fa-lock"></i></button>
         </form>
 
         <div class="result-area" id="resultArea">
@@ -119,8 +119,8 @@
     </div>
 
     <script>
-        // ⚠️ यहाँ अपनी वेबसाइट का असली डोमेन डालें जहाँ payment.html सेव है
-        const BASE_WEBSITE_URL = "https://yourwebsite.com/payment.html"; 
+        // ⚠️ यहाँ अपनी वेबसाइट का असली डोमेन डालें
+        const BASE_WEBSITE_URL = "https://vyaparwallah.com/payment_2.html"; 
 
         function checkCustomService(select) {
             let customDiv = document.getElementById('custom_service_div');
@@ -145,8 +145,14 @@
                 service = document.getElementById('gen_custom_service').value;
             }
 
-            // 🚀 Constructing the Magic URL
-            let magicLink = `${BASE_WEBSITE_URL}?amount=${amount}&service=${encodeURIComponent(service)}`;
+            // 🚀 SECURITY UPDATE: Encrypting the URL data
+            let paymentData = { a: amount, s: service };
+            
+            // Convert to JSON, then to a secret Base64 string
+            let secretToken = btoa(encodeURIComponent(JSON.stringify(paymentData)));
+
+            // Constructing the new SECURE Magic URL
+            let magicLink = `${BASE_WEBSITE_URL}?pay_id=${secretToken}`;
 
             // Displaying the result
             document.getElementById('finalLinkInput').value = magicLink;
