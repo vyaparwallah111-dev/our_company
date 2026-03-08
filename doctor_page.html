@@ -82,8 +82,66 @@
 }
 
         .hero-text-side { flex: 1.2; text-align: left; }
-        .hero-animation-side { flex: 0.8; display: flex; justify-content: center; align-items: center; }
+.hero-animation-side dotlottie-wc{
+width:420px;
+height:420px;
+}
 
+@media(max-width:768px){
+
+.hero-animation-side dotlottie-wc{
+width:260px;
+height:260px;
+margin-top:20px;
+}
+
+}
+
+@media(max-width:768px){
+
+.medical-hero{
+padding:90px 20px 60px;
+min-height:auto;
+gap:20px;
+}
+
+.medical-hero h1{
+font-size:1.9rem;
+line-height:1.35;
+}
+
+.medical-hero p{
+font-size:0.95rem;
+}
+
+.btn-main{
+padding:12px 24px;
+font-size:0.9rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.intro-grid{
+grid-template-columns:1fr;
+gap:20px;
+margin-top:30px;
+}
+
+.challenge-card{
+padding:28px 22px;
+}
+
+.challenge-card h3{
+font-size:1.2rem;
+}
+
+.challenge-card p{
+font-size:0.9rem;
+}
+
+}
         .medical-hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .medical-hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; color: #eef2f5; font-weight: 400; }
         .trust-badges { display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
@@ -164,6 +222,74 @@
         .med-service-card i { font-size: 2.5rem; color: var(--highlight-green); margin-bottom: 20px; }
         .med-service-card h3 { font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
         .med-service-card p { color: #555; font-size: 0.95rem; }
+
+        @media(max-width:768px){
+
+.service-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.med-service-card{
+padding:25px 20px;
+}
+
+}
+
+@media(max-width:768px){
+
+.review-card{
+flex:0 0 100%;
+}
+
+.slider-btn{
+display:none;
+}
+
+}
+
+@media(max-width:768px){
+
+.magnet-box{
+padding:25px;
+gap:25px;
+}
+
+.magnet-text h3{
+font-size:1.5rem;
+}
+
+.magnet-form{
+padding:25px;
+}
+
+}
+
+@media(max-width:768px){
+
+.discount-popup-box{
+flex-direction:column;
+max-width:95%;
+}
+
+.popup-left{
+padding:20px;
+}
+
+.popup-left img{
+max-width:220px;
+}
+
+.popup-right{
+padding:25px;
+text-align:center;
+}
+
+.popup-right h2{
+font-size:1.5rem;
+}
+
+}
 
         /* --- HOW CLINICS GROW (BEFORE VS AFTER) --- */
         .growth-section { padding: 80px 5%; background: var(--bg-light); }
@@ -565,6 +691,30 @@ border-radius:10px;
     align-items: center;
 }
 
+@media(max-width:768px){
+
+.why-marketing-section{
+flex-direction:column;
+padding:40px 20px;
+gap:30px;
+}
+
+.doctor-image-wrapper{
+height:280px;
+max-width:280px;
+margin:auto;
+}
+
+.marketing-content h2{
+font-size:1.7rem;
+text-align:center;
+}
+
+.reason-card{
+padding:18px;
+}
+
+}
 .doctor-img {
     width: 100%;
     height: 100%;
@@ -589,6 +739,14 @@ border-radius:10px;
     margin: 0;
     font-size: 1rem;
     letter-spacing: 0.5px;
+}
+
+@media(max-width:768px){
+
+dotlottie-wc{
+transform:scale(0.9);
+}
+
 }
 /* Reason Cards ke liye updated style */
 .reason-card {
@@ -616,6 +774,23 @@ background:linear-gradient(180deg,#f8fcfb 0%, #ffffff 100%);
 text-align:center;
 max-width:900px;
 margin:0 auto 50px;
+}
+
+@media(max-width:768px){
+
+section{
+padding-left:20px !important;
+padding-right:20px !important;
+}
+
+.section-header{
+margin-bottom:35px;
+}
+
+.section-title{
+font-size:1.8rem;
+}
+
 }
     </style>
 </head>
