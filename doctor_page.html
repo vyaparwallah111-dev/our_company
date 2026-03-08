@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vyapar Wallah is Bihar's top healthcare digital marketing agency. We provide SEO for doctors, hospital digital marketing, and patient lead generation.">
+    
+    <title>Digital Marketing for Doctors in Bihar | Get More Patients Online</title>
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
+  type="module"
+></script>
+
+    
+    <style>
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --highlight-green: #00A651;
+            --danger-red: #e74c3c;
+            --bg-light: #f8fcfb;
+            --text-dark: #2c3e50;
+            --hospital-blue: #e8f4fd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+
+        /* --- BUTTONS & TITLES --- */
+        .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4); cursor: pointer; }
+        .btn-main:hover { background: #d95e17; transform: translateY(-3px); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+       .section-header h2 {
+    font-size: 2.2rem;         /* Size thoda chota kiya gaya hai */
+    color: var(--primary-blue);
+    font-weight: 800;
+    white-space: nowrap;       /* Isse text ek hi line mein rahega */
+    overflow: hidden;          /* Extra protection */
+    text-overflow: ellipsis;   /* Agar screen bahut choti ho toh dots dikhayega */
+}
+
+/* Mobile ke liye responsive setting */
+@media(max-width: 768px) {
+    .section-header h2 {
+        font-size: 1.5rem;     /* Mobile par aur chota taki line se bahar na jaye */
+        white-space: normal;   /* Mobile par wrap hone dena behtar hai */
+    }
+}
+
+        /* --- UPDATED HERO SECTION (TWO PARTS) --- */
+        .medical-hero { 
+    /* 1. Background Image Wapas Lagane Ke Liye */
+    background: linear-gradient(rgba(10, 76, 149, 0.85), rgba(5, 44, 92, 0.9)), 
+                url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80');
+    background-position: center;
+    background-size: cover;
+    
+    /* 2. Layout ko Side-by-Side Karne Ke Liye */
+    padding: 120px 8% 100px; 
+    color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 80vh;
+}
+
+/* Isse text aur animation mobile par ek ke niche ek aa jayenge */
+@media(max-width: 992px) {
+    .medical-hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+}
+
+        .hero-text-side { flex: 1.2; text-align: left; }
+        .hero-animation-side { flex: 0.8; display: flex; justify-content: center; align-items: center; }
+
+        .medical-hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .medical-hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; color: #eef2f5; font-weight: 400; }
+        .trust-badges { display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+        .badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); }
+
+        /* Floating Animation CSS */
+        .floating-box {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: morph 8s infinite alternate ease-in-out;
+        }
+        .floating-box i {
+            font-size: 7rem;
+            color: var(--accent-orange);
+            animation: float 3s infinite ease-in-out;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- INTRO SECTION --- */
+        .intro-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 50px auto 0;
+    }
+    .challenge-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        border-bottom: 4px solid transparent;
+        text-align: left;
+    }
+    .challenge-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 4px solid var(--accent-orange);
+        box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1);
+    }
+    .challenge-card i {
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 20px;
+        display: block;
+    }
+    .challenge-card h3 {
+        color: var(--primary-blue);
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    .challenge-card p {
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+        /* --- 6+ SERVICES GRID --- */
+        .services-section { padding: 80px 5%; background: white; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .med-service-card { padding: 35px 25px; border-radius: 15px; background: #fff; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.3s; position: relative; overflow: hidden; text-align: center; }
+        .med-service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1); border-color: var(--highlight-green); }
+        .med-service-card i { font-size: 2.5rem; color: var(--highlight-green); margin-bottom: 20px; }
+        .med-service-card h3 { font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
+        .med-service-card p { color: #555; font-size: 0.95rem; }
+
+        /* --- HOW CLINICS GROW (BEFORE VS AFTER) --- */
+        .growth-section { padding: 80px 5%; background: var(--bg-light); }
+        .ba-container { display: flex; gap: 30px; max-width: 1000px; margin: auto; flex-wrap: wrap; }
+        .ba-box { flex: 1; min-width: 300px; padding: 40px; border-radius: 20px; position: relative; overflow: hidden; }
+        .ba-before { background: #fff0f0; border: 2px solid #ffcccc; }
+        .ba-after { background: #f0fff4; border: 2px solid #ccffdc; box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15); }
+        .ba-box h3 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .ba-before h3 { color: var(--danger-red); }
+        .ba-after h3 { color: var(--highlight-green); }
+        .ba-box ul { list-style: none; }
+        .ba-box li { margin-bottom: 15px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 10px; color: #444; }
+        .ba-before li i { color: var(--danger-red); margin-top: 5px; }
+        .ba-after li i { color: var(--highlight-green); margin-top: 5px; }
+
+        /* --- COMPARISON SECTION --- */
+        .comparison-section { padding: 80px 5%; background: white; }
+        .comp-table { width: 100%; max-width: 1000px; margin: auto; border-collapse: collapse; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; }
+        .comp-table th, .comp-table td { padding: 20px; text-align: left; border-bottom: 1px solid #eee; }
+        .comp-table th { background: var(--primary-blue); color: white; font-size: 1.2rem; }
+        .comp-table th:nth-child(2) { background: var(--accent-orange); }
+        .comp-table tr:hover { background: #f8fcfb; }
+        .comp-table td:first-child { font-weight: 600; color: var(--primary-blue); width: 40%; }
+        .vw-col { background: rgba(243, 112, 33, 0.05); font-weight: 600; color: #333; }
+        .comp-table i.fa-check { color: var(--highlight-green); font-size: 1.2rem; }
+        .comp-table i.fa-xmark { color: var(--danger-red); font-size: 1.2rem; }
+
+        /* --- WHY VYAPAR WALLAH (ABOUT) --- */
+        .why-vw-section { padding: 90px 20px; background: var(--primary-blue); color: white; text-align: center; }
+        .why-vw-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+max-width:1300px;
+margin:50px auto 0;
+}
+.why-card{
+background:rgba(255,255,255,0.12);
+padding:35px 28px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.2);
+transition:0.35s;
+backdrop-filter:blur(8px);
+min-height:220px;
+}
+
+
+
+.why-card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
+}
+
+.why-card i{
+font-size:30px;
+background:rgba(255,255,255,0.15);
+padding:20px;
+border-radius:50%;
+margin-bottom:18px;
+color:var(--accent-orange);
+}
+@media(max-width:900px){
+
+.why-vw-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.why-vw-grid{
+grid-template-columns:1fr;
+}
+
+}
+.prev-btn{
+left:-20px;
+}
+
+.next-btn{
+right:-20px;
+}
+
+        /* --- GOOGLE REVIEWS SECTION --- */
+        .reviews-section { background: var(--bg-light); position: relative; overflow: hidden; padding: 100px 5%; }
+        .testimonial-slider-wrapper { position: relative; display: flex; align-items: center; justify-content: center; max-width: 1400px; margin: auto; padding: 20px 0; }
+.testimonial-track{
+display:flex;
+gap:25px;
+overflow-x:hidden;
+scroll-behavior:smooth;
+width:100%;
+}        .testimonial-track::-webkit-scrollbar { display: none; }
+        
+        .review-card { flex: 0 0 calc(25% - 15px); scroll-snap-align: start; background: white; padding: 20px 24px; border-radius: 8px; border: 1px solid #e8eaed; box-shadow: 0 1px 2px rgba(60,64,67,0.1), 0 1px 3px rgba(60,64,67,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
+        .review-card:hover { box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.15); }
+        .g-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; position: relative; }
+        .g-header img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .g-user-info { display: flex; flex-direction: column; justify-content: center; }
+        .g-user-info strong { color: #202124; font-size: 0.95rem; font-weight: 500; }
+        .g-date { color: #70757a; font-size: 0.8rem; margin-top: 2px; }
+        .g-logo-icon { position: absolute; top: 0; right: 0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+        .g-logo-icon svg { width: 100%; height: 100%; }
+        .g-stars { color: #fbbc04; font-size: 14px; margin-bottom: 12px; display: flex; gap: 1px; }
+        .review-text { font-size: 0.9rem; color: #202124; line-height: 1.5; min-height: 120px; font-style: normal; }
+        
+        .slider-btn { background: white; color: #5f6368; border: 1px solid #dadce0; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; position: absolute; z-index: 10; font-size: 1rem; transition: 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
+        .slider-btn:hover { background: #f8f9fa; color: #202124; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+        .prev-btn { left: -10px; }
+        .next-btn { right: -10px; }
+
+        .section-title{
+font-size:2.5rem;
+font-weight:800;
+color:var(--primary-blue);
+margin-bottom:10px;
+}
+
+.section-title span{
+color:var(--accent-orange);
+}
+
+.section-subtitle{
+color:#666;
+font-size:1.05rem;
+}
+
+        /* --- LEAD MAGNET (PLAYBOOK) --- */
+        .lead-magnet{
+padding:60px 2%;
+background:#f8fcfb;
+display:flex;
+justify-content:center;
+}
+.magnet-box{
+max-width:1400px;
+width:100%;
+background:linear-gradient(135deg,#fff6ef 0%, #ffffff 100%);
+border:1px solid rgba(243,112,33,0.25);
+border-radius:20px;
+padding:50px 60px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+box-shadow:0 25px 60px rgba(243,112,33,0.12);
+}        .magnet-text { flex: 1.3; }
+.magnet-text h3{
+font-size:2.4rem;
+font-weight:800;
+color:var(--primary-blue);
+line-height:1.3;
+margin-bottom:12px;
+}
+
+.magnet-text p{
+color:#555;
+font-size:1.05rem;
+}        
+.magnet-form{
+flex:1;
+background:white;
+padding:35px;
+border-radius:16px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}        
+.magnet-form input{
+width:100%;
+padding:16px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+transition:0.3s;
+}
+
+.magnet-form input:focus{
+outline:none;
+border-color:var(--accent-orange);
+box-shadow:0 0 0 3px rgba(243,112,33,0.15);
+}        
+.magnet-form button { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; }
+
+@media(max-width:900px){
+
+.magnet-box{
+flex-direction:column;
+text-align:center;
+padding:35px;
+}
+
+.magnet-text h3{
+font-size:1.8rem;
+}
+
+}
+        /* --- FAQ SECTION --- */
+        .faq-section { padding: 80px 5%; background: var(--hospital-blue); }
+        .faq-container { max-width: 800px; margin: auto; }
+        .faq-item { background: white; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; }
+        .faq-question { padding: 20px; font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-in-out; color: #555; }
+        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 500px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent-orange); }
+
+        /* --- SCROLL TRIGGER POPUP --- */
+        .discount-popup-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(10,76,149,0.85);
+backdrop-filter:blur(8px);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+}
+
+.discount-popup-overlay.show{
+opacity:1;
+pointer-events:auto;
+}
+
+.discount-popup-box{
+width:90%;
+max-width:850px;
+background:white;
+border-radius:20px;
+display:flex;
+overflow:hidden;
+box-shadow:0 40px 80px rgba(0,0,0,0.35);
+position:relative;
+}
+
+.popup-left{
+flex:1;
+background:#f8fcfb;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+}
+
+.popup-left img{
+width:100%;
+max-width:420px;
+height: auto;
+object-fit: cover;
+}
+
+.popup-right{
+flex:1;
+padding:40px;
+}
+
+.offer-badge{
+background:rgba(243,112,33,0.15);
+color:var(--accent-orange);
+padding:6px 14px;
+border-radius:50px;
+font-size:12px;
+font-weight:600;
+}
+
+.popup-right h2{
+font-size:2rem;
+margin:15px 0;
+color:var(--primary-blue);
+}
+
+.popup-right h2 span{
+color:var(--accent-orange);
+}
+
+.popup-right p{
+color:#555;
+margin-bottom:25px;
+}
+
+.popup-btn{
+display:inline-block;
+background:var(--accent-orange);
+color:white;
+padding:14px 28px;
+border-radius:8px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(243,112,33,0.35);
+transition:0.3s;
+}
+
+.popup-btn:hover{
+transform:translateY(-3px);
+}
+
+.close-popup{
+position:absolute;
+top:12px;
+right:12px;
+background:white;
+border:none;
+width:35px;
+height:35px;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.offer-timer{
+color:#e74c3c;
+font-weight:700;
+margin-bottom:20px;
+font-size:16px;
+}
+
+#countdown{
+font-size:20px;
+}
+        .premium-badge {
+    display: inline-block;
+    border: 1px solid rgba(243, 112, 33, 0.5);
+    background: linear-gradient(90deg, rgba(243, 112, 33, 0.1) 0%, transparent 100%);
+    padding: 6px 15px;
+    border-radius: 50px; /* Capsule shape */
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.premium-heading{
+font-size:2.6rem;
+font-weight:800;
+letter-spacing:-0.5px;
+margin-bottom:50px;
+}
+
+.premium-heading span{
+color:var(--accent-orange);
+position:relative;
+}
+
+.premium-heading span::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:100%;
+height:3px;
+background:var(--accent-orange);
+border-radius:10px;
+}
+
+        /* Responsive */
+        @media(max-width: 992px) {
+            .medical-hero { flex-direction: column; text-align: center; padding: 80px 5% 60px; }
+            .hero-text-side { text-align: center; }
+            .trust-badges { justify-content: center; }
+            .review-card { flex: 0 0 calc(50% - 10px); }
+            .magnet-box { flex-direction: column; }
+        }
+        @media(max-width: 768px) {
+            .medical-hero h1 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .comp-table th, .comp-table td { padding: 12px 10px; font-size: 0.9rem; }
+            .review-card { flex: 0 0 100%; }
+        }
+
+       .why-marketing-section {
+    padding: 30px 8%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+}
+.marketing-visual { flex: 1; position: relative; }
+.marketing-content { flex: 1; }
+
+/* Doctor ki image par modern visual effect */
+.doctor-image-wrapper {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    border-radius: 50%; /* Image ko round karne ke liye */
+    border: 8px solid #ffffff;
+    box-shadow: 0 25px 50px rgba(10, 76, 149, 0.2); /* Deep shadow for 3D look */
+    position: relative;
+    overflow: hidden; /* Taki image circle se bahar na nikle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Isse image khichegi (stretch) nahi, sahi se fit hogi */
+    object-position: center ;
+}
+
+.doctor-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 76, 149, 0.8); /* Blue transparent look */
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    text-align: center;
+}
+
+.doctor-overlay p {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+/* Reason Cards ke liye updated style */
+.reason-card {
+    background: #f8fcfb;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #eee;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth bounce effect */
+}
+.reason-card:hover {
+    border-left: 5px solid var(--accent-orange);
+    background: #fff;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    transform: scale(1.02) translateX(15px); /* Premium translate effect */
+}
+.reason-card h4 { color: var(--primary-blue); margin-bottom: 8px; font-size: 1.2rem; }
+.reason-card p { color: #555; font-size: 0.95rem; line-height: 1.5; }
+
+.reviews-section{
+background:linear-gradient(180deg,#f8fcfb 0%, #ffffff 100%);
+}
+
+.text-center{
+text-align:center;
+max-width:900px;
+margin:0 auto 50px;
+}
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="medical-hero">
+    
+    <div class="hero-text-side" style="flex: 1;">
+        <div class="premium-badge">
+   <i class="fa-solid fa-medal" style="color: var(--accent-orange); margin-right: 8px;"></i> 
+   #Bihar’s Best Digital Marketing Service For Doctors
+</div>
+        <h1>Get More Patients For Your Clinic With Google & Digital Marketing</h1>
+        <p>If patients are searching for doctors in your city and not finding you,you are losing potential appointments every day We help doctors rank on Google, generate patient inquiries and grow their clinic online.</p>
+
+
+
+        <a href="#contact" class="btn-main">Get Your Free Clinic Audit</a>
+    </div>
+
+    <div class="hero-animation-side" style="flex: 1; display: flex; justify-content: center;">
+        <dotlottie-wc
+  src="https://lottie.host/2120991c-bb4b-4290-b56a-24cda0636558/s13HaEJPY7.lottie"
+  style="width: 500px;height: 500px"
+  autoplay
+  loop
+></dotlottie-wc>
+    </div>
+
+</section>
+
+</section>
+
+        
+    </section>
+
+   <section class="intro-section" style="background: #fdfdfd; padding: 100px 5%;">
+    <div class="section-header">
+    <h2>Why Most Clinics in Bihar Struggle to Scale?</h2>
+    
+    <p class="premium-subtext">
+        <span style="display: block; width: 40px; height: 3px; background: var(--accent-orange); margin: 10px auto;"></span>
+        Your expertise deserves more visibility. We solve the three biggest hurdles doctors face today.
+    </p>
+</div>
+
+    <div class="intro-grid">
+        <div class="challenge-card">
+            <i class="fa-solid fa-users-viewfinder"></i>
+            <h3>Predictable Patient Flow</h3>
+            <p>Stop over-relying on inconsistent word-of-mouth referrals. We build digital systems that guarantee a steady stream of new OPD walk-ins.</p>
+        </div>
+
+        <div class="challenge-card">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h3>Dominant Search Ranking</h3>
+            <p>Patients are searching for specialists in Patna, Muzaffarpur, and beyond. We ensure your clinic is the first one they see on Google Search & Maps.</p>
+        </div>
+
+        <div class="challenge-card">
+            <i class="fa-solid fa-stethoscope"></i>
+            <h3>High-Intent Appointments</h3>
+            <p>Quality over quantity. Our precision targeting brings you patients who are actively seeking specialized medical treatments and surgeries.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 60px; text-align: center;">
+        <p style="font-size: 1.2rem; color: var(--highlight-green); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+            <i class="fa-solid fa-circle-check"></i> Transforming local clinics into trusted medical brands
+        </p>
+    </div>
+</section>
+
+    <section class="why-marketing-section">
+    <div class="marketing-visual">
+    <div class="doctor-image-wrapper">
+        
+        <img src="bihar digital marketing service for doctor.jpg" alt="Doctor in Bihar" class="doctor-img">
+
+            
+        </div>
+    </div>
+</div>
+    <div class="marketing-content">
+        <h2 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 30px; line-height: 1.2;">
+            Why Modern Doctors Need <br><span style="color: var(--accent-orange);">Digital Marketing?</span>
+        </h2>
+
+        <div class="reason-card">
+            <h4>1. Capture High-Intent Local Leads</h4>
+            <p>Patients in Patna, Muzaffarpur, Gaya are searching for specialists. We make sure they find YOU first, before your competitors.</p>
+        </div>
+
+        <div class="reason-card">
+            <h4>2. Dominate Local Search & Maps</h4>
+            <p>80% of healthcare journeys start with a Google search. Our Local SEO ensures you are the top-rated clinic on Google Maps.</p>
+        </div>
+
+        <div class="reason-card">
+            <h4>3. Establish Authority & Trust 24/7</h4>
+            <p>Patients trust what they see online. A strong digital presence and positive reviews make patients confident in your expertise before the first consultation.</p>
+        </div>
+    </div>
+</section>
+
+    <section class="services-section">
+        <div class="section-header">
+            <h2>Complete Doctor Marketing Services</h2>
+            <p>We provide a 360-degree digital ecosystem tailored for healthcare professionals.</p>
+        </div>
+        <div class="service-grid">
+            <div class="med-service-card">
+                <i class="fa-solid fa-magnifying-glass-location"></i>
+                <h3>SEO for Doctors & Clinics</h3>
+                <p>We optimize your Google My Business and website so you appear first when patients search for local specialists. Dominating seo for clinics is our core strength.</p>
+            </div>
+            <div class="med-service-card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Patient Generation Ads</h3>
+                <p>We run highly targeted Facebook and Google Ads that drive genuine patient lead generation for doctors</strong> directly to your appointment desk.</p>
+            </div>
+            <div class="med-service-card">
+                <i class="fa-solid fa-hospital"></i>
+                <h3>Hospital Digital Marketing</h3>
+                <p>Build a premium brand image. We create informative videos, patient testimonials, and aesthetic posts to build trust among the local community.</p>
+            </div>
+            <div class="med-service-card">
+                <i class="fa-solid fa-globe"></i>
+                <h3>Clinic Website Development</h3>
+                <p>A fast, mobile-friendly website acts as your 24/7 digital clinic. We build SEO-optimized sites with integrated appointment booking systems.</p>
+            </div>
+            <div class="med-service-card">
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <h3>Reputation Management</h3>
+                <p>Online reviews can make or break a clinic. Our doctor marketing services include automated systems to get genuine 5-star reviews from happy patients.</p>
+            </div>
+            <div class="med-service-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp Automation</h3>
+                <p>Never miss an inquiry. We set up automated WhatsApp bots to answer patient queries, share clinic timings, and send follow-up reminders.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="growth-section">
+        <div class="section-header">
+            <h2>How Hospitals Grow With Vyapar Wallah</h2>
+            <p>See the real transformation of clinics that switch to professional online marketing for doctors.</p>
+        </div>
+        <div class="ba-container">
+            <div class="ba-box ba-before">
+                <h3><i class="fa-solid fa-circle-xmark"></i> The Old Way (Struggling)</h3>
+                <ul>
+                    <li><i class="fa-solid fa-xmark"></i> Dependent only on offline referrals & word of mouth.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Invisible on Google Maps when patients search.</li>
+                    <li><i class="fa-solid fa-xmark"></i> No system to track inquiries or follow-ups.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Empty waiting rooms during off-seasons.</li>
+                </ul>
+            </div>
+            <div class="ba-box ba-after">
+                <h3><i class="fa-solid fa-circle-check"></i> With Vyapar Wallah (Growing)</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Predictable daily OPD walk-ins via targeted ads.</li>
+                    <li><i class="fa-solid fa-check"></i> Ranking #1 on Google Maps in your city.</li>
+                    <li><i class="fa-solid fa-check"></i> Automated WhatsApp appointment bookings.</li>
+                    <li><i class="fa-solid fa-check"></i> Strong reputation with hundreds of 5-star reviews.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <div class="section-header">
+            <h2>Vyapar Wallah vs Local Agencies</h2>
+            <p>Why top doctors choose us over generic marketing freelancers.</p>
+        </div>
+        <table class="comp-table">
+            <tr><th>Features</th><th>Vyapar Wallah (Experts)</th><th>Other Generic Agencies</th></tr>
+            <tr><td>Main Focus</td><td class="vw-col"><i class="fa-solid fa-check"></i> Patient Walk-ins & ROI</td><td><i class="fa-solid fa-xmark"></i> Just "Likes" and "Views"</td></tr>
+            <tr><td>Healthcare Knowledge</td><td class="vw-col"><i class="fa-solid fa-check"></i> Understands Medical Guidelines</td><td><i class="fa-solid fa-xmark"></i> Uses irrelevant meme content</td></tr>
+            <tr><td>Lead Generation</td><td class="vw-col"><i class="fa-solid fa-check"></i> Advanced Google Search Ads</td><td><i class="fa-solid fa-xmark"></i> Basic Facebook Boost Button</td></tr>
+            <tr><td>Support System</td><td class="vw-col"><i class="fa-solid fa-check"></i> Dedicated Account Manager</td><td><i class="fa-solid fa-xmark"></i> Hard to reach freelancers</td></tr>
+            <tr><td>Medical Compliance</td><td class="vw-col"><i class="fa-solid fa-check"></i> Follows Medical Council Guidelines</td><td><i class="fa-solid fa-xmark"></i> Risky Promotional Claims</td></tr>
+            <tr><td>Appointment Leads</td><td class="vw-col"><i class="fa-solid fa-check"></i> Real Patient Appointment Leads</td><td><i class="fa-solid fa-xmark"></i> Random Traffic</td></tr>
+            <tr><td>Local Ranking</td><td class="vw-col"><i class="fa-solid fa-check"></i> Rank Clinic in Local Search</td><td><i class="fa-solid fa-xmark"></i> No Local SEO Strategy</td></tr>
+            <tr><td>Patient Reviews</td><td class="vw-col"><i class="fa-solid fa-check"></i> More 5⭐ Google Reviews</td><td><i class="fa-solid fa-xmark"></i>No Review Strategy</td></tr>
+            <tr><td>Medical Content</td><td class="vw-col"><i class="fa-solid fa-check"></i> Doctor-friendly Educational Content</td><td><i class="fa-solid fa-xmark"></i>Generic Social Media Posts</td></tr>
+        </table>
+    </section>
+
+    <section class="why-vw-section">
+       <h2 class="premium-heading">
+        Why Doctors Across Bihar <span>Trust Vyapar Wallah</span> </h2>
+
+        <div class="why-vw-grid">
+
+<div class="why-card">
+<i class="fa-solid fa-user-doctor"></i>
+<h4>More Daily OPD Walk-ins</h4>
+<p>Our system brings patients who are actively searching for doctors in your city.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-map-location-dot"></i>
+<h4>Rank Your Clinic on Google</h4>
+<p>When patients search “best doctor near me”, your clinic appears on Google Maps.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-gear"></i>
+<h4>We Handle Everything</h4>
+<p>From website to ads to ranking — we manage everything while you focus on patients.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-star"></i>
+<h4>Build Strong Online Reputation</h4>
+<p>We help you collect genuine 5-star Google reviews that build trust before patients visit your clinic.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-calendar-check"></i>
+<h4>More Appointment Calls</h4>
+<p>Our targeted Google Ads campaigns bring patients who are actively looking for treatment.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-chart-line"></i>
+<h4>Data Driven Growth</h4>
+<p>Every campaign is tracked and optimized to ensure maximum patient inquiries for your clinic.</p>
+</div>
+
+
+</div>
+
+    </section>
+
+    <section class="section-padding reviews-section reveal" id="reviews">
+        <div class="text-center">
+           <h2 class="section-title">
+            Trusted by <span>Doctors & Clinics Across Bihar</span></h2>
+            <p class="section-subtitle">
+            See how clinics are getting more patient appointments with Vyapar Wallah.</p>
+
+        </div>
+        <div class="testimonial-slider-wrapper">
+            <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="testimonial-track" id="reviewTrack">
+                
+                <svg style="display:none;">
+                    <defs>
+                        <g id="google-g">
+                            <path fill="#4285F4" d="M23.74 12.27c0-.85-.07-1.67-.21-2.47H12v4.67h6.58c-.28 1.51-1.13 2.79-2.43 3.66v3.04h3.93c2.3-2.12 3.63-5.25 3.63-8.9z"/>
+                            <path fill="#34A853" d="M12 24c3.3 0 6.08-1.1 8.11-2.96l-3.93-3.04c-1.1.74-2.51 1.18-4.18 1.18-3.21 0-5.93-2.17-6.9-5.08H1.08v3.13C3.12 21.3 7.22 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.1 14.1c-.25-.74-.39-1.53-.39-2.34s.14-1.6.39-2.34V6.29H1.08C.39 7.78 0 9.4 0 11.1c0 1.7.39 3.32 1.08 4.81l4.02-3.11z"/>
+                            <path fill="#EA4335" d="M12 4.82c1.8 0 3.41.62 4.68 1.83l3.51-3.51C18.06 1.19 15.29 0 12 0 7.22 0 3.12 2.7 1.08 6.78l4.02 3.11c.97-2.91 3.69-5.07 6.9-5.07z"/>
+                        </g>
+                    </defs>
+                </svg>
+
+                <div class="review-card">
+                    <div class="g-header">
+                        <img src="manish review.png" alt="User">
+                        <div class="g-user-info"><strong>Manish Kumar</strong><span class="g-date">2 weeks ago</span></div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                    </div>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We are a school in Patna and their team helped us with website SEO and social media marketing. Admissions inquiries increased within 2 months. Highly recommended.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="g-header">
+                        <img src="neha review.png" alt="User">
+                        <div class="g-user-info"><strong>Neha Singh</strong><span class="g-date">1 month ago</span></div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                    </div>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara complete digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se walk-in clients kaafi badh gaye. Bihar me best agency for salons 👍</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="g-header">
+                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User">
+                        <div class="g-user-info"><strong>Rohit Sharma</strong><span class="g-date">1 month ago</span></div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                    </div>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="review-text">If you are looking for a trusted digital marketing company in Bihar, especially in Darbhanga or nearby districts, Vyapar Wallah is a great choice. Their team understands local business marketing and provides practical strategies.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="g-header">
+                        <img src="rajeev review.png" alt="User">
+                        <div class="g-user-info"><strong>Dr. Rajeev Ranjan</strong><span class="g-date">3 months ago</span></div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                    </div>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility. Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily find us on search. Professional digital marketing service.</p>
+                </div>
+
+            </div>  
+            <button class="slider-btn next-btn" onclick="slideReviews(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="lead-magnet">
+        <div class="magnet-box">
+            <div class="magnet-text"><h3>The 2026 Healthcare Growth Playbook</h3><p>Discover exact SEO strategies.</p></div>
+            <div class="magnet-form">
+                <form id="leadForm">
+                    <input type="text" id="leadName" placeholder="Dr. / Clinic Name" required>
+                    <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
+                    <button type="submit">Download PDF Now <i class="fa-solid fa-download"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+        <div class="faq-container">
+            <div class="faq-item"><div class="faq-question">How long to see growth? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><br>Ads take 7-10 days, SEO takes 2-3 months.</div></div>
+            <div class="faq-item"><div class="faq-question">Is it compliant? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer"><br>Yes, we follow medical ethical guidelines.</div></div>
+        </div>
+    </section>
+
+    <div class="discount-popup-overlay" id="discountPopup">
+    <div class="discount-popup-box">
+        <button class="close-popup" onclick="closePopup()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="popup-left">
+            <img src="doctor popup.jpg" alt="Doctor Marketing">
+        </div>
+
+        <div class="popup-right">
+            <span class="offer-badge">SPECIAL OFFER</span>
+            <h2>Get <span>10% OFF</span> Your First Month</h2>
+            <p>
+                Join Vyapar Wallah today and get more patient appointments with
+                Google ranking, SEO and targeted ads.
+            </p>
+            <div class="offer-timer">
+            Offer expires in <span id="countdown">40</span>s</div>
+
+
+            <a href="https://wa.me/9187641492" class="popup-btn">
+                Claim Offer Now
+            </a>
+        </div>
+
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+        
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('leadName').value;
+            let phone = document.getElementById('leadPhone').value;
+            let msg = `Hi! I am ${name}. Send me the Playbook.`;
+            window.open(`https://wa.me/9187641492?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+
+        let timeLeft = 40;
+
+let timer = setInterval(function(){
+
+timeLeft--;
+
+document.getElementById("countdown").innerText = timeLeft;
+
+if(timeLeft <= 0){
+clearInterval(timer);
+}
+
+},1000);
+
+function closePopup(){
+
+document.getElementById("discountPopup").classList.remove("show");
+
+localStorage.setItem("popupClosed","true");
+
+}
+
+      let popupShown = false;
+
+window.addEventListener("scroll",function(){
+
+if(localStorage.getItem("popupClosed") === "true"){
+return;
+}
+
+let scrollHeight=document.documentElement.scrollHeight;
+let scrollTop=document.documentElement.scrollTop;
+let clientHeight=document.documentElement.clientHeight;
+
+let scrollPercent=(scrollTop+clientHeight)/scrollHeight;
+
+if(scrollPercent>0.75 && !popupShown){
+
+document.getElementById("discountPopup").classList.add("show");
+
+popupShown=true;
+
+}
+
+});
+        function closePopup() { document.getElementById('discountPopup').classList.remove('show'); }
+
+     function slideReviews(direction){
+
+const track = document.getElementById("reviewTrack");
+
+const card = track.querySelector(".review-card");
+
+const cardWidth = card.offsetWidth + 25;
+
+track.scrollLeft += direction * cardWidth;
+
+}
+    </script>
+</body>
+</html>

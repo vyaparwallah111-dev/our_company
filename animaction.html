@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Doctor Landing Page Animation</title>
+    <style>
+        /* --- GENERAL STYLING --- */
+        body, html {
+            margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #e2ebf0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;
+        }
+
+        .device-container { position: relative; display: flex; justify-content: center; align-items: center; }
+
+        /* Mobile Phone */
+        .mobile-frame {
+            width: 340px; height: 680px; background: #ffffff; border-radius: 40px; border: 12px solid #1a1a1a;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3); position: relative; overflow: hidden; z-index: 2;
+        }
+
+        .mobile-notch {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 25px;
+            background: #1a1a1a; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; z-index: 100;
+        }
+
+        /* Floating Finger 👆 */
+        .cursor-pointer {
+            position: absolute; font-size: 2.2rem; z-index: 200; transition: all 0.8s ease-in-out; 
+            opacity: 0; pointer-events: none; filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.4));
+        }
+
+        /* Screens Base */
+        .screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff; opacity: 0; visibility: hidden; z-index: 1; transition: opacity 0.3s ease-in-out;
+            display: flex; flex-direction: column;
+        }
+        .screen.active { opacity: 1; visibility: visible; z-index: 10; }
+
+        /* --- 1. GOOGLE SEARCH --- */
+        .google-home { padding: 40px 20px; align-items: center; justify-content: center; display: flex; flex-direction: column; height: 100%; }
+        .google-logo { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; }
+        .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; }
+        .search-box-main {
+            width: 100%; height: 48px; border: 1px solid #dfe1e5; border-radius: 24px; display: flex; align-items: center;
+            padding: 0 15px; box-shadow: 0 1px 6px rgba(32,33,36,.28); box-sizing: border-box; color: #202124; font-size: 15px;
+        }
+        .search-cursor { animation: blink 1s infinite; border-left: 2px solid #4285F4; margin-left: 2px; }
+
+        /* --- 1.5 GOOGLE RESULTS (REALISTIC) --- */
+        .google-top-bar { padding: 35px 15px 15px; border-bottom: 1px solid #ebebeb; display: flex; align-items: center; gap: 10px; }
+        .mini-search { flex-grow: 1; background: #f1f3f4; border-radius: 20px; padding: 10px 15px; font-size: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .map-area { height: 150px; background: #e5e3df url('https://upload.wikimedia.org/wikipedia/commons/b/b1/Google_Maps_icon_2020.svg') center/40px no-repeat; border-bottom: 1px solid #e0e0e0; position:relative; }
+        
+        .gmb-list { padding: 0 15px; overflow-y: auto; flex-grow: 1; }
+        .gmb-item { padding: 15px 0; border-bottom: 1px solid #ebebeb; display: flex; flex-direction: column; transition: background 0.2s; }
+        .gmb-title { color: #1a0dab; font-size: 16px; font-weight: 500; margin-bottom: 2px; }
+        .gmb-rating { font-size: 13px; color: #70757a; margin-bottom: 4px; }
+        .gmb-stars { color: #fbbc04; }
+        .gmb-details { font-size: 12px; color: #70757a; }
+        .gmb-item.clicked { background-color: #f6f9fe; }
+
+        /* --- 2. INSTAGRAM PROFILE (REALISTIC) --- */
+        .insta-header { padding: 40px 15px 10px; font-weight: bold; font-size: 16px; border-bottom: 1px solid #dbdbdb; display: flex; justify-content: space-between; }
+        .insta-profile { padding: 15px; display: flex; align-items: center; gap: 20px; }
+        .insta-avatar { width: 70px; height: 70px; border-radius: 50%; background: #ddd; border: 2px solid #e1306c; padding: 2px; }
+        .insta-stats { display: flex; gap: 15px; text-align: center; flex-grow: 1; justify-content: center; }
+        .stat-num { font-weight: bold; font-size: 16px; } .stat-label { font-size: 12px; color: #262626; }
+        .insta-bio { padding: 0 15px 15px; font-size: 13px; color: #262626; }
+        .insta-bio-name { font-weight: bold; }
+        .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+        /* Insta Posts class */
+        .insta-post { width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; background-color: #eee; }
+
+        /* --- 3. CLINIC BOOKING WEBSITE --- */
+        .web-header { background: #0046c0; color: white; padding: 40px 15px 15px; font-size: 18px; font-weight: bold; text-align: center; }
+        .doctor-card { padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .doc-img { width: 90px; height: 90px; border-radius: 50%; background: #ccc; margin: 0 auto 10px; }
+        .doc-name { font-size: 20px; font-weight: bold; color: #333; }
+        .doc-spec { font-size: 14px; color: #666; margin-bottom: 15px; }
+        .booking-section { padding: 20px; }
+        .time-slots { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; justify-content: center; }
+        .slot { border: 1px solid #0046c0; color: #0046c0; padding: 8px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+        .slot.selected { background: #0046c0; color: white; }
+        .book-btn { width: 100%; background: #28a745; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 16px; font-weight: bold; transition: transform 0.2s; }
+
+        /* --- 4. SUCCESS SCREEN --- */
+        .success-screen { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%; align-items: center; }
+        .emoji-large { font-size: 5rem; margin-bottom: 15px; animation: pop 0.5s ease-out forwards; transform: scale(0); }
+        .success-text { color: #28a745; font-weight: bold; font-size: 22px; margin-bottom: 10px; }
+
+        /* Animations */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes pop { 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+<div class="device-container">
+    <div class="mobile-frame">
+        <div class="mobile-notch"></div>
+        
+        <div class="cursor-pointer" id="main-cursor">👆</div>
+
+        <div class="screen active" id="scene-1">
+            <div class="google-home">
+                <div class="google-logo">
+                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                </div>
+                <div class="search-box-main">
+                    <span id="typed-text"></span><span class="search-cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="scene-results">
+            <div class="google-top-bar">
+                <span class="g-blue" style="font-weight:bold; font-size:24px;">G</span>
+                <div class="mini-search">best dentist near me</div>
+            </div>
+            <div class="map-area"></div>
+            <div class="gmb-list">
+                <div class="gmb-item">
+                    <div class="gmb-title">Smile Dental Care</div>
+                    <div class="gmb-rating">4.1 <span class="gmb-stars">★★★★☆</span> (120)</div>
+                    <div class="gmb-details">Dentist · Open until 8 PM</div>
+                </div>
+                <div class="gmb-item target" id="target-doctor">
+                    <div class="gmb-title">City Expert Dental Clinic</div>
+                    <div class="gmb-rating">4.9 <span class="gmb-stars">★★★★★</span> (540)</div>
+                    <div class="gmb-details" style="color:#1a73e8; font-weight:500;">Highest Rated · Premium Care</div>
+                </div>
+                <div class="gmb-item">
+                    <div class="gmb-title">Family Tooth Center</div>
+                    <div class="gmb-rating">3.8 <span class="gmb-stars">★★★☆☆</span> (40)</div>
+                    <div class="gmb-details">Dentist · Closes soon</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="scene-insta">
+            <div class="insta-header">
+                <span>&lt;</span> <span>city_expert_dental</span> <span>⋮</span>
+            </div>
+            <div class="insta-profile">
+                <img class="insta-avatar" src="https://ui-avatars.com/api/?name=Dr+D&background=0D8ABC&color=fff" alt="Profile">
+                <div class="insta-stats">
+                    <div><div class="stat-num">342</div><div class="stat-label">Posts</div></div>
+                    <div><div class="stat-num">12.5K</div><div class="stat-label">Followers</div></div>
+                </div>
+            </div>
+            <div class="insta-bio">
+                <div class="insta-bio-name">City Expert Dental Clinic</div>
+                Creating Beautiful Smiles ✨<br>
+                📍 Best Dentist in Town<br>
+                🔗 www.cityexpertdental.com
+            </div>
+            
+            <div class="insta-grid">
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=200');"></div>
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?w=200');"></div>
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=200');"></div>
+                
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=200');"></div>
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=200');"></div>
+                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200');"></div>
+            </div>
+        </div>
+
+        <div class="screen" id="scene-booking">
+            <div class="web-header">City Expert Dental</div>
+            <div class="doctor-card">
+                <img class="doc-img" src="https://ui-avatars.com/api/?name=Dr+Sharma&background=random" alt="Doc">
+                <div class="doc-name">Dr. A. Sharma</div>
+                <div class="doc-spec">Senior Dental Surgeon (BDS, MDS)</div>
+                <div style="font-size:12px; color:#fbbc04;">★★★★★ 4.9/5</div>
+            </div>
+            <div class="booking-section">
+                <h4 style="margin: 0 0 15px 0; color:#333;">Select Time Slot</h4>
+                <div class="time-slots">
+                    <div class="slot">10:00 AM</div>
+                    <div class="slot" id="target-slot">04:30 PM</div>
+                    <div class="slot">06:00 PM</div>
+                </div>
+                <button class="book-btn" id="booking-btn">Confirm Appointment</button>
+            </div>
+        </div>
+
+        <div class="screen" id="scene-happy">
+            <div class="success-screen">
+                <div class="emoji-large">🎉</div>
+                <div class="success-text">Booking Confirmed!</div>
+                <p style="color: #555;">Your smile journey begins now.</p>
+                <div style="margin-top:20px; font-size:3rem;">🏥🚶‍♂️</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const screens = [
+        document.getElementById('scene-1'),
+        document.getElementById('scene-results'),
+        document.getElementById('scene-insta'),
+        document.getElementById('scene-booking'),
+        document.getElementById('scene-happy')
+    ];
+    
+    const typedTextEl = document.getElementById('typed-text');
+    const mainCursor = document.getElementById('main-cursor');
+    const targetDoctor = document.getElementById('target-doctor');
+    const targetSlot = document.getElementById('target-slot');
+    const bookBtn = document.getElementById('booking-btn');
+
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function typeWriter(text) {
+        typedTextEl.innerHTML = "";
+        for (let i = 0; i < text.length; i++) {
+            typedTextEl.innerHTML += text.charAt(i);
+            await sleep(70); // Typing speed
+        }
+    }
+
+    function switchScreen(index) {
+        screens.forEach(s => s.classList.remove('active'));
+        screens[index].classList.add('active');
+    }
+
+    async function playAnimation() {
+        while (true) {
+            // Reset state
+            mainCursor.style.opacity = '0'; mainCursor.style.top = '80%'; mainCursor.style.left = '50%';
+            targetSlot.classList.remove('selected');
+            
+            // 1. Google Home
+            switchScreen(0);
+            await sleep(800);
+            await typeWriter("best dentist near me");
+            await sleep(600);
+
+            // 2. Google Results
+            switchScreen(1);
+            await sleep(1000);
+            
+            // Finger comes to select the specific highest-rated doctor
+            mainCursor.style.opacity = '1';
+            mainCursor.style.top = '48%'; // Target Doctor position
+            mainCursor.style.left = '60%';
+            await sleep(1000);
+            mainCursor.style.transform = 'scale(0.8)'; // Click
+            targetDoctor.classList.add('clicked');
+            await sleep(300);
+            mainCursor.style.transform = 'scale(1)';
+            targetDoctor.classList.remove('clicked');
+            mainCursor.style.opacity = '0';
+            await sleep(500);
+
+            // 3. Instagram Profile
+            switchScreen(2);
+            await sleep(2000);
+            
+            // Finger scrolls/views Instagram
+            mainCursor.style.opacity = '1';
+            mainCursor.style.top = '60%'; mainCursor.style.left = '50%';
+            await sleep(500);
+            mainCursor.style.top = '40%'; // simulate scroll up gesture
+            await sleep(500);
+            mainCursor.style.opacity = '0';
+            await sleep(1000);
+
+            // Finger clicks website link in Bio
+            mainCursor.style.opacity = '1';
+            mainCursor.style.top = '30%'; // Bio link position
+            mainCursor.style.left = '40%';
+            await sleep(800);
+            mainCursor.style.transform = 'scale(0.8)';
+            await sleep(300);
+            mainCursor.style.transform = 'scale(1)';
+            mainCursor.style.opacity = '0';
+            await sleep(500);
+
+            // 4. Website Booking Page
+            switchScreen(3);
+            await sleep(1000);
+            
+            // Finger selects Time Slot
+            mainCursor.style.opacity = '1';
+            mainCursor.style.top = '58%'; mainCursor.style.left = '50%';
+            await sleep(800);
+            mainCursor.style.transform = 'scale(0.8)';
+            targetSlot.classList.add('selected'); // Highlight slot
+            await sleep(300);
+            mainCursor.style.transform = 'scale(1)';
+            await sleep(500);
+
+            // Finger clicks Confirm Button
+            mainCursor.style.top = '72%'; mainCursor.style.left = '50%';
+            await sleep(800);
+            mainCursor.style.transform = 'scale(0.8)';
+            bookBtn.style.transform = 'scale(0.95)';
+            await sleep(300);
+            mainCursor.style.transform = 'scale(1)';
+            bookBtn.style.transform = 'scale(1)';
+            mainCursor.style.opacity = '0';
+            await sleep(500);
+
+            // 5. Success Screen
+            switchScreen(4);
+            await sleep(4000); // Wait on happy screen before loop restarts
+        }
+    }
+
+    window.onload = () => { playAnimation(); };
+</script>
+
+</body>
+</html>
