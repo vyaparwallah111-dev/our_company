@@ -291,6 +291,14 @@ font-size:1.5rem;
 
 }
 
+@media(max-width:768px){
+
+.hero-animation-side{
+display:none;
+}
+
+}
+
         /* --- HOW CLINICS GROW (BEFORE VS AFTER) --- */
         .growth-section { padding: 80px 5%; background: var(--bg-light); }
         .ba-container { display: flex; gap: 30px; max-width: 1000px; margin: auto; flex-wrap: wrap; }
@@ -380,10 +388,19 @@ right:-20px;
 .testimonial-track{
 display:flex;
 gap:25px;
-overflow-x:hidden;
-scroll-behavior:smooth;
-width:100%;
-}        .testimonial-track::-webkit-scrollbar { display: none; }
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
+
+@media(max-width:768px){
+
+.review-card{
+flex:0 0 85%;
+}
+
+}
+       .testimonial-track::-webkit-scrollbar { display: none; }
         
         .review-card { flex: 0 0 calc(25% - 15px); scroll-snap-align: start; background: white; padding: 20px 24px; border-radius: 8px; border: 1px solid #e8eaed; box-shadow: 0 1px 2px rgba(60,64,67,0.1), 0 1px 3px rgba(60,64,67,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
         .review-card:hover { box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.15); }
@@ -700,7 +717,7 @@ gap:30px;
 }
 
 .doctor-image-wrapper{
-height:280px;
+height:420px;
 max-width:280px;
 margin:auto;
 }
@@ -748,6 +765,16 @@ transform:scale(0.9);
 }
 
 }
+
+.hero-text-side{
+flex:1;
+width:100%;
+}
+
+html,body{
+max-width:100%;
+overflow-x:hidden;
+}
 /* Reason Cards ke liye updated style */
 .reason-card {
     background: #f8fcfb;
@@ -792,6 +819,21 @@ font-size:1.8rem;
 }
 
 }
+
+@media(max-width:768px){
+
+.medical-hero{
+padding:80px 20px 50px;
+}
+
+.services-section,
+.growth-section,
+.comparison-section,
+.faq-section{
+padding:60px 20px;
+}
+
+}
     </style>
 </head>
 <body>
@@ -800,8 +842,7 @@ font-size:1.8rem;
 
     <section class="medical-hero">
     
-    <div class="hero-text-side" style="flex: 1;">
-        <div class="premium-badge">
+<div class="hero-text-side">        <div class="premium-badge">
    <i class="fa-solid fa-medal" style="color: var(--accent-orange); margin-right: 8px;"></i> 
    #Bihar’s Best Digital Marketing Service For Doctors
 </div>
@@ -816,15 +857,14 @@ font-size:1.8rem;
     <div class="hero-animation-side" style="flex: 1; display: flex; justify-content: center;">
         <dotlottie-wc
   src="https://lottie.host/2120991c-bb4b-4290-b56a-24cda0636558/s13HaEJPY7.lottie"
-  style="width: 500px;height: 500px"
-  autoplay
+style="width:100%;max-width:420px;height:auto"  autoplay
   loop
 ></dotlottie-wc>
     </div>
 
-</section>
 
-</section>
+
+
 
         
     </section>
