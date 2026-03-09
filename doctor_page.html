@@ -121,6 +121,13 @@ font-size:0.9rem;
 
 }
 
+/* Mobile par industry images square */
+.showcase-visual img{
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
 @media(max-width:768px){
 
 .intro-grid{
@@ -267,32 +274,22 @@ padding:25px;
 
 @media(max-width:768px){
 
+/* popup mobile fix */
 .discount-popup-box{
-flex-direction:column;
-max-width:95%;
-}
-
-.popup-left{
-padding:20px;
-}
-
-.popup-left img{
-max-width:220px;
+width:95%;
+max-width:420px;
 }
 
 .popup-right{
-padding:25px;
-text-align:center;
+padding:20px 15px;
 }
 
-.popup-right h2{
-font-size:1.5rem;
+.popup-left img{
+height:150px;
+object-fit:cover;
 }
 
-}
-
-@media(max-width:768px){
-
+/* hero animation hide on mobile */
 .hero-animation-side{
 display:none;
 }
@@ -834,6 +831,545 @@ padding:60px 20px;
 }
 
 }
+
+@media(max-width:768px){
+
+/* Industry images square */
+.showcase-visual img{
+    border-radius:8px;
+}
+
+/* Popup smaller for mobile */
+.discount-popup-box{
+    width:95%;
+    max-width:420px;
+}
+
+.popup-content{
+    padding:20px 15px;
+}
+
+.popup-content h3{
+    font-size:1.5rem;
+}
+
+.popup-image{
+    height:150px;
+}
+
+}
+@media(max-width:768px){
+
+.doctor-image-wrapper{
+border-radius:12px;
+height:auto;
+max-width:320px;
+margin:auto;
+}
+
+}
+
+@media(max-width:768px){
+
+.premium-badge{
+font-size:12px;
+padding:6px 14px;
+border-radius:30px;
+}
+
+}
+
+@media(max-width:768px){
+
+.medical-hero h1{
+font-size:1.9rem;
+line-height:1.35;
+padding:0 10px;
+}
+
+}
+
+@media(max-width:768px){
+
+.medical-hero p{
+font-size:0.95rem;
+line-height:1.6;
+padding:0 15px;
+}
+
+}
+
+@media(max-width:768px){
+
+.btn-main{
+padding:12px 24px;
+font-size:0.9rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.medical-hero{
+padding:90px 20px 60px;
+text-align:center;
+}
+
+}
+
+/* =========================
+   MOBILE GAP FIX SECTION
+   ========================= */
+
+@media(max-width:768px){
+
+/* green text aur image ke beech ka gap kam karega */
+.why-marketing-section{
+padding-top:40px; /* upar ka extra space kam */
+}
+
+/* green text ke niche space control */
+.why-marketing-section .premium-subtext{
+margin-bottom:10px; /* image ke paas laane ke liye */
+}
+
+}
+
+/* =========================
+   MOBILE IMAGE CONTROL
+   ========================= */
+
+@media(max-width:768px){
+
+.doctor-image-wrapper{
+
+max-width:260px; /* image width control */
+height:auto;
+
+margin-top:10px; /* green text se distance */
+margin-bottom:20px; /* image aur heading ke beech gap */
+
+border-radius:12px; /* circle remove */
+}
+
+}
+
+/* =========================
+   MOBILE HEADING STYLE
+   ========================= */
+
+@media(max-width:768px){
+
+.marketing-content h2{
+
+font-size:1.7rem; /* heading choti */
+line-height:1.3;
+
+text-align:center; /* mobile me center */
+
+margin-top:5px; /* image ke paas lane ke liye */
+margin-bottom:20px;
+
+}
+
+}
+
+/* ==============================
+   MOBILE GAP FIX (GREEN TEXT)
+   ============================== */
+
+@media(max-width:768px){
+
+.intro-section{
+padding:40px 20px !important; /* section ka extra space kam */
+}
+
+.intro-section div[style*="margin-top"]{
+margin-top:15px !important; /* green text ka gap kam */
+}
+
+}
+
+/* ==============================
+   IMAGE & HEADING GAP CONTROL
+   ============================== */
+
+@media(max-width:768px){
+
+.doctor-image-wrapper{
+margin-top:5px;
+margin-bottom:10px;
+}
+
+.marketing-content h2{
+margin-top:5px;
+}
+
+}
+/* =================================
+   MOBILE POPUP SQUARE DESIGN
+   ================================= */
+
+@media(max-width:768px){
+
+/* popup box ko vertical card bana raha hai */
+.discount-popup-box{
+flex-direction:column;
+width:90%;
+max-width:320px; /* square look */
+border-radius:16px;
+overflow:hidden;
+}
+
+/* left image full width karega */
+.popup-left{
+width:100%;
+padding:0;
+}
+
+/* image ko square banata hai */
+.popup-left img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* text section */
+.popup-right{
+padding:20px;
+text-align:center;
+}
+
+/* heading size mobile friendly */
+.popup-right h2{
+font-size:1.6rem;
+line-height:1.3;
+}
+
+/* button full width */
+.popup-btn{
+width:100%;
+text-align:center;
+}
+
+}
+
+@media(max-width:768px){
+
+.popup-left{
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f8fcfb;
+}
+
+}
+
+/* ==============================
+   FREE BADGE ANIMATION
+   ============================== */
+
+/* =========================
+   CLEAN FREE BADGE STYLE
+   ========================= */
+
+.free-badge{
+display:inline-flex;
+align-items:center;
+gap:6px;
+
+font-size:13px;
+font-weight:700;
+letter-spacing:1px;
+
+color:#f37021;
+
+background:rgba(243,112,33,0.12);
+border:1px solid rgba(243,112,33,0.35);
+
+padding:6px 14px;
+border-radius:30px;
+
+margin-bottom:12px;
+}
+
+/* animation effect */
+@keyframes pulseFree{
+
+0%{
+transform:scale(1);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+50%{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(243,112,33,0.35);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* ===============================
+LEAD MAGNET SECTION
+=============================== */
+
+.lead-magnet{
+padding:80px 5%;
+background:#fdf7f2;
+}
+
+.magnet-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:60px;
+}
+
+
+/* LEFT TEXT */
+
+.magnet-text{
+flex:1;
+}
+
+.magnet-text h2{
+font-size:2.8rem;
+color:#174c8f;
+font-weight:800;
+margin-bottom:15px;
+line-height:1.2;
+}
+
+.magnet-text p{
+color:#555;
+font-size:1.05rem;
+margin-bottom:25px;
+line-height:1.6;
+}
+
+
+/* FREE BADGE */
+
+.free-badge{
+color:#f37021;
+font-weight:700;
+font-size:14px;
+letter-spacing:1px;
+margin-bottom:15px;
+}
+
+
+/* CHECK POINTS */
+
+.magnet-points{
+list-style:none;
+padding:0;
+}
+
+.magnet-points li{
+margin-bottom:12px;
+font-weight:500;
+color:#333;
+}
+
+.magnet-points li::before{
+content:"✔";
+color:#00a651;
+margin-right:10px;
+}
+
+
+/* FORM CARD */
+
+.magnet-form{
+flex:1;
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.magnet-form input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:1rem;
+}
+
+.magnet-form button{
+width:100%;
+padding:15px;
+background:#f37021;
+color:white;
+border:none;
+border-radius:8px;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer;
+}
+
+.privacy-text{
+text-align:center;
+font-size:0.8rem;
+color:#888;
+margin-top:10px;
+}
+
+@media(max-width:768px){
+
+.magnet-container{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.magnet-text h2{
+font-size:2rem;
+}
+
+.magnet-form{
+width:100%;
+}
+
+}
+
+/* =========================
+EXIT POPUP
+========================= */
+
+.exit-popup-overlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.75);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:9999;
+
+opacity:0;
+pointer-events:none;
+
+transition:0.3s;
+
+}
+
+.exit-popup-overlay.show{
+
+opacity:1;
+pointer-events:auto;
+
+}
+
+/* ======================
+EXIT POPUP WITH IMAGE
+====================== */
+
+.exit-popup-box{
+
+display:flex;
+max-width:700px;
+width:90%;
+
+background:white;
+border-radius:15px;
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+/* LEFT IMAGE */
+
+.exit-popup-left{
+
+flex:1;
+background:#f5f5f5;
+
+}
+
+.exit-popup-left img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+/* RIGHT CONTENT */
+
+.exit-popup-right{
+
+flex:1;
+padding:35px;
+
+text-align:center;
+
+}
+
+.exit-popup-right h2{
+
+font-size:2rem;
+color:#0A4C95;
+
+}
+
+.exit-popup-right span{
+
+color:#F37021;
+
+}
+
+/* BUTTON */
+
+.exit-btn{
+
+display:inline-block;
+margin-top:20px;
+
+background:#F37021;
+color:white;
+
+padding:14px 28px;
+
+border-radius:8px;
+
+font-weight:700;
+text-decoration:none;
+
+}
+
+/* MOBILE FIX */
+
+@media(max-width:768px){
+
+.exit-popup-box{
+
+flex-direction:column;
+
+}
+
+.exit-popup-left img{
+
+height:180px;
+
+}
+
+}
     </style>
 </head>
 <body>
@@ -869,7 +1405,7 @@ style="width:100%;max-width:420px;height:auto"  autoplay
         
     </section>
 
-   <section class="intro-section" style="background: #fdfdfd; padding: 100px 5%;">
+   <section class="intro-section" style="background: #fdfdfd; padding: 60px 5%;">
     <div class="section-header">
     <h2>Why Most Clinics in Bihar Struggle to Scale?</h2>
     
@@ -899,7 +1435,7 @@ style="width:100%;max-width:420px;height:auto"  autoplay
         </div>
     </div>
 
-    <div style="margin-top: 60px; text-align: center;">
+    <div style="margin-top: 20px; text-align: center;">
         <p style="font-size: 1.2rem; color: var(--highlight-green); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
             <i class="fa-solid fa-circle-check"></i> Transforming local clinics into trusted medical brands
         </p>
@@ -915,7 +1451,7 @@ style="width:100%;max-width:420px;height:auto"  autoplay
             
         </div>
     </div>
-</div>
+
     <div class="marketing-content">
         <h2 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 30px; line-height: 1.2;">
             Why Modern Doctors Need <br><span style="color: var(--accent-orange);">Digital Marketing?</span>
@@ -1138,18 +1674,62 @@ style="width:100%;max-width:420px;height:auto"  autoplay
         </div>
     </section>
 
-    <section class="lead-magnet">
-        <div class="magnet-box">
-            <div class="magnet-text"><h3>The 2026 Healthcare Growth Playbook</h3><p>Discover exact SEO strategies.</p></div>
-            <div class="magnet-form">
-                <form id="leadForm">
-                    <input type="text" id="leadName" placeholder="Dr. / Clinic Name" required>
-                    <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
-                    <button type="submit">Download PDF Now <i class="fa-solid fa-download"></i></button>
-                </form>
-            </div>
-        </div>
-    </section>
+    
+  <section class="lead-magnet">
+
+<div class="magnet-container">
+
+<!-- LEFT SIDE CONTENT -->
+<div class="magnet-text">
+
+<div class="free-badge">
+🎁 FREE DOWNLOAD
+</div>
+
+<h2>
+The 2026 Digital Growth <br>
+Playbook for Bihar
+</h2>
+
+<p>
+Not ready for a meeting? No problem. Download our free strategy guide 
+showing exactly how top local businesses are secretly doubling their revenue.
+</p>
+
+<ul class="magnet-points">
+
+<li>Proven Ad Formulas</li>
+<li>Content Ideas for Local Brands</li>
+
+</ul>
+
+</div>
+
+
+<!-- RIGHT SIDE FORM -->
+<div class="magnet-form">
+
+<form id="leadForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="tel" placeholder="WhatsApp Number" required>
+
+<button type="submit">
+Download Now <i class="fa-solid fa-download"></i>
+</button>
+
+<p class="privacy-text">
+🔒 100% Privacy. No spam calls.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
 
     <section class="faq-section">
         <div class="section-header"><h2>Frequently Asked Questions</h2></div>
@@ -1190,6 +1770,42 @@ style="width:100%;max-width:420px;height:auto"  autoplay
             </div>
         </div>
     </div>
+
+<!-- EXIT OFFER POPUP -->
+<div class="exit-popup-overlay" id="exitPopup">
+
+<div class="exit-popup-box">
+
+<button class="close-popup" onclick="closeExitPopup()">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+<!-- LEFT IMAGE -->
+<div class="exit-popup-left">
+
+<img src="doctor popup.jpg" alt="Clinic Marketing Offer">
+
+</div>
+
+<!-- RIGHT CONTENT -->
+<div class="exit-popup-right">
+
+<h2>Wait! Get <span>25% OFF</span></h2>
+
+<p>
+Before you leave, grab our special 25% discount
+for clinic digital marketing services.
+</p>
+
+<a href="https://wa.me/9187641492" class="exit-btn">
+Claim 25% Discount
+</a>
+
+</div>
+
+</div>
+</div>
+
 
     <div id="footer-placeholder"></div>
 
@@ -1270,6 +1886,54 @@ const card = track.querySelector(".review-card");
 const cardWidth = card.offsetWidth + 25;
 
 track.scrollLeft += direction * cardWidth;
+
+}
+
+// =======================
+// EXIT INTENT POPUP
+// =======================
+
+let exitPopupShown = false;
+
+/* DESKTOP EXIT */
+
+document.addEventListener("mouseout",function(e){
+
+if(e.clientY < 10 && !exitPopupShown){
+
+showExitPopup();
+
+}
+
+});
+
+/* MOBILE BACK BUTTON */
+
+history.pushState(null,null,location.href);
+
+window.addEventListener("popstate",function(){
+
+if(!exitPopupShown){
+
+showExitPopup();
+
+history.pushState(null,null,location.href);
+
+}
+
+});
+
+function showExitPopup(){
+
+document.getElementById("exitPopup").classList.add("show");
+
+exitPopupShown = true;
+
+}
+
+function closeExitPopup(){
+
+document.getElementById("exitPopup").classList.remove("show");
 
 }
     </script>
