@@ -290,8 +290,15 @@ object-fit:cover;
 }
 
 /* hero animation hide on mobile */
+@media(max-width:768px){
+
 .hero-animation-side{
-display:none;
+
+display:flex;
+justify-content:center;
+
+}
+
 }
 
 }
@@ -1671,10 +1678,26 @@ font-weight:500;
 /* HERO IMAGE CONTAINER */
 
 .doctor-search-visual{
-
 position:relative;
 max-width:520px;
 margin:auto;
+display:inline-block;
+}
+
+.hero-animation-side{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+@media(max-width:768px){
+
+.doctor-search-visual{
+max-width:300px;
+width:100%;
+margin-top:20px;
+}
 
 }
 
@@ -1686,7 +1709,6 @@ width:100%;
 border-radius:14px;
 box-shadow:0 20px 40px rgba(0,0,0,0.15);
 
-animation:floatHero 6s ease-in-out infinite;
 
 }
 
@@ -1696,7 +1718,8 @@ animation:floatHero 6s ease-in-out infinite;
 
 position:absolute;
 
-background:white;
+background:#ffffff;
+color:#0A4C95 !important;
 padding:8px 14px;
 
 border-radius:30px;
@@ -1705,45 +1728,35 @@ font-size:13px;
 font-weight:600;
 
 box-shadow:0 8px 20px rgba(0,0,0,0.15);
-
-animation:floatText 5s ease-in-out infinite;
+white-space:nowrap;
+z-index: 5;
 
 }
+
+
+
+
 
 /* TEXT POSITIONS */
 
 .search-text{
-top:20%;
-left:-20px;
+top:15%;
+left:10%;
 }
 
 .clinic-text{
 top:45%;
-right:-30px;
+right:10%;
 }
 
 .hospital-text{
 bottom:15%;
-left:20px;
+left:25%;
 }
 
-/* FLOAT ANIMATION */
 
-@keyframes floatHero{
 
-0%{transform:translateY(0);}
-50%{transform:translateY(-12px);}
-100%{transform:translateY(0);}
 
-}
-
-@keyframes floatText{
-
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
-
-}
 
 /* MOBILE */
 
