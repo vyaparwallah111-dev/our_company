@@ -1,145 +1,1040 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Digital Marketing Agency in Samastipur | For Doctors & Schools</title>
-    <meta name="description" content="Looking for the best digital marketing company in Samastipur? Vyapar Wallah offers expert SEO, lead generation & social media services for Hospitals, Doctors, Schools & Coaching Institutes in SPJ.">
-    <meta name="keywords" content="Digital Marketing Agency in Samastipur, marketing agency spj, SEO for doctors in Samastipur, digital marketing for schools in Samastipur, Top 10 Best Digital Marketing Services in Samastipur">
-    
+    <title>#1 Digital Marketing Agency Samastipur | Healthcare & Education SEO</title>
+    <meta name="description"
+        content="Vyapar Wallah is the top web design and digital marketing agency in Samastipur. Expert healthcare digital marketing, doctor marketing, and school/coaching institute marketing in SPJ.">
+    <meta name="keywords"
+        content="healthcare marketing, marketing website, digital marketing services, healthcare digital marketing agency samastipur, digital marketing agency samastipur, digital marketing for coaching, online marketing website, healthcare digital marketing companies, web design and digital marketing agency, Doctor marketing Samastipur, Hospital marketing Samastipur, Clinic promotion Samastipur, School marketing Samastipur, Coaching institute marketing Samastipur, local SEO SPJ, best ad agency Samastipur">
+
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-blue: #0A4C95;
             --accent-orange: #F37021;
-            --bg-light: #f4f7fb;
-            --text-dark: #333;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --success: #10b981;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fff; color: var(--text-dark); line-height: 1.7; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        /* --- HERO SECTION --- */
-        .seo-hero {
-            background: linear-gradient(135deg, rgba(10, 76, 149, 0.95), rgba(5, 44, 92, 0.98)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80') center/cover;
-            padding: 100px 5% 80px;
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* 🚀 ANIMATIONS SYSTEM */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* --- 1. HERO SECTION (Premium Glassmorphism) --- */
+        .hero {
+            position: relative;
+            padding: 140px 5% 100px;
+            background: linear-gradient(135deg, #052c5c 0%, #0A4C95 100%);
+            color: white;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243, 112, 33, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
+            animation: rotateBg 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotateBg {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: url("digital marketing agency samastipur.jpg") center/cover no-repeat;
+
+            filter: blur(120px);
+            opacity: 0.25;
+
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            background: var(--accent-orange);
+            bottom: 5px;
+            left: 0;
+            opacity: 0.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4);
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(243, 112, 33, 0.5);
+            background: transparent;
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        /* --- 2. STATS BAR (Counters) --- */
+        .stats-wrap {
+            background: white;
+            padding: 40px 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            margin-inline: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* --- COMMON SECTION STYLES --- */
+        .section {
+            padding: 100px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .sec-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sec-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+        }
+
+        .sec-title p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+
+        /* --- 3. ABOUT US --- */
+        .about-grid {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .about-img {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80') center/cover;
+            height: 400px;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--accent-orange);
+        }
+
+        /* --- 4. CORE NICHES (Services) --- */
+        .niche-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .niche-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f1f5f9;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .niche-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(10, 76, 149, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .niche-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--bg-light);
+            border-radius: 0 0 0 100%;
+            z-index: 0;
+            transition: 0.4s;
+        }
+
+        .niche-card:hover::after {
+            background: var(--primary-blue);
+        }
+
+        .niche-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-light);
+            color: var(--accent-orange);
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            transition: 0.4s;
+        }
+
+        .niche-card:hover .niche-icon {
+            background: var(--accent-orange);
             color: white;
         }
-        .seo-hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-        .seo-hero h1 span { color: var(--accent-orange); }
-        .seo-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; color: #e8f4fd; }
-        
-        .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(243, 112, 33, 0.3); }
-        .btn-main:hover { background: #d95e17; transform: translateY(-3px); }
 
-        /* --- SEO CONTENT BLOCKS --- */
-        .content-section { padding: 80px 5%; max-width: 1200px; margin: auto; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-blue); font-weight: 800; }
-        .section-title p { color: #555; font-size: 1.1rem; margin-top: 10px; }
+        .niche-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
 
-        /* Niche Grids (Doctors & Education) */
-        .niche-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-bottom: 60px; }
-        .niche-card { background: var(--bg-light); border: 1px solid #e1e8f0; padding: 40px; border-radius: 15px; transition: 0.3s; }
-        .niche-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(10, 76, 149, 0.08); border-color: var(--primary-blue); }
-        .niche-icon { width: 70px; height: 70px; background: white; color: var(--accent-orange); font-size: 2rem; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
-        .niche-card h3 { font-size: 1.6rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
-        .niche-card p { margin-bottom: 15px; color: #555; }
-        .niche-card ul { list-style: none; margin-bottom: 20px; }
-        .niche-card li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
-        .niche-card li i { color: #28a745; margin-top: 5px; }
+        .niche-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-        /* Text Heavy SEO Section (For Crawlers) */
-        .seo-text-block { background: white; padding: 50px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #eee; margin-top: 40px; }
-        .seo-text-block h2, .seo-text-block h3 { color: var(--primary-blue); margin-bottom: 15px; }
-        .seo-text-block p { margin-bottom: 20px; color: #444; text-align: justify; }
+        .niche-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
 
-        /* Call To Action Banner */
-        .cta-banner { background: var(--primary-blue); padding: 60px 5%; text-align: center; color: white; border-radius: 15px; margin: 60px 0; }
-        .cta-banner h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .btn-white { background: white; color: var(--primary-blue); padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .btn-white:hover { background: #f4f4f4; transform: translateY(-3px); }
+        .niche-tags span {
+            background: #e0f2fe;
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
 
-        /* Responsive */
+        /* --- 5. WHY CHOOSE US (Comparison) --- */
+        .compare-wrap {
+            display: flex;
+            gap: 30px;
+        }
+
+        .compare-box {
+            flex: 1;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .c-bad {
+            background: white;
+            border: 2px solid #fee2e2;
+        }
+
+        .c-good {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 20px 40px rgba(10, 76, 149, 0.2);
+            transform: scale(1.05);
+        }
+
+        .c-good h3 {
+            color: white;
+        }
+
+        .c-bad h3 {
+            color: var(--danger-red);
+        }
+
+        .compare-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .compare-list {
+            list-style: none;
+        }
+
+        .compare-list li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .c-bad .compare-list i {
+            color: var(--danger-red);
+            margin-top: 5px;
+        }
+
+        .c-good .compare-list i {
+            color: var(--success);
+            margin-top: 5px;
+        }
+
+        .c-good .compare-list li {
+            color: #e2e8f0;
+        }
+
+        /* --- 6. PROCESS --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .p-num {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(10, 76, 149, 0.3);
+        }
+
+        .process-step h4 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- 7. CASE STUDIES --- */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-img {
+            height: 200px;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .ci-1 {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+
+        .ci-2 {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+        }
+
+        .case-body {
+            padding: 30px;
+        }
+
+        .case-stat {
+            color: var(--success);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .case-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .case-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- 8. TESTIMONIALS --- */
+        .testi-grid {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testi-card {
+            min-width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            scroll-snap-align: start;
+            border: 1px solid #f1f5f9;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .testi-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* --- 9. FAQ --- */
+        .faq-wrap {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 20px 25px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-a {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-a {
+            padding: 0 25px 20px;
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-q {
+            color: var(--primary-blue);
+        }
+
+        .faq-item.active .faq-q i {
+            transform: rotate(180deg);
+            color: var(--accent-orange);
+        }
+
+        /* --- 10. HEAVY SEO BLOCK (For Ranking) --- */
+        .seo-content {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            margin-top: 50px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .seo-content h2,
+        .seo-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .seo-content p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- STICKY WHATSAPP --- */
+        .sticky-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: 0.3s;
+            text-decoration: none;
+            animation: bounceWa 2s infinite;
+        }
+
+        .sticky-wa:hover {
+            transform: scale(1.1);
+            background: #1ebd5a;
+        }
+
+        @keyframes bounceWa {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-15px);
+            }
+
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .compare-wrap {
+                flex-direction: column;
+            }
+
+            .c-good {
+                transform: scale(1);
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media(max-width: 768px) {
-            .seo-hero h1 { font-size: 2.2rem; }
-            .niche-grid { grid-template-columns: 1fr; }
-            .seo-text-block { padding: 30px 20px; }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .seo-content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
 
-    <section class="seo-hero">
-        <h1>#1 Digital Marketing Agency in <span>Samastipur</span></h1>
-        <p>We are Vyapar Wallah, a specialized digital marketing company in Samastipur (SPJ). We help Doctors, Hospitals, Schools, and Coaching Institutes get more patients and student enrollments through powerful SEO and local Ads.</p>
-        <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20am%20from%20Samastipur.%20I%20need%20marketing%20services." target="_blank" class="btn-main"><i class="fa-brands fa-whatsapp"></i> Consult Our Samastipur Expert</a>
+    <section class="hero" style="background: none; position: relative;">
+
+        <img src="digital marketing agency samastipur.jpg" alt="Background"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 200%; object-fit: cover; z-index: 0;">
+
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 2000%; background: rgba(0, 0, 0, 0.5); z-index: 1;">
+        </div>
+
+        <div class="hero-content reveal" style="position: relative; z-index: 2;">
+            <h1>The Elite <span>Digital Marketing Agency</span> in Samastipur</h1>
+            <p>We build high-converting marketing websites and powerful online ecosystems. Specializing in healthcare
+                marketing and student enrollment generation for top institutions in SPJ.</p>
+            <a href="https://wa.me/9187641492?text=I%20want%20to%20grow%20my%20business%20in%20Samastipur"
+                target="_blank" class="btn-primary">Get Your Free Growth Strategy <i
+                    class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
     </section>
 
-    <section class="content-section">
-        <div class="section-title">
-            <h2>Our Specialized Niche Services in SPJ</h2>
-            <p>We don't do generic marketing. We build custom growth strategies for Healthcare & Education sectors in Samastipur.</p>
+    <div class="stats-wrap reveal delay-1">
+        <div class="stat-box">
+            <div class="stat-num" data-target="200">0</div>
+            <div class="stat-text">Businesses Served</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num" data-target="50">0</div>
+            <div class="stat-text">Clinics Marketed</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num" data-target="5">0</div>
+            <div class="stat-text">Cities Covered</div>
+        </div>
+    </div>
+
+    <section class="section about-grid">
+        <div class="about-text reveal">
+            <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;">WHO WE ARE</div>
+            <h3>Transforming Local Businesses into Massive Brands</h3>
+            <p>Vyapar Wallah is not just another vendor; we are a premium <strong>web design and digital marketing
+                    agency</strong>. As one of the leading <strong>healthcare digital marketing companies</strong>, we
+                understand the pulse of Samastipur.</p>
+            <p>Whether you need a cutting-edge <strong>online marketing website</strong> or advanced lead generation,
+                our data-driven approach ensures you outrank your competitors in Samastipur.</p>
+        </div>
+        <div class="about-img reveal delay-2"></div>
+    </section>
+
+    <section class="section" style="background: white;">
+        <div class="sec-title reveal">
+            <h2>Our Niche Expertise in Samastipur</h2>
+            <p>We deliver specialized digital marketing services tailored for high-ticket industries.</p>
         </div>
 
         <div class="niche-grid">
-            
-            <div class="niche-card">
-                <div class="niche-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <h3>Digital Marketing for Doctors & Hospitals</h3>
-                <p>Are you running a clinic or hospital in Samastipur? Relying only on offline word-of-mouth is no longer enough. We provide targeted <strong>healthcare digital marketing in Samastipur</strong> to increase your daily OPD walk-ins.</p>
-                <ul>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Local SEO for Doctors:</strong> Rank #1 when patients search for "Best doctor near me in Samastipur".</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Patient Lead Generation:</strong> Google and Facebook Ads designed strictly following medical guidelines.</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Hospital Branding:</strong> Premium video content and reputation management (5-star Google Reviews).</li>
-                </ul>
-                <a href="#contact" style="color: var(--accent-orange); font-weight: 700; text-decoration: none;">Grow Your Clinic <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="niche-card reveal delay-1">
+                <div class="niche-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <h3>Healthcare Marketing</h3>
+                <p>As a top <strong>healthcare digital marketing agency samastipur</strong>, we dominate Local SEO and
+                    Google Ads for medical professionals.</p>
+                <div class="niche-tags">
+                    <span>Doctor marketing Samastipur</span>
+                    <span>Hospital marketing Samastipur</span>
+                    <span>Clinic promotion Samastipur</span>
+                </div>
             </div>
 
-            <div class="niche-card">
-                <div class="niche-icon"><i class="fa-solid fa-school"></i></div>
-                <h3>Digital Marketing for Schools & Coaching</h3>
-                <p>Increase your student admissions every season. As the best <strong>education marketing agency in Samastipur</strong>, we help schools, colleges, and coaching institutes dominate the local education sector.</p>
-                <ul>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Admission Lead Campaigns:</strong> High-converting Meta Ads to capture parent and student inquiries.</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>SEO for Colleges/Schools:</strong> Rank your institute at the top for local educational searches in SPJ.</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Brand Awareness:</strong> Showcasing your infrastructure, toppers, and facilities to local parents.</li>
-                </ul>
-                <a href="#contact" style="color: var(--accent-orange); font-weight: 700; text-decoration: none;">Boost Enrollments <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="niche-card reveal delay-2">
+                <div class="niche-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Education Marketing</h3>
+                <p>Boost your admissions. We execute highly targeted campaigns for <strong>digital marketing for
+                        coaching</strong> and educational institutes.</p>
+                <div class="niche-tags">
+                    <span>School marketing Samastipur</span>
+                    <span>Coaching institute marketing Samastipur</span>
+                    <span>Student Lead Gen</span>
+                </div>
             </div>
-
         </div>
-
-        <div class="cta-banner" id="contact">
-            <h2>Ready to dominate the Samastipur Market?</h2>
-            <p style="margin-bottom: 30px; font-size: 1.1rem;">Join the top doctors and schools of SPJ who trust Vyapar Wallah for their business growth.</p>
-            <a href="tel:+9187641492" class="btn-white"><i class="fa-solid fa-phone"></i> Call +91-87641492</a>
-        </div>
-
-        <div class="seo-text-block">
-            <h2>Why Choose Us as Your Digital Marketing Company in Samastipur?</h2>
-            <p>In today's competitive landscape, every local business needs a strong online presence. If you are searching for the <strong>Top 10 Best Digital Marketing Services in Samastipur</strong>, Vyapar Wallah ranks at the top because we deliver ROI-driven results. Unlike generic freelancers, our <strong>marketing agency in SPJ</strong> understands the local audience psychology.</p>
-            
-            <h3>Comprehensive Digital Marketing Services Samastipur</h3>
-            <p>Whether you need professional website development, local Search Engine Optimization (SEO), or Social Media Management, we are the <strong>best digital marketing agency in Samastipur</strong>. We don't just run ads; we build digital ecosystems. For healthcare professionals, our <strong>clinic promotion Samastipur</strong> strategies ensure a steady flow of patients. For educators, our targeted <strong>student enrollment ads Samastipur</strong> guarantee maximum admissions during the academic season.</p>
-            
-            <p>Stop losing your potential clients/patients to your competitors. Partner with the <strong>best marketing company in Samastipur</strong> and watch your business scale.</p>
-        </div>
-
     </section>
+
+    <section class="section">
+        <div class="sec-title reveal">
+            <h2>Why Vyapar Wallah vs Normal Agency?</h2>
+            <p>Don't trust your premium medical or educational brand with amateur freelancers.</p>
+        </div>
+
+        <div class="compare-wrap">
+            <div class="compare-box c-bad reveal delay-1">
+                <h3><i class="fa-solid fa-circle-xmark"></i> Normal Marketing Agency</h3>
+                <ul class="compare-list">
+                    <li><i class="fa-solid fa-xmark"></i> Focuses only on "Likes" and "Followers".</li>
+                    <li><i class="fa-solid fa-xmark"></i> Violates medical advertising guidelines.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Uses cheap templates for your online marketing website.</li>
+                    <li><i class="fa-solid fa-xmark"></i> No tracking of actual patient walk-ins or admissions.</li>
+                </ul>
+            </div>
+            <div class="compare-box c-good reveal delay-2">
+                <h3><i class="fa-solid fa-circle-check"></i> Vyapar Wallah (The Experts)</h3>
+                <ul class="compare-list">
+                    <li><i class="fa-solid fa-check"></i> 100% focus on high-quality Lead Generation and ROI.</li>
+                    <li><i class="fa-solid fa-check"></i> Deep understanding of healthcare marketing compliance.</li>
+                    <li><i class="fa-solid fa-check"></i> Custom premium web design and digital marketing strategies.
+                    </li>
+                    <li><i class="fa-solid fa-check"></i> Complete CRM integration to track every patient/student
+                        inquiry.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: white;">
+        <div class="sec-title reveal">
+            <h2>Our Proven 4-Step Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step reveal delay-1">
+                <div class="p-num">1</div>
+                <h4>Audit & Research</h4>
+                <p>Analyzing your current presence and finding competitor gaps in SPJ.</p>
+            </div>
+            <div class="process-step reveal delay-2">
+                <div class="p-num">2</div>
+                <h4>Strategy Setup</h4>
+                <p>Building your premium marketing website and local SEO funnels.</p>
+            </div>
+            <div class="process-step reveal delay-3">
+                <div class="p-num">3</div>
+                <h4>Campaign Launch</h4>
+                <p>Deploying high-converting Ads for instant patient/student leads.</p>
+            </div>
+            <div class="process-step reveal delay-4" style="transition-delay: 0.4s;">
+                <div class="p-num">4</div>
+                <h4>Scale & Dominate</h4>
+                <p>Continuous optimization to make you the #1 brand in Samastipur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="sec-title reveal">
+            <h2>Real Results. Case Studies.</h2>
+        </div>
+        <div class="case-grid">
+            <div class="case-card reveal delay-1">
+                <div class="case-img ci-1"><i class="fa-solid fa-user-plus"></i></div>
+                <div class="case-body">
+                    <div class="case-stat">+320%</div>
+                    <div class="case-title">Hospital OPD Growth</div>
+                    <div class="case-desc">We implemented targeted Local SEO and Meta Ads for a leading hospital,
+                        resulting in a 320% increase in daily patient walk-ins within 90 days.</div>
+                </div>
+            </div>
+            <div class="case-card reveal delay-2">
+                <div class="case-img ci-2"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="case-body">
+                    <div class="case-stat">500+</div>
+                    <div class="case-title">Coaching Admissions</div>
+                    <div class="case-desc">Through strategic "digital marketing for coaching", we generated over 500
+                        qualified student leads for a local institute in one admission season.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: white; padding-bottom: 60px;">
+        <div class="sec-title reveal">
+            <h2>What Our Clients Say</h2>
+        </div>
+        <div class="testi-grid reveal delay-1">
+            <div class="testi-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"Vyapar Wallah completely transformed our clinic promotion Samastipur strategy.
+                    Our Google ranking shot up, and patient inquiries doubled!"</p>
+                <div class="client-info">
+                    <div class="client-img">D</div>
+                    <div><strong>Dr. SK Sharma</strong><br><small>Clinic Owner</small></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"The best digital marketing agency samastipur. They built a beautiful marketing
+                    website for our school and ran amazing admission campaigns."</p>
+                <div class="client-info">
+                    <div class="client-img">P</div>
+                    <div><strong>P. Kumar</strong><br><small>School Director</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="sec-title reveal">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-wrap reveal delay-1">
+            <div class="faq-item">
+                <div class="faq-q">Why is healthcare digital marketing different? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br>Healthcare marketing requires compliance with medical council guidelines. We
+                    focus on building authority, patient trust, and educational content rather than aggressive sales
+                    pitches.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How long does it take to rank my Coaching Institute in Samastipur? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br>While Google Ads generate instant leads, organic Local SEO typically takes 2 to 3
+                    months to dominate the search results for queries like "best coaching in SPJ".</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Do you design the marketing website as well? <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-a"><br>Yes, we are a full-service web design and digital marketing agency. We build
+                    fast, mobile-optimized, and SEO-friendly websites tailored for conversions.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="seo-content reveal">
+            <h2>Comprehensive Digital Marketing Agency in Samastipur</h2>
+            <p>If you are looking for the absolute best <strong>digital marketing agency samastipur</strong>, Vyapar
+                Wallah is your ultimate growth partner. We provide end-to-end <strong>digital marketing
+                    services</strong> tailored specifically for the competitive markets of Bihar. Whether you need a
+                high-converting <strong>marketing website</strong> or robust social media management, our expertise
+                ensures your business stays ahead of the curve.</p>
+
+            <h3>Specialized Healthcare Marketing</h3>
+            <p>We pride ourselves on being one of the elite <strong>healthcare digital marketing companies</strong>
+                operating in SPJ. Our dedicated strategies for <strong>Doctor marketing Samastipur</strong> and
+                <strong>Hospital marketing Samastipur</strong> ensure that your medical practice gains the visibility it
+                deserves. From <strong>Clinic promotion Samastipur</strong> to advanced SEO, our <strong>healthcare
+                    digital marketing agency samastipur</strong> handles everything while adhering to strict medical
+                guidelines.
+            </p>
+
+            <h3>Education & Coaching Institute Marketing</h3>
+            <p>For educators, visibility during admission season is critical. Our <strong>digital marketing for
+                    coaching</strong> and <strong>School marketing Samastipur</strong> campaigns are designed to
+                maximize student enrollments. By combining an optimized <strong>online marketing website</strong> with
+                targeted Facebook and Google Ads, our <strong>web design and digital marketing agency</strong>
+                guarantees exceptional ROI for your educational institute.</p>
+        </div>
+    </section>
+
+    <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20want%20to%20grow%20my%20business%20in%20Samastipur."
+        target="_blank" class="sticky-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <div id="footer-placeholder"></div>
 
     <script>
-        // Load Header & Footer smoothly
+        // Load Header & Footer
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+
+        // 🚀 SCROLL REVEAL ANIMATION LOGIC
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // 🚀 NUMBER COUNTER ANIMATION LOGIC
+        const counters = document.querySelectorAll('.stat-num');
+        let hasCounted = false;
+
+        window.addEventListener('scroll', () => {
+            const statsSection = document.querySelector('.stats-wrap');
+            if (!statsSection) return;
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight;
+
+            if (sectionPos < screenPos && !hasCounted) {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+
+                    let current = 0;
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current) + "+";
+                            setTimeout(updateCounter, 16);
+                        } else {
+                            counter.innerText = target + "+";
+                        }
+                    };
+                    updateCounter();
+                });
+                hasCounted = true;
+            }
+        });
+
+        // FAQ Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
     </script>
 </body>
+
 </html>
