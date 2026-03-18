@@ -310,9 +310,24 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-blue);
-            font-weight: 800;
-            line-height: 1.2;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(90deg, #0A4C95, #F37021, #0A4C95);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: shineText 3s linear infinite;
+        }
+
+        @keyframes shineText {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         /* --- 📱 Fix: VS TABLE RESPONSIVE WRAPPER --- */
@@ -584,11 +599,38 @@
             align-items: center;
             gap: 8px;
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* 🔥 HOVER EFFECT */
         .action-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
+
+        /* 🔥 PULSE ANIMATION */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* 👉 WhatsApp button ko pulse do */
+        .btn-wa {
+            background: #25D366;
+            animation: pulse 2s infinite;
+        }
+
+
 
         .btn-call {
             background: var(--primary-blue);
@@ -724,24 +766,30 @@
            ========================================= */
         @media(max-width: 992px) {
             .pricing-grid {
+                display: none;
                 flex-direction: column;
             }
 
-            .card-popular {
-                transform: scale(1);
-                margin: 0;
-                border: 1px solid var(--accent-orange);
-            }
-
-            /* Removed scale to fix cutoff */
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
+            .pricing-grid.active {
+                display: flex;
             }
         }
+
+        .card-popular {
+            transform: scale(1);
+            margin: 0;
+            border: 1px solid var(--accent-orange);
+        }
+
+        /* Removed scale to fix cutoff */
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+            grid-column: span 1;
+        }
+
 
         @media(max-width: 768px) {
 
@@ -850,10 +898,261 @@
 
             /* Keep text small below icon */
         }
+
+        /* 🔥 MAIN BOX */
+        .compare-box {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 🔥 PROOF GRID */
+        .compare-proof-new {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .proof-item span {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+        }
+
+        .proof-item p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* 🚀 PREMIUM BUTTON */
+        .premium-btn {
+            position: relative;
+            display: inline-block;
+            padding: 16px 35px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #F37021, #ff8a3d);
+            color: white;
+            font-weight: 800;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        /* 🔥 SHINE EFFECT (NOT pulse) */
+        .premium-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: skewX(-25deg);
+        }
+
+        /* hover pe shine move karega */
+        .premium-btn:hover::before {
+            animation: shine 0.8s;
+        }
+
+        @keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        /* hover effect */
+        .premium-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(243, 112, 33, 0.4);
+        }
+
+        /* 💬 TRUST */
+        .compare-trust-new {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* 📱 MOBILE FIX */
+        @media(max-width:768px) {
+            .compare-proof-new {
+                gap: 20px;
+            }
+
+            .proof-item span {
+                font-size: 1.5rem;
+            }
+
+            .premium-btn {
+                width: 90%;
+                padding: 14px;
+            }
+        }
+
+        /* 🔥 FORM CONTAINER UPGRADE */
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        /* 🔥 SUBTEXT */
+        .form-subtext {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* 🔥 INPUT STYLE */
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        /* focus glow */
+        .form-input:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.15);
+        }
+
+        /* hover effect */
+        .form-input:hover {
+            border-color: var(--primary-blue);
+        }
+
+        /* 🔥 LABEL IMPROVE */
+        .form-label {
+            font-size: 0.85rem;
+            color: #444;
+            margin-bottom: 6px;
+        }
+
+        /* 🚀 PREMIUM BUTTON */
+        .premium-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #F37021, #ff8a3d);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        /* shine effect */
+        .premium-submit::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -70%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: skewX(-25deg);
+        }
+
+        /* hover animation */
+        .premium-submit:hover::before {
+            animation: shine 0.8s;
+        }
+
+        .premium-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(243, 112, 33, 0.4);
+        }
+
+        /* 🔥 SELECTED PLAN FIELD */
+        #selected_plan_input {
+            background: #f1f5f9;
+            border: 1px dashed var(--primary-blue);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* 📱 MOBILE OPTIMIZATION */
+        @media(max-width:768px) {
+            .form-container {
+                padding: 25px 20px;
+            }
+
+            .form-input {
+                padding: 14px;
+            }
+
+            .premium-submit {
+                padding: 14px;
+                font-size: 1rem;
+            }
+        }
+
+        .form-trust {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .form-title h2 {
+            text-align: center;
+            /* 👉 center kar diya */
+            font-weight: 900;
+            /* 👉 extra bold */
+            font-size: 2.2rem;
+            /* 👉 thoda bada */
+            letter-spacing: 0.5px;
+            /* 👉 premium spacing */
+            margin-bottom: 10px;
+        }
+
+        .form-title h2 {
+            background: linear-gradient(90deg, #0A4C95, #F37021);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .form-group label::after {
+            content: " *";
+            color: red;
+        }
+
+        .premium-submit {
+            background: linear-gradient(135deg, #F37021, #ff8a3d);
+            border-radius: 12px;
+            padding: 16px;
+            font-weight: 800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* hover glow */
+        .premium-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(243, 112, 33, 0.4);
+        }
     </style>
 </head>
 
 <body>
+    <div id="header"></div>
 
     <div class="pricing-header">
         <h1>Honest <span>Pricing</span></h1>
@@ -1028,6 +1327,9 @@
 
         <div class="section-title">
             <h2>Vyapar Wallah vs Other Agencies</h2>
+            <p class="compare-subtext">
+                We don’t just promise results — we track real patients, admissions, and revenue growth.
+            </p>
         </div>
         <div class="table-responsive">
             <table class="vs-table">
@@ -1064,8 +1366,119 @@
                     <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Useless Impression Metrics
                     </td>
                 </tr>
+
+                <tr>
+                    <td>Lead Commitment</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i> Focus on
+                        Real Leads & ROI
+                    </td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>No Guarantee, Only Posting
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Strategy Type</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Custom
+                        Business-Specific Strategy</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Same Template for All
+                        Clients</td>
+                </tr>
+
+                <tr>
+                    <td>Strategy Type</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Custom
+                        Business-Specific Strategy</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>Same Template for All
+                        Clients</td>
+                </tr>
+
+                <tr>
+                    <td>Support System</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Direct
+                        WhatsApp Support</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Ticket / Delayed Replies
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Execution Speed</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Fast
+                        Implementation (48-72 hrs)</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>Slow Process (1-2 weeks)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Lead Funnel System</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Complete
+                        Funnel (Ads + Landing +
+                        Follow-up)</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>Only Social Media Posting
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Lead Tracking</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Call + Form
+                        Tracking</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>No Proper Tracking</td>
+                </tr>
+
+                <tr>
+                    <td>Contract</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>No Lock-in
+                    </td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> 3-6 Month Lock-in</td>
+                </tr>
+
+                <tr>
+                    <td>Industry Focus</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Health &
+                        Education Specialists</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>Generic All Industries</td>
+                </tr>
+
+                <tr>
+                    <td>Reporting Type</td>
+                    <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i>Patients /
+                        Admissions Count</td>
+                    <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i>Likes / Views Only</td>
+                </tr>
             </table>
+            <div class="compare-box">
+
+                <!-- 🔥 PROOF -->
+                <div class="compare-proof-new">
+                    <div class="proof-item">
+                        <span>100+</span>
+                        <p>Businesses Scaled</p>
+                    </div>
+                    <div class="proof-item">
+                        <span>10,000+</span>
+                        <p>Leads Generated</p>
+                    </div>
+                    <div class="proof-item">
+                        <span>4.8★</span>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+
+                <!-- 🚀 BUTTON -->
+                <div class="compare-cta">
+                    <a href="#lead-form" class="premium-btn">
+                        <span>Get My Free Growth Plan 🚀</span>
+                    </a>
+                </div>
+
+                <!-- 💬 TRUST -->
+                <p class="compare-trust-new">
+                    No long-term contracts. Results = Stay, No results = Leave.
+                </p>
+
+            </div>
         </div>
+
+
 
         <div class="section-title">
             <h2>Our Transparent Process</h2>
@@ -1119,23 +1532,37 @@
         </div>
         <div class="faq-wrap">
             <div class="faq-item">
-                <div class="faq-q">Do the plans include Ad Spend (Money paid to Google/FB)? <i
+                <div class="faq-q">Do the plans include Ad Spend (money paid to Google/Facebook)? <i
                         class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-a"><br>No. The pricing above is our Agency Management Fee. The budget for running Ads on
-                    Google/Facebook is decided by you and paid directly to those platforms. This ensures 100%
-                    transparency.</div>
+                <div class="faq-a"><br>No, the pricing you see is only our service and management fee. The ad spend is
+                    paid directly by you to platforms like
+                    Google or Facebook from your own account. This ensures complete transparency and control over your
+                    budget. We never take any hidden commission or markup on your ad spend. Our focus is to use your
+                    budget efficiently to
+                    generate real leads,not to profit from it.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">How soon can I expect results? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-a"><br>With Paid Ads (Meta/Google), you can start getting leads within the first 48
-                    hours. Organic Local SEO (Ranking on Google Maps) typically takes 2-3 months to stabilize at the
-                    top.</div>
+                <div class="faq-a"><br>With paid advertising (Google & Meta Ads), you can start receiving leads within
+                    48–72 hours after campaign launch.
+                    However, for organic growth through SEO and Google ranking, it usually takes around 2–3 months to
+                    see stable results. We combine both strategies so you get quick wins from ads and long-term growth
+                    from SEO. Our goal is to
+                    build a system that keeps generating leads consistently over time.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">Are there any lock-in contracts? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-a"><br>We don't believe in forcing clients to stay. We operate on month-to-month
-                    retainers. Clients stay with us because of the results we deliver, not because of a piece of paper.
+                <div class="faq-q">Do you guarantee leads or results? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br> We don’t believe in fake guarantees like “100 leads in 7 days” because every
+                    business and market is different. Instead,
+                    we focus on building a strong lead generation system that actually works. Our approach is
+                    data-driven and optimized
+                    regularly to improve performance. While no one can ethically guarantee fixed numbers, we ensure
+                    maximum possible results
+                    based on your budget and market potential.
+
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -1144,6 +1571,9 @@
         <div class="form-container">
             <div class="form-title">
                 <h2>Request Your Strategy Plan</h2>
+                <p class="form-subtext">
+                    Get a personalized growth strategy for your business in the next 24 hours 🚀
+                </p>
             </div>
             <form action="process.php" method="POST">
                 <input type="text" name="bot_check" style="display:none;">
@@ -1175,8 +1605,13 @@
                         <textarea name="user_message" class="form-input" rows="3"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn-submit">Submit Request <i class="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" class="premium-submit">
+                    <span>Get My Growth Plan 🚀</span>
+                </button>
             </form>
+            <p class="form-trust">
+                🔒 Your data is 100% safe. No spam, no unnecessary calls.
+            </p>
         </div>
     </div>
 
@@ -1230,10 +1665,7 @@
             document.getElementById(sector + '_plans').classList.add('active');
 
             // Re-trigger Mobile Display Fix for active grid
-            if (window.innerWidth <= 992) {
-                document.getElementById(sector + '_plans').style.display = 'flex';
-                document.getElementById(sector + '_plans').style.flexDirection = 'column';
-            }
+
         }
 
         // 🚀 AUTO-FILL FORM
@@ -1293,7 +1725,21 @@
                 </a>
             `;
         }
+
+        // HEADER + FOOTER LOAD
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        // CALL FUNCTION
+        loadComponent("header", "header.html");
+        loadComponent("footer", "footer.html");
     </script>
+    <div id="footer"></div>
 </body>
 
 </html>
