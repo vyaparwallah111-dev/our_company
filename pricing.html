@@ -1,188 +1,1180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Transparent Digital Marketing Pricing & Plans for Schools, Hospitals, and Salons in Bihar.">
-    <title>Pricing & Plans | Vyapar Wallah</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Vyapar Wallah Pricing | Choose Your Growth Plan</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="me" href="https://facebook.com/vyaparwallah">
-    
+
     <style>
         :root {
             --primary-blue: #0A4C95;
             --accent-orange: #F37021;
-            --highlight-green: #00A651;
-            --bg-light: #f4f7f6;
-            --text-dark: #2c3e50;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+        }
 
-        /* --- HERO SECTION --- */
-        .pricing-hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #052c5c 100%);
-            padding: 80px 5% 100px;
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 70px;
+            /* Space for sticky bar */
+        }
+
+        /* --- 🚀 HEADER & 3-WAY TOGGLE --- */
+        .pricing-header {
             text-align: center;
+            padding: 100px 5% 100px;
+            background: linear-gradient(rgba(10, 76, 149, 0.85), rgba(10, 76, 149, 0.95)), url('blur-bg.jpg') center/cover no-repeat;
             color: white;
         }
-        .pricing-hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; }
-        .pricing-hero h1 span { color: var(--accent-orange); }
-        .pricing-hero p { color: #c9dff1; font-size: 1.1rem; max-width: 600px; margin: auto; }
 
-        /* --- PRICING CARDS SECTION --- */
-        .pricing-section { padding: 0 5% 80px; margin-top: -60px; position: relative; z-index: 2; }
+        .pricing-header h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .pricing-header h1 span {
+            color: var(--accent-orange);
+        }
+
+        .pricing-header p.sub-heading {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-header p.sub-heading strong {
+            color: var(--accent-orange);
+        }
+
+        .toggle-container {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .toggle-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-btn.active {
+            color: var(--primary-blue);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- 🚀 PRICING CARDS --- */
+        .pricing-section {
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            position: relative;
+            z-index: 10;
+        }
+
         .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; max-width: 1200px; margin: auto; align-items: center;
+            display: none;
+            gap: 30px;
+            align-items: stretch;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
         }
 
-        .pricing-card {
-            background: white; border-radius: 20px; padding: 40px 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08); transition: 0.4s;
-            position: relative; border: 1px solid #eee; display: flex; flex-direction: column; height: 100%;
+        .pricing-grid.active {
+            display: flex;
         }
-        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(10, 76, 149, 0.15); border-color: var(--primary-blue); }
 
-        /* Highlighted/Popular Card */
-        .popular-card { border: 2px solid var(--accent-orange); transform: scale(1.05); box-shadow: 0 20px 50px rgba(243, 112, 33, 0.15); }
-        .popular-card:hover { transform: scale(1.05) translateY(-10px); border-color: var(--accent-orange); }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 15px 40px rgba(10, 76, 149, 0.1);
+        }
+
+        .card-popular {
+            transform: scale(1.05);
+            border: 2px solid var(--accent-orange);
+            box-shadow: 0 20px 50px rgba(243, 112, 33, 0.15);
+            z-index: 2;
+        }
+
+        .card-popular:hover {
+            border-color: var(--accent-orange);
+        }
+
         .popular-badge {
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            background: var(--accent-orange); color: white; padding: 6px 20px;
-            border-radius: 30px; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px;
-            text-transform: uppercase; box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-orange);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
-        /* Card Headers */
-        .plan-name { font-size: 1.5rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 10px; }
-        .plan-price { font-size: 2.8rem; font-weight: 900; color: var(--text-dark); margin-bottom: 5px; line-height: 1; }
-        .plan-price span { font-size: 1rem; color: #888; font-weight: 500; }
-        .plan-desc { font-size: 0.95rem; color: #666; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .plan-name {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
 
-        /* Features List */
-        .features-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-        .features-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.95rem; color: #555; }
-        .features-list li i.fa-check-circle { color: var(--highlight-green); font-size: 1.2rem; margin-top: 2px; }
-        .features-list li i.fa-xmark-circle { color: #ccc; font-size: 1.2rem; margin-top: 2px; }
-        .features-list li.disabled { color: #aaa; text-decoration: line-through; }
+        .plan-target {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
 
-        /* WhatsApp Button */
+        .plan-price {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            display: flex;
+            align-items: flex-start;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .price-currency {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            margin-right: 5px;
+            color: var(--text-muted);
+        }
+
+        .price-duration {
+            font-size: 1rem;
+            color: var(--text-muted);
+            align-self: flex-end;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .features-list li i {
+            color: var(--success);
+            margin-top: 4px;
+            font-size: 1.1rem;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-buy:hover {
+            background: var(--bg-light);
+        }
+
+        .card-popular .btn-buy {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .card-popular .btn-buy:hover {
+            background: #083c75;
+        }
+
+        /* --- 🚀 PRICING TRUTH & EXPLANATION --- */
+        .content-wrap {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .truth-box {
+            background: linear-gradient(135deg, #fff0e5, #ffffff);
+            border-left: 5px solid var(--accent-orange);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            margin-bottom: 60px;
+        }
+
+        .truth-box h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .truth-box p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+        }
+
+        /* --- 🚀 VS TABLE --- */
+        .vs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+            border: 1px solid #eee;
+        }
+
+        .vs-table th,
+        .vs-table td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .vs-table th {
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .vs-table th:nth-child(2) {
+            background: var(--accent-orange);
+        }
+
+        .vs-table td:first-child {
+            font-weight: 700;
+            color: var(--primary-blue);
+            width: 35%;
+        }
+
+        .vw-col {
+            background: rgba(243, 112, 33, 0.05);
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* --- 🚀 OUR PROCESS --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .p-num {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .process-step h4 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- 🚀 WHY CHOOSE US --- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .why-card {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            border-top: 4px solid var(--accent-orange);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .why-card i {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .why-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .why-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- 🚀 FAQ SECTION --- */
+        .faq-wrap {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .faq-q {
+            padding: 20px 25px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-a {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-a {
+            padding: 0 25px 20px;
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-q i {
+            transform: rotate(180deg);
+            color: var(--accent-orange);
+        }
+
+        /* --- 🚀 FORM SECTION --- */
+        .form-section {
+            background: white;
+            padding: 80px 5%;
+            border-top: 1px solid #eee;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            background: white;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #d95e17;
+        }
+
+        /* --- 🚀 STICKY ACTION BAR (MOBILE & DESKTOP) --- */
+        .sticky-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: flex;
+            padding: 10px 5%;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .action-btn {
+            flex: 1;
+            max-width: 300px;
+            padding: 12px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-call {
+            background: var(--primary-blue);
+        }
+
         .btn-wa {
-            background: #25D366; color: white; border: none; padding: 15px;
-            border-radius: 10px; font-size: 1.1rem; font-weight: 700; width: 100%;
-            cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none;
+            background: #25D366;
         }
-        .btn-wa:hover { background: #1ebd5a; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
-        
-        .popular-card .btn-wa { background: var(--accent-orange); box-shadow: 0 5px 15px rgba(243, 112, 33, 0.3); }
-        .popular-card .btn-wa:hover { background: #d95e17; }
 
-        /* Note Section */
-        .pricing-note { text-align: center; max-width: 800px; margin: 40px auto 0; font-size: 0.95rem; color: #666; background: rgba(10, 76, 149, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-blue); }
+        .btn-audit {
+            background: var(--accent-orange);
+        }
+
+        /* --- 🚀 POPUPS --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .popup-box {
+            background: white;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            transform: scale(0.8) translateY(50px);
+            transition: 0.5s;
+            position: relative;
+            text-align: center;
+        }
+
+        .popup-overlay.show .popup-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            color: #555;
+        }
+
+        .popup-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .popup-content {
+            padding: 30px;
+        }
+
+        .popup-title {
+            font-size: 1.8rem;
+            color: var(--danger);
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .popup-desc {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .timer-box {
+            background: #fee2e2;
+            color: var(--danger);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 100px;
+            border: 2px solid #fca5a5;
+        }
+
+        .btn-claim {
+            background: var(--accent-orange);
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .coupon-code-box {
+            background: #eef2f5;
+            border: 2px dashed var(--primary-blue);
+            padding: 15px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+            border-radius: 10px;
+            margin: 20px 0;
+            user-select: all;
+        }
 
         @media(max-width: 992px) {
-            .popular-card { transform: scale(1); }
-            .popular-card:hover { transform: translateY(-10px); }
-        }
-        @media(max-width: 768px) {
-            .pricing-hero h1 { font-size: 2.2rem; }
-            .pricing-section { padding: 0 5% 50px; margin-top: -30px; }
+            .pricing-grid {
+                flex-direction: column;
+            }
+
+            .card-popular {
+                transform: scale(1);
+                margin: 20px 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .toggle-container {
+                background: transparent;
+                border: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .toggle-btn {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .action-btn span {
+                display: none;
+            }
+
+            /* Hide text on small phones to fit icons */
         }
     </style>
 </head>
+
 <body>
 
-    <div id="header-placeholder"></div>
+    <div class="pricing-header">
+        <h1>Honest <span>Pricing</span></h1>
+        <p class="sub-heading">"Agencies charge ₹25,000/month just to post 15 random images. <strong>We
+                don't.</strong><br> We build your entire Lead-Generation Machine at a fraction of that cost. Pick a plan
+            that brings real business, not just 'Likes'."</p>
 
-    <section class="pricing-hero">
-        <h1>Simple & Transparent <span>Pricing</span></h1>
-        <p>No hidden fees. Choose a growth plan that fits your business goals. All plans are designed to maximize your ROI.</p>
-    </section>
+        <div class="toggle-container" id="toggleBtns">
+            <button class="toggle-btn active" onclick="switchPricing('health', this)">Health Sector <i
+                    class="fa-solid fa-user-doctor"></i></button>
+            <button class="toggle-btn" onclick="switchPricing('education', this)">Education Sector <i
+                    class="fa-solid fa-graduation-cap"></i></button>
+            <button class="toggle-btn" onclick="switchPricing('other', this)">Other Businesses <i
+                    class="fa-solid fa-store"></i></button>
+        </div>
+    </div>
 
-    <section class="pricing-section">
-        <div class="pricing-grid">
-            
-            <div class="pricing-card">
-                <div class="plan-name">Starter Plan</div>
-                <div class="plan-price">₹14,999 <span>/ month</span></div>
-                <div class="plan-desc">Best for local clinics or small salons looking to build their online presence.</div>
-                
+    <div class="pricing-section">
+
+        <div class="pricing-grid active" id="health_plans">
+            <div class="price-card">
+                <h3 class="plan-name">Basic Plan</h3>
+                <p class="plan-target">Best for newly opened clinics.</p>
+                <div class="plan-price"><span class="price-currency">₹</span>4,999<span
+                        class="price-duration">/mo</span></div>
                 <ul class="features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Complete Social Media Setup</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 12 High-Quality Posts/Reels</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Basic GMB (Google Maps) SEO</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Facebook & Insta Ads Management</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Monthly Performance Report</li>
-                    <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Google Search Ads (PPC)</li>
-                    <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Landing Page Creation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Google My Business Listing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Local Area Reach Optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Social Media Page Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Landing Page Creation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic Keyword Targeting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Content Calendar Planning</li>
                 </ul>
-                
-                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20STARTER%20PLAN%20(14,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Starter
-                </a>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Health - Basic')">Start Scaling Today</a>
             </div>
 
-            <div class="pricing-card popular-card">
+            <div class="price-card card-popular">
                 <div class="popular-badge">Most Popular</div>
-                <div class="plan-name" style="color: var(--accent-orange);">Growth Engine</div>
-                <div class="plan-price">₹29,999 <span>/ month</span></div>
-                <div class="plan-desc">Ideal for Schools & Hospitals focused on aggressive lead generation and admissions.</div>
-                
+                <h3 class="plan-name">Growth Plan</h3>
+                <p class="plan-target">For practicing doctors wanting scale.</p>
+                <div class="plan-price"><span class="price-currency">₹</span>9,999<span
+                        class="price-duration">/mo</span></div>
                 <ul class="features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Everything in Starter Plan</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 20 Premium Posts/Reels</li>
-                    <li><i class="fa-solid fa-circle-check"></i> <strong>Google Ads (PPC) Management</strong></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <strong>1 Custom Landing Page</strong></li>
-                    <li><i class="fa-solid fa-circle-check"></i> Advanced Local SEO Strategy</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Meta Lead Generation Funnel</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Patient Attraction System</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 5-Page Custom Coded Website</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Poster & Video Editing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced SEO & Keyword Targeting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Strong Online City Presence</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <strong>Free Domain + Hosting (1 Yr)</strong></li>
                 </ul>
-                
-                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20GROWTH%20ENGINE%20PLAN%20(29,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Get Growth Plan
-                </a>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Health - Growth')">Claim This Plan</a>
             </div>
 
-            <div class="pricing-card">
-                <div class="plan-name">Market Dominator</div>
-                <div class="plan-price">₹49,999 <span>/ month</span></div>
-                <div class="plan-desc">For top brands wanting full digital domination, video shoots, and PR.</div>
-                
+            <div class="price-card">
+                <h3 class="plan-name">Premium Plan</h3>
+                <p class="plan-target">For Hospitals / Multi-Clinics.</p>
+                <div class="plan-price" style="font-size: 2.2rem; align-items: center; min-height: 48px;">Custom</div>
                 <ul class="features-list">
                     <li><i class="fa-solid fa-circle-check"></i> Everything in Growth Plan</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Daily Content (30 Posts/Reels)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> <strong>1 Cinematic Video/Drone Shoot</strong></li>
-                    <li><i class="fa-solid fa-circle-check"></i> Complete Website Development</li>
-                    <li><i class="fa-solid fa-circle-check"></i> CRM Integration & Automations</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Brand PR & Reputation Management</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 24/7 Priority Support</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Paid Ads for Immediate Patients</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Online Reputation Management</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Top Google Ranking Restructuring</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advance Online Booking System</li>
                 </ul>
-                
-                <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20am%20interested%20in%20the%20MARKET%20DOMINATOR%20PLAN%20(49,999/mo).%20Let's%20discuss." target="_blank" class="btn-wa">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Select Premium
-                </a>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Health - Premium')">Talk to an Expert</a>
+            </div>
+        </div>
+
+        <div class="pricing-grid" id="education_plans">
+            <div class="price-card">
+                <h3 class="plan-name">Basic Plan</h3>
+                <p class="plan-target">Best for new Coaching / Schools.</p>
+                <div class="plan-price"><span class="price-currency">₹</span>4,999<span
+                        class="price-duration">/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Google My Business Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Local Student Reach</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Facebook/Instagram Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Admission Landing Page</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic Educational SEO</li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Education - Basic')">Start Scaling Today</a>
             </div>
 
+            <div class="price-card card-popular">
+                <div class="popular-badge">Best Value</div>
+                <h3 class="plan-name">Growth Plan</h3>
+                <p class="plan-target">For institutes wanting full batches.</p>
+                <div class="plan-price"><span class="price-currency">₹</span>7,999<span
+                        class="price-duration">/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Admission Attraction System</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 5-Page Custom Coded Website</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Topper Posters & Demo Videos</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Educational SEO</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <strong>Free Domain + Hosting (1 Yr)</strong></li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Education - Growth')">Claim This Plan</a>
+            </div>
+
+            <div class="price-card">
+                <h3 class="plan-name">Premium Plan</h3>
+                <p class="plan-target">For Large Schools / Multi-Branches.</p>
+                <div class="plan-price" style="font-size: 2.2rem; align-items: center; min-height: 48px;">Custom</div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Everything in Growth Plan</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Meta & Google Ads for Admissions</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Reputation & Review Management</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Top Ranking for Major Subjects</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advance Fee & Booking System</li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Education - Premium')">Talk to an Expert</a>
+            </div>
         </div>
 
-        <div class="pricing-note">
-            <i class="fa-solid fa-circle-info" style="color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 10px;"></i>
-            <p><strong>Important Note:</strong> The prices mentioned above represent our Agency Management Retainer Fee. The actual Advertising Budget (money paid to Facebook, Google, etc. for running ads) is completely separate and must be borne by the client directly.</p>
-        </div>
-    </section>
+        <div class="pricing-grid" id="other_plans">
+            <div class="price-card">
+                <h3 class="plan-name">Starter Setup</h3>
+                <div class="plan-price"><span class="price-currency">₹</span>4,999<span
+                        class="price-duration">/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Complete Local SEO & Maps</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Social Media Content Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Business Landing Page</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic Graphic Designs</li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Other - Starter')">Get Started Now</a>
+            </div>
 
-    <div id="footer-placeholder"></div>
+            <div class="price-card card-popular">
+                <div class="popular-badge">High ROI</div>
+                <h3 class="plan-name">Brand Builder</h3>
+                <div class="plan-price"><span class="price-currency">₹</span>9,999<span
+                        class="price-duration">/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Professional 5-Page Website</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Local & Global SEO</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Premium Video & Graphic Content</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Lead Generation Strategy</li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Other - Brand Builder')">Claim This Plan</a>
+            </div>
+
+            <div class="price-card">
+                <h3 class="plan-name">Enterprise</h3>
+                <div class="plan-price" style="font-size: 2.2rem; align-items: center; min-height: 48px;">Custom</div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Complete E-commerce Setup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Aggressive Meta & Google Ads</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Automation & CRM</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+                </ul>
+                <a href="#lead-form" class="btn-buy" onclick="selectPlan('Other - Enterprise')">Request a Quote</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <div class="truth-box">
+            <h2>Why is our pricing lower than big agencies?</h2>
+            <p><strong>The Truth:</strong> Most big agencies charge you high fees just to cover their expensive AC
+                offices in metro cities and huge sales teams. They take your money and assign the work to an intern.</p>
+            <p>At <strong>Vyapar Wallah</strong>, we operate differently. We are a lean, expert team. When you pay us,
+                100% of your money goes into building <strong>your ad strategies, your SEO, and your results</strong>.
+                You pay for skills, not our coffee machines.</p>
+        </div>
+
+        <div class="section-title">
+            <h2>Vyapar Wallah vs Other Agencies</h2>
+        </div>
+        <table class="vs-table">
+            <tr>
+                <th>Features</th>
+                <th>Vyapar Wallah</th>
+                <th>Typical Agency</th>
+            </tr>
+            <tr>
+                <td>Core Focus</td>
+                <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i> Real Business
+                    & Leads</td>
+                <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Just Likes & Followers</td>
+            </tr>
+            <tr>
+                <td>Niche Knowledge</td>
+                <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i> Deep
+                    Health/Edu Expertise</td>
+                <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Generic "One size fits all"
+                </td>
+            </tr>
+            <tr>
+                <td>Pricing Transparency</td>
+                <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i> 100% Clear, No
+                    Hidden Fees</td>
+                <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Hidden Ad Spend Markups</td>
+            </tr>
+            <tr>
+                <td>Reporting</td>
+                <td class="vw-col"><i class="fa-solid fa-check-circle" style="color:var(--success);"></i> Walk-ins /
+                    Admissions Tracked</td>
+                <td><i class="fa-solid fa-xmark-circle" style="color:var(--danger);"></i> Useless Impression Metrics
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-title">
+            <h2>Our Transparent Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="p-num">1</div>
+                <h4>Deep Audit</h4>
+                <p>We analyze your business, local competition, and find the exact gaps in the market.</p>
+            </div>
+            <div class="process-step">
+                <div class="p-num">2</div>
+                <h4>Funnel Creation</h4>
+                <p>Building your premium website, landing pages, and setting up lead forms.</p>
+            </div>
+            <div class="process-step">
+                <div class="p-num">3</div>
+                <h4>Campaign Launch</h4>
+                <p>Deploying high-converting Ads and aggressive Local SEO targeting.</p>
+            </div>
+            <div class="process-step">
+                <div class="p-num">4</div>
+                <h4>Scale & Report</h4>
+                <p>Tracking the exact number of patients/students generated and scaling budgets.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Why Choose Vyapar Wallah?</h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <i class="fa-solid fa-bullseye"></i>
+                <h4>Niche Specialists</h4>
+                <p>We understand the psychology of a patient looking for a doctor or a parent looking for a school. Our
+                    ad copies reflect that perfectly.</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h4>ROI Obsessed</h4>
+                <p>We are numbers people. If our campaign costs you ₹10,000, our goal is to bring you ₹1,000,000 in
+                    revenue. Pure business growth.</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-handshake-angle"></i>
+                <h4>Direct Communication</h4>
+                <p>No waiting for days to get a reply. You get direct access to the team managing your account for swift
+                    updates.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-wrap">
+            <div class="faq-item">
+                <div class="faq-q">Do the plans include Ad Spend (Money paid to Google/FB)? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br>No. The pricing above is our Agency Management Fee. The budget for running Ads on
+                    Google/Facebook is decided by you and paid directly to those platforms. This ensures 100%
+                    transparency.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How soon can I expect results? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br>With Paid Ads (Meta/Google), you can start getting leads within the first 48
+                    hours. Organic Local SEO (Ranking on Google Maps) typically takes 2-3 months to stabilize at the
+                    top.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Are there any lock-in contracts? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-a"><br>We don't believe in forcing clients to stay. We operate on month-to-month
+                    retainers. Clients stay with us because of the results we deliver, not because of a piece of paper.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section" id="lead-form">
+        <div class="form-container">
+            <div class="form-title">
+                <h2>Request Your Strategy Plan</h2>
+            </div>
+            <form action="process.php" method="POST">
+                <input type="text" name="bot_check" style="display:none;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="user_name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="user_email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp Number</label>
+                        <input type="tel" name="user_phone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Business Name</label>
+                        <input type="text" name="business_name" class="form-input" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Selected Plan / Request</label>
+                        <input type="text" name="selected_plan" id="selected_plan_input" class="form-input"
+                            value="Free Audit Request" readonly
+                            style="background: #e2e8f0; font-weight: 700; color: var(--primary-blue);">
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Any specific requirement?</label>
+                        <textarea name="user_message" class="form-input" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Submit Request <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="sticky-action-bar">
+        <a href="tel:+9187641492" class="action-btn btn-call"><i class="fa-solid fa-phone"></i> <span>Call Us</span></a>
+
+        <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20am%20checking%20your%20PRICING%20PAGE%20and%20need%20more%20details."
+            target="_blank" class="action-btn btn-wa"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a>
+
+        <a href="#lead-form" class="action-btn btn-audit" onclick="selectPlan('Free Premium Audit')"><i
+                class="fa-solid fa-magnifying-glass-chart"></i> <span>Free Audit</span></a>
+    </div>
+
+    <div class="popup-overlay" id="popup1">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup('popup1')"><i class="fa-solid fa-xmark"></i></button>
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"
+                class="popup-img" alt="Discount">
+            <div class="popup-content">
+                <h3 class="popup-title">WAIT! GET 10% OFF</h3>
+                <p class="popup-desc">Claim your 10% discount on any plan before the timer runs out!</p>
+                <div class="timer-box">00:<span id="timerText">59</span></div>
+                <button class="btn-claim"
+                    onclick="closePopup('popup1'); selectPlan('Plan + 10% OFF Discount'); window.location.href='#lead-form';">Claim
+                    10% Off Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup2">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup('popup2')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-content" id="popup2-content" style="padding-top: 40px;">
+                <i class="fa-solid fa-gift"
+                    style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
+                <h3 class="popup-title" style="color: var(--primary-blue);">SPECIAL 20% OFF</h3>
+                <p class="popup-desc">You are serious about growth. Unlock your VIP 20% OFF Code!</p>
+                <button class="btn-claim" onclick="showThankYouCode()">Unlock My Code <i
+                        class="fa-solid fa-unlock"></i></button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
-        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
-        
-        function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
-        function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
+        // 🚀 TOGGLE LOGIC
+        function switchPricing(sector, btn) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('health_plans').classList.remove('active');
+            document.getElementById('education_plans').classList.remove('active');
+            document.getElementById('other_plans').classList.remove('active');
+
+            btn.classList.add('active');
+            document.getElementById(sector + '_plans').classList.add('active');
+        }
+
+        // 🚀 AUTO-FILL FORM
+        function selectPlan(planName) {
+            document.getElementById('selected_plan_input').value = planName;
+        }
+
+        // 🚀 FAQ LOGIC
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // 🚀 POPUP LOGIC
+        let popup1Shown = false;
+        let popup2Shown = false;
+        let timerInterval;
+
+        function closePopup(id) {
+            document.getElementById(id).classList.remove('show');
+            if (id === 'popup1') clearInterval(timerInterval);
+        }
+
+        // 45s Timer
+        setTimeout(() => {
+            if (!popup2Shown) {
+                document.getElementById('popup1').classList.add('show');
+                popup1Shown = true;
+                let timeLeft = 59;
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    document.getElementById('timerText').innerText = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+                    if (timeLeft <= 0) closePopup('popup1');
+                }, 1000);
+            }
+        }, 45000);
+
+        // 90s Flow
+        setTimeout(() => {
+            closePopup('popup1');
+            document.getElementById('popup2').classList.add('show');
+            popup2Shown = true;
+        }, 90000);
+
+        function showThankYouCode() {
+            document.getElementById('popup2-content').innerHTML = `
+                <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: var(--success); margin-bottom: 15px;"></i>
+                <h3 class="popup-title" style="color: var(--success); font-size: 1.5rem;">Code Unlocked!</h3>
+                <p class="popup-desc" style="margin-bottom: 10px;">Take a screenshot and send it to us on WhatsApp.</p>
+                <div class="coupon-code-box">VW20-OFF</div>
+                <a href="https://wa.me/9187641492?text=Hello%20Vyapar%20Wallah!%20I%20am%20from%20PRICING%20PAGE.%20I%20have%20my%20code:%20VW20-OFF" target="_blank" class="btn-claim" style="background: #25D366; text-decoration: none; display: inline-block;" onclick="closePopup('popup2')">
+                    Claim on WhatsApp <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            `;
+        }
     </script>
 </body>
+
 </html>
