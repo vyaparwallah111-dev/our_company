@@ -31,6 +31,7 @@
             align-items: center; 
             text-align: center; 
             overflow: hidden;
+            padding: 20px;
         }
 
         .thankyou-card {
@@ -39,7 +40,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(10, 76, 149, 0.1);
             max-width: 600px;
-            width: 90%;
+            width: 100%;
             border-top: 6px solid var(--accent-orange);
             position: relative;
             z-index: 10;
@@ -55,15 +56,15 @@
         .icon-circle {
             width: 90px;
             height: 90px;
-            background: #eef2f5;
-            color: var(--success, #10b981);
+            background: #ebfbf5;
+            color: #10b981;
             font-size: 3rem;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto 25px;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
             animation: bounceIcon 2s infinite ease-in-out;
         }
 
@@ -76,17 +77,46 @@
         h1 span { color: var(--accent-orange); }
         
         .user-details {
-            background: var(--bg-light);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0 15px;
             border: 1px dashed var(--primary-blue);
             font-size: 1.1rem;
             color: #333;
+            line-height: 1.6;
         }
-        .user-details strong { color: var(--primary-blue); font-size: 1.2rem; }
+        .user-details strong { color: var(--primary-blue); font-size: 1.15rem; font-weight: 700;}
 
-        p.msg { font-size: 1.1rem; color: #555; margin-bottom: 30px; font-weight: 500; }
+        p.msg { font-size: 1.05rem; color: #555; margin-bottom: 25px; font-weight: 500; }
+
+        /* 🚀 NEW: DID YOU KNOW SECTION */
+        .did-you-know {
+            background: linear-gradient(135deg, #fff4ed 0%, #ffffff 100%);
+            border-left: 4px solid var(--accent-orange);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 0 0 30px 0;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(243, 112, 33, 0.05);
+            animation: fadeIn 1s ease 1s forwards; /* Fades in after 1 sec */
+            opacity: 0;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .did-you-know strong {
+            color: var(--accent-orange);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+        .did-you-know p {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
 
         .btn-home {
             background: var(--primary-blue);
@@ -103,8 +133,8 @@
             box-shadow: 0 10px 20px rgba(10, 76, 149, 0.2);
         }
         .btn-home:hover {
-            background: var(--accent-orange);
-            box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3);
+            background: #083c75;
+            box-shadow: 0 10px 20px rgba(10, 76, 149, 0.3);
             transform: translateY(-2px);
         }
 
@@ -115,6 +145,11 @@
 
         @keyframes float1 { to { transform: translate(50px, 50px); } }
         @keyframes float2 { to { transform: translate(-50px, -50px); } }
+
+        @media(max-width: 768px) {
+            .thankyou-card { padding: 40px 25px; }
+            h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -129,7 +164,7 @@
     <div class="thankyou-card">
         <div class="icon-circle"><i class="fa-solid fa-check"></i></div>
         
-        <h1>Thank You for Choosing <span>Vyapar Wallah!</span></h1>
+        <h1>Thank You for Choosing <br><span>Vyapar Wallah!</span></h1>
         
         <div class="user-details">
             Hi <strong><?php echo $name; ?></strong>,<br>
@@ -138,43 +173,36 @@
 
         <p class="msg">Our team will connect with you shortly. 🚀</p>
 
+        <div class="did-you-know">
+            <strong><i class="fa-solid fa-lightbulb"></i> Did You Know?</strong>
+            <p>Vyapar Wallah has helped over 200+ local businesses and 50+ clinics achieve up to 300% growth in their daily inquiries. We are thrilled to write your success story next!</p>
+        </div>
+
         <a href="index.html" class="btn-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
     </div>
 
     <script>
-        // 1. Play Piano/Success Sound
-        // Note: Some browsers block autoplay, so we use a safe play method.
+        // Sound and Confetti
         window.onload = function() {
             let audio = document.getElementById("successSound");
-            audio.volume = 0.5; // Keep it pleasant and soothing
+            audio.volume = 0.4;
             let playPromise = audio.play();
             if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Browser blocked autoplay. It's okay!");
-                });
+                playPromise.catch(error => { console.log("Autoplay blocked. User needs to interact first."); });
             }
 
-            // 2. Pataka (Confetti) Animation! 🎉
             var duration = 3 * 1000;
             var animationEnd = Date.now() + duration;
             var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
 
-            function randomInRange(min, max) {
-                return Math.random() * (max - min) + min;
-            }
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
 
             var interval = setInterval(function() {
                 var timeLeft = animationEnd - Date.now();
-
-                if (timeLeft <= 0) {
-                    return clearInterval(interval);
-                }
-
+                if (timeLeft <= 0) { return clearInterval(interval); }
                 var particleCount = 50 * (timeLeft / duration);
                 
-                // Fire from left
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-                // Fire from right
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
             }, 250);
         };

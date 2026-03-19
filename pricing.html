@@ -1641,14 +1641,28 @@
 
     <div class="popup-overlay" id="popup2">
         <div class="popup-box">
-            <button class="popup-close" onclick="closePopup('popup2')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="popup-content" id="popup2-content" style="padding-top: 40px;">
+            <button class="popup-close" onclick="closePopup('popup2')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- 🖼 IMAGE ADD -->
+            <img src="offer.jpg" class="popup-img" alt="20% Offer">
+
+            <div class="popup-content" id="popup2-content">
                 <i class="fa-solid fa-gift"
                     style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 class="popup-title" style="color: var(--primary-blue);">SPECIAL 20% OFF</h3>
-                <p class="popup-desc">You are serious about growth. Unlock your VIP 20% OFF Code!</p>
-                <button class="btn-claim" onclick="showThankYouCode()">Unlock My Code <i
-                        class="fa-solid fa-unlock"></i></button>
+
+                <h3 class="popup-title" style="color: var(--primary-blue);">
+                    SPECIAL 20% OFF
+                </h3>
+
+                <p class="popup-desc">
+                    You are serious about growth. Unlock your VIP 20% OFF Code!
+                </p>
+
+                <button class="btn-claim" onclick="showThankYouCode()">
+                    Unlock My Code <i class="fa-solid fa-unlock"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -1705,14 +1719,14 @@
                     if (timeLeft <= 0) closePopup('popup1');
                 }, 1000);
             }
-        }, 45000);
+        }, 180000);
 
         // 90s Flow
         setTimeout(() => {
             closePopup('popup1');
             document.getElementById('popup2').classList.add('show');
             popup2Shown = true;
-        }, 90000);
+        }, 420000);
 
         function showThankYouCode() {
             document.getElementById('popup2-content').innerHTML = `
