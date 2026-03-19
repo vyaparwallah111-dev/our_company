@@ -84,17 +84,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mail($email, $user_subject, $user_body, $user_headers);
 
         // Success Redirect
-        echo "<script>
-            alert('Success! Your request has been sent. Please check your email.');
-            window.location.href = 'pricing.html';
-        </script>";
-    } else {
-        // Error handling
-        echo "<script>
-            alert('Oops! Server error. Please contact us directly via WhatsApp.');
-            window.history.back();
-        </script>";
-    }
+       // Success Redirect to Thank You Page with Data
+        $encoded_name = urlencode($name);
+        $encoded_biz = urlencode($business);
+        
+        header("Location: thankyou.php?n=$encoded_name&b=$encoded_biz");
+        exit();
 
 } else {
     // If accessed directly without form submission
