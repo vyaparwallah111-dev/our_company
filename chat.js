@@ -1,12 +1,26 @@
+// ==========================================
+// 🚀 VYAPAR AI - CHATBOT LOGIC
+// ==========================================
+
+// 1. Open/Close Chat Box
 function toggleChat() {
     const chatBox = document.getElementById('vwChatBox');
     if (chatBox) chatBox.classList.toggle('active');
 }
 
+// 2. Send on Enter Key
 function handleEnter(e) {
     if (e.key === 'Enter') sendMessage();
 }
 
+// 3. 🚀 Handle Suggestion Chips Clicks
+function sendSuggestion(text) {
+    const inputField = document.getElementById('vwChatInput');
+    inputField.value = text;
+    sendMessage(); // Auto-send the message
+}
+
+// 4. Main Send Message Function
 async function sendMessage() {
     const inputField = document.getElementById('vwChatInput');
     const message = inputField.value.trim();
@@ -14,42 +28,50 @@ async function sendMessage() {
 
     const chatBody = document.getElementById('vwChatBody');
     const typingIndicator = document.getElementById('vwTyping');
+    const suggestionsBox = document.getElementById('vwSuggestionsBox');
 
-    // 1. Show User Message
+    // Hide suggestions once user sends any message
+    if (suggestionsBox) suggestionsBox.style.display = 'none';
+
+    // Show User Message
     chatBody.innerHTML += `<div class="msg user">${message}</div>`;
     inputField.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // 2. Show Typing Indicator
+    // Show Typing Indicator
     typingIndicator.style.display = 'block';
     chatBody.scrollTop = chatBody.scrollHeight;
 
     try {
-        const response = await fetch('chat.php', {
+        // 🚀 CRITICAL FIX: Absolute path '/chat.php' ensures it works from any page (Blog, Services, etc.)
+        const response = await fetch('/chat.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 message: message,
-                context: document.title // Page Context automatically sent
+                context: document.title // Sends page name to AI
             })
         });
+
+        if (!response.ok) throw new Error("Network Issue");
 
         const data = await response.json();
         let aiReply = data.reply;
 
-        // 🚀 THE MAGIC: Replace the hidden text with an actual HTML WhatsApp Button
+        // WhatsApp Button Formatter
         if (aiReply.includes("||WA_BUTTON||")) {
-            aiReply = aiReply.replace("||WA_BUTTON||", "<br><a href='https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20need%20human%20assistance.' target='_blank' class='bot-wa-btn'><i class='fa-brands fa-whatsapp'></i> Chat on WhatsApp</a>");
+            aiReply = aiReply.replace("||WA_BUTTON||", "<br><br><a href='https://wa.me/9187641492' target='_blank' style='display:inline-block; background:#25D366; color:white; padding:10px 15px; border-radius:8px; text-decoration:none; font-weight:700; font-size:0.9rem; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);'>Chat on WhatsApp</a>");
         }
 
-        // 4. Show Bot Reply
+        // Show Bot Reply
         typingIndicator.style.display = 'none';
         chatBody.innerHTML += `<div class="msg bot">${aiReply}</div>`;
         chatBody.scrollTop = chatBody.scrollHeight;
 
     } catch (error) {
+        // Safe Fallback if PHP fails
         typingIndicator.style.display = 'none';
-        chatBody.innerHTML += `<div class="msg bot">Sorry, network issue. <br><a href='https://wa.me/9187641492' target='_blank' class='bot-wa-btn'><i class='fa-brands fa-whatsapp'></i> Chat on WhatsApp</a></div>`;
+        chatBody.innerHTML += `<div class="msg bot">Network thoda slow hai. Kripya humse direct WhatsApp par judein! <br><br><a href='https://wa.me/9187641492' target='_blank' style='display:inline-block; background:#25D366; color:white; padding:10px 15px; border-radius:8px; text-decoration:none; font-weight:700; font-size:0.9rem;'>Chat on WhatsApp</a></div>`;
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 }

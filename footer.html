@@ -298,38 +298,46 @@ vyapar-wallah-5541043b4
     </div>
 </footer>
 <style>
+    /* 🚀 Floating Chat Button (Logo Style) */
     .vw-chat-btn {
         position: fixed;
         bottom: 85px;
         right: 20px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #0A4C95, #052c5c);
-        color: white;
+        width: 65px;
+        height: 65px;
+        background: white;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.8rem;
         cursor: pointer;
-        box-shadow: 0 10px 30px rgba(10, 76, 149, 0.5);
+        box-shadow: 0 10px 30px rgba(10, 76, 149, 0.4);
         z-index: 99999;
         transition: 0.3s;
-        border: none;
+        border: 3px solid #0A4C95;
+        padding: 4px;
         outline: none;
     }
 
-    .vw-chat-btn:hover {
-        transform: translateY(-5px);
-        background: #F37021;
+    .vw-chat-btn img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
+    .vw-chat-btn:hover {
+        transform: scale(1.08);
+        border-color: #F37021;
+    }
+
+    /* 🚀 Main Chat Box */
     .vw-chat-box {
         position: fixed;
         bottom: 160px;
         right: 20px;
         width: 360px;
-        height: 480px;
+        height: 500px;
         background: white;
         border-radius: 15px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
@@ -342,6 +350,7 @@ vyapar-wallah-5541043b4
         transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         opacity: 0;
         border: 1px solid #eee;
+        font-family: 'Poppins', sans-serif;
     }
 
     .vw-chat-box.active {
@@ -349,10 +358,11 @@ vyapar-wallah-5541043b4
         opacity: 1;
     }
 
+    /* Header */
     .vw-chat-header {
         background: #0A4C95;
         color: white;
-        padding: 20px;
+        padding: 15px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -365,24 +375,26 @@ vyapar-wallah-5541043b4
         font-size: 1.1rem;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         font-weight: 600;
     }
 
     .vw-chat-header span {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
         background: #10b981;
-        padding: 3px 10px;
+        padding: 3px 8px;
         border-radius: 20px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 
+    /* Body & Messages */
     .vw-chat-body {
         flex: 1;
         padding: 20px 15px;
         overflow-y: auto;
-        background: #f4f7fb;
+        background: #f8fafc;
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -394,18 +406,16 @@ vyapar-wallah-5541043b4
         padding: 12px 16px;
         font-size: 0.95rem;
         line-height: 1.5;
-        position: relative;
         word-wrap: break-word;
     }
 
     .msg.bot {
         background: white;
-        border-bottom-left-radius: 5px;
         border-radius: 15px 15px 15px 0;
         color: #333;
         align-self: flex-start;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        border: 1px solid #eaeaea;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
     }
 
     .msg.user {
@@ -413,36 +423,41 @@ vyapar-wallah-5541043b4
         color: white;
         border-radius: 15px 15px 0 15px;
         align-self: flex-end;
-        box-shadow: 0 2px 5px rgba(10, 76, 149, 0.2);
+        box-shadow: 0 2px 8px rgba(10, 76, 149, 0.2);
     }
 
-    /* 🚀 Premium WhatsApp Button inside Chat */
-    .bot-wa-btn {
-        display: inline-flex;
-        align-items: center;
+    /* 🚀 Suggestion Chips */
+    .vw-suggestions {
+        display: flex;
+        flex-wrap: wrap;
         gap: 8px;
-        background: #25D366;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.9rem;
-        margin-top: 10px;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        margin-top: 5px;
     }
 
-    .bot-wa-btn:hover {
-        background: #1ebd5a;
+    .vw-chip {
+        background: white;
+        color: #0A4C95;
+        border: 1px solid #0A4C95;
+        padding: 8px 14px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    .vw-chip:hover {
+        background: #0A4C95;
         color: white;
         transform: translateY(-2px);
     }
 
+    /* Input Area */
     .vw-chat-input {
         padding: 15px;
         background: white;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #e2e8f0;
         display: flex;
         gap: 10px;
         align-items: center;
@@ -451,18 +466,16 @@ vyapar-wallah-5541043b4
     .vw-chat-input input {
         flex: 1;
         padding: 12px 15px;
-        border: 1px solid #ddd;
+        border: 1px solid #cbd5e1;
         border-radius: 25px;
         outline: none;
-        font-family: 'Poppins', sans-serif;
         font-size: 0.95rem;
-        background: #f9f9f9;
+        font-family: 'Poppins', sans-serif;
         transition: 0.3s;
     }
 
     .vw-chat-input input:focus {
         border-color: #0A4C95;
-        background: white;
         box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1);
     }
 
@@ -475,10 +488,10 @@ vyapar-wallah-5541043b4
         border-radius: 50%;
         cursor: pointer;
         transition: 0.3s;
-        font-size: 1.1rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 1.1rem;
         box-shadow: 0 4px 10px rgba(243, 112, 33, 0.3);
     }
 
@@ -489,13 +502,13 @@ vyapar-wallah-5541043b4
 
     .typing {
         font-size: 0.85rem;
-        color: #888;
+        color: #64748b;
         font-style: italic;
         display: none;
         margin-left: 10px;
-        margin-top: -5px;
     }
 
+    /* Mobile Responsive */
     @media(max-width: 768px) {
         .vw-chat-box {
             width: 90%;
@@ -506,39 +519,32 @@ vyapar-wallah-5541043b4
     }
 </style>
 
-<button class="vw-chat-btn" onclick="toggleChat()"><i class="fa-solid fa-message"></i></button>
+<button class="vw-chat-btn" onclick="toggleChat()">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Vyapar AI">
+</button>
 
 <div class="vw-chat-box" id="vwChatBox">
     <div class="vw-chat-header">
-        <h4><i class="fa-solid fa-headset"></i> Vyapar AI <span>Online</span></h4>
-        <i class="fa-solid fa-xmark" style="cursor:pointer; font-size: 1.2rem;" onclick="toggleChat()"></i>
+        <h4>Vyapar AI <span>Online</span></h4>
+        <div style="cursor:pointer; font-size: 1.2rem;" onclick="toggleChat()">✖</div>
     </div>
+
     <div class="vw-chat-body" id="vwChatBody">
         <div class="msg bot">Hello! I am Vyapar AI. Aap digital marketing, SEO ya pricing ke baare me kuch bhi pooch
             sakte hain. 😊</div>
+
+        <div class="vw-suggestions" id="vwSuggestionsBox">
+            <div class="vw-chip" onclick="sendSuggestion('Healthcare Marketing Plan')">🏥 Healthcare Plan</div>
+            <div class="vw-chip" onclick="sendSuggestion('SEO Pricing for Schools')">🎓 School SEO</div>
+            <div class="vw-chip" onclick="sendSuggestion('Talk to Marketing Expert')">📞 Talk to Expert</div>
+        </div>
     </div>
+
     <div class="typing" id="vwTyping">Vyapar AI is typing...</div>
+
     <div class="vw-chat-input">
         <input type="text" id="vwChatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
-        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-</div>
-
-
-<button class="vw-chat-btn" onclick="toggleChat()"><i class="fa-solid fa-message"></i></button>
-
-<div class="vw-chat-box" id="vwChatBox">
-    <div class="vw-chat-header">
-        <h4><i class="fa-solid fa-robot"></i> Vyapar AI <span>Online</span></h4>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleChat()"></i>
-    </div>
-    <div class="vw-chat-body" id="vwChatBody">
-        <div class="msg bot">Hello! Welcome to Vyapar Wallah. How can I help you grow your business today?</div>
-    </div>
-    <div class="typing" id="vwTyping">Vyapar AI is typing...</div>
-    <div class="vw-chat-input">
-        <input type="text" id="vwChatInput" placeholder="Ask a question..." onkeypress="handleEnter(event)">
-        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        <button onclick="sendMessage()">➤</button>
     </div>
 </div>
 
