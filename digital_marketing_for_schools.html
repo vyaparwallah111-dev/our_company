@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vyapar Wallah is Bihar's top education marketing agency. We provide digital marketing for schools, coaching institutes, and help increase school admissions.">
-    
+    <meta name="description"
+        content="Vyapar Wallah is Bihar's top education marketing agency. We provide digital marketing for schools, coaching institutes, and help increase school admissions.">
+
     <title>Digital Marketing for Schools & Coaching in Bihar | Increase Admissions</title>
-    
+
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-blue: #0A4C95;
@@ -24,15 +27,62 @@
             --school-blue: #e8f0fe;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
         /* --- BUTTONS & TITLES --- */
-        .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4); cursor: pointer; }
-        .btn-main:hover { background: #d95e17; transform: translateY(-3px); }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--primary-blue); font-weight: 800; }
-        .section-header p { color: #666; font-size: 1.1rem; margin-top: 10px; max-width: 700px; margin-inline: auto; }
+        .btn-main {
+            background: var(--accent-orange);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            border: none;
+            box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4);
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            background: #d95e17;
+            transform: translateY(-3px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            max-width: 700px;
+            margin-inline: auto;
+        }
 
         /* --- HERO SECTION --- */
         .edu-hero {
@@ -44,318 +94,1112 @@
             gap: 50px;
             min-height: 90vh;
         }
-        .hero-text-side { flex: 1.2; color: white; max-width: 650px; }
-        .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 25px; backdrop-filter: blur(5px); }
-        .hero-text-side h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-        .hero-text-side h1 span { color: var(--accent-orange); }
-        .hero-text-side p { font-size: 1.1rem; color: #c9dff1; margin-bottom: 30px; line-height: 1.7; }
-        .hero-features { display: flex; gap: 20px; flex-wrap: wrap; }
-        .hero-features span { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1rem; color: white; }
-        .hero-features i { color: var(--highlight-green); font-size: 1.2rem; }
 
-        .hero-form-side { flex: 0.8; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); max-width: 450px; }
-        .hero-form-side h3 { font-size: 1.6rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
-        .hero-form-side p { font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.5; }
-        .form-input { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-        .form-input:focus { border-color: var(--primary-blue); outline: none; box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1); }
-        .btn-submit-hero { width: 100%; background: var(--accent-orange); color: white; padding: 16px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif; }
-        .btn-submit-hero:hover { background: #d95e17; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3); }
+        .hero-text-side {
+            flex: 1.2;
+            color: white;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-text-side h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-side h1 span {
+            color: var(--accent-orange);
+        }
+
+        .hero-text-side p {
+            font-size: 1.1rem;
+            color: #c9dff1;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-features span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .hero-features i {
+            color: var(--highlight-green);
+            font-size: 1.2rem;
+        }
+
+        .hero-form-side {
+            flex: 0.8;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+        }
+
+        .hero-form-side h3 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .hero-form-side p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1);
+        }
+
+        .btn-submit-hero {
+            width: 100%;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-submit-hero:hover {
+            background: #d95e17;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3);
+        }
 
         /* --- INTRO SECTION --- */
-        .intro-section { padding: 80px 5%; background: var(--school-blue); text-align: center; }
-        .intro-box { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-blue); }
-        .intro-box p { font-size: 1.15rem; color: #444; line-height: 1.8; margin-bottom: 20px; }
+        .intro-section {
+            padding: 80px 5%;
+            background: var(--school-blue);
+            text-align: center;
+        }
+
+        .intro-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
 
         /* --- NEW: ABOUT BIHAR EDUCATION MARKET --- */
-        .bihar-market-section { padding: 80px 5%; background: white; }
-        .market-container { max-width: 1000px; margin: auto; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .market-text { flex: 1; min-width: 300px; }
-        .market-text h2 { font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 20px; line-height: 1.3; font-weight: 800; }
-        .market-text p { font-size: 1.05rem; color: #555; margin-bottom: 15px; line-height: 1.7; }
-        .market-image { flex: 1; min-width: 300px; position: relative; }
-        .market-image img { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .market-overlay-box { position: absolute; bottom: -20px; left: -20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-left: 4px solid var(--accent-orange); font-weight: 700; color: var(--primary-blue); }
+        .bihar-market-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .market-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .market-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .market-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+
+        .market-text p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .market-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .market-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .market-overlay-box {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid var(--accent-orange);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
 
         /* --- 6+ SERVICES GRID --- */
-        .services-section { padding: 80px 5%; background: var(--bg-light); }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .edu-service-card { padding: 35px 25px; border-radius: 15px; background: #fff; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.3s; position: relative; overflow: hidden; text-align: center; }
-        .edu-service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1); border-color: var(--accent-orange); }
-        .edu-service-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 20px; }
-        .edu-service-card h3 { font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
-        .edu-service-card p { color: #555; font-size: 0.95rem; }
+        .services-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .edu-service-card {
+            padding: 35px 25px;
+            border-radius: 15px;
+            background: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .edu-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1);
+            border-color: var(--accent-orange);
+        }
+
+        .edu-service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .edu-service-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .edu-service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
 
         /* --- NEW: WHY CHOOSE VYAPAR WALLAH --- */
-        .why-choose-us { padding: 80px 5%; background: var(--primary-blue); color: white; text-align: center; }
-        .why-choose-us .section-header h2 { color: white; }
-        .why-choose-us .section-header p { color: #c9dff1; }
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
-        .why-card { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: 0.3s; }
-        .why-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); }
-        .why-card i { font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px; }
-        .why-card h4 { font-size: 1.3rem; margin-bottom: 15px; }
-        .why-card p { color: #c9dff1; font-size: 0.95rem; }
+        .why-choose-us {
+            padding: 80px 5%;
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
+        }
+
+        .why-choose-us .section-header h2 {
+            color: white;
+        }
+
+        .why-choose-us .section-header p {
+            color: #c9dff1;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .why-card i {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .why-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: #c9dff1;
+            font-size: 0.95rem;
+        }
 
         /* --- BEFORE/AFTER --- */
-        .growth-section { padding: 80px 5%; background: white; }
-        .ba-container { display: flex; gap: 30px; max-width: 1000px; margin: auto; flex-wrap: wrap; }
-        .ba-box { flex: 1; min-width: 300px; padding: 40px; border-radius: 20px; position: relative; overflow: hidden; }
-        .ba-before { background: #fff0f0; border: 2px solid #ffcccc; }
-        .ba-after { background: #f0fff4; border: 2px solid #ccffdc; box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15); }
-        .ba-box h3 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .ba-before h3 { color: var(--danger-red); }
-        .ba-after h3 { color: var(--highlight-green); }
-        .ba-box ul { list-style: none; }
-        .ba-box li { margin-bottom: 15px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 10px; color: #444; }
-        .ba-before li i { color: var(--danger-red); margin-top: 5px; }
-        .ba-after li i { color: var(--highlight-green); margin-top: 5px; }
+        .growth-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .ba-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .ba-box {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ba-before {
+            background: #fff0f0;
+            border: 2px solid #ffcccc;
+        }
+
+        .ba-after {
+            background: #f0fff4;
+            border: 2px solid #ccffdc;
+            box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15);
+        }
+
+        .ba-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ba-before h3 {
+            color: var(--danger-red);
+        }
+
+        .ba-after h3 {
+            color: var(--highlight-green);
+        }
+
+        .ba-box ul {
+            list-style: none;
+        }
+
+        .ba-box li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #444;
+        }
+
+        .ba-before li i {
+            color: var(--danger-red);
+            margin-top: 5px;
+        }
+
+        .ba-after li i {
+            color: var(--highlight-green);
+            margin-top: 5px;
+        }
 
         /* --- COMPARISON TABLE --- */
-        .comparison-section { padding: 80px 5%; background: var(--bg-light); }
-        .comp-table { width: 100%; max-width: 1000px; margin: auto; border-collapse: collapse; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; }
-        .comp-table th, .comp-table td { padding: 20px; text-align: left; border-bottom: 1px solid #eee; }
-        .comp-table th { background: var(--primary-blue); color: white; font-size: 1.2rem; }
-        .comp-table th:nth-child(2) { background: var(--accent-orange); } 
-        .comp-table tr:hover { background: #f8fcfb; }
-        .comp-table td:first-child { font-weight: 600; color: var(--primary-blue); width: 40%; }
-        .vw-col { background: rgba(243, 112, 33, 0.05); font-weight: 600; color: #333; }
-        .comp-table i.fa-check { color: var(--highlight-green); font-size: 1.2rem; }
-        .comp-table i.fa-xmark { color: var(--danger-red); font-size: 1.2rem; }
+        .comparison-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .comp-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .comp-table th,
+        .comp-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comp-table th {
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .comp-table th:nth-child(2) {
+            background: var(--accent-orange);
+        }
+
+        .comp-table tr:hover {
+            background: #f8fcfb;
+        }
+
+        .comp-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-blue);
+            width: 40%;
+        }
+
+        .vw-col {
+            background: rgba(243, 112, 33, 0.05);
+            font-weight: 600;
+            color: #333;
+        }
+
+        .comp-table i.fa-check {
+            color: var(--highlight-green);
+            font-size: 1.2rem;
+        }
+
+        .comp-table i.fa-xmark {
+            color: var(--danger-red);
+            font-size: 1.2rem;
+        }
 
         /* --- REVIEWS --- */
-       .reviews-section { background: var(--bg-light); position: relative; overflow: hidden; padding: 100px 5%; }
-        .testimonial-slider-wrapper { position: relative; display: flex; align-items: center; justify-content: center; max-width: 1400px; margin: auto; padding: 20px 0; }
-        .testimonial-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 20px 10px; -ms-overflow-style: none; scrollbar-width: none; width: 100%; }
-        .testimonial-track::-webkit-scrollbar { display: none; }
-        
-        .review-card { flex: 0 0 calc(25% - 15px); scroll-snap-align: start; background: white; padding: 20px 24px; border-radius: 8px; border: 1px solid #e8eaed; box-shadow: 0 1px 2px rgba(60,64,67,0.1), 0 1px 3px rgba(60,64,67,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
-        .review-card:hover { box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.15); }
-        .g-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; position: relative; }
-        .g-header img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
-        .g-user-info { display: flex; flex-direction: column; justify-content: center; }
-        .g-user-info strong { color: #202124; font-size: 0.95rem; font-weight: 500; }
-        .g-date { color: #70757a; font-size: 0.8rem; margin-top: 2px; }
-        .g-logo-icon { position: absolute; top: 0; right: 0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-        .g-logo-icon svg { width: 100%; height: 100%; }
-        .g-stars { color: #fbbc04; font-size: 14px; margin-bottom: 12px; display: flex; gap: 1px; }
-        .review-text { font-size: 0.9rem; color: #202124; line-height: 1.5; min-height: 120px; font-style: normal; }
+        .reviews-section {
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 5%;
+        }
 
-        .slider-btn{
-            position:absolute;
-        top:50%;
-        transform:translateY(-50%);
-        width:45px;
-        height:45px;
-        border-radius:50%;
-        border:none;
-        background:var(--primary-blue);
-        color:white;
-        font-size:18px;
-        cursor:pointer;
-        z-index:10;
-            }
-    
+        .testimonial-slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px 0;
+        }
 
-.slider-btn:hover{
-    background:var(--accent-orange);
-}
+        .testimonial-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 20px 10px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            width: 100%;
+        }
 
-.prev-btn{
-    left:-20px;
-}
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
 
-.next-btn{
-    right:-20px;
-}
+        .review-card {
+            flex: 0 0 calc(25% - 15px);
+            scroll-snap-align: start;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 8px;
+            border: 1px solid #e8eaed;
+            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1), 0 1px 3px rgba(60, 64, 67, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-.reviews-section .section-header{
-    text-align:center;
-    margin-bottom:40px;
-}
+        .review-card:hover {
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15), 0 4px 8px rgba(60, 64, 67, 0.15);
+        }
 
-.slider-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:45px;
-height:45px;
-border-radius:50%;
-border:none;
-background:var(--primary-blue);
-color:white;
-font-size:18px;
-cursor:pointer;
-z-index:10;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+        .g-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+            position: relative;
+        }
 
-.slider-btn:hover{
-background:var(--accent-orange);
-}
+        .g-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-.prev-btn{
-left:-10px;
-}
+        .g-user-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.next-btn{
-right:-10px;
-}
+        .g-user-info strong {
+            color: #202124;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .g-date {
+            color: #70757a;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .g-logo-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .g-logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .g-stars {
+            color: #fbbc04;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 1px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #202124;
+            line-height: 1.5;
+            min-height: 120px;
+            font-style: normal;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+
+        .slider-btn:hover {
+            background: var(--accent-orange);
+        }
+
+        .prev-btn {
+            left: -20px;
+        }
+
+        .next-btn {
+            right: -20px;
+        }
+
+        .reviews-section .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent-orange);
+        }
+
+        .prev-btn {
+            left: -10px;
+        }
+
+        .next-btn {
+            right: -10px;
+        }
 
 
 
         /* --- FAQ SECTION --- */
-        .faq-section { padding: 80px 5%; background: var(--school-blue); }
-        .faq-container { max-width: 800px; margin: auto; }
-        .faq-item { background: white; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s; }
-        .faq-question { padding: 20px; font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-in-out; color: #555; }
-        .faq-item.active { border: 1px solid var(--primary-blue); }
-        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 500px; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent-orange); }
+        .faq-section {
+            padding: 80px 5%;
+            background: var(--school-blue);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+            color: #555;
+        }
+
+        .faq-item.active {
+            border: 1px solid var(--primary-blue);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--accent-orange);
+        }
 
         /* --- LEAD MAGNET (FIXED) --- */
-        .lead-magnet { padding: 80px 5%; background: white; display: flex; justify-content: center; }
-        .magnet-box { max-width: 1000px; width: 100%; background: linear-gradient(to right, #fef4ec 0%, #fff 100%); border: 1px solid rgba(243, 112, 33, 0.2); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 50px; box-shadow: 0 15px 40px rgba(243, 112, 33, 0.08); }
-        .magnet-text { flex: 1.2; }
-        .magnet-text h3 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
-        .magnet-text p { font-size: 1.05rem; color: #555; margin-bottom: 20px; }
-        
+        .lead-magnet {
+            padding: 80px 5%;
+            background: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .magnet-box {
+            max-width: 1000px;
+            width: 100%;
+            background: linear-gradient(to right, #fef4ec 0%, #fff 100%);
+            border: 1px solid rgba(243, 112, 33, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 15px 40px rgba(243, 112, 33, 0.08);
+        }
+
+        .magnet-text {
+            flex: 1.2;
+        }
+
+        .magnet-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .magnet-text p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
         /* Form Layout Fix */
-        .magnet-form { flex: 1; background: white; padding: 35px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .magnet-form form { display: flex; flex-direction: column; gap: 15px; } /* Ensures inputs stack neatly */
-        .magnet-form input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: 'Poppins', sans-serif; outline: none; transition: 0.3s; }
-        .magnet-form input:focus { border-color: var(--accent-orange); }
-        .magnet-form button { width: 100%; padding: 16px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-        .magnet-form button:hover { background: var(--primary-blue); transform: translateY(-2px); }
+        .magnet-form {
+            flex: 1;
+            background: white;
+            padding: 35px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .magnet-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Ensures inputs stack neatly */
+        .magnet-form input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .magnet-form input:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .magnet-form button {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .magnet-form button:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
 
         /* --- SCROLL POPUP --- */
-        .discount-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 76, 149, 0.85); backdrop-filter: blur(8px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.4s; }
-        .discount-popup-overlay.show { opacity: 1; pointer-events: all; }
-        .discount-popup-box { background: white; width: 90%; max-width: 600px; border-radius: 20px; padding: 40px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.4); transform: scale(0.8) translateY(50px); transition: 0.5s; position: relative; }
-        .discount-popup-overlay.show .discount-popup-box { transform: scale(1) translateY(0); }
-        .close-popup { position: absolute; top: 15px; right: 15px; background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .discount-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 76, 149, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .discount-popup-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .discount-popup-box {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            transform: scale(0.8) translateY(50px);
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .discount-popup-overlay.show .discount-popup-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
         /* Responsive */
         @media(max-width: 992px) {
-            .edu-hero { flex-direction: column; text-align: center; padding-top: 50px; }
-            .hero-text-side { max-width: 100%; }
-            .hero-text-side h1 { font-size: 3rem; }
-            .hero-features { justify-content: center; }
-            .hero-form-side { width: 100%; max-width: 100%; margin-top: 20px; text-align: left; }
-            .review-card { flex: 0 0 calc(50% - 10px); }
-            .magnet-box, .market-container { flex-direction: column; text-align: center; }
-            .market-overlay-box { position: relative; bottom: 0; left: 0; margin-top: 20px; border-left: none; border-top: 4px solid var(--accent-orange); }
+            .edu-hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .hero-text-side {
+                max-width: 100%;
+            }
+
+            .hero-text-side h1 {
+                font-size: 3rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-form-side {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            .review-card {
+                flex: 0 0 calc(50% - 10px);
+            }
+
+            .magnet-box,
+            .market-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .market-overlay-box {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                margin-top: 20px;
+                border-left: none;
+                border-top: 4px solid var(--accent-orange);
+            }
         }
+
         @media(max-width: 768px) {
-            .hero-text-side h1 { font-size: 2.2rem; }
-            .section-header h2 { font-size: 1.8rem; }
-            .comp-table th, .comp-table td { padding: 12px 10px; font-size: 0.9rem; }
-            .review-card { flex: 0 0 100%; }
+            .hero-text-side h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .comp-table th,
+            .comp-table td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+
+            .review-card {
+                flex: 0 0 100%;
+            }
         }
 
         /* =========================================
    🚀 1. DESKTOP FLOATING BUTTONS 
    ========================================= */
-.desktop-floating-widget {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 9999;
-}
-.float-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    color: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    text-decoration: none;
-}
-.float-btn:hover { transform: scale(1.1); }
-.float-wa { background: #25D366; }
-.float-call { background: var(--primary-blue); }
+        .desktop-floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .float-wa {
+            background: #25D366;
+        }
+
+        .float-call {
+            background: var(--primary-blue);
+        }
 
 
 
-/* =========================================
+        /* =========================================
    🚀 2. IMAGE + TEXT SCROLL POPUP 
    ========================================= */
-/* =========================================
+        /* =========================================
    🚀 NEW: TIMER TOAST POPUP (Welcome Deal)
    ========================================= */
-/* =========================================
+        /* =========================================
    🚀 NEW: INTERACTIVE DYNAMIC TOAST POPUP
    ========================================= */
-/* =========================================
+        /* =========================================
    🚀 NEW: COMPACT INTERACTIVE TOAST POPUP
    ========================================= */
-.toast-popup {
-    position: fixed;
-    bottom: -600px; 
-    left: 20px; /* थोड़ा और किनारे कर दिया है */
-    width: 290px; /* 360px से घटाकर 290px कर दिया */
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    z-index: 100000;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    border: 2px solid var(--primary-blue);
-}
-.toast-popup.show { bottom: 20px; }
+        .toast-popup {
+            position: fixed;
+            bottom: -600px;
+            left: 20px;
+            /* थोड़ा और किनारे कर दिया है */
+            width: 290px;
+            /* 360px से घटाकर 290px कर दिया */
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 100000;
+            transition: 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid var(--primary-blue);
+        }
 
-.toast-header {
-    background: var(--primary-blue);
-    color: white;
-    padding: 8px 15px; /* पैडिंग कम कर दी है */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    font-size: 0.85rem; /* फॉन्ट छोटा किया */
-    letter-spacing: 0.5px;
-}
-.toast-close {
-    cursor: pointer; background: none; border: none; color: white; font-size: 1.1rem; transition: 0.3s;
-}
-.toast-close:hover { color: var(--accent-orange); transform: scale(1.1); }
+        .toast-popup.show {
+            bottom: 20px;
+        }
 
-.toast-body { padding: 15px; text-align: center; } /* अंदर की जगह कम की */
-.toast-img { width: 100%; height: 100px; /* इमेज की हाइट 150px से 100px कर दी */ object-fit: cover; border-radius: 8px; margin-bottom: 10px; animation: fadeIn 0.5s ease; }
+        .toast-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 8px 15px;
+            /* पैडिंग कम कर दी है */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            /* फॉन्ट छोटा किया */
+            letter-spacing: 0.5px;
+        }
 
-/* Important लगा दिया ताकि HTML का इनलाइन स्टाइल ओवरराइड हो जाए */
-.toast-title { font-size: 1.1rem !important; color: var(--primary-blue); font-weight: 800; margin-bottom: 5px; line-height: 1.2; animation: fadeIn 0.5s ease; }
-.toast-text { font-size: 0.8rem; color: #555; margin-bottom: 10px; line-height: 1.4; animation: fadeIn 0.5s ease; }
+        .toast-close {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
 
-.toast-btn {
-    background: var(--accent-orange); color: white; padding: 8px 12px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; justify-content: center; align-items: center; gap: 6px; width: 100%; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(243, 112, 33, 0.3); animation: fadeIn 0.5s ease;
-}
-.toast-btn:hover { background: #d95e17; transform: translateY(-2px); }
-.toast-btn-outline { background: white; color: var(--primary-blue); border: 1px solid var(--primary-blue); box-shadow: none; }
-.toast-btn-outline:hover { background: var(--primary-blue); color: white; }
-.toast-btn-group { display: flex; gap: 8px; }
+        .toast-close:hover {
+            color: var(--accent-orange);
+            transform: scale(1.1);
+        }
 
-.timer-box { font-size: 1.2rem; font-weight: 900; color: var(--danger-red); margin-bottom: 10px; background: rgba(231, 76, 60, 0.1); padding: 4px 12px; border-radius: 6px; display: inline-block; letter-spacing: 1px;}
+        .toast-body {
+            padding: 15px;
+            text-align: center;
+        }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* अंदर की जगह कम की */
+        .toast-img {
+            width: 100%;
+            height: 100px;
+            /* इमेज की हाइट 150px से 100px कर दी */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            animation: fadeIn 0.5s ease;
+        }
 
-/* 📱 Mobile Responsive Fixes */
-@media(max-width: 768px) {
-    .toast-popup { width: 90%; left: 5%; }
-    .toast-popup.show { bottom: 85px; } /* Sticky bar के ऊपर */
-}
+        /* Important लगा दिया ताकि HTML का इनलाइन स्टाइल ओवरराइड हो जाए */
+        .toast-title {
+            font-size: 1.1rem !important;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toast-text {
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toast-btn {
+            background: var(--accent-orange);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(243, 112, 33, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toast-btn:hover {
+            background: #d95e17;
+            transform: translateY(-2px);
+        }
+
+        .toast-btn-outline {
+            background: white;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            box-shadow: none;
+        }
+
+        .toast-btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .toast-btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .timer-box {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--danger-red);
+            margin-bottom: 10px;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 📱 Mobile Responsive Fixes */
+        @media(max-width: 768px) {
+            .toast-popup {
+                width: 90%;
+                left: 5%;
+            }
+
+            .toast-popup.show {
+                bottom: 85px;
+            }
+
+            /* Sticky bar के ऊपर */
+        }
     </style>
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
@@ -364,8 +1208,9 @@ right:-10px;
         <div class="hero-text-side">
             <div class="hero-badge">Bihar's #1 Education Marketing Agency</div>
             <h1>Full Classrooms,<br><span>Not Empty Benches.</span></h1>
-            <p>We build highly-targeted lead generation funnels that bring parents actively looking for school and coaching admissions directly to your WhatsApp.</p>
-            
+            <p>We build highly-targeted lead generation funnels that bring parents actively looking for school and
+                coaching admissions directly to your WhatsApp.</p>
+
             <div class="hero-features">
                 <span><i class="fa-solid fa-circle-check"></i> Verified Leads</span>
                 <span><i class="fa-solid fa-circle-check"></i> Lower Cost Per Admission</span>
@@ -375,12 +1220,13 @@ right:-10px;
         <div class="hero-form-side">
             <h3>Get a Free 30-Min Growth Audit</h3>
             <p>Tell us about your institute, and we will build a custom admission blueprint for you.</p>
-            
+
             <form id="heroLeadForm">
                 <input type="text" id="heroName" class="form-input" placeholder="Your Name" required>
-                <input type="text" id="heroInstitute" class="form-input" placeholder="Institute Name (School/Coaching)" required>
+                <input type="text" id="heroInstitute" class="form-input" placeholder="Institute Name (School/Coaching)"
+                    required>
                 <input type="tel" id="heroPhone" class="form-input" placeholder="WhatsApp Number" required>
-                
+
                 <button type="submit" class="btn-submit-hero">
                     Send Details via WhatsApp <i class="fa-regular fa-paper-plane"></i>
                 </button>
@@ -390,8 +1236,11 @@ right:-10px;
 
     <section class="intro-section">
         <div class="intro-box">
-            <p>अगर आप अपने school या coaching institute में admissions बढ़ाना चाहते हैं, तो पारंपरिक बैनर और पर्चे अब काम नहीं करते। School marketing in Bihar अब पूरी तरह डिजिटल हो चुकी है।</p>
-            <p>हम schools और coaching centers के लिए local SEO, social media branding और targeted lead generation services प्रोवाइड करते हैं। चाहे आप पटना में हों या पूरे बिहार में फ्रेंचाइजी चला रहे हों, हमारी educational marketing agency आपके एडमिशन ग्राफ को ऊपर ले जाने में पूरी मदद करेगी।</p>
+            <p>अगर आप अपने school या coaching institute में admissions बढ़ाना चाहते हैं, तो पारंपरिक बैनर और पर्चे अब
+                काम नहीं करते। School marketing in Bihar अब पूरी तरह डिजिटल हो चुकी है।</p>
+            <p>हम schools और coaching centers के लिए local SEO, social media branding और targeted lead generation
+                services प्रोवाइड करते हैं। चाहे आप पटना में हों या पूरे बिहार में फ्रेंचाइजी चला रहे हों, हमारी
+                educational marketing agency आपके एडमिशन ग्राफ को ऊपर ले जाने में पूरी मदद करेगी।</p>
         </div>
     </section>
 
@@ -399,11 +1248,17 @@ right:-10px;
         <div class="market-container">
             <div class="market-text">
                 <h2>Why Do You Need Digital Marketing for Schools & Coaching in Bihar?</h2>
-                <p>The education sector in Bihar is evolving rapidly. Parents in cities like Patna, Muzaffarpur, Gaya, and Darbhanga no longer rely solely on newspaper ads or word-of-mouth. They actively search on Google for the best institutes, check Instagram for campus facilities, and read reviews before making a final admission decision.</p>
-                <p>If your institute isn't visible online when parents are searching, you are directly handing over your prospective students to your competitors. Digital marketing for coaching and schools bridges the gap between your excellent teaching facilities and the parents looking for them.</p>
+                <p>The education sector in Bihar is evolving rapidly. Parents in cities like Patna, Muzaffarpur, Gaya,
+                    and Darbhanga no longer rely solely on newspaper ads or word-of-mouth. They actively search on
+                    Google for the best institutes, check Instagram for campus facilities, and read reviews before
+                    making a final admission decision.</p>
+                <p>If your institute isn't visible online when parents are searching, you are directly handing over your
+                    prospective students to your competitors. Digital marketing for coaching and schools bridges the gap
+                    between your excellent teaching facilities and the parents looking for them.</p>
             </div>
             <div class="market-image">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Students in Classroom - Education Marketing">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+                    alt="Students in Classroom - Education Marketing">
                 <div class="market-overlay-box">
                     Over 78% of parents in urban Bihar research online before school admissions.
                 </div>
@@ -421,32 +1276,38 @@ right:-10px;
             <div class="edu-service-card">
                 <i class="fa-solid fa-bullseye"></i>
                 <h3>Admission Lead Generation</h3>
-                <p>We run highly targeted Meta and Google ads focusing on parents' demographics to bring direct school admission inquiries to your counseling desk.</p>
+                <p>We run highly targeted Meta and Google ads focusing on parents' demographics to bring direct school
+                    admission inquiries to your counseling desk.</p>
             </div>
             <div class="edu-service-card">
                 <i class="fa-solid fa-magnifying-glass-chart"></i>
                 <h3>Local SEO for Institutes</h3>
-                <p>Rank #1 on Google when students or parents search for top coaching institutes near their location. Dominating search results is our core expertise.</p>
+                <p>Rank #1 on Google when students or parents search for top coaching institutes near their location.
+                    Dominating search results is our core expertise.</p>
             </div>
             <div class="edu-service-card">
                 <i class="fa-solid fa-video"></i>
                 <h3>Campus Drone & Video Shoots</h3>
-                <p>Showcase your infrastructure visually. We shoot and edit cinematic virtual tours and student testimonial videos to build absolute trust.</p>
+                <p>Showcase your infrastructure visually. We shoot and edit cinematic virtual tours and student
+                    testimonial videos to build absolute trust.</p>
             </div>
             <div class="edu-service-card">
                 <i class="fa-brands fa-instagram"></i>
                 <h3>Social Media Branding</h3>
-                <p>We transform your Facebook and Instagram into a premium digital prospectus, posting regular updates about facilities, events, and results.</p>
+                <p>We transform your Facebook and Instagram into a premium digital prospectus, posting regular updates
+                    about facilities, events, and results.</p>
             </div>
             <div class="edu-service-card">
                 <i class="fa-solid fa-laptop-code"></i>
                 <h3>High-Converting Landing Pages</h3>
-                <p>Stop sending ad traffic to a slow homepage. We build fast, inquiry-focused landing pages designed specifically for higher conversion rates.</p>
+                <p>Stop sending ad traffic to a slow homepage. We build fast, inquiry-focused landing pages designed
+                    specifically for higher conversion rates.</p>
             </div>
             <div class="edu-service-card">
                 <i class="fa-brands fa-whatsapp"></i>
                 <h3>WhatsApp CRM Automation</h3>
-                <p>Automate your follow-ups. Instantly send digital brochures and fee structures to inquiring parents via WhatsApp without any manual effort.</p>
+                <p>Automate your follow-ups. Instantly send digital brochures and fee structures to inquiring parents
+                    via WhatsApp without any manual effort.</p>
             </div>
         </div>
     </section>
@@ -456,35 +1317,46 @@ right:-10px;
             <h2>How Institutes Grow With Us</h2>
             <p>See the real transformation of institutes that adopt modern marketing strategies.</p>
         </div>
-        
+
         <div class="ba-container">
             <div class="ba-box ba-before">
                 <h3><i class="fa-solid fa-circle-xmark"></i> The Old Way (Struggling)</h3>
                 <ul>
-                    <li><i class="fa-solid fa-xmark"></i> Wasting lakhs on offline hoardings and newspaper ads with zero tracking.</li>
-                    <li><i class="fa-solid fa-xmark"></i> Depending solely on old student referrals for new batches.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Wasting lakhs on offline hoardings and newspaper ads with zero
+                        tracking.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Depending solely on old student referrals for new batches.
+                    </li>
                     <li><i class="fa-solid fa-xmark"></i> Poor or outdated website that parents don't trust.</li>
                     <li><i class="fa-solid fa-xmark"></i> Counselors sitting idle during the peak admission season.</li>
-                    <li><i class="fa-solid fa-xmark"></i> Parents search for schools on Google, but your institute doesn't appear in the results..</li>
-                    <li><i class="fa-solid fa-xmark"></i> Admission inquiries come through the register or over the phone, and many inquiries are missed.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Parents search for schools on Google, but your institute
+                        doesn't appear in the results..</li>
+                    <li><i class="fa-solid fa-xmark"></i> Admission inquiries come through the register or over the
+                        phone, and many inquiries are missed.</li>
                     <li><i class="fa-solid fa-xmark"></i> Due to low Google reviews, parents prefer other schools.</li>
 
-                    <li><i class="fa-solid fa-xmark"></i> The name of the school does not properly exist on the internet.</li>
+                    <li><i class="fa-solid fa-xmark"></i> The name of the school does not properly exist on the
+                        internet.</li>
 
                 </ul>
             </div>
             <div class="ba-box ba-after">
                 <h3><i class="fa-solid fa-circle-check"></i> With Vyapar Wallah (Growing)</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Predictable daily admission inquiries via targeted digital ads.</li>
-                    <li><i class="fa-solid fa-check"></i> Exact tracking of Cost Per Lead (CPL) and Return on Ad Spend.</li>
-                    <li><i class="fa-solid fa-check"></i> A premium brand image that justifies your institute's fee structure.</li>
+                    <li><i class="fa-solid fa-check"></i> Predictable daily admission inquiries via targeted digital
+                        ads.</li>
+                    <li><i class="fa-solid fa-check"></i> Exact tracking of Cost Per Lead (CPL) and Return on Ad Spend.
+                    </li>
+                    <li><i class="fa-solid fa-check"></i> A premium brand image that justifies your institute's fee
+                        structure.</li>
                     <li><i class="fa-solid fa-check"></i> Counselors busy closing admissions on WhatsApp and calls.</li>
                     <li><i class="fa-solid fa-check"></i> When parents search for "best school/coaching nearby"
-                    your institute appears in the top results.</li>
-                    <li><i class="fa-solid fa-check"></i> Every inquiry is automatically collected from the website, landing page, and WhatsApp..</li>
-                    <li><i class="fa-solid fa-check"></i> 5⭐ Google reviews and professional websites instantly build trust with parents..</li>
-                    <li><i class="fa-solid fa-check"></i> Builds a strong online brand on Google, your website, and social media..</li>
+                        your institute appears in the top results.</li>
+                    <li><i class="fa-solid fa-check"></i> Every inquiry is automatically collected from the website,
+                        landing page, and WhatsApp..</li>
+                    <li><i class="fa-solid fa-check"></i> 5⭐ Google reviews and professional websites instantly build
+                        trust with parents..</li>
+                    <li><i class="fa-solid fa-check"></i> Builds a strong online brand on Google, your website, and
+                        social media..</li>
                 </ul>
             </div>
         </div>
@@ -499,17 +1371,20 @@ right:-10px;
             <div class="why-card">
                 <i class="fa-solid fa-users-viewfinder"></i>
                 <h4>Hyper-Local Targeting</h4>
-                <p>We don't show ads to everyone. We target specific pin codes and age groups of parents who are actively seeking admission for their children.</p>
+                <p>We don't show ads to everyone. We target specific pin codes and age groups of parents who are
+                    actively seeking admission for their children.</p>
             </div>
             <div class="why-card">
                 <i class="fa-solid fa-chart-pie"></i>
                 <h4>ROI & Admissions Focused</h4>
-                <p>Our success metric is not how many likes you get, but how many student enrollments and walk-ins are generated through our campaigns.</p>
+                <p>Our success metric is not how many likes you get, but how many student enrollments and walk-ins are
+                    generated through our campaigns.</p>
             </div>
             <div class="why-card">
                 <i class="fa-solid fa-headset"></i>
                 <h4>End-to-End Admission Funnel</h4>
-                <p>From the moment a parent clicks an ad, to landing on a fast website, to getting an automated WhatsApp brochure—we handle the entire journey.</p>
+                <p>From the moment a parent clicks an ad, to landing on a fast website, to getting an automated WhatsApp
+                    brochure—we handle the entire journey.</p>
             </div>
         </div>
     </section>
@@ -519,7 +1394,7 @@ right:-10px;
             <h2>Vyapar Wallah vs Other Agencies</h2>
             <p>Why leading Directors and Principals trust our expertise.</p>
         </div>
-        
+
         <table class="comp-table">
             <tr>
                 <th>Features</th>
@@ -568,21 +1443,26 @@ right:-10px;
     <!-- Elfsight Google Reviews | Untitled Google Reviews -->
     <section class="section-padding reviews-section reveal" id="reviews">
         <div class="section-header">
-    <h2>Real Results. Real People.</h2>
-    <p>Don't just take our word for it.</p>
-</div>
+            <h2>Real Results. Real People.</h2>
+            <p>Don't just take our word for it.</p>
+        </div>
         </div>
         <div class="testimonial-slider-wrapper">
-            <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i
+                    class="fa-solid fa-chevron-left"></i></button>
             <div class="testimonial-track" id="reviewTrack">
-                
+
                 <svg style="display:none;">
                     <defs>
                         <g id="google-g">
-                            <path fill="#4285F4" d="M23.74 12.27c0-.85-.07-1.67-.21-2.47H12v4.67h6.58c-.28 1.51-1.13 2.79-2.43 3.66v3.04h3.93c2.3-2.12 3.63-5.25 3.63-8.9z"/>
-                            <path fill="#34A853" d="M12 24c3.3 0 6.08-1.1 8.11-2.96l-3.93-3.04c-1.1.74-2.51 1.18-4.18 1.18-3.21 0-5.93-2.17-6.9-5.08H1.08v3.13C3.12 21.3 7.22 24 12 24z"/>
-                            <path fill="#FBBC05" d="M5.1 14.1c-.25-.74-.39-1.53-.39-2.34s.14-1.6.39-2.34V6.29H1.08C.39 7.78 0 9.4 0 11.1c0 1.7.39 3.32 1.08 4.81l4.02-3.11z"/>
-                            <path fill="#EA4335" d="M12 4.82c1.8 0 3.41.62 4.68 1.83l3.51-3.51C18.06 1.19 15.29 0 12 0 7.22 0 3.12 2.7 1.08 6.78l4.02 3.11c.97-2.91 3.69-5.07 6.9-5.07z"/>
+                            <path fill="#4285F4"
+                                d="M23.74 12.27c0-.85-.07-1.67-.21-2.47H12v4.67h6.58c-.28 1.51-1.13 2.79-2.43 3.66v3.04h3.93c2.3-2.12 3.63-5.25 3.63-8.9z" />
+                            <path fill="#34A853"
+                                d="M12 24c3.3 0 6.08-1.1 8.11-2.96l-3.93-3.04c-1.1.74-2.51 1.18-4.18 1.18-3.21 0-5.93-2.17-6.9-5.08H1.08v3.13C3.12 21.3 7.22 24 12 24z" />
+                            <path fill="#FBBC05"
+                                d="M5.1 14.1c-.25-.74-.39-1.53-.39-2.34s.14-1.6.39-2.34V6.29H1.08C.39 7.78 0 9.4 0 11.1c0 1.7.39 3.32 1.08 4.81l4.02-3.11z" />
+                            <path fill="#EA4335"
+                                d="M12 4.82c1.8 0 3.41.62 4.68 1.83l3.51-3.51C18.06 1.19 15.29 0 12 0 7.22 0 3.12 2.7 1.08 6.78l4.02 3.11c.97-2.91 3.69-5.07 6.9-5.07z" />
                         </g>
                     </defs>
                 </svg>
@@ -590,56 +1470,87 @@ right:-10px;
                 <div class="review-card">
                     <div class="g-header">
                         <img src="manish review.png" alt="User">
-                        <div class="g-user-info"><strong>Manish Kumar</strong><span class="g-date">2 weeks ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                        <div class="g-user-info"><strong>Manish Kumar</strong><span class="g-date">2 weeks ago</span>
+                        </div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                <use href="#google-g"></use>
+                            </svg></div>
                     </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We are a school in Patna and their team helped us with website SEO and social media marketing. Admissions inquiries increased within 2 months. Highly recommended.</p>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We are
+                        a school in Patna and their team helped us with website SEO and social media marketing.
+                        Admissions inquiries increased within 2 months. Highly recommended.</p>
                 </div>
 
                 <div class="review-card">
                     <div class="g-header">
                         <img src="neha review.png" alt="User">
-                        <div class="g-user-info"><strong>Neha Singh</strong><span class="g-date">1 month ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                        <div class="g-user-info"><strong>Neha Singh</strong><span class="g-date">1 month ago</span>
+                        </div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                <use href="#google-g"></use>
+                            </svg></div>
                     </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara complete digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se walk-in clients kaafi badh gaye. Bihar me best agency for salons 👍</p>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara complete
+                        digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se walk-in
+                        clients kaafi badh gaye. Bihar me best agency for salons 👍</p>
                 </div>
 
                 <div class="review-card">
                     <div class="g-header">
                         <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User">
-                        <div class="g-user-info"><strong>Rohit Sharma</strong><span class="g-date">1 month ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                        <div class="g-user-info"><strong>Rohit Sharma</strong><span class="g-date">1 month ago</span>
+                        </div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                <use href="#google-g"></use>
+                            </svg></div>
                     </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">If you are looking for a trusted digital marketing company in Bihar, especially in Darbhanga or nearby districts, Vyapar Wallah is a great choice. Their team understands local business marketing and provides practical strategies.</p>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">If you are looking for a trusted digital marketing company in Bihar,
+                        especially in Darbhanga or nearby districts, Vyapar Wallah is a great choice. Their team
+                        understands local business marketing and provides practical strategies.</p>
                 </div>
 
                 <div class="review-card">
                     <div class="g-header">
                         <img src="rajeev review.png" alt="User">
-                        <div class="g-user-info"><strong>Dr. Rajeev Ranjan</strong><span class="g-date">3 months ago</span></div>
-                        <div class="g-logo-icon"><svg viewBox="0 0 24 24"><use href="#google-g"></use></svg></div>
+                        <div class="g-user-info"><strong>Dr. Rajeev Ranjan</strong><span class="g-date">3 months
+                                ago</span></div>
+                        <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                <use href="#google-g"></use>
+                            </svg></div>
                     </div>
-                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility. Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily find us on search. Professional digital marketing service.</p>
+                    <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility.
+                        Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily find us
+                        on search. Professional digital marketing service.</p>
                 </div>
 
-            </div>  
-            <button class="slider-btn next-btn" onclick="slideReviews(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <button class="slider-btn next-btn" onclick="slideReviews(1)"><i
+                    class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
 
     <section class="lead-magnet">
         <div class="magnet-box">
             <div class="magnet-text">
-                <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;"><i class="fa-solid fa-book-open-reader"></i> FREE DOWNLOAD</div>
+                <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;"><i
+                        class="fa-solid fa-book-open-reader"></i> FREE DOWNLOAD</div>
                 <h3>The 2026 Admission Growth Playbook</h3>
-                <p>Discover the exact Meta Ad formulas and SEO strategies top schools in Bihar are using to fill their classrooms.</p>
+                <p>Discover the exact Meta Ad formulas and SEO strategies top schools in Bihar are using to fill their
+                    classrooms.</p>
             </div>
-            
+
             <div class="magnet-form">
                 <form id="playbookForm">
                     <input type="text" id="pbName" placeholder="Director / Principal Name" required>
@@ -647,7 +1558,7 @@ right:-10px;
                     <button type="submit">Download PDF Now <i class="fa-solid fa-download"></i></button>
                 </form>
             </div>
-            
+
         </div>
     </section>
 
@@ -657,89 +1568,113 @@ right:-10px;
         </div>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">When is the best time to start marketing for school admissions? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br>For the April session, brand awareness campaigns should start by late November or December. The aggressive lead generation (Performance Ads) should run from January to March to capture parents when they are actively deciding.</div>
+                <div class="faq-question">When is the best time to start marketing for school admissions? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br>For the April session, brand awareness campaigns should start by late
+                    November or December. The aggressive lead generation (Performance Ads) should run from January to
+                    March to capture parents when they are actively deciding.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Which platform is better: Google Ads or Facebook Ads? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br>Both serve different purposes. Google Ads captures "High Intent" (parents actively searching for schools). Facebook/Instagram Ads are best for building brand awareness and capturing passive leads by visually showcasing your campus facilities. We use a mix of both.</div>
+                <div class="faq-question">Which platform is better: Google Ads or Facebook Ads? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br>Both serve different purposes. Google Ads captures "High Intent" (parents
+                    actively searching for schools). Facebook/Instagram Ads are best for building brand awareness and
+                    capturing passive leads by visually showcasing your campus facilities. We use a mix of both.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Can you guarantee a specific number of admissions? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br>We guarantee high-quality, verified inquiries (Leads) and strong digital visibility. However, the final "Admission Conversion" depends on your fee structure, school infrastructure, and how well your counseling team handles those leads.</div>
+                <div class="faq-question">Can you guarantee a specific number of admissions? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br>We guarantee high-quality, verified inquiries (Leads) and strong digital
+                    visibility. However, the final "Admission Conversion" depends on your fee structure, school
+                    infrastructure, and how well your counseling team handles those leads.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Do we need a website for admission marketing? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br>A professional school website builds trust with parents and acts as the central place where they can learn about your school, see facilities, and submit admission enquiries..</div>
+                <div class="faq-question">Do we need a website for admission marketing? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br>A professional school website builds trust with parents and acts as the
+                    central place where they can learn about your school, see facilities, and submit admission
+                    enquiries..</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">How is digital marketing better than traditional advertising? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br> Traditional methods like hoardings and newspapers provide no clear tracking Digital marketing allows you to track every click, enquiry, and lead, making it more cost-effective and measurable..</div>
-                            
+                <div class="faq-question">How is digital marketing better than traditional advertising? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br> Traditional methods like hoardings and newspapers provide no clear tracking
+                    Digital marketing allows you to track every click, enquiry, and lead, making it more cost-effective
+                    and measurable..</div>
+
             </div>
             <div class="faq-item">
-                <div class="faq-question">How much does school admission marketing cost? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><br>The cost depends on factors like your city, competition, and marketing goals Most schools start with a small monthly marketing budget for ads, while Vyapar Wallah handles strategy, landing pages, and lead generation 
-Our goal is not just running ads but generating quality admission enquiries that convert into students.</div>
+                <div class="faq-question">How much does school admission marketing cost? <i
+                        class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><br>The cost depends on factors like your city, competition, and marketing goals
+                    Most schools start with a small monthly marketing budget for ads, while Vyapar Wallah handles
+                    strategy, landing pages, and lead generation
+                    Our goal is not just running ads but generating quality admission enquiries that convert into
+                    students.</div>
 
 
             </div>
             <div class="faq-item">
-                <div class="faq-question">How is Vyapar Wallah different from other marketing agencies? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-question">How is Vyapar Wallah different from other marketing agencies? <i
+                        class="fa-solid fa-chevron-down"></i></div>
                 <div class="faq-answer"><br>Most agencies focus only on social media posts or random ad boosting.
 
-                        Vyapar Wallah focuses on a complete admission growth system, which includes:
+                    Vyapar Wallah focuses on a complete admission growth system, which includes:
 
-Targeted ads to reach local parents
+                    Targeted ads to reach local parents
 
-Custom landing pages for admission enquiries
+                    Custom landing pages for admission enquiries
 
-Google visibility for school searches
+                    Google visibility for school searches
 
-WhatsApp and website enquiry systems
+                    WhatsApp and website enquiry systems
 
-Data tracking and performance optimization
+                    Data tracking and performance optimization
 
-Our focus is simple: more admission enquiries, not just marketing activities.</div>
+                    Our focus is simple: more admission enquiries, not just marketing activities.</div>
             </div>
-            
+
         </div>
     </section>
 
     <div class="toast-popup" id="interactiveToast">
-    <div class="toast-header">
-        <div><i class="fa-solid fa-bolt" style="color: var(--accent-orange); margin-right: 5px;"></i> EXCLUSIVE OFFER</div>
-        <button class="toast-close" onclick="closeInteractiveToast()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="toast-header">
+            <div><i class="fa-solid fa-bolt" style="color: var(--accent-orange); margin-right: 5px;"></i> EXCLUSIVE
+                OFFER</div>
+            <button class="toast-close" onclick="closeInteractiveToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="toast-body" id="toastContent">
+            <h4 class="toast-title" style="font-size: 1.5rem;">Grab 25% OFF! 🎉</h4>
+            <p class="toast-text">Book your Free Strategy Call NOW and claim this exclusive discount before the timer
+                runs out.</p>
+            <div class="timer-box"><span id="t-min">05</span>:<span id="t-sec">00</span></div>
+            <a href="https://wa.me/9187641492?text=Hi!%20I%20want%20to%20book%20a%20Strategy%20Call%20and%20claim%20my%2025%25%20Discount."
+                target="_blank" class="toast-btn">Book Strategy Call Now</a>
+        </div>
     </div>
-    
-    <div class="toast-body" id="toastContent">
-        <h4 class="toast-title" style="font-size: 1.5rem;">Grab 25% OFF! 🎉</h4>
-        <p class="toast-text">Book your Free Strategy Call NOW and claim this exclusive discount before the timer runs out.</p>
-        <div class="timer-box"><span id="t-min">05</span>:<span id="t-sec">00</span></div>
-        <a href="https://wa.me/9187641492?text=Hi!%20I%20want%20to%20book%20a%20Strategy%20Call%20and%20claim%20my%2025%25%20Discount." target="_blank" class="toast-btn">Book Strategy Call Now</a>
-    </div>
-</div>
 
     <div id="footer-placeholder"></div>
     <div class="desktop-floating-widget">
-    <a href="https://wa.me/9187641492?text=Hi!%20I%20need%20marketing%20for%20my%20Institute." target="_blank" class="float-btn float-wa">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a href="tel:+9187641492" class="float-btn float-call">
-        <i class="fa-solid fa-phone"></i>
-    </a>
-</div>
+        <a href="https://wa.me/9187641492?text=Hi!%20I%20need%20marketing%20for%20my%20Institute." target="_blank"
+            class="float-btn float-wa">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:+9187641492" class="float-btn float-call">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
 
     <script>
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
-        
+
         function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
         function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
 
         // Hero Form WhatsApp Logic
-        document.getElementById('heroLeadForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+        document.getElementById('heroLeadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
             let name = document.getElementById('heroName').value;
             let inst = document.getElementById('heroInstitute').value;
             let phone = document.getElementById('heroPhone').value;
@@ -749,26 +1684,26 @@ Our focus is simple: more admission enquiries, not just marketing activities.</d
 
         // review js
         function slideReviews(direction) {
-    const track = document.getElementById("reviewTrack");
-    const card = track.querySelector(".review-card");
+            const track = document.getElementById("reviewTrack");
+            const card = track.querySelector(".review-card");
 
-    if(!card) return;
+            if (!card) return;
 
-    const style = window.getComputedStyle(card);
-    const marginRight = parseInt(style.marginRight) || 20;
+            const style = window.getComputedStyle(card);
+            const marginRight = parseInt(style.marginRight) || 20;
 
-    const scrollAmount = card.offsetWidth + marginRight;
+            const scrollAmount = card.offsetWidth + marginRight;
 
-    track.scrollBy({
-        left: scrollAmount * direction,
-        behavior: "smooth"
-    });
-}
+            track.scrollBy({
+                left: scrollAmount * direction,
+                behavior: "smooth"
+            });
+        }
 
 
         // Playbook Form Logic
-        document.getElementById('playbookForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+        document.getElementById('playbookForm').addEventListener('submit', function (e) {
+            e.preventDefault();
             let name = document.getElementById('pbName').value;
             let phone = document.getElementById('pbPhone').value;
             let msg = `Hi! I am ${name}. My number is ${phone}. Please send me the FREE Admission Growth Playbook.`;
@@ -780,46 +1715,46 @@ Our focus is simple: more admission enquiries, not just marketing activities.</d
         faqItems.forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                faqItems.forEach(faq => faq.classList.remove('active')); 
-                if (!isActive) item.classList.add('active'); 
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
             });
         });
 
         // Popup Logic
-       // --- 🚀 NEW TIMER TOAST LOGIC ---
+        // --- 🚀 NEW TIMER TOAST LOGIC ---
 
-// 1. पेज लोड होने के 3 सेकंड बाद पॉपअप ऑटोमैटिक आ जाएगा (ताकि यूजर को दिखे)
-// --- 🚀 NEW INTERACTIVE TOAST LOGIC ---
-let toastStage = 1;
-let toastEl = document.getElementById('interactiveToast');
-let toastContent = document.getElementById('toastContent');
-let countdownTimer;
+        // 1. पेज लोड होने के 3 सेकंड बाद पॉपअप ऑटोमैटिक आ जाएगा (ताकि यूजर को दिखे)
+        // --- 🚀 NEW INTERACTIVE TOAST LOGIC ---
+        let toastStage = 1;
+        let toastEl = document.getElementById('interactiveToast');
+        let toastContent = document.getElementById('toastContent');
+        let countdownTimer;
 
-// 1. पेज लोड होने के 3 सेकंड बाद पहला पॉपअप आएगा
-setTimeout(() => {
-    toastEl.classList.add('show');
-    startTimer(5, 0); // 5 मिनट का टाइमर
-}, 3000);
-
-// क्लोज़ बटन दबाने पर क्या होगा?
-function closeInteractiveToast() { 
-    toastEl.classList.remove('show'); 
-    
-    // अगर यूजर ने पहला पॉपअप काटा है, तो 5 सेकंड बाद दूसरा सवाल वाला पॉपअप लाओ
-    if(toastStage === 1) {
-        toastStage = 2;
-        clearInterval(countdownTimer); // पुराना टाइमर रोक दो
-        
+        // 1. पेज लोड होने के 3 सेकंड बाद पहला पॉपअप आएगा
         setTimeout(() => {
-            showQuestionState();
             toastEl.classList.add('show');
-        }, 5000); // 5 सेकंड का इंतज़ार
-    }
-}
+            startTimer(5, 0); // 5 मिनट का टाइमर
+        }, 3000);
 
-// State 2: सवाल पूछने वाला पॉपअप
-function showQuestionState() {
-    toastContent.innerHTML = `
+        // क्लोज़ बटन दबाने पर क्या होगा?
+        function closeInteractiveToast() {
+            toastEl.classList.remove('show');
+
+            // अगर यूजर ने पहला पॉपअप काटा है, तो 5 सेकंड बाद दूसरा सवाल वाला पॉपअप लाओ
+            if (toastStage === 1) {
+                toastStage = 2;
+                clearInterval(countdownTimer); // पुराना टाइमर रोक दो
+
+                setTimeout(() => {
+                    showQuestionState();
+                    toastEl.classList.add('show');
+                }, 5000); // 5 सेकंड का इंतज़ार
+            }
+        }
+
+        // State 2: सवाल पूछने वाला पॉपअप
+        function showQuestionState() {
+            toastContent.innerHTML = `
         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="toast-img" alt="Online Presence">
         <h4 class="toast-title">क्या आपका Institute Online Available है?</h4>
         <p class="toast-text">Google searches and social media pe?</p>
@@ -828,42 +1763,44 @@ function showQuestionState() {
             <button class="toast-btn toast-btn-outline" onclick="handleToastAnswer('no')">No (नहीं)</button>
         </div>
     `;
-}
+        }
 
-// State 3: User के जवाब के हिसाब से ऑफर
-function handleToastAnswer(answer) {
-    if(answer === 'yes') {
-        // अगर YES बोला
-        toastContent.innerHTML = `
+        // State 3: User के जवाब के हिसाब से ऑफर
+        function handleToastAnswer(answer) {
+            if (answer === 'yes') {
+                // अगर YES बोला
+                toastContent.innerHTML = `
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="toast-img" alt="SEO Optimization">
             <h4 class="toast-title">फिर Internet पर Top पर क्यों नहीं दिख रहा? 🤔</h4>
             <p class="toast-text">Optimize your website & GMB with Vyapar Wallah and beat your local competitors.</p>
             <a href="https://wa.me/9187641492?text=Hi!%20My%20institute%20is%20online%20but%20not%20ranking.%20I%20want%20optimization." target="_blank" class="toast-btn" onclick="toastEl.classList.remove('show')"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
         `;
-    } else {
-        // अगर NO बोला
-        toastContent.innerHTML = `
+            } else {
+                // अगर NO बोला
+                toastContent.innerHTML = `
             <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=600&q=80" class="toast-img" alt="Strategy Call">
             <h4 class="toast-title">Missed Opportunities! 📉</h4>
             <p class="toast-text">Book a Free Strategy Call today and get a massive <strong>33% Discount</strong> on your complete digital setup.</p>
             <a href="https://wa.me/9187641492?text=Hi!%20My%20institute%20is%20NOT%20online.%20I%20want%20to%20book%20a%20strategy%20call%20with%2033%25%20OFF." target="_blank" class="toast-btn" onclick="toastEl.classList.remove('show')"><i class="fa-solid fa-phone-volume"></i> Book Call & Get 33% OFF</a>
         `;
-    }
-}
+            }
+        }
 
-// 5 Minute Timer Logic
-function startTimer(m, s) {
-    let timeInSecs = m * 60 + s;
-    countdownTimer = setInterval(() => {
-        if(timeInSecs <= 0) { clearInterval(countdownTimer); return; }
-        timeInSecs--;
-        let min = Math.floor(timeInSecs / 60);
-        let sec = timeInSecs % 60;
-        document.getElementById('t-min').innerText = min < 10 ? '0' + min : min;
-        document.getElementById('t-sec').innerText = sec < 10 ? '0' + sec : sec;
-    }, 1000);
-}
+        // 5 Minute Timer Logic
+        function startTimer(m, s) {
+            let timeInSecs = m * 60 + s;
+            countdownTimer = setInterval(() => {
+                if (timeInSecs <= 0) { clearInterval(countdownTimer); return; }
+                timeInSecs--;
+                let min = Math.floor(timeInSecs / 60);
+                let sec = timeInSecs % 60;
+                document.getElementById('t-min').innerText = min < 10 ? '0' + min : min;
+                document.getElementById('t-sec').innerText = sec < 10 ? '0' + sec : sec;
+            }, 1000);
+        }
         function closePopup() { document.getElementById('discountPopup').classList.remove('show'); }
     </script>
+    <script src="chat.js"></script>
 </body>
+
 </html>

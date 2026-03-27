@@ -1,197 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Vyapar Wallah is Bihar's best digital marketing agency for salons and spas. Get fully booked weekends with our salon marketing services.">
-    
+    <meta name="description"
+        content="Vyapar Wallah is Bihar's best digital marketing agency for salons and spas. Get fully booked weekends with our salon marketing services.">
+
     <title>Digital Marketing for Salons in Bihar | Increase Bookings</title>
-    
+
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-blue: #0A4C95;
             --accent-orange: #F37021;
             --highlight-green: #00A651;
             --danger-red: #e74c3c;
-            --bg-light: #fdfaf6; /* Slightly warm tone for salon aesthetics */
+            --bg-light: #fdfaf6;
+            /* Slightly warm tone for salon aesthetics */
             --text-dark: #2c3e50;
             --salon-pink: #fff0f5;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; line-height: 1.6; width: 100%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        .btn-main { background: var(--accent-orange); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4); cursor: pointer; }
-        .btn-main:hover { background: #d95e17; transform: translateY(-3px); }
-        
-        .section-header { text-align: center; margin-bottom: 40px; padding: 0 15px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--primary-blue); font-weight: 800; line-height: 1.3; }
-        .section-header p { color: #666; font-size: 1.1rem; margin-top: 10px; max-width: 700px; margin-inline: auto; }
+        body {
+            background-color: #fff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+            width: 100%;
+        }
+
+        .btn-main {
+            background: var(--accent-orange);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            border: none;
+            box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4);
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            background: #d95e17;
+            transform: translateY(-3px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            max-width: 700px;
+            margin-inline: auto;
+        }
 
         /* --- 🎯 HERO SECTION --- */
-        .salon-hero { 
-            background: linear-gradient(rgba(10, 76, 149, 0.88), rgba(5, 44, 92, 0.95)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80') center/cover; 
-            padding: 80px 5% 100px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            gap: 50px; 
-            min-height: 90vh; 
+        .salon-hero {
+            background: linear-gradient(rgba(10, 76, 149, 0.88), rgba(5, 44, 92, 0.95)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80') center/cover;
+            padding: 80px 5% 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 90vh;
         }
-        .hero-text-side { flex: 1.2; color: white; max-width: 650px; }
-        .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 25px; backdrop-filter: blur(5px); }
-        .hero-text-side h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-        .hero-text-side h1 span { color: #ffb5a7; /* Soft aesthetic color */ }
-        .hero-text-side p { font-size: 1.1rem; color: #eef2f5; margin-bottom: 30px; line-height: 1.7; }
-        .hero-features { display: flex; gap: 20px; flex-wrap: wrap; }
-        .hero-features span { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1rem; color: white; }
-        .hero-features i { color: var(--highlight-green); font-size: 1.2rem; }
 
-        .hero-form-side { flex: 0.8; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); max-width: 450px; width: 100%; }
-        .hero-form-side h3 { font-size: 1.6rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
-        .hero-form-side p { font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.5; }
-        .form-input { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-        .form-input:focus { border-color: var(--accent-orange); outline: none; }
-        .btn-submit-hero { width: 100%; background: var(--accent-orange); color: white; padding: 16px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .btn-submit-hero:hover { background: #d95e17; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3); }
+        .hero-text-side {
+            flex: 1.2;
+            color: white;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-text-side h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-side h1 span {
+            color: #ffb5a7;
+            /* Soft aesthetic color */
+        }
+
+        .hero-text-side p {
+            font-size: 1.1rem;
+            color: #eef2f5;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-features span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .hero-features i {
+            color: var(--highlight-green);
+            font-size: 1.2rem;
+        }
+
+        .hero-form-side {
+            flex: 0.8;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .hero-form-side h3 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .hero-form-side p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-orange);
+            outline: none;
+        }
+
+        .btn-submit-hero {
+            width: 100%;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit-hero:hover {
+            background: #d95e17;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3);
+        }
 
         /* --- 🚀 TRUST COUNTERS BAR --- */
-        .trust-counter-section { background: white; padding: 40px 5%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 10; margin-top: -30px; border-radius: 20px; max-width: 1100px; margin-inline: auto; }
-        .counter-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
-        .counter-item { flex: 1; min-width: 150px; }
-        .counter-item i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 10px; }
-        .counter-number { font-size: 2.5rem; font-weight: 900; color: var(--primary-blue); display: flex; align-items: center; justify-content: center; line-height: 1; }
-        .counter-number span { font-size: 1.5rem; color: var(--highlight-green); margin-left: 5px; }
-        .counter-item p { color: #666; font-size: 0.95rem; font-weight: 600; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .trust-counter-section {
+            background: white;
+            padding: 40px 5%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+            margin-top: -30px;
+            border-radius: 20px;
+            max-width: 1100px;
+            margin-inline: auto;
+        }
+
+        .counter-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .counter-item {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .counter-item i {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .counter-number span {
+            font-size: 1.5rem;
+            color: var(--highlight-green);
+            margin-left: 5px;
+        }
+
+        .counter-item p {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* --- INTRO SECTION --- */
-        .intro-section { padding: 80px 5%; background: var(--salon-pink); text-align: center; }
-        .intro-box { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--accent-orange); }
-        .intro-box p { font-size: 1.15rem; color: #444; line-height: 1.8; margin-bottom: 20px; }
+        .intro-section {
+            padding: 80px 5%;
+            background: var(--salon-pink);
+            text-align: center;
+        }
+
+        .intro-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--accent-orange);
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
 
         /* --- SERVICES GRID --- */
-        .services-section { padding: 80px 5%; background: white; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .service-card { padding: 35px 25px; border-radius: 15px; background: #fff; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.3s; text-align: center; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-orange); box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1); }
-        .service-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
-        .service-card p { color: #555; font-size: 0.95rem; }
+        .services-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .service-card {
+            padding: 35px 25px;
+            border-radius: 15px;
+            background: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 20px 40px rgba(10, 76, 149, 0.1);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
 
         /* --- 🚀 4-STEP PROVEN PROCESS --- */
-        .process-section { padding: 80px 5%; background: var(--primary-blue); color: white; text-align: center; }
-        .process-section .section-header h2 { color: white; }
-        .process-section .section-header p { color: #c9dff1; }
-        .process-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: auto; position: relative; }
-        .process-card { flex: 1; min-width: 220px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px 20px; border-radius: 15px; backdrop-filter: blur(10px); transition: 0.3s; }
-        .process-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
-        .step-number { width: 50px; height: 50px; background: var(--accent-orange); color: white; font-size: 1.5rem; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 5px 15px rgba(243, 112, 33, 0.5); }
-        .process-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .process-card p { font-size: 0.95rem; color: #c9dff1; }
+        .process-section {
+            padding: 80px 5%;
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
+        }
+
+        .process-section .section-header h2 {
+            color: white;
+        }
+
+        .process-section .section-header p {
+            color: #c9dff1;
+        }
+
+        .process-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+        }
+
+        .process-card {
+            flex: 1;
+            min-width: 220px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-orange);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(243, 112, 33, 0.5);
+        }
+
+        .process-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            font-size: 0.95rem;
+            color: #c9dff1;
+        }
 
         /* --- BEFORE/AFTER --- */
-        .growth-section { padding: 80px 5%; background: var(--bg-light); }
-        .ba-container { display: flex; gap: 30px; max-width: 1000px; margin: auto; flex-wrap: wrap; }
-        .ba-box { flex: 1; min-width: 300px; padding: 40px; border-radius: 20px; }
-        .ba-before { background: #fff0f0; border: 2px solid #ffcccc; }
-        .ba-after { background: #f0fff4; border: 2px solid #ccffdc; box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15); }
-        .ba-box h3 { font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .ba-before h3 { color: var(--danger-red); }
-        .ba-after h3 { color: var(--highlight-green); }
-        .ba-box li { margin-bottom: 15px; font-size: 1rem; display: flex; align-items: flex-start; gap: 10px; color: #444; }
-        .ba-before li i { color: var(--danger-red); margin-top: 5px; }
-        .ba-after li i { color: var(--highlight-green); margin-top: 5px; }
+        .growth-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .ba-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .ba-box {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .ba-before {
+            background: #fff0f0;
+            border: 2px solid #ffcccc;
+        }
+
+        .ba-after {
+            background: #f0fff4;
+            border: 2px solid #ccffdc;
+            box-shadow: 0 15px 30px rgba(0, 166, 81, 0.15);
+        }
+
+        .ba-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ba-before h3 {
+            color: var(--danger-red);
+        }
+
+        .ba-after h3 {
+            color: var(--highlight-green);
+        }
+
+        .ba-box li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #444;
+        }
+
+        .ba-before li i {
+            color: var(--danger-red);
+            margin-top: 5px;
+        }
+
+        .ba-after li i {
+            color: var(--highlight-green);
+            margin-top: 5px;
+        }
 
         /* --- REVIEWS --- */
-        .reviews-section { background: white; padding: 80px 5%; text-align: center; }
-        .testimonial-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 20px 10px; max-width: 1200px; margin: auto; }
-        .testimonial-track::-webkit-scrollbar { display: none; }
-        .review-card { flex: 0 0 calc(33.33% - 15px); scroll-snap-align: start; background: var(--bg-light); padding: 25px; border-radius: 15px; border: 1px solid #eee; text-align: left; }
-        .g-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .g-header i { font-size: 2rem; color: #ffb5a7; }
-        .g-user-info strong { font-size: 1rem; display: block; color: var(--text-dark); }
-        .g-user-info span { font-size: 0.85rem; color: #777; }
-        .g-stars { color: #fbbc04; font-size: 14px; margin-bottom: 10px; }
-        .review-text { font-size: 0.95rem; color: #555; }
+        .reviews-section {
+            background: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 20px 10px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .review-card {
+            flex: 0 0 calc(33.33% - 15px);
+            scroll-snap-align: start;
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+
+        .g-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .g-header i {
+            font-size: 2rem;
+            color: #ffb5a7;
+        }
+
+        .g-user-info strong {
+            font-size: 1rem;
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .g-user-info span {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .g-stars {
+            color: #fbbc04;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: #555;
+        }
 
         /* --- LEAD MAGNET --- */
-        .lead-magnet { padding: 80px 5%; background: var(--salon-pink); display: flex; justify-content: center; }
-        .magnet-box { max-width: 1000px; width: 100%; background: white; border: 1px solid rgba(243, 112, 33, 0.2); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-        .magnet-text { flex: 1.2; }
-        .magnet-text h3 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
-        .magnet-form { flex: 1; background: var(--bg-light); padding: 35px 30px; border-radius: 15px; width: 100%; border: 1px solid #eee; }
-        .magnet-form form { display: flex; flex-direction: column; gap: 15px; }
-        .magnet-form input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: 'Poppins', sans-serif; outline: none; }
-        .magnet-form input:focus { border-color: var(--accent-orange); }
-        .magnet-form button { width: 100%; padding: 16px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-        .magnet-form button:hover { background: var(--accent-orange); }
+        .lead-magnet {
+            padding: 80px 5%;
+            background: var(--salon-pink);
+            display: flex;
+            justify-content: center;
+        }
+
+        .magnet-box {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border: 1px solid rgba(243, 112, 33, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .magnet-text {
+            flex: 1.2;
+        }
+
+        .magnet-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .magnet-form {
+            flex: 1;
+            background: var(--bg-light);
+            padding: 35px 30px;
+            border-radius: 15px;
+            width: 100%;
+            border: 1px solid #eee;
+        }
+
+        .magnet-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .magnet-form input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        .magnet-form input:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .magnet-form button {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .magnet-form button:hover {
+            background: var(--accent-orange);
+        }
 
         /* --- 📱 MOBILE STICKY BOTTOM BAR --- */
-        .mobile-sticky-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); z-index: 9999; padding: 10px 15px; }
-        .sticky-btn-group { display: flex; gap: 10px; }
-        .sticky-btn { flex: 1; padding: 14px 0; border-radius: 8px; font-weight: 800; font-size: 1rem; text-align: center; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 8px; }
-        .btn-call { background: var(--primary-blue); color: white; }
-        .btn-wa-sticky { background: #25D366; color: white; }
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
+            padding: 10px 15px;
+        }
+
+        .sticky-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .sticky-btn {
+            flex: 1;
+            padding: 14px 0;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-call {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-wa-sticky {
+            background: #25D366;
+            color: white;
+        }
 
         /* --- SCROLL POPUP --- */
-        .discount-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 76, 149, 0.85); backdrop-filter: blur(8px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.4s; }
-        .discount-popup-overlay.show { opacity: 1; pointer-events: all; }
-        .discount-popup-box { background: white; width: 90%; max-width: 500px; border-radius: 20px; padding: 40px; text-align: center; transform: scale(0.8); transition: 0.5s; position: relative; }
-        .discount-popup-overlay.show .discount-popup-box { transform: scale(1); }
-        .close-popup { position: absolute; top: 15px; right: 15px; background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .discount-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 76, 149, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .discount-popup-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .discount-popup-box {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transform: scale(0.8);
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .discount-popup-overlay.show .discount-popup-box {
+            transform: scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
         /* ========================================================
            🚀 TABLET & MOBILE RESPONSIVE MEDIA QUERIES
            ======================================================== */
-        
+
         /* Tablet Portrait (max-width: 992px) */
         @media(max-width: 992px) {
-            .salon-hero { flex-direction: column; text-align: center; padding-top: 50px; }
-            .hero-text-side { max-width: 100%; }
-            .hero-text-side h1 { font-size: 3.2rem; }
-            .hero-features { justify-content: center; }
-            .hero-form-side { max-width: 100%; margin-top: 30px; text-align: left; }
-            
-            .review-card { flex: 0 0 calc(50% - 10px); }
-            
-            .magnet-box { flex-direction: column; text-align: center; gap: 30px; padding: 40px 20px; }
-            .magnet-form { width: 100%; }
+            .salon-hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .hero-text-side {
+                max-width: 100%;
+            }
+
+            .hero-text-side h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-form-side {
+                max-width: 100%;
+                margin-top: 30px;
+                text-align: left;
+            }
+
+            .review-card {
+                flex: 0 0 calc(50% - 10px);
+            }
+
+            .magnet-box {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .magnet-form {
+                width: 100%;
+            }
         }
-        
+
         /* Mobile Landscape & Portrait (max-width: 768px) */
         @media(max-width: 768px) {
-            body { padding-bottom: 70px; } /* Create space for sticky bottom bar */
-            .mobile-sticky-bar { display: block; } /* Show Sticky Bar */
-            
-            .salon-hero { padding: 40px 5% 60px; min-height: auto; }
-            .hero-text-side h1 { font-size: 2.3rem; }
-            .section-header h2 { font-size: 1.8rem; }
-            
+            body {
+                padding-bottom: 70px;
+            }
+
+            /* Create space for sticky bottom bar */
+            .mobile-sticky-bar {
+                display: block;
+            }
+
+            /* Show Sticky Bar */
+
+            .salon-hero {
+                padding: 40px 5% 60px;
+                min-height: auto;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2.3rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
             /* Counter Fix for Mobile */
-            .trust-counter-section { margin-top: 0; border-radius: 0; padding: 30px 5%; }
-            .counter-grid { flex-direction: column; gap: 30px; }
-            
+            .trust-counter-section {
+                margin-top: 0;
+                border-radius: 0;
+                padding: 30px 5%;
+            }
+
+            .counter-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+
             /* Process Grid Fix */
-            .process-grid { flex-direction: column; gap: 20px; }
-            .process-card { text-align: center; }
-            
+            .process-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .process-card {
+                text-align: center;
+            }
+
             /* Before/After Fix */
-            .ba-container { flex-direction: column; }
-            .ba-box { padding: 30px 20px; min-width: 100%; }
-            
+            .ba-container {
+                flex-direction: column;
+            }
+
+            .ba-box {
+                padding: 30px 20px;
+                min-width: 100%;
+            }
+
             /* Intro Box Fix */
-            .intro-box { padding: 25px 20px; }
-            .intro-box p { font-size: 1.05rem; }
-            
-            .review-card { flex: 0 0 100%; } /* Single Review on Mobile */
+            .intro-box {
+                padding: 25px 20px;
+            }
+
+            .intro-box p {
+                font-size: 1.05rem;
+            }
+
+            .review-card {
+                flex: 0 0 100%;
+            }
+
+            /* Single Review on Mobile */
         }
     </style>
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
@@ -200,8 +852,9 @@
         <div class="hero-text-side">
             <div class="hero-badge">Bihar's Premium Salon Marketing Experts</div>
             <h1>Fully Booked Weekends,<br><span>Not Empty Chairs.</span></h1>
-            <p>We build highly-aesthetic brands and run targeted offer campaigns that bring local clients directly to your booking desk.</p>
-            
+            <p>We build highly-aesthetic brands and run targeted offer campaigns that bring local clients directly to
+                your booking desk.</p>
+
             <div class="hero-features">
                 <span><i class="fa-solid fa-circle-check"></i> High-Quality Walk-ins</span>
                 <span><i class="fa-solid fa-circle-check"></i> Premium Brand Positioning</span>
@@ -215,7 +868,8 @@
                 <input type="text" id="heroName" class="form-input" placeholder="Your Name" required>
                 <input type="text" id="heroSalon" class="form-input" placeholder="Salon / Parlor Name" required>
                 <input type="tel" id="heroPhone" class="form-input" placeholder="WhatsApp Number" required>
-                <button type="submit" class="btn-submit-hero">Send Details via WhatsApp <i class="fa-regular fa-paper-plane"></i></button>
+                <button type="submit" class="btn-submit-hero">Send Details via WhatsApp <i
+                        class="fa-regular fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
@@ -242,8 +896,10 @@
 
     <section class="intro-section">
         <div class="intro-box">
-            <p>अगर आप अपने Beauty Parlor या Premium Salon में footfall (ग्राहक) बढ़ाना चाहते हैं, तो सिर्फ अच्छी सर्विस देना काफी नहीं है। आपको अपने इलाके में सबसे अच्छी तरह <strong>"दिखना"</strong> भी होगा।</p>
-            <p>हम salons और spas के लिए aesthetic branding, Influencer marketing और targeted Meta Ads चलाते हैं। हमारी digital marketing for salons की सर्विस आपके सैलून को पूरे शहर का सबसे प्रीमियम ब्रांड बना देगी।</p>
+            <p>अगर आप अपने Beauty Parlor या Premium Salon में footfall (ग्राहक) बढ़ाना चाहते हैं, तो सिर्फ अच्छी सर्विस
+                देना काफी नहीं है। आपको अपने इलाके में सबसे अच्छी तरह <strong>"दिखना"</strong> भी होगा।</p>
+            <p>हम salons और spas के लिए aesthetic branding, Influencer marketing और targeted Meta Ads चलाते हैं। हमारी
+                digital marketing for salons की सर्विस आपके सैलून को पूरे शहर का सबसे प्रीमियम ब्रांड बना देगी।</p>
         </div>
     </section>
 
@@ -253,12 +909,31 @@
             <p>We provide a complete digital makeover for your beauty business.</p>
         </div>
         <div class="service-grid">
-            <div class="service-card"><i class="fa-brands fa-instagram"></i><h3>Aesthetic Social Media</h3><p>We transform your Instagram feed into a visually stunning portfolio that attracts premium clients.</p></div>
-            <div class="service-card"><i class="fa-solid fa-bullseye"></i><h3>Offer Lead Generation Ads</h3><p>We run hyper-local Facebook & Insta ads offering first-time discounts to drive massive walk-ins.</p></div>
-            <div class="service-card"><i class="fa-solid fa-magnifying-glass-location"></i><h3>Google Maps Optimization</h3><p>Rank #1 when women search for "Best bridal makeup near me" or "Top salon in my city".</p></div>
-            <div class="service-card"><i class="fa-solid fa-users-rays"></i><h3>Influencer & Buzz Marketing</h3><p>We invite local lifestyle influencers to your salon to create massive local awareness.</p></div>
-            <div class="service-card"><i class="fa-solid fa-film"></i><h3>Cinematic Reel Editing</h3><p>High-end transition reels and bridal makeup videos that go viral in your city.</p></div>
-            <div class="service-card"><i class="fa-brands fa-whatsapp"></i><h3>WhatsApp Booking Bot</h3><p>Automate appointment bookings so your reception is never overwhelmed.</p></div>
+            <div class="service-card"><i class="fa-brands fa-instagram"></i>
+                <h3>Aesthetic Social Media</h3>
+                <p>We transform your Instagram feed into a visually stunning portfolio that attracts premium clients.
+                </p>
+            </div>
+            <div class="service-card"><i class="fa-solid fa-bullseye"></i>
+                <h3>Offer Lead Generation Ads</h3>
+                <p>We run hyper-local Facebook & Insta ads offering first-time discounts to drive massive walk-ins.</p>
+            </div>
+            <div class="service-card"><i class="fa-solid fa-magnifying-glass-location"></i>
+                <h3>Google Maps Optimization</h3>
+                <p>Rank #1 when women search for "Best bridal makeup near me" or "Top salon in my city".</p>
+            </div>
+            <div class="service-card"><i class="fa-solid fa-users-rays"></i>
+                <h3>Influencer & Buzz Marketing</h3>
+                <p>We invite local lifestyle influencers to your salon to create massive local awareness.</p>
+            </div>
+            <div class="service-card"><i class="fa-solid fa-film"></i>
+                <h3>Cinematic Reel Editing</h3>
+                <p>High-end transition reels and bridal makeup videos that go viral in your city.</p>
+            </div>
+            <div class="service-card"><i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp Booking Bot</h3>
+                <p>Automate appointment bookings so your reception is never overwhelmed.</p>
+            </div>
         </div>
     </section>
 
@@ -309,7 +984,8 @@
                 <ul>
                     <li><i class="fa-solid fa-check"></i> Predictable daily bookings via targeted local ads.</li>
                     <li><i class="fa-solid fa-check"></i> Special weekday offers keeping the staff busy.</li>
-                    <li><i class="fa-solid fa-check"></i> A premium, aesthetic Instagram feed that justifies your pricing.</li>
+                    <li><i class="fa-solid fa-check"></i> A premium, aesthetic Instagram feed that justifies your
+                        pricing.</li>
                 </ul>
             </div>
         </div>
@@ -325,24 +1001,33 @@
                     <i class="fa-solid fa-spa"></i>
                     <div class="g-user-info"><strong>Neha Singh</strong><span>Salon Owner, Patna</span></div>
                 </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">Vyapar Wallah completely transformed our Instagram. Their reel editing and local ads got us fully booked during the wedding season.</p>
+                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">Vyapar Wallah completely transformed our Instagram. Their reel editing and local
+                    ads got us fully booked during the wedding season.</p>
             </div>
             <div class="review-card">
                 <div class="g-header">
                     <i class="fa-solid fa-scissors"></i>
                     <div class="g-user-info"><strong>Ravi Verma</strong><span>Unisex Salon, Muzaffarpur</span></div>
                 </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">We were struggling with footfall on weekdays. Their team designed a "Happy Hours" ad campaign that completely solved our problem.</p>
+                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">We were struggling with footfall on weekdays. Their team designed a "Happy Hours"
+                    ad campaign that completely solved our problem.</p>
             </div>
             <div class="review-card">
                 <div class="g-header">
                     <i class="fa-solid fa-spray-can-sparkles"></i>
                     <div class="g-user-info"><strong>Priya Desai</strong><span>Bridal Studio, Gaya</span></div>
                 </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">Excellent local SEO work. Whenever a bride searches for makeup artists in our city, our Google Business page shows up first with 5-star ratings.</p>
+                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">Excellent local SEO work. Whenever a bride searches for makeup artists in our
+                    city, our Google Business page shows up first with 5-star ratings.</p>
             </div>
         </div>
     </section>
@@ -350,9 +1035,11 @@
     <section class="lead-magnet">
         <div class="magnet-box">
             <div class="magnet-text">
-                <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;"><i class="fa-solid fa-book-open-reader"></i> FREE DOWNLOAD</div>
+                <div style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;"><i
+                        class="fa-solid fa-book-open-reader"></i> FREE DOWNLOAD</div>
                 <h3>The 2026 Salon Growth Playbook</h3>
-                <p>Discover the exact ad strategies and Instagram aesthetics top salons are using to double their revenue.</p>
+                <p>Discover the exact ad strategies and Instagram aesthetics top salons are using to double their
+                    revenue.</p>
             </div>
             <div class="magnet-form">
                 <form id="playbookForm">
@@ -367,17 +1054,23 @@
     <div class="mobile-sticky-bar">
         <div class="sticky-btn-group">
             <a href="tel:+9187641492" class="sticky-btn btn-call"><i class="fa-solid fa-phone"></i> Call Us</a>
-            <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20want%20to%20grow%20my%20Salon." target="_blank" class="sticky-btn btn-wa-sticky"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah!%20I%20want%20to%20grow%20my%20Salon."
+                target="_blank" class="sticky-btn btn-wa-sticky"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 
     <div class="discount-popup-overlay" id="discountPopup">
         <div class="discount-popup-box">
             <button class="close-popup" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
-            <div style="background: rgba(243,112,33,0.1); color: var(--accent-orange); padding: 8px 15px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; display: inline-block; margin-bottom: 15px;">🔥 EXCLUSIVE FOR SALON OWNERS</div>
+            <div
+                style="background: rgba(243,112,33,0.1); color: var(--accent-orange); padding: 8px 15px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; display: inline-block; margin-bottom: 15px;">
+                🔥 EXCLUSIVE FOR SALON OWNERS</div>
             <h3 style="font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 15px;">Get 10% OFF!</h3>
-            <p style="color: #555; margin-bottom: 25px;">Book a free strategy call today and claim an exclusive 10% discount on our agency retainer.</p>
-            <a href="https://wa.me/9187641492?text=Hi!%20I%20saw%20the%2010%25%20Discount%20offer%20on%20the%20Salon%20page." target="_blank" class="btn-main" style="width: 100%; justify-content: center;" onclick="closePopup()">Claim Discount Now</a>
+            <p style="color: #555; margin-bottom: 25px;">Book a free strategy call today and claim an exclusive 10%
+                discount on our agency retainer.</p>
+            <a href="https://wa.me/9187641492?text=Hi!%20I%20saw%20the%2010%25%20Discount%20offer%20on%20the%20Salon%20page."
+                target="_blank" class="btn-main" style="width: 100%; justify-content: center;"
+                onclick="closePopup()">Claim Discount Now</a>
         </div>
     </div>
 
@@ -386,26 +1079,26 @@
     <script>
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
-        
+
         function toggleMobileMenu() { document.getElementById('navWrapper').classList.toggle('active'); }
         function toggleMobileDropdown(element) { if (window.innerWidth <= 992) { element.classList.toggle('active'); } }
 
         // WhatsApp Form Logic
-        document.getElementById('heroLeadForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+        document.getElementById('heroLeadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
             let msg = `Hi Vyapar Wallah! I am ${document.getElementById('heroName').value} from ${document.getElementById('heroSalon').value}. My number is ${document.getElementById('heroPhone').value}. I want a Free Growth Audit.`;
             window.open(`https://wa.me/9187641492?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
-        document.getElementById('playbookForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+        document.getElementById('playbookForm').addEventListener('submit', function (e) {
+            e.preventDefault();
             let msg = `Hi! I am ${document.getElementById('pbName').value}. My number is ${document.getElementById('pbPhone').value}. Please send me the FREE Salon Growth Playbook.`;
             window.open(`https://wa.me/9187641492?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
         // Animated Counters
         const counters = document.querySelectorAll('.count');
-        const speed = 200; 
+        const speed = 200;
         const animateCounters = () => {
             counters.forEach(counter => {
                 const updateCount = () => {
@@ -425,27 +1118,29 @@
 
         let observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting){
+                if (entry.isIntersecting) {
                     animateCounters();
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
-        
+
         document.querySelector('.trust-counter-section') && observer.observe(document.querySelector('.trust-counter-section'));
 
         // Scroll Popup Logic
-        let popupShown = false; 
-        window.addEventListener('scroll', function() {
+        let popupShown = false;
+        window.addEventListener('scroll', function () {
             let scrollHeight = document.documentElement.scrollHeight;
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             let clientHeight = document.documentElement.clientHeight;
             if ((scrollTop + clientHeight) / scrollHeight > 0.75 && !popupShown) {
                 document.getElementById('discountPopup').classList.add('show');
-                popupShown = true; 
+                popupShown = true;
             }
         });
         function closePopup() { document.getElementById('discountPopup').classList.remove('show'); }
     </script>
+    <script src="chat.js"></script>
 </body>
+
 </html>
