@@ -8,14 +8,13 @@
     <meta name="description"
         content="Looking for the best digital marketing company in Patna? Vyapar Wallah provides expert SEO, lead generation & branding for Hospitals, Doctors, Schools & Coaching Institutes in Patna.">
     <meta name="keywords"
-        content="Digital Marketing Agency in Patna, best marketing company Patna, SEO for doctors in Patna, hospital digital marketing Patna, coaching institute marketing Patna, digital marketing services in Patna Bihar">
+        content="Digital Marketing Agency in Patna, best marketing company Patna, SEO for doctors in Patna, hospital digital marketing Patna, coaching institute marketing Patna, digital marketing services in Patna Bihar, social media marketing services">
 
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="chat.js"></script>
-    </body>
+    <script defer async src='https://cdn.trustindex.io/loader.js?07c804268c5740862c86845cddc'></script>
 
     <style>
         :root {
@@ -37,25 +36,66 @@
             background-color: #fff;
             color: var(--text-dark);
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* --- HERO SECTION --- */
         .seo-hero {
             background: linear-gradient(135deg, rgba(10, 76, 149, 0.92), rgba(5, 44, 92, 0.95)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80') center/cover;
-            padding: 110px 5% 90px;
+            padding: 140px 5% 110px;
             text-align: center;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 🚀 NEW: Hero Glow Animation */
+        .seo-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(243, 112, 33, 0.4);
+            filter: blur(100px);
+            border-radius: 50%;
+            animation: float 6s infinite alternate;
+            z-index: 0;
+        }
+
+        .seo-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            filter: blur(80px);
+            border-radius: 50%;
+            animation: float 8s infinite alternate-reverse;
+            z-index: 0;
+        }
+
+        .seo-hero h1,
+        .seo-hero p,
+        .seo-hero a {
+            position: relative;
+            z-index: 2;
         }
 
         .seo-hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .seo-hero h1 span {
             color: var(--accent-orange);
+            text-shadow: 0 5px 15px rgba(243, 112, 33, 0.4);
         }
 
         .seo-hero p {
@@ -69,7 +109,8 @@
             background: var(--accent-orange);
             color: white;
             padding: 15px 35px;
-            border-radius: 8px;
+            border-radius: 50px;
+            /* Rounded for premium look */
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
@@ -78,12 +119,13 @@
             gap: 10px;
             transition: 0.3s;
             border: none;
-            box-shadow: 0 10px 25px rgba(243, 112, 33, 0.3);
+            box-shadow: 0 10px 25px rgba(243, 112, 33, 0.4);
         }
 
         .btn-main:hover {
             background: #d95e17;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(243, 112, 33, 0.6);
         }
 
         /* --- CONTENT BLOCKS --- */
@@ -91,6 +133,7 @@
             padding: 80px 5%;
             max-width: 1200px;
             margin: auto;
+            position: relative;
         }
 
         .section-title {
@@ -99,81 +142,152 @@
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary-blue);
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .section-title p {
-            color: #555;
+            color: #64748b;
             font-size: 1.1rem;
             margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Niche Grids (Doctors & Education) */
-        .niche-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+        /* 🚀 UNIFIED PREMIUM CARDS (Same Design for Both) */
+        .vw-niche-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
             margin-bottom: 60px;
         }
 
-        .niche-card {
-            background: var(--bg-light);
-            border: 1px solid #e1e8f0;
-            padding: 40px;
-            border-radius: 15px;
-            transition: 0.3s;
-        }
-
-        .niche-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(10, 76, 149, 0.08);
-            border-color: var(--primary-blue);
-        }
-
-        .niche-icon {
-            width: 70px;
-            height: 70px;
-            background: white;
-            color: var(--accent-orange);
-            font-size: 2rem;
+        .vw-unified-card {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 15px 40px rgba(10, 76, 149, 0.05);
+            transition: 0.4s;
+            align-items: stretch;
         }
 
-        .niche-card h3 {
-            font-size: 1.6rem;
+        .vw-unified-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(10, 76, 149, 0.12);
+            border-color: var(--accent-orange);
+        }
+
+        /* 📸 Image Section (यहाँ इमेज आएगी) */
+        .vw-card-img-box {
+            flex: 0 0 45%;
+            /* इमेज को 45% जगह मिलेगी */
+            position: relative;
+        }
+
+        .vw-card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* इमेज स्ट्रेच नहीं होगी, परफ़ेक्ट बैठेगी */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* 📝 Content Section */
+        .vw-card-content {
+            flex: 1;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vw-card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            color: var(--accent-orange);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+        }
+
+        .vw-card-content h3 {
+            font-size: 2.2rem;
             color: var(--primary-blue);
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
-        .niche-card p {
-            margin-bottom: 15px;
-            color: #555;
+        .vw-card-content p {
+            font-size: 1.05rem;
+            color: #475569;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
 
-        .niche-card ul {
+        .vw-feature-list {
             list-style: none;
-            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        .niche-card li {
-            margin-bottom: 10px;
+        .vw-feature-list li {
+            font-weight: 600;
+            color: #334155;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 10px;
-            font-weight: 500;
+            font-size: 1rem;
         }
 
-        .niche-card li i {
-            color: #28a745;
-            margin-top: 5px;
+        .vw-feature-list i {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Layout */
+        @media(max-width: 992px) {
+            .vw-unified-card {
+                flex-direction: column;
+            }
+
+            .vw-card-img-box {
+                flex: none;
+                height: 280px;
+            }
+
+            /* मोबाइल में इमेज की हाइट */
+            .vw-card-img-box img {
+                position: relative;
+            }
+
+            .vw-card-content {
+                padding: 30px 20px;
+            }
+
+            .vw-feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .vw-card-content h3 {
+                font-size: 1.8rem;
+            }
         }
 
         /* Trust/Location Bar */
@@ -184,72 +298,126 @@
             gap: 20px;
             margin-top: -30px;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 10;
         }
 
         .local-badge {
             background: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-blue);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             font-size: 0.95rem;
-            border: 1px solid #eee;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .local-badge:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
         }
 
         .local-badge i {
             color: var(--accent-orange);
-            margin-right: 5px;
+            margin-right: 8px;
+        }
+
+        /* 🚀 NEW: Extra Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         /* SEO Text Block (For Crawlers) */
         .seo-text-block {
             background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid #eee;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
             margin-top: 40px;
         }
 
         .seo-text-block h2,
         .seo-text-block h3 {
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
         .seo-text-block p {
             margin-bottom: 20px;
-            color: #444;
+            color: #475569;
             text-align: justify;
+            font-size: 1.05rem;
         }
 
         /* CTA Banner */
         .cta-banner {
-            background: var(--primary-blue);
-            padding: 60px 5%;
+            background: linear-gradient(135deg, var(--primary-blue), #052c5c);
+            padding: 70px 5%;
             text-align: center;
             color: white;
-            border-radius: 15px;
-            margin: 60px 0;
+            border-radius: 20px;
+            margin: 80px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 76, 149, 0.3);
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(243, 112, 33, 0.2);
+            border-radius: 50%;
+            filter: blur(40px);
         }
 
         .cta-banner h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
             position: relative;
             z-index: 2;
+            font-weight: 800;
         }
 
         .btn-white {
             background: white;
             color: var(--primary-blue);
-            padding: 15px 35px;
-            border-radius: 8px;
+            padding: 18px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.1rem;
             display: inline-flex;
             align-items: center;
@@ -257,24 +425,634 @@
             transition: 0.3s;
             position: relative;
             z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .btn-white:hover {
-            background: #f4f4f4;
-            transform: translateY(-3px);
+            background: #f8fafc;
+            transform: translateY(-5px);
+            color: var(--accent-orange);
+        }
+
+        /* 🚀 Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            100% {
+                transform: translateY(20px) translateX(20px);
+            }
         }
 
         @media(max-width: 768px) {
             .seo-hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .niche-grid {
                 grid-template-columns: 1fr;
             }
 
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 25px;
+            }
+
             .seo-text-block {
                 padding: 30px 20px;
+            }
+
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* 🚀 PREMIUM SERVICE CARDS (6-Grid Layout) */
+        .vw-service-section {
+            padding: 80px 5%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .vw-service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vw-premium-service-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        /* Hover Glowing Orb Effect */
+        .vw-premium-service-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(243, 112, 33, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            transition: 0.6s ease;
+        }
+
+        .vw-premium-service-card:hover::before {
+            transform: scale(2.5);
+            background: radial-gradient(circle, rgba(10, 76, 149, 0.06) 0%, transparent 70%);
+        }
+
+        .vw-premium-service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(10, 76, 149, 0.08);
+        }
+
+        /* 3D Icon Flip Animation */
+        .vw-serv-icon {
+            width: 75px;
+            height: 75px;
+            background: var(--bg-light);
+            color: var(--accent-orange);
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            transition: 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .vw-premium-service-card:hover .vw-serv-icon {
+            background: var(--primary-blue);
+            color: #ffffff;
+            transform: rotateY(360deg);
+            /* 🚀 3D Flip Effect */
+            box-shadow: 0 10px 20px rgba(10, 76, 149, 0.2);
+        }
+
+        .vw-premium-service-card h4 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .vw-premium-service-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media(max-width: 992px) {
+            .vw-service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 768px) {
+            .vw-service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vw-service-section {
+                padding: 50px 5%;
+            }
+        }
+
+        /* 🚀 PREMIUM COMPARISON */
+        .vw-compare-premium {
+            padding: 90px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .vw-compare-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vw-compare-box {
+            background: #ffffff;
+            padding: 45px 35px;
+            border-radius: 25px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hover Premium Effect */
+        .vw-compare-box:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 60px rgba(10, 76, 149, 0.1);
+        }
+
+        /* LEFT SIDE */
+        .vw-other {
+            opacity: 0.85;
+        }
+
+        /* RIGHT SIDE (Highlight) */
+        .vw-best {
+            border: 2px solid var(--accent-orange);
+            box-shadow: 0 20px 60px rgba(243, 112, 33, 0.15);
+        }
+
+        /* Badge */
+        .vw-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-orange);
+            color: white;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        /* Titles */
+        .vw-compare-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        /* List */
+        .vw-compare-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .vw-compare-box li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .vw-compare-box i {
+            font-size: 1.2rem;
+        }
+
+        /* Icons Color */
+        .vw-other i {
+            color: #ef4444;
+        }
+
+        .vw-best i {
+            color: #10b981;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .vw-compare-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .vw-best {
+                order: -1;
+            }
+        }
+
+        /* 🚀 WHY CHOOSE SECTION (FULL WIDTH PREMIUM) */
+        .vw-why-section {
+            width: 100%;
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #f8fafc, #eef5ff);
+        }
+
+        .vw-why-container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* GRID */
+        .vw-why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        /* CARD */
+        .vw-why-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glow Hover Effect */
+        .vw-why-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(243, 112, 33, 0.1), transparent);
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        .vw-why-card:hover::before {
+            transform: scale(2.5);
+        }
+
+        .vw-why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(10, 76, 149, 0.1);
+            border-color: var(--accent-orange);
+        }
+
+        /* ICON */
+        .vw-why-icon {
+            width: 65px;
+            height: 65px;
+            background: var(--bg-light);
+            color: var(--accent-orange);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            transition: 0.4s;
+        }
+
+        .vw-why-card:hover .vw-why-icon {
+            background: var(--primary-blue);
+            color: #fff;
+        }
+
+        /* TEXT */
+        .vw-why-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .vw-why-card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* MOBILE */
+        @media(max-width:992px) {
+            .vw-why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:768px) {
+            .vw-why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 🚀 PREMIUM ABOUT SECTION */
+        .vw-about-full {
+            width: 100%;
+            padding: 110px 0;
+            background: linear-gradient(135deg, #f8fbff, #eef5ff);
+        }
+
+        /* CONTAINER */
+        .vw-about-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 5%;
+        }
+
+        /* GRID */
+        .vw-about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        /* IMAGE FIX */
+        .vw-about-image {
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+        .vw-about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+
+        /* Hover zoom */
+        .vw-about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* HEADING GRADIENT */
+        .vw-about-content h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .vw-about-content h2 span {
+            display: block;
+            font-size: 1.2rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Gradient text */
+        .vw-about-content h2 {
+            background: linear-gradient(90deg, #0A4C95, #F37021);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TEXT */
+        .vw-about-content p {
+            font-size: 1.05rem;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            animation: fadeUp 0.8s ease;
+        }
+
+        /* POINTS */
+        .vw-about-points {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .vw-about-points li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .vw-about-points i {
+            color: #10b981;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width:992px) {
+            .vw-about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vw-about-content {
+                text-align: center;
+            }
+
+            .vw-about-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .vw-about-points {
+                text-align: left;
+            }
+        }
+
+        /* 🚀 REVIEW SECTION */
+        .reviews-section {
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 5%;
+        }
+
+        .testimonial-slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 20px 10px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            width: 100%;
+        }
+
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .review-card {
+            flex: 0 0 calc(25% - 15px);
+            scroll-snap-align: start;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 8px;
+            border: 1px solid #e8eaed;
+            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1), 0 1px 3px rgba(60, 64, 67, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15), 0 4px 8px rgba(60, 64, 67, 0.15);
+        }
+
+        .g-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .g-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .g-user-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .g-user-info strong {
+            color: #202124;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .g-date {
+            color: #70757a;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .g-logo-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .g-logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .g-stars {
+            color: #fbbc04;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 1px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #202124;
+            line-height: 1.5;
+            min-height: 120px;
+            font-style: normal;
+        }
+
+        .slider-btn {
+            background: white;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: #f8f9fa;
+            color: #202124;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .prev-btn {
+            left: -10px;
+        }
+
+        .next-btn {
+            right: -10px;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .vw-slider-btn {
+                display: none;
             }
         }
     </style>
@@ -289,67 +1067,483 @@
         <p>We are Vyapar Wallah. We help Doctors, Clinics, Schools, and Coaching Institutes in Patna beat the
             competition, get more local leads, and build a massive digital brand.</p>
         <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20am%20from%20Patna.%20I%20need%20marketing%20services."
-            target="_blank" class="btn-main"><i class="fa-brands fa-whatsapp"></i> Speak to our Patna Expert</a>
+            target="_blank" class="btn-main"><i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Speak to
+            our Patna Expert</a>
     </section>
 
     <div class="content-section" style="padding-top: 0; padding-bottom: 20px;">
         <div class="local-trust-bar">
             <div class="local-badge"><i class="fa-solid fa-location-dot"></i> Serving Kankarbagh</div>
             <div class="local-badge"><i class="fa-solid fa-location-dot"></i> Boring Road</div>
-            <div class="local-badge"><i class="fa-solid fa-location-dot"></i> Rajendra Nagar</div>
+            <div class="local-badge"><i class="fa-solid fa-location-dot"></i> Mithapur</div>
             <div class="local-badge"><i class="fa-solid fa-location-dot"></i> Bailey Road</div>
         </div>
     </div>
 
-    <section class="content-section" style="padding-top: 0;">
-        <div class="section-title">
-            <h2>Our Specialized Niches in Patna</h2>
-            <p>Patna is a highly competitive market for Doctors and Educators. Generic marketing doesn't work here. You
-                need our targeted strategies.</p>
+
+    <!-- 🚀 WHO IS VYAPAR WALLAH (UPGRADED PREMIUM VERSION) -->
+    <section class="vw-about-full">
+
+        <div class="vw-about-container">
+
+            <div class="vw-about-grid">
+
+                <!-- IMAGE -->
+                <div class="vw-about-image">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80"
+                        alt="digital marketing team working in Patna">
+                </div>
+
+                <!-- TEXT -->
+                <div class="vw-about-content">
+
+                    <h2>
+                        <span>Who is</span> Vyapar Wallah?
+                    </h2>
+
+                    <p>
+                        Vyapar Wallah ek trusted <strong>digital marketing company Patna</strong> hai jo local
+                        businesses ko
+                        online grow karne me help karta hai. Hum sirf branding nahi karte — hum aapke business ke liye
+                        consistent leads aur real growth system build karte hain.
+                    </p>
+
+                    <p>
+                        Agar aap doctor, clinic ya coaching institute run kar rahe hain, hum aapke liye targeted
+                        <strong>digital marketing services in Patna Bihar</strong> create karte hain jo direct inquiries
+                        aur
+                        conversions laati hain.
+                    </p>
+
+                    <ul class="vw-about-points">
+                        <li><i class="fa-solid fa-circle-check"></i> Local market understanding</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ROI focused campaigns</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Branding + lead generation</li>
+                    </ul>
+
+                    <a href="/about.html" class="btn-main">About Us</a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="niche-grid">
+    </section>
+    <section class="content-section" style="padding-top: 0;">
 
-            <div class="niche-card">
-                <div class="niche-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <h3>Digital Marketing for Doctors in Patna</h3>
-                <p>Are you a doctor or running a hospital in Patna? Don't let your competitors steal your patients. We
-                    provide highly effective <strong>hospital digital marketing in Patna</strong> to maximize your daily
-                    OPD walk-ins.</p>
-                <ul>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Local SEO for Doctors:</strong> Rank #1 when
-                        patients search for "Best doctor in Kankarbagh/Patna".</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Patient Lead Generation:</strong> Google &
-                        Facebook Ads specifically optimized for healthcare.</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Reputation Management:</strong> Get genuine
-                        5-star reviews to build patient trust online.</li>
-                </ul>
-                <a href="#contact" style="color: var(--accent-orange); font-weight: 700; text-decoration: none;">Grow
-                    Your Clinic <i class="fa-solid fa-arrow-right"></i></a>
+
+
+        <div class="section-title">
+            <h2 style="font-size: 2.8rem; letter-spacing: -1px;">Humari Expertise: <span
+                    style="color: var(--accent-orange);">Doctors & Schools</span></h2>
+            <p>Patna me competition bahut zyada hai. Generic marketing se ab kaam nahi chalega! Aapko chahiye ek aisi
+                <strong>digital marketing agency in Patna</strong> jo aapke business model ko deeply samjhe.
+            </p>
+        </div>
+
+        <div class="vw-niche-wrapper">
+
+            <div class="vw-unified-card">
+                <div class="vw-card-img-box">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80"
+                        alt="Clinic Marketing Patna">
+                </div>
+
+                <div class="vw-card-content">
+                    <span class="vw-card-badge">🏥 For Clinics & Hospitals</span>
+                    <h3>Healthcare Marketing me Patna ke Leaders</h3>
+                    <p>Apne clinic ya hospital me daily OPD patient walk-ins badhayein! Humari data-driven
+                        <strong>doctor
+                            digital marketing patna</strong> strategies aapko Google par #1 rank karwati hain. Hum sirf
+                        brand
+                        nahi banate, direct patients laate hain.
+                    </p>
+                    <ul class="vw-feature-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Local SEO for Doctors</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Patient Lead Gen</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Clinic Marketing Patna</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 5-Star Reviews Growth</li>
+                    </ul>
+                    <div>
+                        <a href="#contact" class="btn-main">Grow Your Clinic <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
 
-            <div class="niche-card">
-                <div class="niche-icon"><i class="fa-solid fa-school"></i></div>
-                <h3>Marketing for Schools & Coaching</h3>
-                <p>Patna is the education hub of Bihar. To stand out among thousands of institutes in areas like Boring
-                    Road, you need the best <strong>coaching institute marketing agency in Patna</strong>.</p>
-                <ul>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Student Enrollment Ads:</strong>
-                        High-converting Meta Ads during admission seasons.</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>SEO for Colleges:</strong> Rank at the top for
-                        "Best Coaching/School in Patna".</li>
-                    <li><i class="fa-solid fa-check-circle"></i> <strong>Brand Positioning:</strong> Showcase your
-                        infrastructure and past toppers to parents.</li>
-                </ul>
-                <a href="#contact" style="color: var(--accent-orange); font-weight: 700; text-decoration: none;">Boost
-                    Admissions <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="vw-unified-card">
+                <div class="vw-card-img-box">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+                        alt="School Marketing Patna">
+                </div>
+
+                <div class="vw-card-content">
+                    <span class="vw-card-badge">🎓 For Schools & Coaching</span>
+                    <h3>Naye Session me Admissions Full Karein!</h3>
+                    <p>Boring Road ho ya Kankarbagh, institutes ke beech fight bahut hai. Patna ke top educators humari
+                        <strong>digital marketing services in Patna Bihar</strong> par bharosa karte hain. Hum targeted
+                        Ads se
+                        direct student admissions drive karte hain.
+                    </p>
+                    <ul class="vw-feature-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Enrollment Ads</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Top Coaching SEO</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Campus Video Shoots</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Social Media Branding</li>
+                    </ul>
+                    <div>
+                        <a href="#contact" class="btn-main">Boost Admissions <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
 
+        </div>
+
+
+        <div class="vw-service-section">
+            <div class="section-title">
+                <span class="local-badge" style="margin-bottom: 15px; display: inline-block;"><i
+                        class="fa-solid fa-stethoscope"></i> For Doctors & Hospitals</span>
+                <h2>Our Healthcare Marketing Services</h2>
+                <p>Patna ke best doctors humari in 6 premium services ka use karke apni daily OPD badha rahe hain.</p>
+            </div>
+
+            <div class="vw-service-grid">
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h4>Local SEO for Clinics</h4>
+                    <p>Be the first choice! Humari <strong>doctor digital marketing patna</strong> strategies aapko
+                        "Best clinic
+                        near me" searches me sabse upar laati hain.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <h4>Patient Lead Generation</h4>
+                    <p>Sirf likes nahi, actual appointments! Get high-quality patient leads through targeted Facebook &
+                        Google
+                        Ads optimized for hospitals.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-star"></i></div>
+                    <h4>5-Star Reputation Management</h4>
+                    <p>Patients reviews padh kar aate hain. Hum aapke clinic ki online image ko 5-star banate hain, jo
+                        <strong>hospital digital marketing patna</strong> me sabse zaroori hai.
+                    </p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-hashtag"></i></div>
+                    <h4>Social Media Branding</h4>
+                    <p>Apni expertise dikhayein! We are the <strong>best social media marketing agency</strong> for
+                        doctors,
+                        creating high-quality reels and educational posts.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                    <h4>Healthcare Web Design</h4>
+                    <p>Ek premium website jo trust build kare. Fast, mobile-friendly websites designed specifically for
+                        medical
+                        professionals in Bihar.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-video"></i></div>
+                    <h4>Medical Video Shoots</h4>
+                    <p>YouTube aur Instagram par viral hon! Hum aapke clinic ka tour aur patient testimonials
+                        professionally
+                        shoot aur edit karte hain.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="vw-service-section" style="background: var(--bg-light); border-radius: 40px; margin-top: 20px;">
+            <div class="section-title">
+                <span class="local-badge" style="margin-bottom: 15px; display: inline-block; background: white;"><i
+                        class="fa-solid fa-graduation-cap"></i> For Schools & Coaching</span>
+                <h2>Our Education Marketing Services</h2>
+                <p>Boring Road se lekar Kankarbagh tak, in proven strategies se apne admissions multiply karein.</p>
+            </div>
+
+            <div class="vw-service-grid">
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Admission Lead Generation</h4>
+                    <p>Seat full hone ki guarantee! Run highly targeted Meta & Google Ads to get direct inquiries from
+                        parents
+                        and students.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-ranking-star"></i></div>
+                    <h4>Local SEO for Institutes</h4>
+                    <p>Rank above your competitors. As a top <strong>coaching institute marketing patna</strong> expert,
+                        we
+                        ensure you dominate local Google searches.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <h4>Campus Social Media</h4>
+                    <p>Showcase your results and campus life! Get the best <strong>social media marketing
+                            services</strong> to
+                        attract the modern student demographic.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-code"></i></div>
+                    <h4>Institute Web Development</h4>
+                    <p>Parents aapki website zaroor check karte hain. Hum banate hain lightning-fast websites jo trust
+                        aur
+                        professionalism dikhati hain.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                    <h4>Educational Video Shoots</h4>
+                    <p>Topper interviews aur classroom vibes! Engage students with high-quality promotional videos and
+                        YouTube
+                        content.</p>
+                </div>
+                <div class="vw-premium-service-card">
+                    <div class="vw-serv-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h4>Complete Brand Positioning</h4>
+                    <p>Become the #1 choice. A complete 360-degree approach from the best <strong>digital marketing
+                            company
+                            patna</strong> to build your legacy.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 🚀 PREMIUM COMPARISON SECTION -->
+        <section class="vw-compare-premium">
+
+            <div class="section-title">
+                <h2>Why Smart Businesses Choose Vyapar Wallah</h2>
+                <p>Har agency same nahi hoti. Yahan clearly dekho difference jo aapke results ko impact karta hai.</p>
+            </div>
+
+            <div class="vw-compare-wrapper">
+
+                <!-- LEFT (Others) -->
+                <div class="vw-compare-box vw-other">
+                    <h3>Typical Agencies</h3>
+
+                    <ul>
+                        <li><i class="fa-solid fa-xmark"></i> Generic marketing strategy</li>
+                        <li><i class="fa-solid fa-xmark"></i> Focus on likes & followers</li>
+                        <li><i class="fa-solid fa-xmark"></i> No niche expertise</li>
+                        <li><i class="fa-solid fa-xmark"></i> Basic SEO work</li>
+                        <li><i class="fa-solid fa-xmark"></i> No proper reporting</li>
+                        <li><i class="fa-solid fa-xmark"></i> Template-based content</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT (Vyapar Wallah Highlight) -->
+                <div class="vw-compare-box vw-best">
+
+                    <div class="vw-badge">Recommended</div>
+
+                    <h3>Vyapar Wallah</h3>
+
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Deep local market understanding</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ROI-driven lead generation</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Doctor & Education specialization</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced local SEO strategy</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Transparent reporting system</li>
+                        <li><i class="fa-solid fa-circle-check"></i> High-quality branding content</li>
+                    </ul>
+
+                    <a href="https://wa.me/9187641492?text=Hi%20Vyapar%20Wallah,%20I%20need%20marketing%20services"
+                        class="btn-main">Get Free Strategy</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- 🚀 WHY CHOOSE VYAPAR WALLAH (FULL WIDTH PREMIUM) -->
+        <section class="vw-why-section">
+
+            <div class="vw-why-container">
+
+                <div class="section-title">
+                    <h2>Why Choose Vyapar Wallah?</h2>
+                    <p>Patna ke smart business owners random marketing nahi karte — wo result-oriented partner choose
+                        karte
+                        hain.</p>
+                </div>
+
+                <div class="vw-why-grid">
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>Result-Driven Strategy</h3>
+                        <p>Humara focus sirf branding nahi, balki real leads aur revenue growth par hota hai.</p>
+                    </div>
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <h3>Deep Local Expertise</h3>
+                        <p>Patna ke areas aur audience behavior ko deeply samajh kar targeted campaigns chalate hain.
+                        </p>
+                    </div>
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                        <h3>Niche Specialization</h3>
+                        <p>Doctors, clinics aur education sector me focused marketing jo actual results deta hai.</p>
+                    </div>
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Advanced Growth Systems</h3>
+                        <p>SEO, ads aur content ka combination use karke long-term growth build karte hain.</p>
+                    </div>
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-eye"></i></div>
+                        <h3>Full Transparency</h3>
+                        <p>Har campaign ka clear reporting system — aapko pata rahe paisa kahan lag raha hai.</p>
+                    </div>
+
+                    <div class="vw-why-card">
+                        <div class="vw-why-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h3>Fast Execution</h3>
+                        <p>Strategy banane ke baad fast implementation — results delay nahi hote.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- 🚀 PREMIUM REVIEW SLIDER -->
+        <section class="section-padding reviews-section reveal" id="reviews">
+            <div class="text-center">
+                <h2 class="section-title">Real Results. Real People.</h2>
+                <p class="section-subtitle">Don't just take our word for it.</p>
+            </div>
+            <div class="testimonial-slider-wrapper">
+                <button class="slider-btn prev-btn" onclick="slideReviews(-1)"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+                <div class="testimonial-track" id="reviewTrack">
+
+                    <svg style="display:none;">
+                        <defs>
+                            <g id="google-g">
+                                <path fill="#4285F4"
+                                    d="M23.74 12.27c0-.85-.07-1.67-.21-2.47H12v4.67h6.58c-.28 1.51-1.13 2.79-2.43 3.66v3.04h3.93c2.3-2.12 3.63-5.25 3.63-8.9z" />
+                                <path fill="#34A853"
+                                    d="M12 24c3.3 0 6.08-1.1 8.11-2.96l-3.93-3.04c-1.1.74-2.51 1.18-4.18 1.18-3.21 0-5.93-2.17-6.9-5.08H1.08v3.13C3.12 21.3 7.22 24 12 24z" />
+                                <path fill="#FBBC05"
+                                    d="M5.1 14.1c-.25-.74-.39-1.53-.39-2.34s.14-1.6.39-2.34V6.29H1.08C.39 7.78 0 9.4 0 11.1c0 1.7.39 3.32 1.08 4.81l4.02-3.11z" />
+                                <path fill="#EA4335"
+                                    d="M12 4.82c1.8 0 3.41.62 4.68 1.83l3.51-3.51C18.06 1.19 15.29 0 12 0 7.22 0 3.12 2.7 1.08 6.78l4.02 3.11c.97-2.91 3.69-5.07 6.9-5.07z" />
+                            </g>
+                        </defs>
+                    </svg>
+
+                    <div class="review-card">
+                        <div class="g-header">
+                            <img src="manish review.png" alt="User">
+                            <div class="g-user-info"><strong>Manish Kumar</strong><span class="g-date">2 weeks
+                                    ago</span>
+                            </div>
+                            <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                    <use href="#google-g"></use>
+                                </svg></div>
+                        </div>
+                        <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">Vyapar Wallah is one of the best digital marketing companies in Bihar. We
+                            are
+                            a school in Patna and their team helped us with website SEO and social media marketing.
+                            Admissions inquiries increased within 2 months. Highly recommended.</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="g-header">
+                            <img src="neha review.png" alt="User">
+                            <div class="g-user-info"><strong>Neha Singh</strong><span class="g-date">1 month ago</span>
+                            </div>
+                            <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                    <use href="#google-g"></use>
+                                </svg></div>
+                        </div>
+                        <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">Hum Muzaffarpur me ek salon chalate hain aur Vyapar Wallah ne hamara
+                            complete
+                            digital marketing handle kiya. Google My Business optimization aur local SEO ki wajah se
+                            walk-in
+                            clients kaafi badh gaye. Bihar me best agency for salons 👍</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User">
+                            <div class="g-user-info"><strong>Rohit Sharma</strong><span class="g-date">1 month
+                                    ago</span>
+                            </div>
+                            <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                    <use href="#google-g"></use>
+                                </svg></div>
+                        </div>
+                        <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">If you are looking for a trusted digital marketing company in Bihar,
+                            especially in Darbhanga or nearby districts, Vyapar Wallah is a great choice. Their team
+                            understands local business marketing and provides practical strategies.</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="g-header">
+                            <img src="rajeev review.png" alt="User">
+                            <div class="g-user-info"><strong>Dr. Rajeev Ranjan</strong><span class="g-date">3 months
+                                    ago</span></div>
+                            <div class="g-logo-icon"><svg viewBox="0 0 24 24">
+                                    <use href="#google-g"></use>
+                                </svg></div>
+                        </div>
+                        <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">We run a clinic in Samastipur and were struggling with online visibility.
+                            Vyapar Wallah improved our Google ranking and optimized our profile. Now patients easily
+                            find us
+                            on search. Professional digital marketing service.</p>
+                    </div>
+
+                </div>
+                <button class="slider-btn next-btn" onclick="slideReviews(1)"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h4>10x</h4>
+                <p>ROI Focused</p>
+            </div>
+            <div class="stat-box">
+                <h4>100+</h4>
+                <p>Local Campaigns</p>
+            </div>
+            <div class="stat-box">
+                <h4>#1</h4>
+                <p>Niche Agency</p>
+            </div>
         </div>
 
         <div class="cta-banner" id="contact">
             <h2>Ready to be the #1 Brand in Patna?</h2>
-            <p style="margin-bottom: 30px; font-size: 1.1rem;">Stop relying purely on offline banners. Shift to highly
+            <p style="margin-bottom: 35px; font-size: 1.15rem; color: #cbd5e1;">Stop relying purely on offline banners.
+                Shift to highly
                 profitable digital lead generation today.</p>
             <a href="tel:+9187641492" class="btn-white"><i class="fa-solid fa-phone"></i> Call +91-87641492</a>
         </div>
@@ -358,9 +1552,16 @@
             <h2>Why Vyapar Wallah is the Best Digital Marketing Company in Patna?</h2>
             <p>If you are searching for a reliable <strong>Digital Marketing Agency in Patna</strong>, your search ends
                 here. Patna's market is evolving rapidly. Whether you are running a multi-specialty hospital in
-                Kankarbagh or a prominent coaching institute in Boring Road, having a powerful online presence is
-                mandatory. Vyapar Wallah is recognized among the <strong>top digital marketing companies in Patna,
+                Kankarbagh or a prominent coaching institute, having a powerful online presence is
+                mandatory. Vyapar Wallah is recognized among the <strong>top 10 digital marketing company in Patna,
                     Bihar</strong> because we focus entirely on ROI (Return on Investment) and lead generation.</p>
+
+            <h3>Dominating Boring Road & Mithapur</h3>
+            <p>Locations like Boring Road and Mithapur are highly saturated with businesses. To stand out, you need
+                specialized <strong>social media marketing services</strong>. We are proud to be known as the
+                <strong>best social media marketing agency mithapur patna</strong>, helping local brands connect with
+                their exact target audience through creative campaigns and data-driven ad placements.
+            </p>
 
             <h3>Specialized Services for Healthcare & Education</h3>
             <p>Unlike generic agencies, we don't just post random festive greetings. We build ecosystems. Our
@@ -370,20 +1571,30 @@
                 parents of prospective students.
             </p>
 
-            <p>By leveraging <strong>social media marketing (SMM), Google Ads, and Local SEO</strong>, we help you
-                dominate the local search results. Partner with the most trusted <strong>marketing agency in
-                    Patna</strong> and scale your business securely.</p>
+            <p>By leveraging comprehensive <strong>digital marketing services in Patna Bihar</strong>, Google Ads, and
+                Local SEO, we help you dominate the local search results. Partner with the <strong>best marketing agency
+                    patna</strong> and scale your business securely.</p>
         </div>
 
     </section>
 
     <div id="footer-placeholder"></div>
 
+    <script src="chat.js"></script>
     <script>
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('header-placeholder').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
-    </script>
 
+        function slideReviews(direction) {
+            const track = document.getElementById('reviewTrack');
+            if (track) {
+                const card = track.querySelector('.review-card');
+                const scrollAmount = (card.offsetWidth + 20) * direction;
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+    </script>
 
 </body>
 

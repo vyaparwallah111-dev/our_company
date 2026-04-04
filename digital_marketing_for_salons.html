@@ -843,6 +843,480 @@
 
             /* Single Review on Mobile */
         }
+
+        /* ✨ Fancy Gradient Heading */
+        .fancy-heading {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(90deg, #0A4C95, #F37021, #00A651);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* ✂ Scissor icon animation */
+        .scissor-icon {
+            font-size: 2rem;
+            color: var(--accent-orange);
+            margin: 0 10px;
+            animation: swing 2s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(20deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* ✨ Side Decoration */
+        .side-decor {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 6px solid var(--accent-orange);
+            border-radius: 10px;
+            opacity: 0.3;
+        }
+
+        .side-decor.left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .side-decor.right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .fancy-heading::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-orange);
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        /* 🔥 WHY SECTION */
+        .why-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #fff, #fdfaf6);
+        }
+
+        .why-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        /* LEFT SIDE */
+        .why-image {
+            position: relative;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .main-card p {
+            color: #666;
+        }
+
+        /* FLOATING SVG ICONS */
+
+
+        .floating-icon svg {
+            width: 28px;
+            fill: var(--accent-orange);
+        }
+
+        /* RIGHT SIDE */
+        .why-content {
+            flex: 1;
+        }
+
+        /* HEADING */
+        .why-heading {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .why-heading span {
+            background: linear-gradient(90deg, #F37021, #00A651);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TEXT */
+        .why-content p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* LIST */
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* MOBILE FIX */
+        @media(max-width:768px) {
+            .why-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .why-image {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* IMAGE SECTION */
+        .why-image {
+            position: relative;
+            flex: 1;
+            min-height: 350px;
+        }
+
+        /* MAIN IMAGE */
+        .main-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* SMALL FLOATING IMAGE */
+        .small-img {
+            position: absolute;
+            width: 140px;
+            border-radius: 15px;
+            bottom: -20px;
+            left: 20px;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* DECOR DOT */
+        .dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            right: 30px;
+            bottom: 30px;
+        }
+
+        .main-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            /* 🔥 MUST */
+            border-radius: 20px;
+        }
+
+        .small-img {
+            position: absolute;
+            width: 120px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 15px;
+            bottom: -20px;
+            left: 20px;
+        }
+
+        .why-fact {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fff8f3, #ffffff);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        /* Header */
+        .fact-header {
+            font-weight: 800;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Fact text */
+        .fact-text {
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Divider */
+        .fact-divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--accent-orange), transparent);
+            margin: 15px 0;
+        }
+
+        /* Emotional text */
+        .fact-emotion {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .top-img {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 180px;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-study {
+            padding: 30px 5%;
+            background: #fff;
+        }
+
+        .case-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            max-width: 1100px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        /* LEFT IMAGE */
+        .case-image {
+            flex: 1.2;
+            position: relative;
+        }
+
+        .case-main-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .case-small-img {
+            position: absolute;
+            width: 130px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            bottom: -30px;
+            left: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ICON */
+        .case-icon {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 2rem;
+            background: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* RIGHT SIDE */
+        .case-content {
+            flex: 1;
+        }
+
+        .case-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* LIST */
+        .case-list {
+            margin-bottom: 15px;
+        }
+
+        .case-list li {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* TEXT */
+        .case-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* CTA BUTTON */
+        .case-btn {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .case-btn:hover {
+            background: #d95e17;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .case-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+
+        }
+
+        /* 🔥 MAIN HEADING */
+        .case-heading {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+        }
+
+        .case-heading span {
+            background: linear-gradient(90deg, #F37021, #00A651);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* SUBTEXT */
+        .case-subtext {
+            margin: 10px 0 25px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        /* STRATEGY BOX */
+        .strategy-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        /* STRATEGY HEADING */
+        .strategy-heading {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .strategy-heading .icon {
+            font-size: 1.5rem;
+        }
+
+        /* TEXT */
+        .strategy-text {
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* RESULT GRID */
+        .result-grid {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .result-card {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .result-card.before {
+            background: #fff0f0;
+            color: #e74c3c;
+        }
+
+        .result-card.after {
+            background: #f0fff4;
+            color: #00A651;
+        }
+
+        .result-card.growth {
+            background: #eef6ff;
+            color: #0A4C95;
+        }
+
+        /* EXPLAIN */
+        .strategy-explain {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .case-image {
+            flex: 1.2;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            /* 🔥 KEY FIX */
+        }
+
+        .case-image {
+            display: flex;
+            flex-direction: column;
+            /* 🔥 IMPORTANT */
+        }
+
+        .image-box {
+            position: relative;
+            margin-bottom: 60px;
+            /* gap between 2 images */
+        }
+
+        .case-image {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 
@@ -968,71 +1442,230 @@
         </div>
     </section>
 
+
     <section class="growth-section">
+        <div class="side-decor left"></div>
+        <div class="side-decor right"></div>
         <div class="section-header">
-            <h2>How Salons Grow With Us</h2>
+            <h2 class="fancy-heading">
+                <span class="scissor-icon">✂</span>
+                How Salons Grow With Us
+                <span class="scissor-icon">✂</span>
+            </h2>
         </div>
         <div class="ba-container">
             <div class="ba-box ba-before">
                 <h3><i class="fa-solid fa-circle-xmark"></i> The Old Way</h3>
                 <ul>
-                    <li><i class="fa-solid fa-xmark"></i> Depending only on walk-in traffic and old loyal clients.</li>
-                    <li><i class="fa-solid fa-xmark"></i> Empty chairs during weekdays (Mon-Thu).</li>
-                    <li><i class="fa-solid fa-xmark"></i> Posting random, unedited photos on Instagram.</li>
+                    <li><i class="fa-solid fa-xmark"></i> Depending only on walk-in traffic without any digital
+                        marketing strategy.</li>
+
+                    <li><i class="fa-solid fa-xmark"></i> No proper beauty parlour advertising, resulting in low
+                        visibility in Bihar &
+                        Patna.</li>
+
+                    <li><i class="fa-solid fa-xmark"></i> No beauty parlor SEO, so your salon doesn’t appear on Google
+                        searches.</li>
+
+                    <li><i class="fa-solid fa-xmark"></i> Random posting on Instagram without a proper salon marketing
+                        plan.</li>
+
+                    <li><i class="fa-solid fa-xmark"></i> No support from any digital marketing agency or marketing
+                        consultancy agency.
+                    </li>
                 </ul>
             </div>
             <div class="ba-box ba-after">
                 <h3><i class="fa-solid fa-circle-check"></i> With Vyapar Wallah</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Predictable daily bookings via targeted local ads.</li>
-                    <li><i class="fa-solid fa-check"></i> Special weekday offers keeping the staff busy.</li>
-                    <li><i class="fa-solid fa-check"></i> A premium, aesthetic Instagram feed that justifies your
-                        pricing.</li>
+                    <li><i class="fa-solid fa-check"></i> Get predictable daily bookings with our salon digital
+                        marketing Patna
+                        strategy.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Rank higher on Google with expert beauty parlor SEO & local
+                        optimization.</li>
+
+                    <li><i class="fa-solid fa-check"></i> High-converting beauty parlour advertising campaigns that
+                        bring real clients.
+                    </li>
+
+                    <li><i class="fa-solid fa-check"></i> Complete support from a professional digital marketing agency
+                        in India.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Proven salon marketing agency strategies for Bihar, Patna &
+                        Darbhanga.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="reviews-section">
-        <div class="section-header">
-            <h2>What Salon Owners Say</h2>
+
+    <section class="why-section">
+
+        <div class="why-container">
+
+            <!-- LEFT IMAGE -->
+            <div class="why-image">
+                <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8" class="top-img"
+                    alt="Salon Style">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" class="main-img">
+
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="small-img">
+
+                <div class="dot"></div>
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="why-content">
+
+                <h2 class="why-heading">
+                    Why Choose <span>Vyapar Wallah</span>
+                </h2>
+
+                <p>
+                    We are a results-driven digital marketing agency in India helping salons in Bihar, Patna & Darbhanga
+                    get more bookings,
+                    better visibility, and consistent growth.
+                </p>
+
+                <ul class="why-list">
+                    <li>✔ Proven salon marketing agency with real client results</li>
+                    <li>✔ Advanced beauty parlor SEO to rank your business on Google</li>
+                    <li>✔ High-converting beauty parlour advertising campaigns</li>
+                    <li>✔ Dedicated marketing consultancy agency for your growth</li>
+                    <li>✔ Complete business and marketing support for salons</li>
+                </ul>
+
+                <!-- 🔥 NEW FACT BOX -->
+                <div class="why-fact">
+
+                    <div class="fact-header">
+                        <span>💡 Did you know?</span>
+                    </div>
+
+                    <p class="fact-text">
+                        80% salon owners struggle with consistent bookings because they don’t use proper digital
+                        marketing.
+                    </p>
+
+                    <div class="fact-divider"></div>
+
+                    <p class="fact-emotion">
+                        Aap bas apne clients ko happy banane pe focus karo…
+                        naye clients lana, bookings fill karna aur growth lana — woh hum sambhal lenge 💇‍♀️✨
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="testimonial-track">
-            <div class="review-card">
-                <div class="g-header">
-                    <i class="fa-solid fa-spa"></i>
-                    <div class="g-user-info"><strong>Neha Singh</strong><span>Salon Owner, Patna</span></div>
-                </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">Vyapar Wallah completely transformed our Instagram. Their reel editing and local
-                    ads got us fully booked during the wedding season.</p>
-            </div>
-            <div class="review-card">
-                <div class="g-header">
-                    <i class="fa-solid fa-scissors"></i>
-                    <div class="g-user-info"><strong>Ravi Verma</strong><span>Unisex Salon, Muzaffarpur</span></div>
-                </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">We were struggling with footfall on weekdays. Their team designed a "Happy Hours"
-                    ad campaign that completely solved our problem.</p>
-            </div>
-            <div class="review-card">
-                <div class="g-header">
-                    <i class="fa-solid fa-spray-can-sparkles"></i>
-                    <div class="g-user-info"><strong>Priya Desai</strong><span>Bridal Studio, Gaya</span></div>
-                </div>
-                <div class="g-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">Excellent local SEO work. Whenever a bride searches for makeup artists in our
-                    city, our Google Business page shows up first with 5-star ratings.</p>
-            </div>
-        </div>
+
     </section>
+
+    <section class="case-study">
+
+        <div class="section-header">
+            <h2>How We Helped Salons Get More Bookings</h2>
+            <p>
+                Real results from our digital marketing agency helping beauty parlours and men salons grow in Bihar,
+                Patna &
+                Darbhanga.
+            </p>
+        </div>
+
+        <div class="case-container">
+
+            <!-- LEFT SIDE IMAGES -->
+            <div class="case-image">
+
+                <!-- BIG IMAGE -->
+                <img src="saloon marketing bihar.jpg" class="case-main-img">
+
+                <!-- SMALL IMAGE (OVERLAP) -->
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="case-small-img">
+
+                <!-- ICON -->
+                <div class="case-icon">✂️</div>
+
+            </div>
+            <!-- SECOND IMAGE (NEW ADD) -->
+            <div class="image-box">
+                <img src="beauty parlour marketing bihar.jpg" class="case-main-img">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" class="case-small-img">
+            </div>
+            <!-- RIGHT SIDE CONTENT -->
+            <div class="case-content">
+
+                <!-- 🔥 PREMIUM HEADING -->
+                <h2 class="case-heading">
+                    How We Helped Salons <span>Get More Bookings</span>
+                </h2>
+
+                <p class="case-subtext">
+                    Real results from our digital marketing agency helping beauty parlours and men salons grow in Bihar,
+                    Patna &
+                    Darbhanga.
+                </p>
+
+                <!-- 💎 STRATEGY BOX -->
+                <div class="strategy-box">
+
+                    <h3 class="strategy-heading">
+                        <span class="icon">✂️</span>
+                        From Low Footfall to Fully Booked Weekends
+                    </h3>
+
+                    <p class="strategy-text">
+                        Most salon owners struggle with empty chairs on weekdays and unpredictable bookings.
+                        Our salon digital marketing strategy fixes this by combining <strong>beauty parlor SEO</strong>,
+                        <strong>local ads</strong>, and <strong>high-converting beauty parlour advertising</strong>.
+                    </p>
+
+                    <!-- 🔥 RESULT CARDS -->
+                    <div class="result-grid">
+
+                        <div class="result-card before">
+                            <h4>Before</h4>
+                            <p>5–8 clients/day</p>
+                        </div>
+
+                        <div class="result-card after">
+                            <h4>After</h4>
+                            <p>20–30 clients/day</p>
+                        </div>
+
+                        <div class="result-card growth">
+                            <h4>Growth</h4>
+                            <p>2X–3X Revenue</p>
+                        </div>
+
+                    </div>
+
+                    <!-- 💬 EXPLANATION -->
+                    <p class="strategy-explain">
+                        As a trusted <strong>salon marketing agency in Bihar</strong>, we help both men salons and
+                        beauty parlours
+                        attract high-quality clients through targeted campaigns — not random posts.
+                    </p>
+
+                </div>
+
+                <!-- CTA -->
+                <a href="https://wa.me/9187641492" class="case-btn">
+                    Get Similar Results 🚀
+                </a>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-0ab5b290-dd0a-431d-8a60-10925f316662" data-elfsight-app-lazy></div>
 
     <section class="lead-magnet">
         <div class="magnet-box">
