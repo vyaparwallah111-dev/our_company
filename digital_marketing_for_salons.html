@@ -1109,36 +1109,34 @@
 
         .case-container {
             display: flex;
-            align-items: flex-start;
             gap: 50px;
-            max-width: 1100px;
-            margin: auto;
-            flex-wrap: wrap;
+            align-items: flex-start;
         }
 
         /* LEFT IMAGE */
         .case-image {
             flex: 1.2;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
         .case-main-img {
             width: 100%;
-            height: 450px;
+            height: 400px;
             object-fit: cover;
             border-radius: 20px;
         }
 
         .case-small-img {
             position: absolute;
-            width: 130px;
-            height: 150px;
+            width: 120px;
+            height: 140px;
             object-fit: cover;
             border-radius: 15px;
-            bottom: -30px;
+            bottom: -20px;
             left: 20px;
             border: 4px solid #fff;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* ICON */
@@ -1153,9 +1151,38 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
+        @media(max-width:768px) {
+
+            .case-container {
+                flex-direction: column;
+                /* 🔥 vertical */
+            }
+
+            .case-image {
+                width: 100%;
+            }
+
+            .case-main-img {
+                height: 250px;
+                /* 🔥 mobile size */
+            }
+
+            .case-small-img {
+                width: 90px;
+                height: 100px;
+                bottom: -15px;
+            }
+
+            .case-content {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+        }
+
         /* RIGHT SIDE */
         .case-content {
-            flex: 1;
+            order: 1;
         }
 
         .case-content h3 {
@@ -1302,6 +1329,30 @@
         }
 
         .case-image {
+            order: 2;
+        }
+
+        @media(max-width:768px) {
+
+            .case-container {
+                flex-direction: column;
+            }
+
+            /* 🔥 MOBILE: IMAGE UPAR */
+            .case-image {
+                order: 1;
+            }
+
+            /* 🔥 MOBILE: CONTENT NICHE */
+            .case-content {
+                order: 2;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+        }
+
+        .case-image {
             display: flex;
             flex-direction: column;
             /* 🔥 IMPORTANT */
@@ -1309,13 +1360,28 @@
 
         .image-box {
             position: relative;
-            margin-bottom: 60px;
-            /* gap between 2 images */
         }
 
         .case-image {
             display: flex;
             flex-direction: column;
+        }
+
+        @media(max-width:768px) {
+
+            .fancy-heading {
+                font-size: 1.8rem;
+                /* 🔥 size chhota */
+                line-height: 1.3;
+                /* 🔥 spacing improve */
+                padding: 0 10px;
+                /* 🔥 side space */
+            }
+
+        }
+
+        .fancy-heading {
+            word-break: break-word;
         }
     </style>
 </head>
@@ -1448,9 +1514,7 @@
         <div class="side-decor right"></div>
         <div class="section-header">
             <h2 class="fancy-heading">
-                <span class="scissor-icon">✂</span>
-                How Salons Grow With Us
-                <span class="scissor-icon">✂</span>
+                How Salons <span>Grow With Us</span>
             </h2>
         </div>
         <div class="ba-container">
@@ -1579,86 +1643,88 @@
             <!-- LEFT SIDE IMAGES -->
             <div class="case-image">
 
-                <!-- BIG IMAGE -->
-                <img src="saloon marketing bihar.jpg" class="case-main-img">
 
-                <!-- SMALL IMAGE (OVERLAP) -->
-                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="case-small-img">
 
+                <div class="image-box">
+                    <img src="saloon marketing bihar.jpg" class="case-main-img">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="case-small-img">
+                </div>
                 <!-- ICON -->
                 <div class="case-icon">✂️</div>
 
-            </div>
-            <!-- SECOND IMAGE (NEW ADD) -->
-            <div class="image-box">
-                <img src="beauty parlour marketing bihar.jpg" class="case-main-img">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" class="case-small-img">
-            </div>
-            <!-- RIGHT SIDE CONTENT -->
-            <div class="case-content">
 
-                <!-- 🔥 PREMIUM HEADING -->
-                <h2 class="case-heading">
-                    How We Helped Salons <span>Get More Bookings</span>
-                </h2>
+                <!-- SECOND IMAGE (NEW ADD) -->
+                <div class="image-box">
+                    <img src="beauty parlour marketing bihar.jpg" class="case-main-img">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" class="case-small-img">
+                </div>
+                <!-- RIGHT SIDE CONTENT -->
+                <div class="case-content">
 
-                <p class="case-subtext">
-                    Real results from our digital marketing agency helping beauty parlours and men salons grow in Bihar,
-                    Patna &
-                    Darbhanga.
-                </p>
+                    <!-- 🔥 PREMIUM HEADING -->
+                    <h2 class="case-heading">
+                        How We Helped Salons <span>Get More Bookings</span>
+                    </h2>
 
-                <!-- 💎 STRATEGY BOX -->
-                <div class="strategy-box">
-
-                    <h3 class="strategy-heading">
-                        <span class="icon">✂️</span>
-                        From Low Footfall to Fully Booked Weekends
-                    </h3>
-
-                    <p class="strategy-text">
-                        Most salon owners struggle with empty chairs on weekdays and unpredictable bookings.
-                        Our salon digital marketing strategy fixes this by combining <strong>beauty parlor SEO</strong>,
-                        <strong>local ads</strong>, and <strong>high-converting beauty parlour advertising</strong>.
+                    <p class="case-subtext">
+                        Real results from our digital marketing agency helping beauty parlours and men salons grow in
+                        Bihar,
+                        Patna &
+                        Darbhanga.
                     </p>
 
-                    <!-- 🔥 RESULT CARDS -->
-                    <div class="result-grid">
+                    <!-- 💎 STRATEGY BOX -->
+                    <div class="strategy-box">
 
-                        <div class="result-card before">
-                            <h4>Before</h4>
-                            <p>5–8 clients/day</p>
+                        <h3 class="strategy-heading">
+                            <span class="icon">✂️</span>
+                            From Low Footfall to Fully Booked Weekends
+                        </h3>
+
+                        <p class="strategy-text">
+                            Most salon owners struggle with empty chairs on weekdays and unpredictable bookings.
+                            Our salon digital marketing strategy fixes this by combining <strong>beauty parlor
+                                SEO</strong>,
+                            <strong>local ads</strong>, and <strong>high-converting beauty parlour advertising</strong>.
+                        </p>
+
+                        <!-- 🔥 RESULT CARDS -->
+                        <div class="result-grid">
+
+                            <div class="result-card before">
+                                <h4>Before</h4>
+                                <p>5–8 clients/day</p>
+                            </div>
+
+                            <div class="result-card after">
+                                <h4>After</h4>
+                                <p>20–30 clients/day</p>
+                            </div>
+
+                            <div class="result-card growth">
+                                <h4>Growth</h4>
+                                <p>2X–3X Revenue</p>
+                            </div>
+
                         </div>
 
-                        <div class="result-card after">
-                            <h4>After</h4>
-                            <p>20–30 clients/day</p>
-                        </div>
-
-                        <div class="result-card growth">
-                            <h4>Growth</h4>
-                            <p>2X–3X Revenue</p>
-                        </div>
+                        <!-- 💬 EXPLANATION -->
+                        <p class="strategy-explain">
+                            As a trusted <strong>salon marketing agency in Bihar</strong>, we help both men salons and
+                            beauty parlours
+                            attract high-quality clients through targeted campaigns — not random posts.
+                        </p>
 
                     </div>
 
-                    <!-- 💬 EXPLANATION -->
-                    <p class="strategy-explain">
-                        As a trusted <strong>salon marketing agency in Bihar</strong>, we help both men salons and
-                        beauty parlours
-                        attract high-quality clients through targeted campaigns — not random posts.
-                    </p>
+                    <!-- CTA -->
+                    <a href="https://wa.me/9187641492" class="case-btn">
+                        Get Similar Results 🚀
+                    </a>
 
                 </div>
 
-                <!-- CTA -->
-                <a href="https://wa.me/9187641492" class="case-btn">
-                    Get Similar Results 🚀
-                </a>
-
             </div>
-
-        </div>
 
         </div>
 
