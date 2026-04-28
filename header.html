@@ -1,10 +1,11 @@
 <style>
     /* --- HEADER CSS --- */
-    .main-header {
+   .main-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 5%;
+        /* Padding को 15px से घटाकर 8px कर दिया है ताकि हेडर स्लिम रहे */
+        padding: 22px 5%; 
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         position: sticky;
@@ -19,7 +20,22 @@
         color: #0A4C95;
         text-decoration: none;
     }
+    .logo-img {
+        display: flex;
+        align-items: center;
+        line-height: 0; /* रेफरेंस इमेज की तरह एक्स्ट्रा स्पेसिंग खत्म करने के लिए */
+        text-decoration: none;
+    }
 
+    .logo-img img {
+        height: 55px; /* बेस हाइट कम रखी है ताकि हेडर ना फैले */
+        width: auto;
+        object-fit: contain;
+        /* YEH MAGIC HAI: ये बिना हेडर का साइज बढ़ाए लोगो को 1.6 गुना बड़ा दिखाएगा */
+        transform: scale(1.6); 
+        transform-origin: left center; /* ये सुनिश्चित करेगा कि लोगो लेफ्ट साइड से ही बड़ा हो */
+        margin-left: 10px; /* स्केल होने के बाद थोड़ा मार्जिन एडजस्ट करने के लिए */
+    }
     .logo span {
         color: #F37021;
     }
@@ -230,6 +246,20 @@
         }
     }
 
+    /* --- MOBILE LOGO FIX --- */
+@media (max-width: 992px) {
+    /* Logo ko chota karne ke liye */
+    .logo-img img {
+        height: 40px !important; /* Mobile ke liye height adjust ki gayi hai */
+        width: auto !important;
+        transform: none !important; /* Agar desktop pe koi magic trick lagayi ho toh use hatane ke liye */
+    }
+
+    /* Mobile pe header ki padding thodi kam karne ke liye taki aur compact lage */
+    .main-header {
+        padding: 10px 5% !important; 
+    }
+}
     @keyframes slideDown {
         from {
             opacity: 0;
@@ -244,8 +274,8 @@
 </style>
 
 <header class="main-header">
-    <a href="index.html" class="logo-img" style="display: flex; align-items: center;">
-        <img src="logo 2.jpeg" alt="Vyapar Wallah Logo" style="height: 75px; width: auto; object-fit: contain;">
+    <a href="index.html" class="logo-img">
+        <img src="logo2.png" alt="Vyapar Wallah Logo">
     </a>
 
     <div class="menu-toggle" onclick="toggleMobileMenu()">

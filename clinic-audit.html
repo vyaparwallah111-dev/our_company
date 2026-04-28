@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Clinic Audit | Grow Your Patient Footfall | Vyapar Wallah</title>
+    <meta name="description"
+        content="Claim your Free Clinic Audit by Vyapar Wallah. We analyze your Google My Business, website, and local SEO to help you get more patients online.">
+    <meta name="keywords"
+        content="Free Clinic Audit, Digital Marketing for Clinics, Local SEO for Doctors, Healthcare Marketing Agency, Increase Patient Footfall, Vyapar Wallah">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // यहाँ अपनी EmailJS Public Key डालें
+        })();
+    </script>
+
+    <style>
+        /* 🎨 Theme Colors & Global Styles */
+        :root {
+            --blue: #0A4C95;
+            --orange: #F37021;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 🚀 Header */
+        header {
+            background: #ffffff;
+            padding: 15px 5%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        /* 🚀 Hero Section (Premium Background) */
+        .hero {
+            text-align: center;
+            padding: 80px 5% 60px;
+            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80') center/cover;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--blue);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--orange);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(243, 112, 33, 0.3);
+        }
+
+        /* 🚀 INTERACTIVE SIMULATOR (Visualizer) */
+        .simulator-section {
+            padding: 60px 5%;
+            max-width: 1000px;
+            margin: -40px auto 40px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            border: 1px solid #e2e8f0;
+        }
+
+        .sim-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .sim-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Controls */
+        .sim-controls {
+            background: #f1f5f9;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .sim-controls label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .sim-controls span {
+            color: var(--orange);
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .sim-controls input[type="range"] {
+            width: 100%;
+            margin-bottom: 30px;
+            accent-color: var(--orange);
+            height: 6px;
+            cursor: pointer;
+        }
+
+        /* Results */
+        .sim-results {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .res-card {
+            padding: 25px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .res-current {
+            background: #fff;
+            border: 2px dashed #cbd5e1;
+            color: var(--text-muted);
+        }
+
+        .res-potential {
+            background: linear-gradient(135deg, var(--blue), #042E5E);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(10, 76, 149, 0.2);
+            border: 2px solid var(--blue);
+            transform: scale(1.05);
+        }
+
+        .res-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .res-potential h4 {
+            color: #93c5fd;
+        }
+
+        .res-data p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .res-data b {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .res-potential .res-data b {
+            color: var(--orange);
+            font-size: 1.8rem;
+        }
+
+        /* 🚀 Form Section */
+        .form-section {
+            background: var(--blue);
+            padding: 70px 5%;
+            color: #ffffff;
+        }
+
+        .form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .form-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .form-info ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .form-info ul li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-info ul li i {
+            background: var(--orange);
+            color: #fff;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .form-container h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--blue);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f8fafc;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--orange);
+            outline: none;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.15);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--orange);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #042E5E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-box {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .success-box h3 {
+            color: #166534;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .success-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* 🚀 Footer */
+        footer {
+            background: #ffffff;
+            text-align: center;
+            padding: 25px 5%;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer strong {
+            color: var(--blue);
+        }
+
+        /* 📱 Mobile Responsive Tweaks */
+        @media (max-width: 992px) {
+            .sim-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .form-info {
+                text-align: center;
+            }
+
+            .form-info ul li {
+                justify-content: center;
+            }
+
+            .res-potential {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .simulator-section {
+                padding: 40px 20px;
+                margin-top: -20px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">Vyapar<span>Wallah.</span></a>
+    </header>
+
+    <section class="hero">
+        <div class="badge">100% Free & Confidential</div>
+        <h1>Are You Losing Patients to <br><span>Other Clinics Online?</span></h1>
+        <p>Aapka clinic best ho sakta hai, par agar Google par nahi dikha toh patients competitor ke paas jayenge.</p>
+    </section>
+
+    <section class="simulator-section">
+        <h2 class="sim-title">Clinic Growth Calculator</h2>
+        <p class="sim-subtitle">Slide karein aur dekhein ki sahi Digital Strategy se aapka clinic kitna grow kar sakta
+            hai.</p>
+
+        <div class="sim-grid">
+            <div class="sim-controls">
+                <label>Current Google Map Rank: <span id="lblRank">15</span></label>
+                <input type="range" id="inpRank" min="1" max="50" value="15">
+
+                <label>Online Appointments (Per Week): <span id="lblAppt">2</span></label>
+                <input type="range" id="inpAppt" min="0" max="50" value="2">
+            </div>
+
+            <div class="sim-results">
+                <div class="res-card res-current">
+                    <div>
+                        <h4>Current State</h4>
+                        <div class="res-data">
+                            <p>Rank: <b id="outCurrentRank">15th</b></p>
+                            <p>Leads: <b id="outCurrentAppt">2 /wk</b></p>
+                        </div>
+                    </div>
+                    <div style="font-size: 2rem; opacity: 0.3;">📉</div>
+                </div>
+
+                <div class="res-card res-potential">
+                    <div>
+                        <h4>Vyapar Wallah Potential (30 Days)</h4>
+                        <div class="res-data">
+                            <p>Expected Rank: <b id="outPotRank">Top 3</b></p>
+                            <p>Expected Leads: <b id="outPotAppt">15+ /wk</b></p>
+                        </div>
+                    </div>
+                    <div style="font-size: 2.5rem;">📈</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-wrapper">
+
+            <div class="form-info">
+                <h2>Claim Your FREE <br><span style="color: var(--orange);">Clinic Audit Report</span></h2>
+                <p style="margin-bottom: 20px; font-size: 1.1rem; color: #cbd5e1;">Humari team manually aapke clinic ka
+                    digital check-up karegi aur aapko ek Action Plan degi.</p>
+                <ul>
+                    <li><i>✔</i> Google My Business (Map) Check</li>
+                    <li><i>✔</i> Competitor Search Analysis</li>
+                    <li><i>✔</i> Website UI & Speed Test</li>
+                    <li><i>✔</i> Patient Acquisition Roadmap</li>
+                </ul>
+            </div>
+
+            <div class="form-container" id="formWrapper">
+                <h3 id="formTitle">Fill Details to Get Report</h3>
+
+                <form id="auditForm">
+                    <div class="form-group">
+                        <label>Doctor / Owner Name *</label>
+                        <input type="text" id="name" placeholder="Ex: Dr. Rahul Kumar" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Clinic Name *</label>
+                        <input type="text" id="clinic" placeholder="Ex: City Dental Care" required>
+                    </div>
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input type="text" id="city" placeholder="Ex: Patna" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number *</label>
+                        <input type="tel" id="mobile" placeholder="10-digit number" pattern="[0-9]{10}"
+                            title="Enter valid 10 digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email ID *</label>
+                        <input type="email" id="email" placeholder="doctor@clinic.com" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Send My Audit Report</button>
+                </form>
+
+                <div class="success-box" id="successMsg">
+                    <h3>🎉 Thank You, Dr. <span id="docName"></span>!</h3>
+                    <p>Aapki details mil chuki hain. Humari expert team jald hi aapki Clinic Audit Report banakar aapse
+                        WhatsApp/Email par sampark karegi.</p>
+                    <br>
+                    <p><strong>- Team Vyapar Wallah</strong></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Recognized as the best healthcare digital marketing agency in Bihar.</p>
+        <p>&copy; 2026 <strong>Vyapar Wallah</strong>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        /* ==========================================
+           1. CALCULATOR / SIMULATOR LOGIC
+        ========================================== */
+        const inpRank = document.getElementById('inpRank');
+        const inpAppt = document.getElementById('inpAppt');
+
+        const lblRank = document.getElementById('lblRank');
+        const lblAppt = document.getElementById('lblAppt');
+
+        const outCurrentRank = document.getElementById('outCurrentRank');
+        const outCurrentAppt = document.getElementById('outCurrentAppt');
+
+        const outPotRank = document.getElementById('outPotRank');
+        const outPotAppt = document.getElementById('outPotAppt');
+
+        function updateCalculator() {
+            let currentRank = parseInt(inpRank.value);
+            let currentAppt = parseInt(inpAppt.value);
+
+            // Update Labels
+            lblRank.innerText = currentRank;
+            lblAppt.innerText = currentAppt;
+            outCurrentRank.innerText = currentRank + (currentRank === 1 ? "st" : currentRank === 2 ? "nd" : currentRank === 3 ? "rd" : "th");
+            outCurrentAppt.innerText = currentAppt + " /wk";
+
+            // Logic for Potential (Simulating Expert Growth)
+            let potRank = "Top 3";
+            if (currentRank <= 3) potRank = "Rank #1";
+
+            // Formula for Potential Appointments (Multiplier + Base Buffer)
+            let potAppt = Math.floor(currentAppt * 2.5) + 12;
+
+            // Update UI
+            outPotRank.innerText = potRank;
+            outPotAppt.innerText = potAppt + "+ /wk";
+        }
+
+        // Event Listeners for Sliders
+        inpRank.addEventListener('input', updateCalculator);
+        inpAppt.addEventListener('input', updateCalculator);
+
+        /* ==========================================
+           2. FORM HANDLING (EmailJS)
+        ========================================== */
+        document.getElementById('auditForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            const form = document.getElementById('auditForm');
+            const formTitle = document.getElementById('formTitle');
+            const successBox = document.getElementById('successMsg');
+
+            const name = document.getElementById('name').value;
+            const clinic = document.getElementById('clinic').value;
+            const city = document.getElementById('city').value;
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value;
+
+            btn.innerHTML = "Submitting...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            /* Uncomment below for EmailJS integration */
+            // const templateParams = {
+            //     from_name: name, clinic_name: clinic, city_name: city, mobile_no: mobile, user_email: email, reply_to: email
+            // };
+            // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            // .then(function() {
+            form.style.display = 'none';
+            formTitle.style.display = 'none';
+            successBox.style.display = 'block';
+            document.getElementById('docName').innerText = name.split(' ')[0];
+            // }, function(error) {
+            //    alert("Error sending. Please try again.");
+            //    btn.innerHTML = "Send My Audit Report"; btn.disabled = false; btn.style.opacity = "1";
+            // });
+
+            // Fake Delay for Demonstration
+            setTimeout(() => {
+                form.style.display = 'none';
+                formTitle.style.display = 'none';
+                successBox.style.display = 'block';
+                document.getElementById('docName').innerText = name.split(' ')[0];
+            }, 1500);
+        });
+    </script>
+
+</body>
+
+</html>
