@@ -51,13 +51,19 @@ if ($pdfBase64 === '') {
     respond('error', 'PDF attachment data is missing.');
 }
 
-$pdfBase64 = preg_replace('#^data:application/pdf;base64,#', '', $pdfBase64);
+$pdfBase64 = trim($pdfBase64);
+
+if (strpos($pdfBase64, ',') !== false) {
+    $base64Parts = explode(',', $pdfBase64);
+    $pdfBase64 = $base64Parts[1];
+}
+
 $pdfBase64 = str_replace(' ', '+', $pdfBase64);
-$decodedPdfBinary = base64_decode($pdfBase64, true);
+$decodedPdfBinary = base64_decode($pdfBase64);
 
 if ($decodedPdfBinary === false) {
     http_response_code(400);
-    respond('error', 'PDF attachment data is not valid Base64.');
+    respond('error', 'PDF attachment data is not valid Base64 after stripping prefix.');
 }
 
 $name = htmlspecialchars($rawName, ENT_QUOTES, 'UTF-8');
