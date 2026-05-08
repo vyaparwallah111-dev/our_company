@@ -10,7 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="icon" type="image/png" sizes="192x192" href="site fevicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="site fevicon.png">
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
@@ -1038,13 +1039,20 @@
             const setupCost = Number(document.getElementById('oneTimeCost').value) || 0;
             const advanceAmount = Math.round(setupCost * 0.9);
             const isOther = document.getElementById('payOther').checked;
-            const customAmount = Number(document.getElementById('customPayAmount').value) || 0;
+            const customAmountInput = document.getElementById('customPayAmount').value;
+            const payAmountInput = document.getElementById('payAmount');
 
-            finalPayableAmount = isOther ? customAmount : advanceAmount;
             document.getElementById('advanceOptionLabel').innerText = `Pay 90% Advance (${formatINR(advanceAmount)})`;
-            document.getElementById('payAmount').value = finalPayableAmount > 0 ? finalPayableAmount : "";
-            document.getElementById('finalPayableText').innerText = formatINR(finalPayableAmount);
             document.getElementById('otherAmountBox').style.display = isOther ? 'block' : 'none';
+
+            if (isOther) {
+                payAmountInput.value = customAmountInput;
+            } else {
+                payAmountInput.value = advanceAmount;
+            }
+
+            finalPayableAmount = Number(payAmountInput.value) || 0;
+            document.getElementById('finalPayableText').innerText = formatINR(finalPayableAmount);
 
             document.querySelectorAll('.payment-choice').forEach(choice => choice.classList.remove('active'));
             document.querySelector(isOther ? 'label[for="payOther"]' : 'label[for="payAdvance"]').classList.add('active');
@@ -1058,25 +1066,20 @@
         updatePaymentAmount();
 
         async function createRazorpayOrder() {
+            let finalAmount = Number(document.getElementById('payAmount').value);
+
             const response = await fetch('create_order.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    amount: finalPayableAmount,
-                    doctor_name: document.getElementById('docName').value.trim(),
-                    clinic_name: document.getElementById('clinicName').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    mobile: document.getElementById('mobile').value.trim(),
-                    services: document.getElementById('selectedServicesStr').value
-                })
+                body: JSON.stringify({ amount: finalAmount })
             });
 
-            const result = await response.json().catch(() => null);
-            if (!response.ok || !result || !result.success) {
-                throw new Error(result?.message || "Unable to create secure Razorpay order.");
+            const data = await response.json().catch(() => null);
+            if (!response.ok || !data || !data.order_id) {
+                throw new Error(data?.error || "Unable to create secure Razorpay order.");
             }
 
-            return result;
+            return data;
         }
 
         function getFormData(paymentResponse) {
@@ -1127,14 +1130,22 @@
                 return;
             }
 
-            if (finalPayableAmount <= 0) {
+            let finalAmount = Number(document.getElementById('payAmount').value);
+            finalPayableAmount = finalAmount;
+
+            if (finalAmount <= 0) {
                 alert("Please enter a valid payable amount.");
                 return;
             }
 
             const btn = document.getElementById('submitBtn');
+            const resetSubmitButton = () => {
+                btn.disabled = false;
+                btn.innerHTML = "Complete Onboarding & Pay Securely";
+            };
+
             btn.disabled = true;
-            btn.innerHTML = "Creating Secure Order...";
+            btn.innerHTML = "CREATING SECURE ORDER...";
 
             let secureOrder;
             try {
@@ -1142,16 +1153,15 @@
             } catch (error) {
                 console.error('Razorpay order error:', error);
                 alert(error.message || "Payment could not be started. Please try again.");
-                btn.disabled = false;
-                btn.innerHTML = "Complete Onboarding & Pay Securely";
+                resetSubmitButton();
                 return;
             }
 
             btn.innerHTML = "Opening Secure Checkout...";
 
             const options = {
-                key: secureOrder.key_id || RAZORPAY_KEY_ID,
-                amount: secureOrder.amount,
+                key: RAZORPAY_KEY_ID,
+                amount: finalAmount * 100,
                 currency: "INR",
                 order_id: secureOrder.order_id,
                 name: "Vyapar Wallah",
@@ -1172,18 +1182,25 @@
                 // For strict production security, also verify razorpay_signature on your PHP backend
                 // before treating the onboarding/payment as final.
                 handler: function (response) {
+                    localStorage.setItem('userEmail', document.getElementById('email').value.trim());
+                    localStorage.setItem('docName', document.getElementById('docName').value.trim());
+                    localStorage.setItem('paidAmount', String(finalAmount));
+                    localStorage.setItem('razorpay_payment_id', response.razorpay_payment_id);
+                    localStorage.setItem('finalAmount', String(finalAmount));
                     localStorage.setItem('vyaparOnboardingData', JSON.stringify(getFormData(response)));
                     window.location.href = 'thankyou.html';
                 },
                 modal: {
-                    ondismiss: function () {
-                        btn.disabled = false;
-                        btn.innerHTML = "Complete Onboarding & Pay Securely";
-                    }
+                    ondismiss: resetSubmitButton
                 }
             };
 
-            new Razorpay(options).open();
+            const rzpPopup = new Razorpay(options);
+            rzpPopup.on('payment.failed', function () {
+                alert("Payment failed. Please try again or use another payment method.");
+                resetSubmitButton();
+            });
+            rzpPopup.open();
         });
 
         fetch('header.html')

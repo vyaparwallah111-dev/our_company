@@ -13,7 +13,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         :root {
@@ -455,10 +454,15 @@
     </div>
 
     <script>
-        const EMAILJS_PUBLIC_KEY = "YBuyKNlXYV72LjERg";
-        const EMAILJS_SERVICE_ID = "service_qwevh4i";
-        const EMAILJS_TEMPLATE_ID = "template_xmfmguw";
         const STORAGE_KEY = "vyaparOnboardingData";
+        const userEmail = (localStorage.getItem('userEmail') || '').trim();
+        const docName = (localStorage.getItem('docName') || '').trim();
+        const paidAmount = Number(localStorage.getItem('paidAmount')) || Number(localStorage.getItem('finalAmount')) || 0;
+        let mailRequestFinished = false;
+
+        if (!userEmail) {
+            console.error("Mail Error: userEmail is missing from localStorage.");
+        }
 
         const fallbackData = {
             doctorName: "Valued Client",
@@ -477,8 +481,24 @@
             signatureImage: ""
         };
 
-        const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || fallbackData;
-        const data = { ...fallbackData, ...storedData };
+        function getStoredOnboardingData() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || {};
+            } catch (error) {
+                console.error("Stored onboarding data is invalid:", error);
+                return {};
+            }
+        }
+
+        const storedData = getStoredOnboardingData();
+        const data = {
+            ...fallbackData,
+            ...storedData,
+            email: storedData.email || userEmail || fallbackData.email,
+            doctorName: storedData.doctorName || docName || fallbackData.doctorName,
+            paidAmount: storedData.paidAmount || paidAmount || fallbackData.paidAmount,
+            razorpayPaymentId: storedData.razorpayPaymentId || localStorage.getItem('razorpay_payment_id') || fallbackData.razorpayPaymentId
+        };
 
         function formatINR(amount) {
             return new Intl.NumberFormat('en-IN', {
@@ -553,20 +573,22 @@
             });
         }
 
-        function downloadPrescription() {
-            populatePdf();
-            const options = {
+        function getPdfOptions() {
+            return {
                 margin: [0.2, 0, 0.2, 0],
-                filename: `${safeFileName(data.clinicName)}_Rx_VyaparWallah.pdf`,
+                filename: 'Vyapar-Wallah-Prescription.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true, logging: false },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
+        }
 
+        function downloadPrescription() {
+            populatePdf();
             document.getElementById('statusLine').innerText = "Preparing prescription PDF...";
-            return html2pdf().set(options).from(document.getElementById('pdfTemplate')).save()
+            return html2pdf().set(getPdfOptions()).from(document.getElementById('pdfTemplate')).save()
                 .then(() => {
-                    document.getElementById('statusLine').innerText = "Prescription downloaded. Welcome email is being sent.";
+                    document.getElementById('statusLine').innerText = "Prescription downloaded.";
                 })
                 .catch(error => {
                     console.error('PDF download failed:', error);
@@ -574,25 +596,64 @@
                 });
         }
 
-        function sendWelcomeEmail() {
-            if (!data.email) return Promise.resolve();
+        function sendWelcomeEmailViaBackend(pdfBase64) {
+            const doctorName = data.doctorName || docName || "Valued Client";
+            const clinicName = data.clinicName || "your clinic";
+            const emailAmount = data.paidAmount || paidAmount || 0;
 
-            emailjs.init(EMAILJS_PUBLIC_KEY);
-            return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                client_name: data.doctorName,
-                clinic_name: data.clinicName,
-                user_email: data.email,
-                mobile: data.mobile,
-                services: data.servicesText || data.services.join(', '),
-                paid_amount: formatINR(data.paidAmount),
-                transaction_id: data.razorpayPaymentId,
-                payment_date: data.paymentDate || new Date().toLocaleDateString('en-GB')
-            }).then(() => {
-                document.getElementById('statusLine').innerText = "Prescription downloaded and welcome email sent.";
-            }).catch(error => {
-                console.error('EmailJS Error:', error);
-                document.getElementById('statusLine').innerText = "Prescription downloaded. EmailJS failed, please check template settings.";
-            });
+            if (!userEmail) {
+                console.error("Mail Error:", "Recipient email is missing from localStorage.");
+                mailRequestFinished = true;
+                return Promise.resolve();
+            }
+
+            console.log("Sending welcome email to:", userEmail);
+            return fetch('send_mail.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: userEmail,
+                    name: doctorName,
+                    clinic: clinicName,
+                    amount: emailAmount,
+                    pdfBase64: pdfBase64
+                })
+            }).then(response => response.json().catch(() => null))
+                .then(result => {
+                    if (!result || result.status !== 'success') {
+                        throw new Error(result?.message || "Backend mail request failed.");
+                    }
+                    console.log("Mail Success:", result);
+                    document.getElementById('statusLine').innerText = "Welcome email sent. Downloading prescription.";
+                });
+        }
+
+        function sendMailWithPdfThenDownload() {
+            populatePdf();
+            const element = document.getElementById('pdfTemplate');
+            const options = getPdfOptions();
+
+            document.getElementById('statusLine').innerText = "Preparing prescription PDF for email...";
+            return html2pdf().set(options).from(element).outputPdf('datauristring')
+                .then(function (pdfBase64String) {
+                    return sendWelcomeEmailViaBackend(pdfBase64String);
+                })
+                .catch(function (error) {
+                    console.error("Mail Failed:", error);
+                    document.getElementById('statusLine').innerText = "Email failed. Downloading prescription anyway.";
+                })
+                .finally(function () {
+                    mailRequestFinished = true;
+                    document.getElementById('statusLine').innerText = "Downloading prescription PDF...";
+                    return html2pdf().set(options).from(element).save('Vyapar-Wallah-Prescription.pdf')
+                        .then(function () {
+                            document.getElementById('statusLine').innerText = "Prescription downloaded. Email process completed.";
+                        })
+                        .catch(function (error) {
+                            console.error('PDF download failed:', error);
+                            document.getElementById('statusLine').innerText = "Auto-download failed. Please use the download button.";
+                        });
+                });
         }
 
         function startCountdown() {
@@ -600,10 +661,14 @@
             const countdownText = document.getElementById('countdownText');
             const timer = setInterval(() => {
                 seconds -= 1;
-                countdownText.innerText = seconds;
+                countdownText.innerText = Math.max(seconds, 0);
                 if (seconds <= 0) {
-                    clearInterval(timer);
-                    window.location.href = 'index.html';
+                    if (mailRequestFinished) {
+                        clearInterval(timer);
+                        window.location.href = 'index.html';
+                    } else {
+                        document.getElementById('statusLine').innerText = "Waiting for email request to finish before redirecting.";
+                    }
                 }
             }, 1000);
         }
@@ -615,7 +680,7 @@
             populatePdf();
             triggerConfetti();
             setTimeout(() => {
-                downloadPrescription().then(sendWelcomeEmail);
+                sendMailWithPdfThenDownload();
             }, 900);
             startCountdown();
         });
