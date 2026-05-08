@@ -7,8 +7,8 @@ header('Content-Type: application/json');
 // composer require razorpay/razorpay
 //
 // Keep the secret on the server only. Do not place it in onboarding.html.
-$keyId = getenv('RAZORPAY_KEY_ID') ?: 'rzp_test_REPLACE_WITH_YOUR_KEY_ID';
-$keySecret = getenv('RAZORPAY_KEY_SECRET') ?: 'REPLACE_WITH_YOUR_KEY_SECRET';
+$keyId = getenv('rzp_live_SmiNIKsNL3hmlV') ?: 'rzp_test_REPLACE_WITH_YOUR_KEY_ID';
+$keySecret = getenv('0CgSCOhrWoqjmAY9XjxEvkKm') ?: 'REPLACE_WITH_YOUR_KEY_SECRET';
 
 function jsonResponse(int $statusCode, array $payload): void
 {
