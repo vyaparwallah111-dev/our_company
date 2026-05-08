@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Onboarding | Vyapar Wallah Media & Marketing</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        /* 🎨 THEME COLORS */
+        :root {
+            --blue: #0A4C95;
+            --orange: #F37021;
+            --bg-light: #f1f5f9;
+            --text-dark: #1e293b;
+            --border: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* 🚀 MAIN WEBSITE HEADER & FOOTER */
+        .main-header {
+            background: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-header .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .main-header .logo span {
+            color: var(--orange);
+        }
+
+        .main-header .contact-btn {
+            background: var(--orange);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .main-footer {
+            background: var(--blue);
+            color: #fff;
+            text-align: center;
+            padding: 30px 5%;
+            margin-top: 60px;
+        }
+
+        .main-footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* 🚀 Main Form Container */
+        .onboarding-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+
+        .form-title {
+            font-size: 1.6rem;
+            color: var(--blue);
+            font-weight: 800;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        /* Form Sections */
+        .form-section {
+            margin-bottom: 40px;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .form-section h3 {
+            font-size: 1.2rem;
+            color: var(--blue);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section h3 i {
+            color: var(--orange);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.1);
+        }
+
+        .payment-choice {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            padding: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            cursor: pointer;
+            transition: 0.25s ease;
+            margin-bottom: 12px;
+        }
+
+        .payment-choice:hover,
+        .payment-choice.active {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(10, 76, 149, 0.08);
+        }
+
+        .payment-choice input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--orange);
+            margin-top: 3px;
+        }
+
+        .payment-choice strong {
+            display: block;
+            color: var(--blue);
+            font-size: 0.98rem;
+        }
+
+        .payment-choice span {
+            display: block;
+            color: #64748b;
+            font-size: 0.82rem;
+            margin-top: 3px;
+        }
+
+        #otherAmountBox {
+            display: none;
+            margin-top: 4px;
+        }
+
+        .payment-summary {
+            background: #fff7ed;
+            color: #9a3412;
+            border: 1px solid #fed7aa;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* 🚀 MULTI-SELECT SERVICE CHIPS */
+        .services-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .service-chip {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #475569;
+            user-select: none;
+        }
+
+        .service-chip.active {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+            box-shadow: 0 4px 10px rgba(10, 76, 149, 0.2);
+        }
+
+        #otherServiceBox {
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Checkbox Area */
+        .legal-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .legal-check input {
+            margin-top: 4px;
+            accent-color: var(--orange);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .legal-link {
+            color: var(--blue);
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--blue);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            background: var(--orange);
+            box-shadow: 0 10px 20px rgba(243, 112, 33, 0.2);
+        }
+
+        /* 🚀 Modal (T&C & Privacy) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            width: 100%;
+            max-width: 600px;
+            max-height: 85vh;
+            border-radius: 12px;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #e11d48;
+        }
+
+        .modal-content h2 {
+            color: var(--blue);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .modal-content p,
+        .modal-content li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* 🚀 DOCTOR PRESCRIPTION PDF TEMPLATE (HIDDEN OFF-SCREEN) */
+        /* Note: Isko display:none mat karna, warna PDF blank aayega. Isko off-screen bheja hai */
+        #pdfWrapper {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            z-index: -10;
+        }
+
+        #pdfTemplate {
+            width: 800px;
+            background: #fffcf5;
+            padding: 40px;
+            color: #111;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--orange);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pdf-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--blue);
+            line-height: 1;
+        }
+
+        .pdf-logo span {
+            color: var(--orange);
+        }
+
+        .pdf-logo-sub {
+            font-size: 1rem;
+            color: var(--blue);
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .pdf-address {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #0A4C95;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .pdf-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--orange);
+            border-bottom: 1px solid rgba(243, 112, 33, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .pdf-rx-symbol {
+            font-size: 3rem;
+            color: var(--blue);
+            font-weight: 600;
+            font-family: serif;
+            margin-bottom: 20px;
+        }
+
+        /* Handwriting Section */
+        .pdf-handwriting {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: #1e3a8a;
+            line-height: 1.8;
+        }
+
+        .pdf-handwriting ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .pdf-handwriting li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pdf-handwriting li::before {
+            content: '✓';
+            color: var(--blue);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            font-family: sans-serif;
+        }
+
+        .pdf-footer {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 2px solid var(--blue);
+            padding-top: 20px;
+        }
+
+        .pdf-note {
+            font-size: 0.9rem;
+            color: var(--orange);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pdf-note i {
+            font-size: 1.5rem;
+            color: var(--blue);
+        }
+
+        .pdf-sign {
+            text-align: center;
+        }
+
+        /* 📱 Mobile Responsive */
+       /* 🚀 SIGNATURE PAD STYLES */
+.signature-wrapper { border: 2px dashed #cbd5e1; border-radius: 8px; background: #fff; position: relative; margin-top: 10px; overflow: hidden; }
+.signature-wrapper canvas { width: 100%; height: 200px; display: block; touch-action: none; /* Mobile par screen scroll hone se rokta hai */ }
+.btn-clear { position: absolute; top: 10px; right: 10px; background: #f8fafc; border: 1px solid #cbd5e1; padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; color: #475569; z-index: 10; font-weight: 600;}
+
+/* 📱 MOBILE RESPONSIVE (Fonts & Sizes) */
+@media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    .onboarding-container { padding: 25px 20px; margin: 20px 10px; }
+    .main-header { padding: 15px; }
+    .main-header .contact-btn { display: none; }
+    
+    /* Mobile ke liye Headings aur Buttons chhote kiye gaye hain */
+    .form-title { font-size: 1.3rem !important; }
+    .form-section h3 { font-size: 1.05rem !important; }
+    .modal-content h2 { font-size: 1.3rem !important; }
+    .btn-submit { font-size: 1rem !important; padding: 14px !important; }
+    
+    /* Mobile par Signature box ki height kam ki gayi hai */
+    .signature-wrapper canvas { height: 150px; }
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+    <div class="onboarding-container">
+        <h2 class="form-title">Client Onboarding Portal</h2>
+
+        <form id="onboardingForm">
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-user-doctor"></i> Personal & Clinic Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Doctor / Owner Name *</label>
+                        <input type="text" id="docName" required placeholder="Ex: Dr. Rahul Kumar">
+                    </div>
+                    <div class="form-group">
+                        <label>Clinic / Hospital Name *</label>
+                        <input type="text" id="clinicName" required placeholder="Ex: City Health Care">
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" id="mobile" required pattern="[0-9]{10}" placeholder="10 Digit Number">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number *</label>
+                        <input type="tel" id="whatsapp" required pattern="[0-9]{10}" placeholder="10 Digit Number">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Email Address *</label>
+                        <input type="email" id="email" required placeholder="doctor@clinic.com">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-hashtag"></i> Digital Assets (Optional)</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 15px;">Agar abhi links nahi hain, toh ise
+                    khali chhod sakte hain.</p>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Website URL</label>
+                        <input type="url" id="websiteLink" placeholder="https://www.yourclinic.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Google My Business (Map) Link</label>
+                        <input type="url" id="gmbLink" placeholder="Google map link">
+                    </div>
+                    <div class="form-group">
+                        <label>Facebook Page Link</label>
+                        <input type="url" id="fbLink" placeholder="https://facebook.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram Link</label>
+                        <input type="url" id="instaLink" placeholder="https://instagram.com/...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-briefcase"></i> Service & Costing Details</h3>
+
+                <div class="form-group full-width" style="margin-bottom: 20px;">
+                    <label>Select Services Opted For *</label>
+                    <div class="services-wrapper" id="servicesContainer">
+                        <div class="service-chip" onclick="toggleService(this)">Website Development</div>
+                        <div class="service-chip" onclick="toggleService(this)">SEO for Website</div>
+                        <div class="service-chip" onclick="toggleService(this)">Social Media Content</div>
+                        <div class="service-chip" onclick="toggleService(this)">Social Media Post</div>
+                        <div class="service-chip" onclick="toggleService(this)">GMB Post</div>
+                        <div class="service-chip" onclick="toggleService(this)">GMB Optimization</div>
+                        <div class="service-chip" onclick="toggleService(this)">Video Editing</div>
+                        <div class="service-chip" onclick="toggleService(this)">Video Post</div>
+                        <div class="service-chip" onclick="toggleService(this)">Blog Writing & Posting</div>
+                        <div class="service-chip" onclick="toggleService(this)">Meta Ads (FB/Insta)</div>
+                        <div class="service-chip" onclick="toggleService(this)">Google Ads</div>
+                        <div class="service-chip" onclick="toggleService(this)">Keyword Research & Ranking</div>
+                        <div class="service-chip" id="btnOthers" onclick="toggleOthers(this)">Others</div>
+                    </div>
+                    <input type="hidden" id="selectedServicesStr" required>
+
+                    <div id="otherServiceBox">
+                        <label style="color: var(--orange); margin-top: 10px;">Please specify 'Other' service:</label>
+                        <input type="text" id="otherServiceInput" placeholder="Type custom service here...">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Start Date *</label>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Date *</label>
+                        <input type="date" id="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>One Time Setup Cost (₹) *</label>
+                        <input type="number" id="oneTimeCost" required placeholder="Ex: 15000">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Retainer Cost (₹) *</label>
+                        <input type="number" id="monthlyCost" required placeholder="Ex: 10000">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-indian-rupee-sign"></i> Initial Payment Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Payment Method *</label>
+                        <select id="payMethod" required>
+                            <option value="Razorpay Checkout" selected>Razorpay Checkout (UPI / Card / NetBanking)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Initial Payable Amount *</label>
+                        <label class="payment-choice active" for="payAdvance">
+                            <input type="radio" name="paymentOption" id="payAdvance" value="advance90" checked>
+                            <span>
+                                <strong id="advanceOptionLabel">Pay 90% Advance (₹0)</strong>
+                                <span>Recommended advance based on One Time Setup Cost.</span>
+                            </span>
+                        </label>
+                        <label class="payment-choice" for="payOther">
+                            <input type="radio" name="paymentOption" id="payOther" value="other">
+                            <span>
+                                <strong>Other Amount</strong>
+                                <span>Use this if you want to collect a custom initial amount.</span>
+                            </span>
+                        </label>
+                        <div id="otherAmountBox">
+                            <input type="number" id="customPayAmount" min="1" placeholder="Enter custom amount">
+                        </div>
+                        <input type="hidden" id="payAmount" required>
+                        <div class="payment-summary">Final payable: <span id="finalPayableText">₹0</span></div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Date of Payment *</label>
+                        <input type="date" id="payDate" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-video"></i> Weekly Meeting Strategy</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Preferred Day for Online Meet *</label>
+                        <select id="meetDay" required>
+                            <option value="">Select a Day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Time *</label>
+                        <input type="time" id="meetTime" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fa-solid fa-signature"></i> Sign Agreement</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">Please sign below to authorize Vyapar Wallah as
+                    your digital partner. A detailed PDF agreement will be downloaded automatically.</p>
+            
+                <div class="signature-wrapper">
+                    <button type="button" class="btn-clear" id="clearSignature">Clear</button>
+                    <canvas id="signatureCanvas"></canvas>
+                </div>
+            </div>
+
+            <div class="form-section" style="background: #fff3ed; border-color: #fed7aa;">
+                <h3><i class="fa-solid fa-file-contract"></i> Agreements & Consents</h3>
+                <div class="legal-check">
+                    <input type="checkbox" id="checkTnc" required>
+                    <label for="checkTnc">I have read and agree to the <span class="legal-link"
+                            onclick="openModal('tncModal')">Terms & Conditions</span> of Vyapar Wallah.</label>
+                </div>
+                <div class="legal-check">
+                    <input type="checkbox" id="checkPrivacy" required>
+                    <label for="checkPrivacy">I have read and agree to the <span class="legal-link"
+                            onclick="openModal('privacyModal')">Privacy Policy</span>.</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Complete Onboarding & Pay Securely</button>
+        </form>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <div class="modal-overlay" id="tncModal">
+        <div class="modal-content"><i class="fa-solid fa-xmark modal-close" onclick="closeModal('tncModal')"></i>
+            <h2>Terms & Conditions</h2>
+            <p>Welcome to <strong>Vyapar Wallah</strong>. By onboarding as a client, you agree to the following terms:
+            </p>
+            <ul>
+                <li><strong>Service Scope:</strong> We will provide digital marketing services as explicitly mentioned
+                    in the 'Services Opted' section.</li>
+                <li><strong>Payment Terms:</strong> Monthly retainer invoices must be cleared within 5 days of invoice
+                    generation.</li>
+                <li><strong>Ad Budgets:</strong> Monthly retainer cost does NOT include ad spend (Google/Facebook Ads).
+                    Ad budget must be provided separately.</li>
+                <li><strong>Termination:</strong> Either party can terminate this agreement with a 15-day prior written
+                    notice.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content"><i class="fa-solid fa-xmark modal-close" onclick="closeModal('privacyModal')"></i>
+            <h2>Privacy Policy</h2>
+            <p>At <strong>Vyapar Wallah</strong>, your data security is our top priority.</p>
+            <ul>
+                <li><strong>Data Usage:</strong> Your clinic details will only be used for executing marketing
+                    campaigns.</li>
+                <li><strong>Asset Security:</strong> Any passwords or access provided will be kept strictly
+                    confidential.</li>
+                <li><strong>NDA:</strong> We will not share your patient data or revenue details with any third party.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="pdfWrapper">
+        <div id="pdfTemplate">
+            <div class="pdf-header">
+                <div>
+                    <div class="pdf-logo">Vyapar<span>Wallah</span></div>
+                    <div class="pdf-logo-sub">Expert in Doctor Marketing</div>
+                </div>
+                <div class="pdf-address">
+                    Address: New Alkapuri,<br>
+                    Gardanibagh, Patna,<br>
+                    Bihar - 800002
+                </div>
+            </div>
+
+            <div class="pdf-meta">
+                <div>Phone: +91-9187641492</div>
+                <div>Date: <span id="pdfDateToday"></span></div>
+            </div>
+
+            <div class="pdf-rx-symbol">℞</div>
+
+            <div class="pdf-handwriting">
+                <span style="border-bottom: 2px solid #1e3a8a; padding-bottom: 5px;">Consult over Phone</span>
+
+                <div style="margin-top: 20px;">
+                    <strong>Patient (Client):</strong> <span id="pdfDocName"></span> <br>
+                    <strong>Clinic:</strong> <span id="pdfClinicName"></span>
+                </div>
+
+                <ul id="pdfServiceList">
+                </ul>
+
+                <div style="margin-top: 30px;">
+                    <strong>Therapy Period:</strong> <span id="pdfTherapy"></span> <br>
+                    <strong>Review Meet:</strong> <span id="pdfMeetDetails"></span> <br>
+                    <span style="font-size: 1.2rem; color: #475569;">Advance Received: <span
+                            id="pdfAdvPay"></span></span>
+                </div>
+
+                <div
+                    style="margin-top: 40px; text-align: center; border-bottom: 2px solid #1e3a8a; padding-bottom: 5px; display: inline-block;">
+                    Marketing se Practice ki Growth!
+                </div>
+            </div>
+
+            <div class="pdf-footer">
+                <div>
+                    <p style="font-size: 1.1rem; color: #0A4C95; font-weight: 800;">Client Consent & Signature</p>
+                    <img id="pdfClientSign" src="" alt="Client Signature"
+                        style="max-height: 50px; margin-top: 10px; display: block;">
+                    <p style="font-weight: normal; font-size: 0.75rem; margin-top: 5px; color: #555;">T&C Accepted Digitally.</p>
+                </div>
+                <div class="pdf-sign">
+                    <p style="color: #F37021; font-family: 'Brush Script MT', cursive; font-size: 2rem;">Vyapar Wallah</p>
+                    <p style="font-size: 0.9rem; color: #555;">Authorized Signatory</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script type="text/plain" id="legacyOnboardingScript">
+
+        // --- SIGNATURE PAD LOGIC ---
+            const canvas = document.getElementById('signatureCanvas');
+            const signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                penColor: '#0A4C95' // Vyapar Wallah Blue color for pen
+            });
+
+            // Mobile par touch accuracy ke liye canvas resize function
+            function resizeCanvas() {
+                const ratio = Math.max(window.devicePixelRatio || 1, 1);
+                canvas.width = canvas.offsetWidth * ratio;
+                canvas.height = canvas.offsetHeight * ratio;
+                canvas.getContext("2d").scale(ratio, ratio);
+                signaturePad.clear(); // Resize par canvas clear karna padta hai
+            }
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+
+            // Clear Button
+            document.getElementById('clearSignature').addEventListener('click', function () {
+                signaturePad.clear();
+            });
+            // -----------------------------
+        // Modal Logic
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        // Set Today's Date in PDF
+        const today = new Date();
+        document.getElementById('pdfDateToday').innerText = today.toLocaleDateString('en-GB');
+
+        // Service Chips Logic
+        let selectedServices = [];
+
+        function toggleService(element) {
+            element.classList.toggle('active');
+            updateServicesString();
+        }
+
+        function toggleOthers(element) {
+            element.classList.toggle('active');
+            const otherBox = document.getElementById('otherServiceBox');
+            if (element.classList.contains('active')) {
+                otherBox.style.display = 'block';
+            } else {
+                otherBox.style.display = 'none';
+                document.getElementById('otherServiceInput').value = ""; // Clear input if deselected
+            }
+            updateServicesString();
+        }
+
+        document.getElementById('otherServiceInput').addEventListener('input', updateServicesString);
+
+        function updateServicesString() {
+            selectedServices = [];
+            document.querySelectorAll('.service-chip.active').forEach(chip => {
+                if (chip.id !== 'btnOthers') {
+                    selectedServices.push(chip.innerText);
+                }
+            });
+
+            // Add custom service if 'Others' is active
+            if (document.getElementById('btnOthers').classList.contains('active')) {
+                const otherVal = document.getElementById('otherServiceInput').value.trim();
+                if (otherVal) selectedServices.push(otherVal);
+            }
+
+            document.getElementById('selectedServicesStr').value = selectedServices.join(', ');
+        }
+
+        // Form Submit & PDF Generation
+        document.getElementById('onboardingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Check if signature is empty
+            if (signaturePad.isEmpty()) {
+                alert("Please provide your digital signature before submitting.");
+                return;
+            }
+
+            // Capture Signature as Base64 Image
+            const signatureImage = signaturePad.toDataURL("image/png");
+
+            // Set this image to the Hidden PDF Template
+            document.getElementById('pdfClientSign').src = signatureImage;
+
+            if (selectedServices.length === 0) {
+                alert("Please select at least one service!");
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = "Generating Prescription...";
+            btn.disabled = true;
+
+            // Gather Data
+            const docName = document.getElementById('docName').value;
+            const clinicName = document.getElementById('clinicName').value;
+
+            // Populate PDF
+            document.getElementById('pdfDocName').innerText = "Dr. " + docName;
+            document.getElementById('pdfClinicName').innerText = clinicName;
+            document.getElementById('pdfTherapy').innerText = document.getElementById('startDate').value + " to " + document.getElementById('endDate').value;
+            document.getElementById('pdfMeetDetails').innerText = "Every " + document.getElementById('meetDay').value + " at " + document.getElementById('meetTime').value;
+            document.getElementById('pdfAdvPay').innerText = "₹" + document.getElementById('payAmount').value + " (" + document.getElementById('payMethod').value + ")";
+
+            // Inject Services into PDF List (Prescription Style)
+            const ul = document.getElementById('pdfServiceList');
+            ul.innerHTML = ""; // Clear old
+            selectedServices.forEach(srv => {
+                let li = document.createElement('li');
+                li.innerHTML = `Tab ${srv} &nbsp;&nbsp;&nbsp; <span style="font-size:1.2rem; color:#475569;">(1 x 1 Daily)</span>`;
+                ul.appendChild(li);
+            });
+
+            // Generate PDF
+            const element = document.getElementById('pdfTemplate');
+
+            const opt = {
+                margin: [0.2, 0, 0.2, 0], // top, left, bottom, right
+                filename: clinicName.replace(/\s+/g, '_') + '_Rx_VyaparWallah.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+
+                // Email bhejne ke liye Data tayar karna
+                const templateParams = {
+                    client_name: docName,
+                    clinic_name: clinicName,
+                    user_email: document.getElementById('email').value,
+                    services: document.getElementById('selectedServicesStr').value
+                };
+
+                // Niche apni SERVICE_ID aur TEMPLATE_ID dalein
+                emailjs.send('service_qwevh4i', 'template_xmfmguw', templateParams)
+                    .then(function () {
+                        alert("Success! Prescription Downloaded & Welcome Email Sent!");
+                        window.location.reload();
+                    }, function (error) {
+                        console.log('EmailJS Error:', error);
+                        alert("The PDF downloaded successfully, but the email failed. Please check your keys..");
+                        window.location.reload();
+                    });
+
+            });
+
+                alert("Success! Prescription PDF Downloaded.\n(Connect EmailJS for automated emails)");
+                window.location.reload();
+            });
+        
+
+        // Load Header
+            fetch('header.html') // Yahan apne header file ka sahi naam/path daalein
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+
+            // Load Footer
+            fetch('footer.html') // Yahan apne footer file ka sahi naam/path daalein
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+    </script>
+    <script>
+        const RAZORPAY_KEY_ID = "rzp_test_REPLACE_WITH_YOUR_KEY_ID";
+        let selectedServices = [];
+        let finalPayableAmount = 0;
+
+        const form = document.getElementById('onboardingForm');
+        const canvas = document.getElementById('signatureCanvas');
+        const signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: '#0A4C95'
+        });
+
+        function formatINR(amount) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(Number(amount) || 0);
+        }
+
+        function resizeCanvas() {
+            const ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            signaturePad.clear();
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        document.getElementById('clearSignature').addEventListener('click', () => signaturePad.clear());
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        function toggleService(element) {
+            element.classList.toggle('active');
+            updateServicesString();
+        }
+
+        function toggleOthers(element) {
+            element.classList.toggle('active');
+            const otherBox = document.getElementById('otherServiceBox');
+            if (element.classList.contains('active')) {
+                otherBox.style.display = 'block';
+            } else {
+                otherBox.style.display = 'none';
+                document.getElementById('otherServiceInput').value = "";
+            }
+            updateServicesString();
+        }
+
+        document.getElementById('otherServiceInput').addEventListener('input', updateServicesString);
+
+        function updateServicesString() {
+            selectedServices = [];
+            document.querySelectorAll('.service-chip.active').forEach(chip => {
+                if (chip.id !== 'btnOthers') selectedServices.push(chip.innerText.trim());
+            });
+
+            if (document.getElementById('btnOthers').classList.contains('active')) {
+                const otherVal = document.getElementById('otherServiceInput').value.trim();
+                if (otherVal) selectedServices.push(otherVal);
+            }
+
+            document.getElementById('selectedServicesStr').value = selectedServices.join(', ');
+        }
+
+        function updatePaymentAmount() {
+            const setupCost = Number(document.getElementById('oneTimeCost').value) || 0;
+            const advanceAmount = Math.round(setupCost * 0.9);
+            const isOther = document.getElementById('payOther').checked;
+            const customAmount = Number(document.getElementById('customPayAmount').value) || 0;
+
+            finalPayableAmount = isOther ? customAmount : advanceAmount;
+            document.getElementById('advanceOptionLabel').innerText = `Pay 90% Advance (${formatINR(advanceAmount)})`;
+            document.getElementById('payAmount').value = finalPayableAmount > 0 ? finalPayableAmount : "";
+            document.getElementById('finalPayableText').innerText = formatINR(finalPayableAmount);
+            document.getElementById('otherAmountBox').style.display = isOther ? 'block' : 'none';
+
+            document.querySelectorAll('.payment-choice').forEach(choice => choice.classList.remove('active'));
+            document.querySelector(isOther ? 'label[for="payOther"]' : 'label[for="payAdvance"]').classList.add('active');
+        }
+
+        document.getElementById('oneTimeCost').addEventListener('input', updatePaymentAmount);
+        document.getElementById('customPayAmount').addEventListener('input', updatePaymentAmount);
+        document.querySelectorAll('input[name="paymentOption"]').forEach(input => {
+            input.addEventListener('change', updatePaymentAmount);
+        });
+        updatePaymentAmount();
+
+        async function createRazorpayOrder() {
+            const response = await fetch('create_order.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: finalPayableAmount,
+                    doctor_name: document.getElementById('docName').value.trim(),
+                    clinic_name: document.getElementById('clinicName').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    mobile: document.getElementById('mobile').value.trim(),
+                    services: document.getElementById('selectedServicesStr').value
+                })
+            });
+
+            const result = await response.json().catch(() => null);
+            if (!response.ok || !result || !result.success) {
+                throw new Error(result?.message || "Unable to create secure Razorpay order.");
+            }
+
+            return result;
+        }
+
+        function getFormData(paymentResponse) {
+            return {
+                doctorName: document.getElementById('docName').value.trim(),
+                clinicName: document.getElementById('clinicName').value.trim(),
+                mobile: document.getElementById('mobile').value.trim(),
+                whatsapp: document.getElementById('whatsapp').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                websiteLink: document.getElementById('websiteLink').value.trim(),
+                gmbLink: document.getElementById('gmbLink').value.trim(),
+                fbLink: document.getElementById('fbLink').value.trim(),
+                instaLink: document.getElementById('instaLink').value.trim(),
+                services: selectedServices,
+                servicesText: document.getElementById('selectedServicesStr').value,
+                startDate: document.getElementById('startDate').value,
+                endDate: document.getElementById('endDate').value,
+                oneTimeCost: Number(document.getElementById('oneTimeCost').value) || 0,
+                monthlyCost: Number(document.getElementById('monthlyCost').value) || 0,
+                paymentMethod: "Razorpay Checkout",
+                paymentOption: document.getElementById('payOther').checked ? "Other Amount" : "90% Advance",
+                paidAmount: finalPayableAmount,
+                paymentDate: document.getElementById('payDate').value,
+                meetDay: document.getElementById('meetDay').value,
+                meetTime: document.getElementById('meetTime').value,
+                signatureImage: signaturePad.toDataURL("image/png"),
+                razorpayPaymentId: paymentResponse.razorpay_payment_id,
+                razorpayOrderId: paymentResponse.razorpay_order_id || "",
+                razorpaySignature: paymentResponse.razorpay_signature || "",
+                submittedAt: new Date().toISOString()
+            };
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            updateServicesString();
+            updatePaymentAmount();
+
+            if (!form.reportValidity()) return;
+
+            if (selectedServices.length === 0) {
+                alert("Please select at least one service.");
+                return;
+            }
+
+            if (signaturePad.isEmpty()) {
+                alert("Please provide your digital signature before submitting.");
+                return;
+            }
+
+            if (finalPayableAmount <= 0) {
+                alert("Please enter a valid payable amount.");
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerHTML = "Creating Secure Order...";
+
+            let secureOrder;
+            try {
+                secureOrder = await createRazorpayOrder();
+            } catch (error) {
+                console.error('Razorpay order error:', error);
+                alert(error.message || "Payment could not be started. Please try again.");
+                btn.disabled = false;
+                btn.innerHTML = "Complete Onboarding & Pay Securely";
+                return;
+            }
+
+            btn.innerHTML = "Opening Secure Checkout...";
+
+            const options = {
+                key: secureOrder.key_id || RAZORPAY_KEY_ID,
+                amount: secureOrder.amount,
+                currency: "INR",
+                order_id: secureOrder.order_id,
+                name: "Vyapar Wallah",
+                description: `Client onboarding for ${document.getElementById('clinicName').value.trim()}`,
+                image: `${window.location.origin}/logo2.png`,
+                prefill: {
+                    name: document.getElementById('docName').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    contact: document.getElementById('mobile').value.trim()
+                },
+                notes: {
+                    clinic_name: document.getElementById('clinicName').value.trim(),
+                    services: document.getElementById('selectedServicesStr').value
+                },
+                theme: { color: "#0A4C95" },
+                // Production security note:
+                // create_order.php generates the Razorpay order_id using your secret key.
+                // For strict production security, also verify razorpay_signature on your PHP backend
+                // before treating the onboarding/payment as final.
+                handler: function (response) {
+                    localStorage.setItem('vyaparOnboardingData', JSON.stringify(getFormData(response)));
+                    window.location.href = 'thankyou.html';
+                },
+                modal: {
+                    ondismiss: function () {
+                        btn.disabled = false;
+                        btn.innerHTML = "Complete Onboarding & Pay Securely";
+                    }
+                }
+            };
+
+            new Razorpay(options).open();
+        });
+
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('header-placeholder').innerHTML = data; })
+            .catch(() => {});
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; })
+            .catch(() => {});
+    </script>
+</body>
+
+</html>

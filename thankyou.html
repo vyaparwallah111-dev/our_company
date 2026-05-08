@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | Vyapar Wallah</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        :root {
+            --blue: #0A4C95;
+            --orange: #F37021;
+            --bg: #f1f5f9;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #dbe4ef;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(243, 112, 33, 0.18), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(10, 76, 149, 0.16), transparent 32%),
+                linear-gradient(135deg, #ffffff 0%, var(--bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .success-shell {
+            width: min(960px, 100%);
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            box-shadow: 0 24px 70px rgba(10, 76, 149, 0.16);
+            overflow: hidden;
+        }
+
+        .brand-bar {
+            background: linear-gradient(90deg, var(--blue), #083a73);
+            color: #fff;
+            padding: 18px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .brand span {
+            color: var(--orange);
+        }
+
+        .status-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .content {
+            padding: 42px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            background: #ecfdf5;
+            color: #10b981;
+            display: grid;
+            place-items: center;
+            font-size: 3rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 14px 32px rgba(16, 185, 129, 0.18);
+        }
+
+        h1 {
+            color: var(--blue);
+            font-size: clamp(1.9rem, 5vw, 3rem);
+            line-height: 1.15;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .txn-card {
+            margin: 30px auto;
+            max-width: 680px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            text-align: left;
+        }
+
+        .txn-item {
+            background: #fff;
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            padding: 14px;
+            min-width: 0;
+        }
+
+        .txn-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .txn-item strong {
+            color: var(--blue);
+            font-size: 0.98rem;
+            overflow-wrap: anywhere;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 999px;
+            padding: 13px 22px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            text-decoration: none;
+            transition: 0.25s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(243, 112, 33, 0.24);
+        }
+
+        .btn-secondary {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(10, 76, 149, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .countdown {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .countdown strong {
+            color: var(--orange);
+            font-size: 1.15rem;
+        }
+
+        .status-line {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-top: 12px;
+        }
+
+        #pdfWrapper {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            z-index: -10;
+        }
+
+        #pdfTemplate {
+            width: 800px;
+            background: #fffcf5;
+            padding: 40px;
+            color: #111;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--orange);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pdf-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--blue);
+            line-height: 1;
+        }
+
+        .pdf-logo span {
+            color: var(--orange);
+        }
+
+        .pdf-logo-sub {
+            font-size: 1rem;
+            color: var(--blue);
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .pdf-address {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--blue);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .pdf-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--orange);
+            border-bottom: 1px solid rgba(243, 112, 33, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .pdf-rx-symbol {
+            font-size: 3rem;
+            color: var(--blue);
+            font-weight: 600;
+            font-family: serif;
+            margin-bottom: 20px;
+        }
+
+        .pdf-handwriting {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: #1e3a8a;
+            line-height: 1.8;
+        }
+
+        .pdf-handwriting ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .pdf-handwriting li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pdf-handwriting li::before {
+            content: '✓';
+            color: var(--blue);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            font-family: sans-serif;
+        }
+
+        .pdf-footer {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 2px solid var(--blue);
+            padding-top: 20px;
+        }
+
+        .pdf-sign {
+            text-align: center;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 14px;
+                align-items: flex-start;
+            }
+
+            .brand-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 18px;
+            }
+
+            .content {
+                padding: 30px 18px;
+            }
+
+            .txn-card {
+                grid-template-columns: 1fr;
+                padding: 14px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="success-shell">
+        <div class="brand-bar">
+            <div class="brand">Vyapar<span>Wallah</span></div>
+            <div class="status-pill"><i class="fa-solid fa-shield-check"></i> Payment Verified</div>
+        </div>
+
+        <section class="content">
+            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+            <h1 id="thankTitle">Thank you!</h1>
+            <p class="lead" id="thankMessage">Your onboarding payment is successful. We are preparing your welcome
+                prescription and email.</p>
+
+            <div class="txn-card">
+                <div class="txn-item">
+                    <span>Clinic</span>
+                    <strong id="clinicText">Vyapar Wallah Client</strong>
+                </div>
+                <div class="txn-item">
+                    <span>Paid Amount</span>
+                    <strong id="amountText">₹0</strong>
+                </div>
+                <div class="txn-item">
+                    <span>Transaction ID</span>
+                    <strong id="paymentIdText">Pending</strong>
+                </div>
+                <div class="txn-item">
+                    <span>Services</span>
+                    <strong id="servicesText">Selected marketing services</strong>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" id="downloadBtn"><i class="fa-solid fa-file-arrow-down"></i> Download
+                    Prescription Again</button>
+                <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Go to Website</a>
+            </div>
+
+            <p class="countdown">Redirecting to home in <strong id="countdownText">60</strong> seconds</p>
+            <p class="status-line" id="statusLine">PDF download and welcome email will start automatically.</p>
+        </section>
+    </main>
+
+    <div id="pdfWrapper">
+        <div id="pdfTemplate">
+            <div class="pdf-header">
+                <div>
+                    <div class="pdf-logo">Vyapar<span>Wallah</span></div>
+                    <div class="pdf-logo-sub">Expert in Doctor Marketing</div>
+                </div>
+                <div class="pdf-address">
+                    Address: New Alkapuri,<br>
+                    Gardanibagh, Patna,<br>
+                    Bihar - 800002
+                </div>
+            </div>
+
+            <div class="pdf-meta">
+                <div>Phone: +91-9187641492</div>
+                <div>Date: <span id="pdfDateToday"></span></div>
+            </div>
+
+            <div class="pdf-rx-symbol">℞</div>
+
+            <div class="pdf-handwriting">
+                <span style="border-bottom: 2px solid #1e3a8a; padding-bottom: 5px;">Consult over Phone</span>
+
+                <div style="margin-top: 20px;">
+                    <strong>Patient (Client):</strong> <span id="pdfDocName"></span> <br>
+                    <strong>Clinic:</strong> <span id="pdfClinicName"></span>
+                </div>
+
+                <ul id="pdfServiceList"></ul>
+
+                <div style="margin-top: 30px;">
+                    <strong>Therapy Period:</strong> <span id="pdfTherapy"></span> <br>
+                    <strong>Review Meet:</strong> <span id="pdfMeetDetails"></span> <br>
+                    <span style="font-size: 1.2rem; color: #475569;">Advance Received: <span
+                            id="pdfAdvPay"></span></span><br>
+                    <span style="font-size: 1.05rem; color: #475569;">Txn ID: <span id="pdfTxnId"></span></span>
+                </div>
+
+                <div
+                    style="margin-top: 40px; text-align: center; border-bottom: 2px solid #1e3a8a; padding-bottom: 5px; display: inline-block;">
+                    Marketing se Practice ki Growth!
+                </div>
+            </div>
+
+            <div class="pdf-footer">
+                <div>
+                    <p style="font-size: 1.1rem; color: #0A4C95; font-weight: 800;">Client Consent & Signature</p>
+                    <img id="pdfClientSign" src="" alt="Client Signature"
+                        style="max-height: 50px; margin-top: 10px; display: block;">
+                    <p style="font-weight: normal; font-size: 0.75rem; margin-top: 5px; color: #555;">T&C Accepted
+                        Digitally.</p>
+                </div>
+                <div class="pdf-sign">
+                    <p style="color: #F37021; font-family: 'Brush Script MT', cursive; font-size: 2rem;">Vyapar Wallah
+                    </p>
+                    <p style="font-size: 0.9rem; color: #555;">Authorized Signatory</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const EMAILJS_PUBLIC_KEY = "YBuyKNlXYV72LjERg";
+        const EMAILJS_SERVICE_ID = "service_qwevh4i";
+        const EMAILJS_TEMPLATE_ID = "template_xmfmguw";
+        const STORAGE_KEY = "vyaparOnboardingData";
+
+        const fallbackData = {
+            doctorName: "Valued Client",
+            clinicName: "your clinic",
+            services: [],
+            servicesText: "Selected marketing services",
+            paidAmount: 0,
+            paymentMethod: "Razorpay Checkout",
+            razorpayPaymentId: "Not available",
+            startDate: "",
+            endDate: "",
+            meetDay: "",
+            meetTime: "",
+            email: "",
+            mobile: "",
+            signatureImage: ""
+        };
+
+        const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || fallbackData;
+        const data = { ...fallbackData, ...storedData };
+
+        function formatINR(amount) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(Number(amount) || 0);
+        }
+
+        function safeFileName(value) {
+            return String(value || "Vyapar_Wallah_Client").replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
+        }
+
+        function triggerConfetti() {
+            const duration = 3200;
+            const end = Date.now() + duration;
+            const defaults = { startVelocity: 34, spread: 360, ticks: 70, zIndex: 999 };
+
+            const interval = setInterval(() => {
+                const timeLeft = end - Date.now();
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                const particleCount = 55 * (timeLeft / duration);
+                confetti({ ...defaults, particleCount, origin: { x: 0.2, y: 0.2 } });
+                confetti({ ...defaults, particleCount, origin: { x: 0.8, y: 0.2 } });
+            }, 250);
+        }
+
+        function populatePage() {
+            const doctorDisplay = data.doctorName.toLowerCase().startsWith('dr.') ? data.doctorName : `Dr. ${data.doctorName}`;
+            document.getElementById('thankTitle').innerText = `Thank you, ${doctorDisplay}!`;
+            document.getElementById('thankMessage').innerText =
+                `Payment of ${formatINR(data.paidAmount)} successful. Your Vyapar Wallah onboarding is confirmed.`;
+            document.getElementById('clinicText').innerText = data.clinicName;
+            document.getElementById('amountText').innerText = formatINR(data.paidAmount);
+            document.getElementById('paymentIdText').innerText = data.razorpayPaymentId;
+            document.getElementById('servicesText').innerText = data.servicesText || data.services.join(', ');
+        }
+
+        function populatePdf() {
+            const services = Array.isArray(data.services) && data.services.length
+                ? data.services
+                : String(data.servicesText || "Digital Marketing Services").split(',').map(item => item.trim()).filter(Boolean);
+
+            document.getElementById('pdfDateToday').innerText = new Date().toLocaleDateString('en-GB');
+            document.getElementById('pdfDocName').innerText = data.doctorName.toLowerCase().startsWith('dr.')
+                ? data.doctorName
+                : `Dr. ${data.doctorName}`;
+            document.getElementById('pdfClinicName').innerText = data.clinicName;
+            document.getElementById('pdfTherapy').innerText = `${data.startDate || 'Start date'} to ${data.endDate || 'End date'}`;
+            document.getElementById('pdfMeetDetails').innerText = data.meetDay && data.meetTime
+                ? `Every ${data.meetDay} at ${data.meetTime}`
+                : "As scheduled with Vyapar Wallah";
+            document.getElementById('pdfAdvPay').innerText = `${formatINR(data.paidAmount)} (${data.paymentMethod})`;
+            document.getElementById('pdfTxnId').innerText = data.razorpayPaymentId;
+            document.getElementById('pdfClientSign').src = data.signatureImage || "";
+
+            const list = document.getElementById('pdfServiceList');
+            list.innerHTML = "";
+            services.forEach(service => {
+                const li = document.createElement('li');
+                const dose = document.createElement('span');
+                li.append(`Tab ${service}   `);
+                dose.style.fontSize = '1.2rem';
+                dose.style.color = '#475569';
+                dose.innerText = '(1 x 1 Daily)';
+                li.appendChild(dose);
+                list.appendChild(li);
+            });
+        }
+
+        function downloadPrescription() {
+            populatePdf();
+            const options = {
+                margin: [0.2, 0, 0.2, 0],
+                filename: `${safeFileName(data.clinicName)}_Rx_VyaparWallah.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            document.getElementById('statusLine').innerText = "Preparing prescription PDF...";
+            return html2pdf().set(options).from(document.getElementById('pdfTemplate')).save()
+                .then(() => {
+                    document.getElementById('statusLine').innerText = "Prescription downloaded. Welcome email is being sent.";
+                })
+                .catch(error => {
+                    console.error('PDF download failed:', error);
+                    document.getElementById('statusLine').innerText = "Auto-download failed. Please use the download button.";
+                });
+        }
+
+        function sendWelcomeEmail() {
+            if (!data.email) return Promise.resolve();
+
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+            return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                client_name: data.doctorName,
+                clinic_name: data.clinicName,
+                user_email: data.email,
+                mobile: data.mobile,
+                services: data.servicesText || data.services.join(', '),
+                paid_amount: formatINR(data.paidAmount),
+                transaction_id: data.razorpayPaymentId,
+                payment_date: data.paymentDate || new Date().toLocaleDateString('en-GB')
+            }).then(() => {
+                document.getElementById('statusLine').innerText = "Prescription downloaded and welcome email sent.";
+            }).catch(error => {
+                console.error('EmailJS Error:', error);
+                document.getElementById('statusLine').innerText = "Prescription downloaded. EmailJS failed, please check template settings.";
+            });
+        }
+
+        function startCountdown() {
+            let seconds = 60;
+            const countdownText = document.getElementById('countdownText');
+            const timer = setInterval(() => {
+                seconds -= 1;
+                countdownText.innerText = seconds;
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    window.location.href = 'index.html';
+                }
+            }, 1000);
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', downloadPrescription);
+
+        window.addEventListener('load', () => {
+            populatePage();
+            populatePdf();
+            triggerConfetti();
+            setTimeout(() => {
+                downloadPrescription().then(sendWelcomeEmail);
+            }, 900);
+            startCountdown();
+        });
+    </script>
+</body>
+
+</html>
