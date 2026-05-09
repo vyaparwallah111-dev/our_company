@@ -5,7 +5,11 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
+session_start();
+
 header('Content-Type: application/json');
+
+$config = require __DIR__ . '/config.php';
 
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
@@ -22,9 +26,35 @@ function respond(string $status, string $message = ''): void
     exit;
 }
 
+function h(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+function moneyValue(mixed $value): float
+{
+    $normalized = preg_replace('/[^\d.-]/', '', (string) $value);
+    return is_numeric($normalized) ? (float) $normalized : 0.0;
+}
+
+function formatMoney(float $value): string
+{
+    return number_format($value, 0, '.', ',');
+}
+
+function sessionString(array $source, string $key, string $fallback = ''): string
+{
+    return trim((string) ($source[$key] ?? $fallback));
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     respond('error', 'Only POST requests are allowed.');
+}
+
+if (!isset($_SESSION['is_paid']) || $_SESSION['is_paid'] !== true || !isset($_SESSION['onboarding']) || !is_array($_SESSION['onboarding'])) {
+    http_response_code(403);
+    respond('error', 'Unauthorized payment session.');
 }
 
 $rawBody = file_get_contents('php://input');
@@ -35,40 +65,65 @@ if (!is_array($data)) {
     respond('error', 'Invalid JSON payload.');
 }
 
-$email = trim((string) ($data['email'] ?? ''));
-$rawName = trim((string) ($data['name'] ?? 'Doctor'));
-$rawClinic = trim((string) ($data['clinic'] ?? 'your clinic'));
-$amount = trim((string) ($data['amount'] ?? '0'));
-$pdfBase64 = (string) ($data['pdfBase64'] ?? '');
+$onboarding = $_SESSION['onboarding'];
+$email = sessionString($onboarding, 'email');
+$rawName = sessionString($onboarding, 'doctorName', 'Doctor');
+$rawClinic = sessionString($onboarding, 'clinicName', 'your clinic');
+$mobile = sessionString($onboarding, 'mobile', 'N/A');
+$whatsapp = sessionString($onboarding, 'whatsapp', 'N/A');
+$txnId = sessionString($onboarding, 'razorpayPaymentId', 'N/A');
+$setupCost = moneyValue($onboarding['oneTimeCost'] ?? 0);
+$monthlyCost = moneyValue($onboarding['monthlyCost'] ?? 0);
+$advancePaid = moneyValue($onboarding['paidAmount'] ?? 0);
+$balanceDue = $setupCost - $advancePaid;
+$safeSetupCost = formatMoney($setupCost);
+$safeMonthlyCost = formatMoney($monthlyCost);
+$safeAdvancePaid = formatMoney($advancePaid);
+$safeBalanceDue = formatMoney($balanceDue);
+$rxPdfRaw = (string) ($data['rxPdf'] ?? '');
+$invPdfRaw = (string) ($data['invoicePdf'] ?? '');
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     respond('error', 'A valid recipient email is required.');
 }
 
-if ($pdfBase64 === '') {
+if ($rxPdfRaw === '' || $invPdfRaw === '') {
     http_response_code(400);
-    respond('error', 'PDF attachment data is missing.');
+    respond('error', 'One or more PDF attachments are missing.');
 }
 
-$pdfBase64 = trim($pdfBase64);
+function decodePdf(string $raw): string|false
+{
+    $base64 = trim($raw);
+    if (strpos($base64, ',') !== false) {
+        $parts = explode(',', $base64, 2);
+        $base64 = $parts[1] ?? '';
+    }
+    $base64 = str_replace(' ', '+', $base64);
+    $decoded = base64_decode($base64, true);
 
-if (strpos($pdfBase64, ',') !== false) {
-    $base64Parts = explode(',', $pdfBase64);
-    $pdfBase64 = $base64Parts[1];
+    if ($decoded === false || strncmp($decoded, '%PDF', 4) !== 0) {
+        return false;
+    }
+
+    return $decoded;
 }
 
-$pdfBase64 = str_replace(' ', '+', $pdfBase64);
-$decodedPdfBinary = base64_decode($pdfBase64);
+$decodedRx = decodePdf($rxPdfRaw);
+$decodedInv = decodePdf($invPdfRaw);
 
-if ($decodedPdfBinary === false) {
+if ($decodedRx === false || $decodedInv === false) {
     http_response_code(400);
-    respond('error', 'PDF attachment data is not valid Base64 after stripping prefix.');
+    respond('error', 'Invalid PDF data provided.');
 }
 
-$name = htmlspecialchars($rawName, ENT_QUOTES, 'UTF-8');
-$clinic = htmlspecialchars($rawClinic, ENT_QUOTES, 'UTF-8');
-$safeAmount = htmlspecialchars($amount, ENT_QUOTES, 'UTF-8');
+$name = h($rawName);
+$clinic = h($rawClinic);
+$safeEmail = h($email);
+$safeMobile = h($mobile);
+$safeWhatsapp = h($whatsapp);
+$safeTxnId = h($txnId);
 
 $mail = null;
 
@@ -76,17 +131,19 @@ try {
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // TODO: Replace with your Hostinger SMTP host.
-    $mail->SMTPAuth = true; // TODO: Keep true for authenticated SMTP.
-    $mail->Username = 'onboarding@vyaparwallah.com'; // TODO: Replace with your official email.
-    $mail->Password = 'Avinashjha@111'; // TODO: Replace with your SMTP password or app password.
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // TODO: Use ENCRYPTION_STARTTLS if your Hostinger port requires TLS.
-    $mail->Port = 465; // TODO: Common Hostinger ports: 465 for SSL, 587 for TLS.
+    $mail->Host = $config['smtp']['host'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $config['smtp']['username'];
+    $mail->Password = $config['smtp']['password'];
+    $mail->SMTPSecure = $config['smtp']['secure'] === 'tls'
+        ? PHPMailer::ENCRYPTION_STARTTLS
+        : PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = (int) $config['smtp']['port'];
 
     $mail->CharSet = 'UTF-8';
-    $mail->setFrom('onboarding@vyaparwallah.com', 'Vyapar Wallah'); // TODO: Replace with your official From address.
+    $mail->setFrom($config['smtp']['from_email'], $config['smtp']['from_name']);
     $mail->addAddress($email, $rawName);
-    $mail->addReplyTo('onboarding@vyaparwallah.com', 'Vyapar Wallah'); // TODO: Replace with your official reply-to address.
+    $mail->addReplyTo($config['smtp']['reply_to_email'], $config['smtp']['reply_to_name']);
 
     $mail->isHTML(true);
     $mail->Subject = 'Welcome to Vyapar Wallah - Onboarding Confirmed';
@@ -114,7 +171,7 @@ try {
         </div>
         <div style="background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
             <p style="margin: 0; font-size: 14px; color: #475569;">
-                📎 <strong>Important Note:</strong> Aapke 'Client Onboarding Record' ki digital prescription PDF niche attach kar di gayi hai (jo onboarding ke time aapke device me bhi download ho gayi thi). Kripya ise apne reference ke liye save rakhein.
+                📎 <strong>Important Note:</strong> Aapki digital prescription aur payment invoice niche attach kar di gayi hain. Amount Paid: ₹{$safeAdvancePaid}. Balance Due: ₹{$safeBalanceDue}. Transaction ID: {$safeTxnId}.
             </p>
         </div>
         <p style="font-size: 15px; color: #334155;">
@@ -134,16 +191,57 @@ try {
     </div>
 </div>
 HTML;
-    $mail->AltBody = "Welcome to Vyapar Wallah, {$rawName}! Your onboarding for {$rawClinic} is complete. We have received your initial payment of ₹{$amount}. Your onboarding PDF is attached.";
+    $mail->AltBody = "Welcome to Vyapar Wallah, Dr. {$rawName}! Your onboarding for {$rawClinic} is complete. Advance paid: ₹{$safeAdvancePaid}. Balance: ₹{$safeBalanceDue}. Transaction ID: {$txnId}. Docs attached.";
 
     $mail->addStringAttachment(
-        $decodedPdfBinary,
+        $decodedRx,
         'Vyapar-Wallah-Prescription.pdf',
         'base64',
         'application/pdf'
     );
+    $mail->addStringAttachment(
+        $decodedInv,
+        'Vyapar-Wallah-Invoice.pdf',
+        'base64',
+        'application/pdf'
+    );
 
+    // Send Email 1: Client Welcome
     $mail->send();
+
+    // --- Email 2: Admin Notification ---
+    // Clear previous recipients before adding the admin
+    $mail->clearAddresses();
+    $mail->addAddress('vyaparwallah111@gmail.com'); // REMINDER: Change this to your real admin email
+
+    $mail->Subject = '🚨 New Client Onboarded: ' . $clinic;
+
+    // Construct Admin Notification Body with a clean HTML data table
+    $mail->Body = "
+    <div style='font-family: Arial, sans-serif; color: #333;'>
+        <h2 style='color: #0A4C95;'>New Client Onboarding Record</h2>
+        <table border='1' cellpadding='10' cellspacing='0' style='border-collapse: collapse; width: 100%; max-width: 600px; border: 1px solid #ddd;'>
+            <tr style='background-color: #f2f2f2;'><th style='text-align: left;'>Field</th><th style='text-align: left;'>Details</th></tr>
+            <tr><td><strong>Doctor Name</strong></td><td>Dr. {$name}</td></tr>
+            <tr><td><strong>Clinic Name</strong></td><td>{$clinic}</td></tr>
+            <tr><td><strong>Phone (Mobile)</strong></td><td>{$safeMobile}</td></tr>
+            <tr><td><strong>WhatsApp</strong></td><td>{$safeWhatsapp}</td></tr>
+            <tr><td><strong>Email Address</strong></td><td>{$safeEmail}</td></tr>
+            <tr><td><strong>Setup Cost</strong></td><td>₹{$safeSetupCost}</td></tr>
+            <tr><td><strong>Monthly Cost</strong></td><td>₹{$safeMonthlyCost}</td></tr>
+            <tr><td><strong>Advance Paid</strong></td><td>₹{$safeAdvancePaid}</td></tr>
+            <tr><td><strong>Balance Due</strong></td><td>₹{$safeBalanceDue}</td></tr>
+            <tr><td><strong>Razorpay Payment ID</strong></td><td>{$safeTxnId}</td></tr>
+        </table>
+        <p style='margin-top: 20px;'>The onboarding PDF document is attached for your reference.</p>
+    </div>";
+
+    $mail->AltBody = "New Client Onboarded: Dr. {$rawName} from {$rawClinic}. Setup: ₹{$safeSetupCost}. Monthly: ₹{$safeMonthlyCost}. Advance paid: ₹{$safeAdvancePaid}. Balance due: ₹{$safeBalanceDue}. Payment ID: {$txnId}.";
+    
+    $mail->send(); // Send Admin Notification Email
+
+    unset($_SESSION['is_paid']);
+    session_destroy(); // Destroy session to prevent replay attacks after successful flow
     respond('success');
 } catch (Exception $error) {
     http_response_code(500);

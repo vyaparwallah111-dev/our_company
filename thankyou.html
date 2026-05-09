@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -207,116 +207,325 @@
             margin-top: 12px;
         }
 
-        #pdfWrapper {
+        .pdf-wrapper {
             position: absolute;
             left: -9999px;
             top: -9999px;
             z-index: -10;
         }
 
-        #pdfTemplate {
-            width: 800px;
-            background: #fffcf5;
+        #rxTemplate,
+        #invoiceTemplate {
+            width: 794px;
+            min-height: 1123px;
             padding: 40px;
-            color: #111;
-            font-family: 'Poppins', sans-serif;
-            position: relative;
-            border: 1px solid #e2e8f0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #fff;
+            color: #000;
+            font-size: 14px;
+            font-family: 'Poppins', Arial, sans-serif;
         }
 
-        .pdf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        #invoiceTemplate::before {
+            content: none;
+        }
+
+        .rx-template {
+            border: 1px solid #d9e2ef;
+        }
+
+        .rx-letterhead {
+            text-align: center;
             border-bottom: 3px solid var(--orange);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding-bottom: 16px;
         }
 
-        .pdf-logo {
-            font-size: 2.5rem;
-            font-weight: 900;
+        .pdf-logo-img,
+        .invoice-logo-img {
+            max-height: 60px;
+            display: block;
+            margin: 0 auto 12px auto;
+        }
+
+        .rx-brand {
             color: var(--blue);
+            font-size: 30px;
+            font-weight: 900;
             line-height: 1;
         }
 
-        .pdf-logo span {
+        .rx-brand span {
             color: var(--orange);
         }
 
-        .pdf-logo-sub {
-            font-size: 1rem;
-            color: var(--blue);
+        .rx-subtitle,
+        .rx-address {
+            color: #334155;
+            font-size: 12px;
             font-weight: 600;
             margin-top: 5px;
-            letter-spacing: 0.5px;
         }
 
-        .pdf-address {
-            text-align: right;
-            font-size: 0.9rem;
-            color: var(--blue);
-            font-weight: 500;
-            line-height: 1.5;
-        }
-
-        .pdf-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            font-weight: 600;
+        .rx-meta-line {
+            border-bottom: 1px solid #e2e8f0;
             color: var(--orange);
-            border-bottom: 1px solid rgba(243, 112, 33, 0.3);
+            font-size: 13px;
+            font-weight: 700;
+            margin: 14px 0 18px;
             padding-bottom: 10px;
+            display: block;
         }
 
-        .pdf-rx-symbol {
-            font-size: 3rem;
+        .rx-meta-line span:first-child {
+            display: inline-block;
+            width: 318px;
+        }
+
+        .rx-meta-line span:last-child {
+            display: inline-block;
+            width: 390px;
+            text-align: right;
+        }
+
+        .rx-symbol {
             color: var(--blue);
-            font-weight: 600;
-            font-family: serif;
-            margin-bottom: 20px;
+            font-family: Georgia, serif;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 8px 0 14px;
         }
 
-        .pdf-handwriting {
-            font-family: 'Caveat', cursive;
-            font-size: 1.6rem;
+        .rx-body {
             color: #1e3a8a;
-            line-height: 1.8;
+            font-family: 'Caveat', 'Brush Script MT', cursive;
+            font-size: 25px;
+            line-height: 1.55;
         }
 
-        .pdf-handwriting ul {
+        .rx-consult {
+            border-bottom: 2px solid #1e3a8a;
+            display: inline-block;
+            margin-bottom: 14px;
+            padding-bottom: 3px;
+        }
+
+        .rx-client p,
+        .rx-treatment-block p {
+            margin: 4px 0;
+        }
+
+        .rx-service-list {
             list-style: none;
-            padding-left: 20px;
-            margin-top: 15px;
+            margin: 18px 0 18px 22px;
+            padding: 0;
         }
 
-        .pdf-handwriting li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+        .rx-service-list li {
+            margin: 6px 0;
         }
 
-        .pdf-handwriting li::before {
-            content: '✓';
+        .rx-growth-line {
+            border-bottom: 2px solid #1e3a8a;
+            display: inline-block;
+            margin-top: 18px;
+            padding-bottom: 3px;
+        }
+
+        .rx-terms {
+            border-top: 1px solid #dbe4ef;
+            color: #334155;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin-top: 24px;
+            padding-top: 12px;
+        }
+
+        .rx-terms h3 {
             color: var(--blue);
-            margin-right: 15px;
-            font-size: 1.2rem;
-            font-family: sans-serif;
+            font-size: 13px;
+            margin-bottom: 7px;
         }
 
-        .pdf-footer {
-            margin-top: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+        .rx-terms ol {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .rx-terms li {
+            font-size: 10px;
+            line-height: 1.45;
+            margin-bottom: 4px;
+        }
+
+        .rx-signatures {
             border-top: 2px solid var(--blue);
-            padding-top: 20px;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin-top: 28px;
+            padding-top: 14px;
         }
 
-        .pdf-sign {
+        .rx-signatures > div {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 350px;
+        }
+
+        .rx-authorized,
+        .invoice-signature {
             text-align: center;
+        }
+
+        .rx-sign-label {
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .rx-client-sign {
+            display: block;
+            max-height: 42px;
+            margin-bottom: 5px;
+        }
+
+        .rx-sign-name {
+            color: var(--orange);
+            font-family: 'Caveat', 'Brush Script MT', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .rx-small {
+            color: #64748b;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .invoice-template {
+            border: 1px solid #d9e2ef;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .invoice-top-line {
+            border-top: 8px solid var(--blue);
+            margin: -40px -40px 26px;
+        }
+
+        .invoice-header {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        .invoice-title-block {
+            text-align: center;
+        }
+
+        .invoice-title {
+            color: var(--blue);
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .invoice-subtitle {
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .invoice-panels {
+            margin: 24px 0;
+        }
+
+        .invoice-panel {
+            background: #f8fafc;
+            border: 1px solid #dbe4ef;
+            border-radius: 6px;
+            color: #334155;
+            display: inline-block;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 118px;
+            padding: 14px;
+            vertical-align: top;
+            width: 336px;
+        }
+
+        .invoice-panel-right {
+            margin-left: 30px;
+            text-align: right;
+        }
+
+        .invoice-panel h4 {
+            color: var(--orange);
+            font-size: 11px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .invoice-cost-table {
+            border-collapse: collapse;
+            margin: 24px 0 18px;
+            width: 714px;
+        }
+
+        .invoice-cost-table th,
+        .invoice-cost-table td {
+            border: 1px solid #dbe4ef;
+            padding: 12px;
+        }
+
+        .invoice-cost-table th {
+            background: var(--blue);
+            color: #fff;
+            font-size: 12px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .invoice-cost-table th:last-child,
+        .invoice-cost-table td:last-child {
+            text-align: right;
+            width: 210px;
+        }
+
+        .invoice-total-row td {
+            background: #0A4C95;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .invoice-note {
+            background: #fff7ed;
+            border-left: 4px solid var(--orange);
+            color: #334155;
+            font-size: 12px;
+            line-height: 1.5;
+            padding: 12px;
+        }
+
+        .invoice-footer {
+            border-top: 1px solid #dbe4ef;
+            color: #64748b;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-top: 320px;
+            padding-top: 16px;
+        }
+
+        .invoice-footer > div {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 350px;
+        }
+
+        .invoice-status {
+            color: #10b981;
+            font-weight: 800;
         }
 
         @media (max-width: 680px) {
@@ -368,7 +577,7 @@
                 </div>
                 <div class="txn-item">
                     <span>Paid Amount</span>
-                    <strong id="amountText">₹0</strong>
+                    <strong id="amountText">Ã¢â€šÂ¹0</strong>
                 </div>
                 <div class="txn-item">
                     <span>Transaction ID</span>
@@ -390,79 +599,128 @@
             <p class="status-line" id="statusLine">PDF download and welcome email will start automatically.</p>
         </section>
     </main>
+    <div class="pdf-wrapper" id="rxPdfWrapper">
+        <div class="rx-template" id="rxTemplate">
+            <div class="rx-letterhead">
+                <img src="./logo2.png" alt="Vyapar Wallah Logo" class="pdf-logo-img">
+                <div class="rx-brand">Vyapar<span>Wallah</span></div>
+                <div class="rx-subtitle">Expert in Doctor Marketing</div>
+                <div class="rx-address">New Alkapuri, Gardanibagh, Patna, Bihar - 800002 | +91-9187641492</div>
+            </div>
 
-    <div id="pdfWrapper">
-        <div id="pdfTemplate">
-            <div class="pdf-header">
+            <div class="rx-meta-line">
+                <span>Date: <strong id="pdfDateToday"></strong></span>
+                <span>Transaction ID: <strong id="pdfTxnId"></strong></span>
+            </div>
+
+            <div class="rx-symbol">Rx</div>
+
+            <div class="rx-body">
+                <div class="rx-consult">Consult in Meeting</div>
+
+                <div class="rx-client">
+                    <p><strong>Patient (Client):</strong> <span id="pdfDocName"></span></p>
+                    <p><strong>Clinic:</strong> <span id="pdfClinicName"></span></p>
+                </div>
+
+                <ul class="rx-service-list" id="pdfServiceList"></ul>
+
+                <div class="rx-treatment-block">
+                    <p><strong>Therapy Period:</strong> <span id="pdfTherapy"></span></p>
+                    <p><strong>Review Meet:</strong> <span id="pdfMeetDetails"></span></p>
+                    <p><strong>Initial Diagnostic &amp; Setup Fee:</strong> <span id="pdfSetupFee"></span></p>
+                    <p><strong>Ongoing Therapy Charges (Monthly):</strong> <span id="pdfMonthlyCharges"></span></p>
+                    <p><strong>Advance Received:</strong> <span id="pdfAdvPay"></span></p>
+                </div>
+
+                <div class="rx-growth-line">Marketing se Practice ki Growth!</div>
+            </div>
+
+            <div class="rx-terms">
+                <h3>Terms &amp; Conditions</h3>
+                <ol>
+                    <li>The monthly retainer cost must be paid before the 5th of every month. Failure to make timely payments may result in service interruption.</li>
+                    <li>Termination or cancellation of services may include a one-time exit fee of INR 5000/- for website domain and hosting handover.</li>
+                    <li>Clients must provide photos, videos, updates, access, and approvals on time. Client-side delay may extend delivery timelines.</li>
+                    <li>Social Media, GMB, and Website content requires client approval before publishing.</li>
+                </ol>
+            </div>
+
+            <div class="rx-signatures">
                 <div>
-                    <div class="pdf-logo">Vyapar<span>Wallah</span></div>
-                    <div class="pdf-logo-sub">Expert in Doctor Marketing</div>
+                    <p class="rx-sign-label">Client Consent &amp; Signature</p>
+                    <img id="pdfClientSign" src="" alt="Client Signature" class="rx-client-sign">
+                    <p class="rx-small">T&amp;C accepted digitally.</p>
                 </div>
-                <div class="pdf-address">
-                    Address: New Alkapuri,<br>
-                    Gardanibagh, Patna,<br>
-                    Bihar - 800002
+                <div class="rx-authorized">
+                    <p class="rx-sign-name">Avinash Kumar Jha</p>
+                    <p class="rx-small">Authorized Signatory</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pdf-wrapper" id="invoicePdfWrapper">
+        <div class="invoice-template" id="invoiceTemplate" style="display: none;">
+            <div class="invoice-top-line"></div>
+            <div class="invoice-header">
+                <img src="./logo2.png" alt="Vyapar Wallah Logo" class="invoice-logo-img">
+                <div class="invoice-title-block">
+                    <div class="invoice-title">Invoice</div>
+                    <div class="invoice-subtitle">Vyapar Wallah Media &amp; Marketing</div>
                 </div>
             </div>
 
-            <div class="pdf-meta">
-                <div>Phone: +91-9187641492</div>
-                <div>Date: <span id="pdfDateToday"></span></div>
-            </div>
-
-            <div class="pdf-rx-symbol">℞</div>
-
-            <div class="pdf-handwriting">
-                <span style="border-bottom: 2px solid #1e3a8a; padding-bottom: 5px;">Consult over Phone</span>
-
-                <div style="margin-top: 20px;">
-                    <strong>Patient (Client):</strong> <span id="pdfDocName"></span> <br>
-                    <strong>Clinic:</strong> <span id="pdfClinicName"></span>
+            <div class="invoice-panels">
+                <div class="invoice-panel">
+                    <h4>Billed To</h4>
+                    <strong id="invDocName"></strong><br>
+                    <span id="invClinicName"></span><br>
+                    <span id="invEmail"></span><br>
+                    <span id="invMobile"></span>
                 </div>
-
-                <ul id="pdfServiceList"></ul>
-
-                <div style="margin-top: 30px;">
-                    <strong>Therapy Period:</strong> <span id="pdfTherapy"></span> <br>
-                    <strong>Review Meet:</strong> <span id="pdfMeetDetails"></span> <br>
-                    <span style="font-size: 1.2rem; color: #475569;">Advance Received: <span
-                            id="pdfAdvPay"></span></span><br>
-                    <span style="font-size: 1.05rem; color: #475569;">Txn ID: <span id="pdfTxnId"></span></span>
-                </div>
-
-                <div
-                    style="margin-top: 40px; text-align: center; border-bottom: 2px solid #1e3a8a; padding-bottom: 5px; display: inline-block;">
-                    Marketing se Practice ki Growth!
+                <div class="invoice-panel invoice-panel-right">
+                    <h4>Invoice Details</h4>
+                    <strong>Invoice No:</strong> <span id="invNum"></span><br>
+                    <strong>Date:</strong> <span id="invDate"></span><br>
+                    <strong>Status:</strong> <span class="invoice-status">PARTIAL PAID</span>
                 </div>
             </div>
 
-            <div class="pdf-footer">
+            <table class="invoice-cost-table">
+                <thead>
+                    <tr>
+                        <th>Cost Breakdown</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Initial Diagnostic &amp; Digital Setup Fee</td><td id="invSetupCost"></td></tr>
+                    <tr><td>Advance Payment Received (Razorpay)</td><td id="invPaidAmount"></td></tr>
+                    <tr class="invoice-total-row"><td>Balance Due</td><td id="invBalanceDue"></td></tr>
+                </tbody>
+            </table>
+
+            <div class="invoice-note">
+                Monthly Marketing Retainer: <strong id="invMonthlyCost"></strong>. This amount is payable separately as per the agreed billing cycle.
+            </div>
+
+            <div class="invoice-footer">
                 <div>
-                    <p style="font-size: 1.1rem; color: #0A4C95; font-weight: 800;">Client Consent & Signature</p>
-                    <img id="pdfClientSign" src="" alt="Client Signature"
-                        style="max-height: 50px; margin-top: 10px; display: block;">
-                    <p style="font-weight: normal; font-size: 0.75rem; margin-top: 5px; color: #555;">T&C Accepted
-                        Digitally.</p>
+                    Transaction ID: <span id="invTxnId"></span><br>
+                    Support: Hello@vyaparwallah.com<br>
+                    <strong>Thank you for your business.</strong>
                 </div>
-                <div class="pdf-sign">
-                    <p style="color: #F37021; font-family: 'Brush Script MT', cursive; font-size: 2rem;">Vyapar Wallah
-                    </p>
-                    <p style="font-size: 0.9rem; color: #555;">Authorized Signatory</p>
+                <div class="invoice-signature">
+                    <p class="rx-sign-name">Avinash Kumar Jha</p>
+                    <p>Authorized Signatory</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const STORAGE_KEY = "vyaparOnboardingData";
-        const userEmail = (localStorage.getItem('userEmail') || '').trim();
-        const docName = (localStorage.getItem('docName') || '').trim();
-        const paidAmount = Number(localStorage.getItem('paidAmount')) || Number(localStorage.getItem('finalAmount')) || 0;
         let mailRequestFinished = false;
-
-        if (!userEmail) {
-            console.error("Mail Error: userEmail is missing from localStorage.");
-        }
 
         const fallbackData = {
             doctorName: "Valued Client",
@@ -470,6 +728,8 @@
             services: [],
             servicesText: "Selected marketing services",
             paidAmount: 0,
+            oneTimeCost: 0,
+            monthlyCost: 0,
             paymentMethod: "Razorpay Checkout",
             razorpayPaymentId: "Not available",
             startDate: "",
@@ -481,24 +741,42 @@
             signatureImage: ""
         };
 
-        function getStoredOnboardingData() {
-            try {
-                return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || {};
-            } catch (error) {
-                console.error("Stored onboarding data is invalid:", error);
-                return {};
-            }
-        }
+        let data = { ...fallbackData };
+        let verifiedFinancials = Object.freeze({
+            setupCost: 0,
+            monthlyCost: 0,
+            advancePaid: 0,
+            balanceDue: 0
+        });
 
-        const storedData = getStoredOnboardingData();
-        const data = {
-            ...fallbackData,
-            ...storedData,
-            email: storedData.email || userEmail || fallbackData.email,
-            doctorName: storedData.doctorName || docName || fallbackData.doctorName,
-            paidAmount: storedData.paidAmount || paidAmount || fallbackData.paidAmount,
-            razorpayPaymentId: storedData.razorpayPaymentId || localStorage.getItem('razorpay_payment_id') || fallbackData.razorpayPaymentId
-        };
+        async function loadVerifiedPaymentSession() {
+            const response = await fetch('payment_status.php', {
+                method: 'GET',
+                headers: { 'Accept': 'application/json' },
+                cache: 'no-store'
+            });
+            const result = await response.json().catch(() => null);
+
+            if (!response.ok || !result || result.status !== 'success' || !result.data) {
+                throw new Error(result?.message || "Payment is not verified.");
+            }
+
+            const verifiedSessionData = {
+                ...fallbackData,
+                ...result.data
+            };
+
+            // Security: financial PDF values are copied only from the server-verified payment session.
+            // Do not read amount/setup/balance values from visible or hidden DOM fields before PDF generation.
+            verifiedFinancials = Object.freeze({
+                setupCost: Number(verifiedSessionData.oneTimeCost) || 0,
+                monthlyCost: Number(verifiedSessionData.monthlyCost) || 0,
+                advancePaid: Number(verifiedSessionData.paidAmount) || 0,
+                balanceDue: (Number(verifiedSessionData.oneTimeCost) || 0) - (Number(verifiedSessionData.paidAmount) || 0)
+            });
+
+            data = Object.freeze(verifiedSessionData);
+        }
 
         function formatINR(amount) {
             return new Intl.NumberFormat('en-IN', {
@@ -555,7 +833,9 @@
             document.getElementById('pdfMeetDetails').innerText = data.meetDay && data.meetTime
                 ? `Every ${data.meetDay} at ${data.meetTime}`
                 : "As scheduled with Vyapar Wallah";
-            document.getElementById('pdfAdvPay').innerText = `${formatINR(data.paidAmount)} (${data.paymentMethod})`;
+            document.getElementById('pdfSetupFee').innerText = formatINR(verifiedFinancials.setupCost);
+            document.getElementById('pdfMonthlyCharges').innerText = formatINR(verifiedFinancials.monthlyCost);
+            document.getElementById('pdfAdvPay').innerText = `${formatINR(verifiedFinancials.advancePaid)} (${data.paymentMethod})`;
             document.getElementById('pdfTxnId').innerText = data.razorpayPaymentId;
             document.getElementById('pdfClientSign').src = data.signatureImage || "";
 
@@ -563,30 +843,55 @@
             list.innerHTML = "";
             services.forEach(service => {
                 const li = document.createElement('li');
-                const dose = document.createElement('span');
-                li.append(`Tab ${service}   `);
-                dose.style.fontSize = '1.2rem';
-                dose.style.color = '#475569';
-                dose.innerText = '(1 x 1 Daily)';
-                li.appendChild(dose);
+                li.innerText = `✓ Tab ${service} (1 x 1 Daily)`;
                 list.appendChild(li);
             });
         }
 
-        function getPdfOptions() {
+        function populateInvoice() {
+            const invNo = `INV-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Date.now().toString().slice(-6)}`;
+
+            document.getElementById('invNum').innerText = invNo;
+            document.getElementById('invDate').innerText = new Date().toLocaleDateString('en-GB');
+            document.getElementById('invDocName').innerText = data.doctorName.toLowerCase().startsWith('dr.') ? data.doctorName : `Dr. ${data.doctorName}`;
+            document.getElementById('invClinicName').innerText = data.clinicName;
+            document.getElementById('invEmail').innerText = data.email;
+            document.getElementById('invMobile').innerText = data.mobile;
+
+            document.getElementById('invSetupCost').innerText = formatINR(verifiedFinancials.setupCost);
+            document.getElementById('invMonthlyCost').innerText = formatINR(verifiedFinancials.monthlyCost);
+            document.getElementById('invPaidAmount').innerText = `- ${formatINR(verifiedFinancials.advancePaid)}`;
+            document.getElementById('invBalanceDue').innerText = formatINR(verifiedFinancials.balanceDue);
+            document.getElementById('invTxnId').innerText = data.razorpayPaymentId;
+            return invNo;
+        }
+
+        function getPdfOptions(filename = 'Vyapar-Wallah-Prescription.pdf') {
             return {
-                margin: [0.2, 0, 0.2, 0],
-                filename: 'Vyapar-Wallah-Prescription.pdf',
+                margin: 0,
+                filename,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, logging: false },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
             };
+        }
+
+        async function withRenderableInvoice(callback) {
+            const invoiceTemplate = document.getElementById('invoiceTemplate');
+            const previousDisplay = invoiceTemplate.style.display;
+            invoiceTemplate.style.display = 'block';
+
+            try {
+                return await callback(invoiceTemplate);
+            } finally {
+                invoiceTemplate.style.display = previousDisplay;
+            }
         }
 
         function downloadPrescription() {
             populatePdf();
             document.getElementById('statusLine').innerText = "Preparing prescription PDF...";
-            return html2pdf().set(getPdfOptions()).from(document.getElementById('pdfTemplate')).save()
+            return html2pdf().set(getPdfOptions('Vyapar-Wallah-Prescription.pdf')).from(document.getElementById('rxTemplate')).save()
                 .then(() => {
                     document.getElementById('statusLine').innerText = "Prescription downloaded.";
                 })
@@ -596,27 +901,14 @@
                 });
         }
 
-        function sendWelcomeEmailViaBackend(pdfBase64) {
-            const doctorName = data.doctorName || docName || "Valued Client";
-            const clinicName = data.clinicName || "your clinic";
-            const emailAmount = data.paidAmount || paidAmount || 0;
-
-            if (!userEmail) {
-                console.error("Mail Error:", "Recipient email is missing from localStorage.");
-                mailRequestFinished = true;
-                return Promise.resolve();
-            }
-
-            console.log("Sending welcome email to:", userEmail);
+        function sendWelcomeEmailViaBackend(rxBase64, invBase64) {
+            console.log("Sending welcome email for verified payment session.");
             return fetch('send_mail.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    email: userEmail,
-                    name: doctorName,
-                    clinic: clinicName,
-                    amount: emailAmount,
-                    pdfBase64: pdfBase64
+                    rxPdf: rxBase64,
+                    invoicePdf: invBase64
                 })
             }).then(response => response.json().catch(() => null))
                 .then(result => {
@@ -628,32 +920,34 @@
                 });
         }
 
-        function sendMailWithPdfThenDownload() {
+        async function sendMailWithDocsThenDownload() {
             populatePdf();
-            const element = document.getElementById('pdfTemplate');
-            const options = getPdfOptions();
+            populateInvoice();
 
-            document.getElementById('statusLine').innerText = "Preparing prescription PDF for email...";
-            return html2pdf().set(options).from(element).outputPdf('datauristring')
-                .then(function (pdfBase64String) {
-                    return sendWelcomeEmailViaBackend(pdfBase64String);
-                })
-                .catch(function (error) {
-                    console.error("Mail Failed:", error);
-                    document.getElementById('statusLine').innerText = "Email failed. Downloading prescription anyway.";
-                })
-                .finally(function () {
-                    mailRequestFinished = true;
-                    document.getElementById('statusLine').innerText = "Downloading prescription PDF...";
-                    return html2pdf().set(options).from(element).save('Vyapar-Wallah-Prescription.pdf')
-                        .then(function () {
-                            document.getElementById('statusLine').innerText = "Prescription downloaded. Email process completed.";
-                        })
-                        .catch(function (error) {
-                            console.error('PDF download failed:', error);
-                            document.getElementById('statusLine').innerText = "Auto-download failed. Please use the download button.";
-                        });
-                });
+            const rxOptions = getPdfOptions('Vyapar-Wallah-Prescription.pdf');
+            const invoiceOptions = getPdfOptions('Vyapar-Wallah-Invoice.pdf');
+            document.getElementById('statusLine').innerText = "Generating premium documents...";
+
+            try {
+                const [rxBase64, invoiceBase64] = await withRenderableInvoice((invoiceTemplate) => Promise.all([
+                    html2pdf().set(rxOptions).from(document.getElementById('rxTemplate')).outputPdf('datauristring'),
+                    html2pdf().set(invoiceOptions).from(invoiceTemplate).outputPdf('datauristring')
+                ]));
+
+                await sendWelcomeEmailViaBackend(rxBase64, invoiceBase64);
+
+                await withRenderableInvoice((invoiceTemplate) => Promise.all([
+                    html2pdf().set(rxOptions).from(document.getElementById('rxTemplate')).save(),
+                    html2pdf().set(invoiceOptions).from(invoiceTemplate).save()
+                ]));
+
+                document.getElementById('statusLine').innerText = "All documents delivered and downloaded.";
+            } catch (error) {
+                console.error("Doc Flow Failed:", error);
+                document.getElementById('statusLine').innerText = "Process partial. Please download manually if needed.";
+            } finally {
+                mailRequestFinished = true;
+            }
         }
 
         function startCountdown() {
@@ -675,14 +969,28 @@
 
         document.getElementById('downloadBtn').addEventListener('click', downloadPrescription);
 
-        window.addEventListener('load', () => {
-            populatePage();
-            populatePdf();
-            triggerConfetti();
-            setTimeout(() => {
-                sendMailWithPdfThenDownload();
-            }, 900);
-            startCountdown();
+        window.addEventListener('load', async () => {
+            try {
+                document.getElementById('statusLine').innerText = "Verifying secure payment session...";
+                await loadVerifiedPaymentSession();
+                populatePage();
+                populatePdf();
+                triggerConfetti();
+                setTimeout(() => {
+                    sendMailWithDocsThenDownload();
+                }, 900);
+                startCountdown();
+            } catch (error) {
+                console.error('Payment session check failed:', error);
+                mailRequestFinished = true;
+                document.getElementById('thankTitle').innerText = "Payment verification required";
+                document.getElementById('thankMessage').innerText = "We could not verify a completed payment session. Please complete onboarding payment first.";
+                document.getElementById('statusLine').innerText = "Redirecting to onboarding...";
+                document.getElementById('downloadBtn').disabled = true;
+                setTimeout(() => {
+                    window.location.href = 'onboarding.html';
+                }, 2500);
+            }
         });
     </script>
 </body>
