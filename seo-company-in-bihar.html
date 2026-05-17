@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Looking for the best SEO company in Bihar? Vyapar Wallah is a top SEO company in Patna, helping clinics, hospitals, & coaching centers rank #1 on Google.">
+    <title>Best SEO Company in Bihar & Patna | Vyapar Wallah</title>
+    <link rel="canonical" href="https://www.vyaparwallah.com/seo-company-in-bihar" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="site fevicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="site fevicon.png">
+
+    <style>
+        /* --- BRAND DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --primary-blue: #0A4C95;
+            --accent-orange: #F37021;
+            --bg-light: #f4f7f6;
+            --text-dark: #2c3e50;
+            --text-gray: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 76, 149, 0.95) 0%, rgba(5, 44, 92, 0.98) 100%), url('images/hero-bg.jpg') center/cover;
+            color: white;
+            padding: 60px 0 80px 0;
+            /* Reduced top padding */
+            position: relative;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            /* Reduced gap for less empty space */
+        }
+
+        .hero-content {
+            flex: 1.2;
+            /* Gives slightly more room to text */
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #c9dff1;
+            margin-bottom: 30px;
+        }
+
+        /* FLOATING ANIMATION FOR HERO IMAGE */
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 110%;
+            /* Made image slightly larger */
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: floating 4s ease-in-out infinite;
+            /* Floating effect applied */
+            margin-top: -20px;
+            /* Pulls image up slightly */
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #d95e17;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(243, 112, 33, 0.3);
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .content-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .text-box {
+            flex: 1;
+        }
+
+        .text-box h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .text-box p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .image-box {
+            flex: 1;
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- OUR PROCESS (4 Cards in One Row) --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 Columns */
+            gap: 20px;
+            /* Adjusted gap to fit well */
+        }
+
+        .process-card {
+            background: white;
+            padding: 30px 20px;
+            /* Reduced padding to make boxes sleeker */
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid transparent;
+            transition: 0.3s;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--accent-orange);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-icon {
+            font-size: 2.5rem;
+            /* Slightly smaller icon */
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+        }
+
+        .process-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.15rem;
+            /* Smaller title */
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* --- SPECIALIZED INDUSTRIES --- */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .industry-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .ind-icon {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-top: 5px;
+        }
+
+        .ind-text h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .ind-text p {
+            margin-bottom: 15px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* --- FAQ SECTION (Accordion Style) --- */
+        .faq-container {
+            max-width: 1000px;
+            /* Increased width to reduce empty side space */
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border-left: 4px solid var(--primary-blue);
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .faq-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-header h4 {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .faq-header i {
+            color: var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fafafa;
+        }
+
+        .faq-body p {
+            padding: 0 25px 20px 25px;
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Active State for FAQ */
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+            color: var(--accent-orange);
+        }
+
+        /* --- PREMIUM CTA FORM --- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #052c5c 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .cta-wrapper {
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            color: var(--text-dark);
+        }
+
+        .cta-wrapper h2 {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .cta-wrapper p.desc {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fafafa;
+        }
+
+        .input-control:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            background: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #d95e17;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media(max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns on tablets */
+            }
+        }
+
+        @media(max-width: 992px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .hero-image img {
+                width: 100%;
+            }
+
+            .content-row,
+            .content-row.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                /* 1 column on mobile */
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-wrapper {
+                padding: 30px 20px;
+            }
+
+            .industry-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .ind-icon {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>The #1 SEO Company in Bihar to Skyrocket Your Business Growth</h1>
+                <p>Stop losing patients and students to your competitors. We help clinics, hospitals, and coaching
+                    centers rank at the top of Google and generate high-quality leads on autopilot.</p>
+                <a href="#contactForm" class="btn-primary">Get Your Free SEO Audit</a>
+            </div>
+            <div class="hero-image">
+                <img src="SEO-Growth-Chart-for-Business-in-Bihar.png" alt="SEO growth strategy for doctors and coaching institutes by the best SEO company in Bihar">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="content-row">
+                <div class="text-box">
+                    <h2>Why We Are the Best SEO Company in Patna?</h2>
+                    <p>We don't just do basic SEO; we focus on bringing you real business. When someone in your city
+                        searches for the "best doctor" or "top coaching institute", they usually click on the first 3
+                        results. Our local SEO strategies are specifically crafted for Patna's unique market.</p>
+                    <p>We optimize your Google My Business profile and website so that your brand becomes the top choice
+                        for local customers. More visibility means more walk-ins and higher revenue.</p>
+                </div>
+                <div class="image-box">
+                    <img src="local-seo-in-Patna.jpg" alt="Local customer searching for the best services in Patna on Google">
+                </div>
+            </div>
+
+            <div class="content-row reverse">
+                <div class="text-box">
+                    <h2>SEO for the Growing Bihar Company List: From Startups to Big Companies in Bihar</h2>
+                    <p>Whether you are a new startup clinic opening today or one of the most established names in the
+                        Bihar company list, ignoring digital presence is not an option anymore. The market is shifting
+                        online rapidly.</p>
+                    <p>Big companies in Bihar trust us because we don't use shortcut methods. We build scalable digital
+                        ecosystems that deliver long-term ROI. We ensure your business is easily found by anyone looking
+                        for your services across the state.</p>
+                </div>
+                <div class="image-box">
+                    <img src="growing-company-in-bihar.png" alt="Digital marketing and SEO growth graph for top growing companies in Bihar">
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="text-box">
+                    <h2>Partner with the Biggest SEO Company Network for Clinics & Education</h2>
+                    <p>Unlike generic agencies, we are a specialized SEO network. We understand the exact pain points of
+                        doctors, hospital administrators, and coaching institute owners. You don't just need website
+                        traffic; you need actual appointments and admissions.</p>
+                    <p>From building trust-worthy medical content to creating student-focused admission funnels, our
+                        targeted SEO approach ensures that the traffic you receive converts into loyal clients.</p>
+                </div>
+                <div class="image-box">
+                    <img src="SEO-for-Clinics-and-Education.jpg" alt="Doctor consulting a patient generated through local SEO services for clinics in Patna">
+                </div>
+            </div>
+
+            <div class="content-row reverse">
+                <div class="text-box">
+                    <h2>How Many Company in Bihar Are Losing Clients Without SEO?</h2>
+                    <p>Have you ever wondered how many companies are losing daily business simply because they cannot be
+                        found on Google? Thousands. While you rely purely on old word-of-mouth, your modern competitors
+                        are capturing all the digital searches.</p>
+                    <p>Every single day you delay your SEO strategy, you are giving away your potential clients to
+                        someone else. Let Vyapar Wallah fix that and put your business right in front of active
+                        searchers who are ready to pay for your services.</p>
+                </div>
+                <div class="image-box">
+                    <img src="business-without-seo.jpg" alt="Business owner frustrated with low website traffic and losing clients without proper SEO">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Proven SEO Process</h2>
+            <p class="section-subtitle">We follow a transparent and highly effective workflow to ensure your website
+                climbs the Google rankings steadily and safely.</p>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3>Step 1: Deep Website Audit</h3>
+                    <p>We check your website for technical errors, speed issues, and mobile-friendliness to build a
+                        solid foundation.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3>Step 2: Niche Keyword Research</h3>
+                    <p>We find high-converting keywords like 'best dentist in Patna' that your ideal customers are
+                        actually searching for.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Step 3: On-Page & Technical SEO</h3>
+                    <p>We optimize your website's content, meta tags, and backend code so Google can understand and rank
+                        you easily.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon"><i class="fa-solid fa-link"></i></div>
+                    <h3>Step 4: Quality Link Building</h3>
+                    <p>We build high-quality backlinks from trusted websites to increase your domain authority and boost
+                        your rankings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Specialized Industries</h2>
+            <p class="section-subtitle">We don't do SEO for everyone. We dominate in specific niches to deliver the
+                highest quality results.</p>
+
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="ind-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                    <div class="ind-text">
+                        <h3>Healthcare & Clinics</h3>
+                        <p>We help doctors, dental clinics, and hospitals rank higher to increase daily patient
+                            appointments and walk-ins.</p>
+                        <a href="https://www.vyaparwallah.com/digital-marketing-for-doctors" class="btn-outline">Know Healthcare Service</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="ind-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="ind-text">
+                        <h3>Education & Coaching</h3>
+                        <p>We optimize digital presence for schools and coaching institutes to boost brand trust and
+                            maximize student admissions.</p>
+                        <a href="https://www.vyaparwallah.com/digital-marketing-for-schools" class="btn-outline">Know Education Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Aapke sabhi sawalon ke seedhe aur aasan jawab.</p>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <h4>Apne business ke liye ek achhi SEO company in Bihar kyu zaroori hai?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    <p>Kyunki aajkal patients aur students kisi bhi service ke liye sabse pehle Google par search karte
+                        hain. Agar aap top results me nahi hain, toh aap sidha apne competitors ko leads de rahe hain.
+                        Ek
+                        best SEO company in Bihar aapko #1 rank karwa ke genuine and automatic leads dila sakti hai.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <h4>Patna me pehle page par rank karne me kitna time lagta hai?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    <p>Normally, proper local SEO ka result 3 se 4 mahine me clearly dikhne lagta hai. Hum safe,
+                        organic,
+                        aur white-hat tarike se kaam karte hain taaki aapki ranking long-term tak bani rahe aur Google
+                        updates se safe rahe.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <h4>Kya aap sirf doctors aur coaching centers ke liye digital marketing karte hain?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    <p>Haan, humara focus totally Healthcare (Hospitals, Clinics) aur Education (Schools, Coaching)
+                        niche
+                        par hai. Is specialization ki wajah se hum aapki industry ke pain points ko behtar samajhte hain
+                        aur
+                        premium results deliver karte hain.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section" id="contactForm">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Let's Grow Your Business Together</h2>
+                <p class="desc">Fill out the details below for a Free SEO Consultation. We will get back to you within 2
+                    hours with a custom action plan.</p>
+
+                <form id="seoLeadForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="leadName">Full Name *</label>
+                            <input type="text" id="leadName" class="input-control" placeholder="E.g. Dr. Ramesh"
+                                required>
+                        </div>
+                        <div class="input-group">
+                            <label for="leadPhone">WhatsApp Number *</label>
+                            <input type="tel" id="leadPhone" class="input-control" placeholder="+91..." required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="leadIndustry">Select Your Industry *</label>
+                        <select id="leadIndustry" class="input-control" required>
+                            <option value="" disabled selected>Choose an option...</option>
+                            <option value="Healthcare/Clinic">Healthcare & Clinic</option>
+                            <option value="Education/Coaching">Education & Coaching</option>
+                            <option value="Other Business">Other Business</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Get Free SEO Strategy</button>
+                    <p style="text-align: center; font-size: 0.85rem; color: #999; margin-top: 15px;"><i
+                            class="fa-solid fa-lock"></i> Your information is 100% secure.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Fetch Header & Footer
+        fetch('header.html').then(response => response.text()).then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const header = item.querySelector('.faq-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other open FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.faq-body').style.maxHeight = null;
+                });
+
+                // If the clicked one wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                    const body = item.querySelector('.faq-body');
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Form Submit Logic for WhatsApp
+        document.getElementById('seoLeadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let name = document.getElementById('leadName').value;
+            let phone = document.getElementById('leadPhone').value;
+            let industry = document.getElementById('leadIndustry').value;
+
+            let agencyNumber = "919187641492"; // Your WhatsApp Number
+            let whatsappMessage = `*New SEO Inquiry!* 🚀\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Industry:* ${industry}\n*Source:* SEO Landing Page`;
+
+            let whatsappURL = `https://wa.me/${agencyNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -47,6 +47,156 @@ function sessionString(array $source, string $key, string $fallback = ''): strin
     return trim((string) ($source[$key] ?? $fallback));
 }
 
+function logWhatsAppError(string $message, array $context = []): void
+{
+    $entry = [
+        'timestamp' => date(DATE_ATOM),
+        'message' => $message,
+        'context' => $context,
+    ];
+
+    error_log(json_encode($entry, JSON_UNESCAPED_SLASHES) . PHP_EOL, 3, __DIR__ . '/fast2sms_whatsapp_errors.log');
+}
+
+function writeWhatsAppDebugLog(string $phone, int $statusCode, string $response, string $curlError, array $payload = []): void
+{
+    unset($payload['authorization']);
+
+    $line = sprintf(
+        "[%s] Phone: %s | Status: %d | Response: %s | cURL Error: %s | Payload: %s%s",
+        date('Y-m-d H:i:s'),
+        $phone,
+        $statusCode,
+        $response !== '' ? $response : 'EMPTY',
+        $curlError !== '' ? $curlError : 'NONE',
+        json_encode($payload, JSON_UNESCAPED_SLASHES),
+        PHP_EOL
+    );
+
+    @file_put_contents(__DIR__ . '/whatsapp_debug_log.txt', $line, FILE_APPEND | LOCK_EX);
+}
+
+function sessionValue(string $sessionKey, array $fallbackSource, string $fallbackKey, string $default = ''): string
+{
+    if (isset($_SESSION[$sessionKey])) {
+        return trim((string) $_SESSION[$sessionKey]);
+    }
+
+    return sessionString($fallbackSource, $fallbackKey, $default);
+}
+
+function sanitizeIndianWhatsAppNumber(string $phoneNumber): string
+{
+    $digits = preg_replace('/\D+/', '', $phoneNumber) ?? '';
+
+    if (strlen($digits) === 10) {
+        return '91' . $digits;
+    }
+
+    if (strlen($digits) === 11 && str_starts_with($digits, '0')) {
+        return '91' . substr($digits, 1);
+    }
+
+    return $digits;
+}
+
+function sendFast2SmsWhatsAppTemplate(string $phoneNumber, string $doctorName, string $clinicName): void
+{
+    if (!defined('FAST2SMS_API_KEY') || FAST2SMS_API_KEY === '' || FAST2SMS_API_KEY === 'your_fast2sms_api_key_here') {
+        logWhatsAppError('Fast2SMS API key is not configured.');
+        return;
+    }
+
+    if (!defined('WHATSAPP_TEMPLATE_NAME') || WHATSAPP_TEMPLATE_NAME === '' || WHATSAPP_TEMPLATE_NAME === 'your_approved_template_name_here') {
+        logWhatsAppError('Fast2SMS WhatsApp template name is not configured.');
+        return;
+    }
+
+    $numbers = sanitizeIndianWhatsAppNumber($phoneNumber);
+    $vars = $doctorName . '|' . $clinicName;
+
+    if ($numbers === '') {
+        logWhatsAppError('Fast2SMS WhatsApp number is missing.', ['doctorName' => $doctorName, 'clinicName' => $clinicName]);
+        writeWhatsAppDebugLog('', 0, 'Request not sent: phone number is missing.', '', [
+            'template_name' => WHATSAPP_TEMPLATE_NAME,
+            'variables_values' => $vars,
+        ]);
+        return;
+    }
+
+    if (!function_exists('curl_init')) {
+        logWhatsAppError('PHP cURL extension is not available.');
+        writeWhatsAppDebugLog($numbers, 0, 'Request not sent: PHP cURL extension is not available.', '', [
+            'template_name' => WHATSAPP_TEMPLATE_NAME,
+            'variables_values' => $vars,
+        ]);
+        return;
+    }
+
+    $messageId = defined('FAST2SMS_WHATSAPP_MESSAGE_ID') ? trim((string) FAST2SMS_WHATSAPP_MESSAGE_ID) : '';
+    $phoneNumberId = defined('FAST2SMS_WHATSAPP_PHONE_NUMBER_ID') ? trim((string) FAST2SMS_WHATSAPP_PHONE_NUMBER_ID) : '';
+
+    $payload = [
+        'authorization' => FAST2SMS_API_KEY,
+        'message_id' => $messageId,
+        'phone_number_id' => $phoneNumberId,
+        'numbers' => $numbers,
+        'variables_values' => $vars,
+    ];
+
+    if ($messageId === '' || $phoneNumberId === '') {
+        logWhatsAppError('Fast2SMS WhatsApp message_id or phone_number_id is not configured.', [
+            'messageIdConfigured' => $messageId !== '',
+            'phoneNumberIdConfigured' => $phoneNumberId !== '',
+        ]);
+        writeWhatsAppDebugLog($numbers, 0, 'Request not sent: configure FAST2SMS_WHATSAPP_MESSAGE_ID and FAST2SMS_WHATSAPP_PHONE_NUMBER_ID.', '', $payload);
+        return;
+    }
+
+    $endpoint = 'https://www.fast2sms.com/dev/whatsapp?' . http_build_query($payload);
+    $curl = curl_init($endpoint);
+
+    if ($curl === false) {
+        logWhatsAppError('Unable to initialize cURL for Fast2SMS WhatsApp request.');
+        writeWhatsAppDebugLog($numbers, 0, 'Request not sent: unable to initialize cURL.', '', $payload);
+        return;
+    }
+
+    curl_setopt_array($curl, [
+        CURLOPT_HTTPGET => true,
+        CURLOPT_HTTPHEADER => [
+            'Accept: application/json',
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT => 10,
+    ]);
+
+    $response = curl_exec($curl);
+    $curlError = curl_error($curl);
+    $httpCode = (int) curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    curl_close($curl);
+
+    writeWhatsAppDebugLog($numbers, $httpCode, is_string($response) ? $response : '', $curlError, [
+        'endpoint' => 'https://www.fast2sms.com/dev/whatsapp',
+        'message_id' => $messageId,
+        'phone_number_id' => $phoneNumberId,
+        'numbers' => $numbers,
+        'variables_values' => $vars,
+        'template_name' => WHATSAPP_TEMPLATE_NAME,
+    ]);
+
+    if ($response === false || $curlError !== '' || $httpCode < 200 || $httpCode >= 300) {
+        logWhatsAppError('Fast2SMS WhatsApp API request failed.', [
+            'httpCode' => $httpCode,
+            'curlError' => $curlError,
+            'response' => is_string($response) ? substr($response, 0, 1000) : '',
+            'numbers' => $numbers,
+        ]);
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     respond('error', 'Only POST requests are allowed.');
@@ -239,6 +389,16 @@ HTML;
     $mail->AltBody = "New Client Onboarded: Dr. {$rawName} from {$rawClinic}. Setup: ₹{$safeSetupCost}. Monthly: ₹{$safeMonthlyCost}. Advance paid: ₹{$safeAdvancePaid}. Balance due: ₹{$safeBalanceDue}. Payment ID: {$txnId}.";
     
     $mail->send(); // Send Admin Notification Email
+
+    $clientPhone = sessionValue('clientPhone', $onboarding, 'whatsapp', $mobile);
+    $whatsappDoctorName = sessionValue('docName', $onboarding, 'doctorName', $rawName);
+    $whatsappClinicName = sessionValue('clinicName', $onboarding, 'clinicName', $rawClinic);
+
+    try {
+        sendFast2SmsWhatsAppTemplate($clientPhone, $whatsappDoctorName, $whatsappClinicName);
+    } catch (Throwable $whatsAppError) {
+        logWhatsAppError('Unexpected Fast2SMS WhatsApp error.', ['error' => $whatsAppError->getMessage()]);
+    }
 
     unset($_SESSION['is_paid']);
     session_destroy(); // Destroy session to prevent replay attacks after successful flow
